@@ -1,0 +1,100 @@
+" Make sure plugins are loaded
+" To allow plugin settings
+loadplugins
+
+" Do not let google or grooveshark steal focus
+set strictfocus='chrome:*':laissez-faire,*:despotic,'tryhaskell.org':laissez-faire,'mega.co.nz':laissez-faire
+
+" h and l to hop history
+map h -ex ba
+map l -ex fo
+
+" H or m and L or , to hop tabs
+map H gT
+map L <C-n>
+map -builtin m gT
+map -builtin , <C-n>
+
+" Hints only use left-hand accessible keys
+set hintkeys=12345
+
+" GUI toggles
+set guioptions=Cs
+map ü -ex set showtabline!=always,never
+map Ü -ex set guioptions!=s
+
+" Tabs
+set! browser.tabs.loadInBackground=true
+set tabclose=previous,left,opener,right
+set tabopen=link:groupright,orphan:groupright,external:end
+
+" Show tabs in Windows as they do not waste (much) space
+if prefs.get('services.sync.client.name') == 'markus-w510'
+    set showtabline=never
+else
+    set showtabline=always
+endif
+
+map -silent D -ex tabc
+map -builtin v <C-^>
+map -builtin gt <C-n>
+map -builtin -silent c :tabc! <Nop>
+
+" a and q to set on-page-bookmarks
+" m is used for tabs
+map -builtin a m
+map -builtin q '
+
+" dialog shortcuts
+map -silent -builtin Q -ex qmarks
+map -silent -builtin A -ex dl
+
+" No homepage
+map gh <Nop>
+
+" Follow next-links, german patterns
+map ä ]]
+map ö [[
+
+set nextpattern='\bnext\b','\bnächste\b',^>$,'^(>>|»)$','^(>|»)','(>|»)$','\bmore\b','\bweiter\b','\bspäter\b'
+set previouspattern='\b(prev|previous)\b','\bvorherige\b',^<$,'^(<<|«)$','^(<|«)','(<|«)$','\bzurück\b','\bfrüher\b'
+
+" Noscript Mappings
+map e :set nst!=<Tab>
+map E :set nss!=<Tab>
+
+" Default search engine
+set defsearch=gg
+
+" Download Sorts
+set dlsort=-active,-time,-date,+filename
+
+" mswin.vimp - mappings to make copy/paste in Vimperator behave like Windows
+map -builtin <C-q> <C-v>
+map -builtin <C-Q> <C-z>
+" TODO: this should probably be <C-Break> - see :help dos-CTRL-break in Vim
+map -builtin <C-s> <C-c>
+
+imap -builtin <C-q> <C-v>
+imap -builtin <C-Q> <C-z>
+imap -builtin <C-s> <C-c>
+
+map -builtin <C-c> <C-v><C-c>
+map -builtin <C-v> <C-v><C-v>
+map -builtin <C-x> <C-v><C-x>
+map -builtin <C-z> <C-v><C-z>
+map -builtin <C-y> <C-v><C-y>
+
+cmap -builtin <C-c> <C-v><C-c>
+cmap -builtin <C-v> <C-v><C-v>
+cmap -builtin <S-Insert> <C-v><C-v>
+cmap -builtin <C-x> <C-v><C-x>
+cmap -builtin <C-z> <C-v><C-z>
+cmap -builtin <C-y> <C-v><C-y>
+
+imap -builtin <C-c> <C-v><C-c>
+imap -builtin <C-v> <C-v><C-v>
+imap -builtin <S-Insert> <C-v><C-v>
+imap -builtin <C-x> <C-v><C-x>
+imap -builtin <C-z> <C-v><C-z>
+imap -builtin <C-y> <C-v><C-y>
