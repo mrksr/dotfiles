@@ -1,1 +1,6 @@
-Dropbox/dotfiles/.Xmodmap
+! Map Caps Lock to Escape
+clear Lock
+keycode 0x42 = Escape
+
+! Switch grave and acute for `´, left of Backspace
+keycode  21 = grave acute dead_acute dead_grave cedilla cedilla dead_cedilla dead_ogonek
