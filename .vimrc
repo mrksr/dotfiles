@@ -35,6 +35,7 @@ Bundle 'vim-scripts/genutils'
 " Plugins
 Bundle 'Align'
 Bundle 'bufkill.vim'
+Bundle 'derekwyatt/vim-scala'
 Bundle 'edsono/vim-matchit'
 Bundle 'FuzzyFinder'
 Bundle 'jcf/vim-latex'
@@ -103,10 +104,6 @@ syntax on
 filetype on
 filetype indent on
 filetype plugin on
-
-au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/syntax/yaml.vim
-au BufNewFile,BufRead *.scala so ~/.vim/syntax/scala.vim
-au BufNewFile,BufRead *.vimp se ft=vim
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-latex
