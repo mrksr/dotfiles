@@ -13,7 +13,11 @@ if has("win32")
 else
     let g:haddock_docdir='/usr/local/share/doc/ghc/html/'
     let g:haddock_browser="firefox"
-    let g:Powerline_symbols='fancy'
+    if has('gui_running')
+        let g:Powerline_symbols='fancy'
+    else
+        let g:Powerline_symbols='compatible'
+    endif
 
     set rtp+=~/.vim/bundle/vundle/
 endif
@@ -66,14 +70,10 @@ if has("gui_running")
     set background=dark
     set guioptions=aegit
 
-    let g:Powerline_symbols='fancy'
-
     " Close vim if NERDTree is the last buffer
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 else
     colorscheme synic
-
-    let g:Powerline_symbols='compatible'
 endif
 
 if has("win32")
