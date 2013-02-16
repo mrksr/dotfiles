@@ -16,7 +16,6 @@ import XMonad.Layout.Named
 import XMonad.Layout.ResizableTile
 
 myMod = mod4Mask    -- Super
-altMask = mod1Mask  -- Alt
 term = "urxvt"
 
 myWorkspaces =
@@ -52,19 +51,19 @@ myKeys = [
         , ("M-v", spawn "pavucontrol")
         , ("M-f", spawn "gvim ~/.xmonad/xmonad.hs ~/.xmobarrc ~/.vimrc")
         , ("M-p", spawn dmenu)
-        , ("A-<F12>", spawn dmenu)
+        , ("M1-<F12>", spawn dmenu)
         , ("<F12>", spawn "kupfer")
         , ("M-d", spawn term)
 
         -- Windows
-        , ("A-<F4>", kill)
+        , ("M1-<F4>", kill)
         , ("M-c", kill)
-        , ("A-<Return>", windows W.shiftMaster)
-        , ("A-<Tab>", windows W.focusDown)
-        , ("A-S-<Tab>", windows W.focusUp)
+        , ("M1-<Return>", windows W.shiftMaster)
+        , ("M1-<Tab>", windows W.focusDown)
+        , ("M1-S-<Tab>", windows W.focusUp)
         , ("M-g", goToSelected defaultGSConfig)
         , ("M-a", windows copyToAll)
-        , ("M-s-a", killAllOtherCopies)
+        , ("M-S-a", killAllOtherCopies)
 
         -- Workspaces
         , ("M-^", toggleWS)
