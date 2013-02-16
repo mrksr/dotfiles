@@ -2,8 +2,8 @@ import XMonad
 import qualified XMonad.StackSet as W
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
-import XMonad.Util.Run(spawnPipe)
-import XMonad.Util.EZConfig(additionalKeys)
+import XMonad.Util.Run
+import XMonad.Util.EZConfig
 import XMonad.Actions.Volume
 import XMonad.Actions.SpawnOn
 import XMonad.Actions.CopyWindow
@@ -14,8 +14,6 @@ import XMonad.Layout.NoBorders
 import XMonad.Layout.Tabbed
 import XMonad.Layout.Named
 import XMonad.Layout.ResizableTile
-import System.IO
-import Graphics.X11.ExtraTypes.XF86
 
 myMod = mod4Mask    -- Super
 altMask = mod1Mask  -- Alt
@@ -38,47 +36,50 @@ myManageHook = composeAll [
     ]
 
 myKeys = [
-    -- Special Keys
-      ((0, xK_Print), spawn "scrot")
-    , ((0, xF86XK_AudioLowerVolume), lowerVolume 5 >> return () )
-    , ((0, xF86XK_AudioRaiseVolume), raiseVolume 5 >> return () )
-    , ((0, xF86XK_AudioPlay), spawn "mpc toggle")
-    , ((0, xF86XK_AudioStop), spawn "mpc stop")
-    , ((0, xF86XK_AudioNext), spawn "mpc next")
-    , ((0, xF86XK_AudioPrev), spawn "mpc prev")
-    , ((0, xF86XK_Sleep), spawn "sudo pm-suspend")
-    , ((0, xF86XK_ScreenSaver), spawn "gnome-screensaver-command -l")
+        -- Special Keys
+          ("<Print>", spawn "scrot")
+        , ("<XF86AudioLowerVolume>", lowerVolume 5 >> return () )
+        , ("<XF86AudioRaiseVolume>", raiseVolume 5 >> return () )
+        , ("<XF86AudioPlay>", spawn "mpc toggle")
+        , ("<XF86AudioStop>", spawn "mpc stop")
+        , ("<XF86AudioNext>", spawn "mpc next")
+        , ("<XF86AudioPrev>", spawn "mpc prev")
+        , ("<XF86Sleep>", spawn "sudo pm-suspend")
+        , ("<XF86ScreenSaver>", spawn "gnome-screensaver-command -l")
 
-    -- Spawns
-    , ((myMod, xK_o), spawn "gnome-screensaver-command -l")
-    , ((myMod, xK_p), spawn "dmenu_run -nb '#000000' -nf '#eeeeec' -sb '#14101a'")
-    , ((myMod, xK_v), spawn "pavucontrol")
-    , ((myMod, xK_f), spawn "gvim ~/.xmonad/xmonad.hs ~/.xmobarrc ~/.vimrc")
-    , ((0, xK_F12), spawn "kupfer")
-    , ((myMod, xK_d), spawn term)
+        -- Spawns
+        , ("M-o", spawn "gnome-screensaver-command -l")
+        , ("M-v", spawn "pavucontrol")
+        , ("M-f", spawn "gvim ~/.xmonad/xmonad.hs ~/.xmobarrc ~/.vimrc")
+        , ("M-p", spawn dmenu)
+        , ("A-<F12>", spawn dmenu)
+        , ("<F12>", spawn "kupfer")
+        , ("M-d", spawn term)
 
-    -- Windows
-    , ((altMask, xK_F4), kill)
-    , ((myMod, xK_c), kill)
-    , ((altMask, xK_Return), windows W.shiftMaster)
-    , ((altMask, xK_Tab), windows W.focusDown)
-    , ((altMask .|. shiftMask, xK_Tab), windows W.focusUp)
-    , ((myMod, xK_g), goToSelected defaultGSConfig)
-    , ((myMod, xK_a), windows copyToAll)
-    , ((myMod .|. shiftMask, xK_a), killAllOtherCopies)
+        -- Windows
+        , ("A-<F4>", kill)
+        , ("M-c", kill)
+        , ("A-<Return>", windows W.shiftMaster)
+        , ("A-<Tab>", windows W.focusDown)
+        , ("A-S-<Tab>", windows W.focusUp)
+        , ("M-g", goToSelected defaultGSConfig)
+        , ("M-a", windows copyToAll)
+        , ("M-s-a", killAllOtherCopies)
 
-    -- Workspaces
-    , ((myMod, xK_asciicircum), toggleWS)
-    , ((myMod, xK_Tab), moveTo Next NonEmptyWS)
-    , ((myMod .|. shiftMask, xK_Tab), moveTo Prev NonEmptyWS)
-    , ((myMod, xK_s), sendMessage ToggleStruts)
-    , ((myMod .|. shiftMask, xK_h), sendMessage MirrorShrink)
-    , ((myMod .|. shiftMask, xK_l), sendMessage MirrorExpand)
-    ]
+        -- Workspaces
+        , ("M-^", toggleWS)
+        , ("M-<Tab>", moveTo Next NonEmptyWS)
+        , ("M-S-<Tab>", moveTo Prev NonEmptyWS)
+        , ("M-s", sendMessage ToggleStruts)
+        , ("M-S-h", sendMessage MirrorShrink)
+        , ("M-S-l", sendMessage MirrorExpand)
+        ]
+        where
+        dmenu = "dmenu_run -nb '#000000' -nf '#eeeeec' -sb '#14101a'"
 
 myLayout = onWorkspace "Term" (tabs ||| vs) $
            Full ||| tabs ||| vs ||| hs
-  where
+    where
     tabs     = named "Tabs" (tabbedBottom shrinkText tabTheme)
     vs       = named "VS" (ResizableTall masters delta ratio1 [])
     hs       = named "HS" (Mirror (ResizableTall masters delta ratio2 []))
@@ -139,4 +140,4 @@ main = do
                         , ppHidden = xmobarColor "#aaaaaa" ""
                         , ppLayout  = xmobarColor "#aaaaaa" ""
                         }
-       } `additionalKeys` myKeys
+       } `additionalKeysP` myKeys
