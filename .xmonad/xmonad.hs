@@ -112,7 +112,6 @@ myStartup = do
     spawn "xinput --set-prop \"SynPS/2 Synaptics TouchPad\" \"Device Enabled\" 0"
     -- GUIs
     spawn "thunderbird"
-    spawn "firefox"
     spawn "pidgin"
     spawnOn "Term" term
     return ()

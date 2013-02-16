@@ -6,7 +6,7 @@ Config {
   , commands = [
                  Run Date "%a, %b %_d %k:%M" "date" 10
                --, Run Weather "EDDM" ["-t", "<station>: <tempC>C"] 300
-               , Run Brightness ["-t", "D: <percent>%"] 2
+               , Run Brightness ["-t", "<percent>%"] 2
                , Run DynNetwork ["-L","0","-H","32","--normal","green","--high","red"] 100
                , Run BatteryP ["BAT0"]
                  ["-t", "<acstatus><left>% - <timeleft>",
@@ -14,12 +14,12 @@ Config {
                   "--", "-O", " <fc=green>AC</fc> - ", "-o", "",
                   "-L", "-15", "-H", "-5",
                   "-l", "red", "-m", "blue", "-h", "green"] 60
-               , Run Com "python" ["~/.xmonad/xmobar_mpd.py"] "music" 10
+               , Run Com "python" ["~/.xmonad/xmobar_mpd.py"] "music" 5
                , Run StdinReader
                ]
   , sepChar  = "%"
   , alignSep = "}{"
-  , template = "%StdinReader% }{ %music% <fc=#888888>λ</fc> %dynnetwork% <fc=#888888>λ</fc>%battery% <fc=#888888>λ</fc> %date%"
+  , template = "%StdinReader% }{%music% <fc=#888888>λ</fc> %dynnetwork% <fc=#888888>λ</fc>%battery% <fc=#888888>λ</fc> %bright% <fc=#888888>λ</fc> %date%"
   }
 
 -- vim: set ft=haskell:
