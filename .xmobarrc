@@ -14,12 +14,13 @@ Config {
                   "--", "-O", " <fc=green>AC</fc> - ", "-o", "",
                   "-L", "-15", "-H", "-5",
                   "-l", "red", "-m", "blue", "-h", "green"] 60
-               , Run Com "python" ["~/.xmonad/xmobar_mpd.py"] "music" 5
+               , Run Com "python" ["~/.xmonad/xmobar_mpd.py"] "music" 2
+               , Run Com "sh" ["~/.xmonad/xmobar_volume.sh"] "volume" 2
                , Run StdinReader
                ]
   , sepChar  = "%"
   , alignSep = "}{"
-  , template = "%StdinReader% }{%music% <fc=#888888>λ</fc> %dynnetwork% <fc=#888888>λ</fc>%battery% <fc=#888888>λ</fc> %bright% <fc=#888888>λ</fc> %date%"
+  , template = "%StdinReader% }{%music% - %volume% <fc=#888888>λ</fc> %dynnetwork% <fc=#888888>λ</fc>%battery% <fc=#888888>λ</fc> %bright% <fc=#888888>λ</fc> %date%"
   }
 
 -- vim: set ft=haskell:
