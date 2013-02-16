@@ -2,12 +2,13 @@
 " Vundle
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible
+
+let g:Powerline_symbols='compatible'
 if has("win32")
     let $LANG='en'
 
     let g:haddock_docdir='C:/Program Files (x86)/Haskell Platform/2012.2.0.0/doc/html'
     let g:haddock_browser="C:/.TOOLS/Mozilla Firefox/firefox.exe"
-    let g:Powerline_symbols='compatible'
 
     set rtp+=$VIM/vimfiles/bundle/vundle
 else
@@ -15,8 +16,6 @@ else
     let g:haddock_browser="firefox"
     if has('gui_running')
         let g:Powerline_symbols='fancy'
-    else
-        let g:Powerline_symbols='compatible'
     endif
 
     set rtp+=~/.vim/bundle/vundle/
