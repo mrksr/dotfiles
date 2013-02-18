@@ -105,6 +105,9 @@ filetype on
 filetype indent on
 filetype plugin on
 
+" Powerline
+set laststatus=2
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-latex
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -259,34 +262,34 @@ set mouse=a
 " command history size
 set history=1000
 
-" set autochdir "always cd to current file
+" Buffers
+" set autochdir
 set autoread
+set hidden
 set number
+set ruler
+autocmd bufenter * set cmdheight=1 "Rather aggressive fix for vim-haskell
+
+" Commands
 set wildmenu
 set wildmode=longest:full,full
 set completeopt=menuone,longest,preview
-set ruler
-set scrolloff=0
-
-" The commandbar height
 set cmdheight=1
-set hidden
 
-" Set backspace config
+" Navigation
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 set virtualedit=block
+set scrolloff=0
 
+" Search
+let @/=''
 set ignorecase
 set smartcase
 set gdefault
-
-let @/=''
 set hlsearch
-
 set incsearch
 set lazyredraw
-
 set showmatch
 set mat=5
 
@@ -301,10 +304,7 @@ set tm=500
 set list
 set listchars=tab:»·,trail:·
 
-" Powerline
-set laststatus=2
-
-" spell checking
+" Spell checking
 set spelllang=de,en
 set nospell
 

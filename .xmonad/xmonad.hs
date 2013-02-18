@@ -35,6 +35,7 @@ myManageHook = composeAll [
     ]
 
 myKeys = [
+        -- M1 ~ Alt
         -- Special Keys
           ("<Print>", spawn "scrot")
         , ("<XF86AudioLowerVolume>", lowerVolume 5 >> return () )
