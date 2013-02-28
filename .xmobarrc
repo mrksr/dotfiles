@@ -2,7 +2,7 @@ Config {
     font = "xft:Ubuntu Mono-10"
   , bgColor = "#000000"
   , fgColor = "#eeeeec"
-  , position = Static { xpos = 0, ypos = 0, width = 1767, height = 16 }
+  , position = Static { xpos = 0, ypos = 0, width = 1805, height = 16 }
   , commands = [
                  Run Date "%a, %b %_d %k:%M" "date" 10
                --, Run Weather "EDDM" ["-t", "<station>: <tempC>C"] 300

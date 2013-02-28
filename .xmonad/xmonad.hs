@@ -1,3 +1,4 @@
+import Control.Monad
 import XMonad
 import qualified XMonad.StackSet as W
 import XMonad.Hooks.DynamicLog
@@ -38,8 +39,8 @@ myKeys = [
         -- M1 ~ Alt
         -- Special Keys
           ("<Print>", spawn "scrot")
-        , ("<XF86AudioLowerVolume>", lowerVolume 5 >> return () )
-        , ("<XF86AudioRaiseVolume>", raiseVolume 5 >> return () )
+        , ("<XF86AudioLowerVolume>", void $ lowerVolume 3)
+        , ("<XF86AudioRaiseVolume>", void $ raiseVolume 3)
         , ("<XF86AudioPlay>", spawn "mpc toggle")
         , ("<XF86AudioStop>", spawn "mpc stop")
         , ("<XF86AudioNext>", spawn "mpc next")
@@ -106,7 +107,7 @@ myStartup = do
     spawn "nitrogen --restore"
     -- Desktop
     spawn "nautilus --no-desktop -n"
-    spawnK "trayer" "trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 8 --transparent true --alpha 0 --tint 0x000000 --height 16"
+    spawnK "trayer" "trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 6 --transparent true --alpha 0 --tint 0x000000 --height 16"
     spawnK "python" "jupiter"
     spawn "dropbox start"
     spawnK "nm-applet" "nm-applet"
