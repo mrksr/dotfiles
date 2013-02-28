@@ -268,7 +268,7 @@ set autoread
 set hidden
 set number
 set ruler
-autocmd bufenter * set cmdheight=1 "Rather aggressive fix for vim-haskell
+autocmd bufenter * set cmdheight=1 " Rather aggressive fix for vim-haskell
 
 " Commands
 set wildmenu
