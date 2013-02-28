@@ -80,7 +80,7 @@ endif
 if has("win32")
     let localdir="%HOME%\\vim_local\\"
     set undodir=C:\Windows\Temp//
-    cd C:\repos
+    cd C:\markus\repos
 else
     let localdir="~/.vim_local/"
     let &undodir=localdir."undodir//"
