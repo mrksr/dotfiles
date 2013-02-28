@@ -101,6 +101,7 @@ myLayout = onWorkspace "Term" (tabs ||| vs) $
                 }
 
 myStartup = do
+    windows $ W.view "Term"
     -- Wallpaper
     spawn "nitrogen --restore"
     -- Desktop
@@ -109,7 +110,7 @@ myStartup = do
     spawnK "python" "jupiter"
     spawn "dropbox start"
     spawnK "nm-applet" "nm-applet"
-    spawn "kupfer"
+    {-spawn "kupfer"-}
     spawn "xinput --set-prop \"SynPS/2 Synaptics TouchPad\" \"Device Enabled\" 0"
     -- GUIs
     spawn "thunderbird"
