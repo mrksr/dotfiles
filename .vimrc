@@ -220,8 +220,9 @@ vnoremap / /\v
 map <silent><leader><Space> :nohl<CR>
 map <silent><leader>s :se nolist!<CR>
 map <silent><leader>n :sign unplace *<CR>
-map <silent><leader>c :SyntasticCheck<CR>
+map <silent><leader>y :SyntasticCheck<CR>
 map <silent><leader>z :MRU<CR>
+map <silent><leader>cd :CD<CR>
 " Remove trailing whitespace
 nnoremap <silent><leader>w :%s/\s\+$//<CR>:let @/=''<CR>
 " Collapse lines
