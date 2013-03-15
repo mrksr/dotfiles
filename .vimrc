@@ -231,7 +231,7 @@ vnoremap <silent><leader>r :g/^$/.,/./-j<CR>:let @/=''<CR>
 vnoremap <silent><leader>e :g/^[ <Tab>]*$/.,/[^ <Tab>]/-j<CR>:let @/=''<CR>
 
 " Space scrolling
-nnoremap <Space> <C-d>
+"nnoremap <Space> <C-d>
 nnoremap <S-Space> <C-b>
 inoremap <C-Space> <C-x><C-o>
 
@@ -279,7 +279,7 @@ set cmdheight=1
 
 " Navigation
 set backspace=eol,start,indent
-set whichwrap+=<,>,h,l
+set whichwrap+=<,>,h,l,b,s
 set virtualedit=block
 set scrolloff=0
 
