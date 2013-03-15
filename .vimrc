@@ -232,8 +232,8 @@ vnoremap <silent><leader>e :g/^[ <Tab>]*$/.,/[^ <Tab>]/-j<CR>:let @/=''<CR>
 
 " Space scrolling
 "nnoremap <Space> <C-d>
-nnoremap <S-Space> <C-b>
-inoremap <C-Space> <C-x><C-o>
+"nnoremap <S-Space> <C-b>
+"inoremap <C-Space> <C-x><C-o>
 
 " Paste and Yank to System Register
 nnoremap ü "+p
