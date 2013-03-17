@@ -218,11 +218,17 @@ vnoremap / /\v
 
 " Custom leader maps
 map <silent><leader><Space> :nohl<CR>
-map <silent><leader>s :se nolist!<CR>
+map <silent><leader>l :se nolist!<CR>
 map <silent><leader>n :sign unplace *<CR>
 map <silent><leader>y :SyntasticCheck<CR>
 map <silent><leader>z :MRU<CR>
 map <silent><leader>cd :CD<CR>
+" Spell Checking
+map <leader>ss :setlocal spell!<cr>
+map <leader>sn ]s
+map <leader>sp [s
+map <leader>sa zg
+map <leader>s? z=
 " Remove trailing whitespace
 nnoremap <silent><leader>w :%s/\s\+$//<CR>:let @/=''<CR>
 " Collapse lines
