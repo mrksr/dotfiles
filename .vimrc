@@ -333,6 +333,6 @@ set display=lastline
 " Local .vimrc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 try
-    exec ":so" . localdir . ".vimrc_local"
+    exec ":so " . localdir . ".vimrc_local"
 catch
 endtry
