@@ -224,11 +224,11 @@ map <silent><leader>y :SyntasticCheck<CR>
 map <silent><leader>z :MRU<CR>
 map <silent><leader>cd :CD<CR>
 " Spell Checking
-map <leader>ss :setlocal spell!<cr>
-map <leader>sn ]s
-map <leader>sp [s
-map <leader>sa zg
-map <leader>s? z=
+map <silent><leader>ss :setlocal spell!<cr>
+map <silent><leader>sn ]s
+map <silent><leader>sp [s
+map <silent><leader>sa zg
+map <silent><leader>s? z=
 " Remove trailing whitespace
 nnoremap <silent><leader>w :%s/\s\+$//<CR>:let @/=''<CR>
 " Collapse lines
