@@ -87,7 +87,6 @@ else
     let &undodir=localdir."undodir//"
     set dir=/tmp//,~/tmp//,.
 endif
-
 " localdir is later used for the local vimrc import
 
 set undofile
@@ -134,7 +133,6 @@ augroup END
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " use ghc functionality for haskell files
 au Bufenter *.hs compiler ghc
-
 " see top of file
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
