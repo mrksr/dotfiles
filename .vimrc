@@ -227,17 +227,20 @@ map <silent><leader>sn ]s
 map <silent><leader>sp [s
 map <silent><leader>sa zg
 map <silent><leader>s? z=
+map <silent><leader>sc z=
 " Remove trailing whitespace
 nnoremap <silent><leader>w :%s/\s\+$//<CR>:let @/=''<CR>
+vnoremap <silent><leader>w :'<,'>s/\s\+$//<CR>:let @/=''<CR>
+" Remove blank lines
+nnoremap <silent><leader>e :g/^$/d<CR>:let @/=''<CR>
+vnoremap <silent><leader>e :g/^$/d<CR>:let @/=''<CR>
 " Collapse lines
 nnoremap <silent><leader>r Goj<Esc>:g/^$/.,/./-j<CR>Gdd:let @/=''<CR>
-nnoremap <silent><leader>e GoZ<Esc>:g/^[ <Tab>]*$/.,/[^ <Tab>]/-j<CR>Gdd:let @/=''<CR>
 vnoremap <silent><leader>r :g/^$/.,/./-j<CR>:let @/=''<CR>
-vnoremap <silent><leader>e :g/^[ <Tab>]*$/.,/[^ <Tab>]/-j<CR>:let @/=''<CR>
 
 " Space scrolling
-"nnoremap <Space> <C-d>
-"nnoremap <S-Space> <C-b>
+nnoremap <Space> <C-f>
+nnoremap <S-Space> <C-b>
 "inoremap <C-Space> <C-x><C-o>
 
 " Paste and Yank to System Register
