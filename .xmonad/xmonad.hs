@@ -119,7 +119,7 @@ myStartup = do
     spawnOn "Term" term
     return ()
     where
-    -- Fix <S-q>
+    -- Fix <M-q>
     spawnK toKill toSpawn = spawn $ "pkill " ++ toKill ++ ";" ++ toSpawn
 
 main = do
@@ -129,8 +129,8 @@ main = do
        , terminal    = term
        , workspaces  = myWorkspaces
        , modMask     = myMod
-       , normalBorderColor = "#252a2b"
-       , focusedBorderColor = "#800000"
+       , normalBorderColor = "#333"
+       , focusedBorderColor = "#500000"
        , manageHook = manageHook defaultConfig <+> manageSpawn <+> manageDocks <+> myManageHook
        , layoutHook = smartBorders . avoidStruts $ myLayout
        , startupHook = myStartup
