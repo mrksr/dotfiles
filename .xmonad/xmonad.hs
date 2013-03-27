@@ -76,7 +76,7 @@ myKeys = [
         , ("M-S-l", sendMessage MirrorExpand)
         ]
         where
-        dmenu = "dmenu_run -nb '#000000' -nf '#eeeeec' -sb '#14101a'"
+        dmenu = "dmenu_run -i -p 'run' -nb '#000' -nf '#4d6d99' -sb '#333' -sf '#cc5214"
 
 myLayout = onWorkspace "Term" (tabs ||| vs) $
            Full ||| tabs ||| vs ||| hs
