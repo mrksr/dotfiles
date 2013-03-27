@@ -225,6 +225,8 @@ map <silent><leader>sc z=
 " Align
 nnoremap <leader>i :Align<Space>
 vnoremap <leader>i :Align<Space>
+nnoremap <leader>I :Align!<Space>
+vnoremap <leader>I :Align!<Space>
 " Remove trailing whitespace
 nnoremap <silent><leader>w :%s/\s\+$//<CR>:let @/=''<CR>
 vnoremap <silent><leader>w :'<,'>s/\s\+$//<CR>:let @/=''<CR>
