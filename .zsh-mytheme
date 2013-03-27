@@ -1,5 +1,5 @@
 function hg_prompt_info {
-    hg prompt --angle-brackets "\
+hg prompt --angle-brackets "\
 %{$fg_bold[blue]%}<update>%{$reset_color%}\
 %{$fg_bold[red]%}<status>%{$reset_color%}\
 %{$reset_color%}<
@@ -7,8 +7,24 @@ patches: <patches|join( → )|pre_applied(%{$fg[yellow]%})|post_applied(%{$reset
 }
 
 function terminal_color {
-    colors=(red yellow blue magenta cyan)
-    index=$(echo $(whoami)$(hostname) | sha256sum | awk '{print substr($1,0,5)}' | perl -pe '$_=hex;$_=$_%5')
+    colors=(blue red yellow cyan magenta)
+    case "$(hostname)" in
+        markus-W510 )
+            index=1
+            ;;
+        h1949215.stratoserver.net )
+            index=2
+            ;;
+        Markus-PC )
+            index=3
+            ;;
+        * )
+            index=$(echo $(whoami)$(hostname) | sha256sum | awk '{print substr($1,0,5)}' | perl -pe '$_=hex;$_=$_%5+1')
+            ;;
+    esac
+    if [ "$(whoami)" = "root" ]; then
+        index=5
+    fi
     echo $colors[$index]
 }
 
