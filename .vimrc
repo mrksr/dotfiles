@@ -25,6 +25,8 @@ let no_selectbuf_maps=1
 call vundle#rc()
 
 " Vundle
+" To setup in new environment:
+" git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 Bundle 'gmarik/vundle'
 
 " Libs
