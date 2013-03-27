@@ -75,7 +75,7 @@ if has("gui_running")
     " Close vim if NERDTree is the last buffer
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 else
-    colorscheme synic
+    colorscheme distinguished
 endif
 
 if has("win32")
