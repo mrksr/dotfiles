@@ -76,7 +76,7 @@ myKeys = [
         , ("M-S-l", sendMessage MirrorExpand)
         ]
         where
-        dmenu = "dmenu_run -i -p 'run' -nb '#000' -nf '#4d6d99' -sb '#333' -sf '#cc5214"
+        dmenu = "dmenu_run -i -p 'run' -nb '#000' -nf '#4d6d99' -sb '#333' -sf '#cc5214'"
 
 myLayout = onWorkspace "Term" (tabs ||| vs) $
            Full ||| tabs ||| vs ||| hs
@@ -89,8 +89,8 @@ myLayout = onWorkspace "Term" (tabs ||| vs) $
     ratio1   = 21/34
     ratio2   = 23/34
     tabTheme = defaultTheme {
-                  inactiveBorderColor = "#444"
-                , activeBorderColor = "#444"
+                  inactiveBorderColor = "#333"
+                , activeBorderColor = "#333"
                 , activeColor = "#111"
                 , inactiveColor = "#000"
                 , inactiveTextColor = "#4d6d99"
