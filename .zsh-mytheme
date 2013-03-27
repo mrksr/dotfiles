@@ -8,7 +8,8 @@ patches: <patches|join( → )|pre_applied(%{$fg[yellow]%})|post_applied(%{$reset
 
 function terminal_color {
     colors=(red yellow blue magenta cyan)
-    echo $colors[$(echo "%n%m" | cksum | awk '{print $1 % 5}')]
+    index=$(echo $(whoami)$(hostname) | sha256sum | awk '{print substr($1,0,5)}' | perl -pe '$_=hex;$_=$_%5')
+    echo $colors[$index]
 }
 
 PROMPT="%{$fg_bold[$(terminal_color)]%}%n@%m%{$reset_color%} %{$fg_bold[green]%}%~%{$reset_color%}$(hg_prompt_info) $(git_prompt_info)%{$fg_bold[yellow]%}λ%{$reset_color%} "
