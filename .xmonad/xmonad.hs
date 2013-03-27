@@ -88,17 +88,17 @@ myLayout = onWorkspace "Term" (tabs ||| vs) $
     ratio1   = 21/34
     ratio2   = 23/34
     tabTheme = defaultTheme {
-                  inactiveBorderColor = "#333"
-                , activeBorderColor   = "#333"
-                , activeColor         = "#111"
-                , inactiveColor       = "#000"
-                , inactiveTextColor   = "#4d6d99"
-                , activeTextColor     = "#a64211"
-                , fontName            = "xft:Ubuntu Mono-9:bold"
-                , decoHeight          = 16
-                , urgentColor         = "#000"
-                , urgentTextColor     = "#638046"
-                }
+              inactiveBorderColor = "#333"
+            , activeBorderColor   = "#333"
+            , activeColor         = "#111"
+            , inactiveColor       = "#000"
+            , inactiveTextColor   = "#4d6d99"
+            , activeTextColor     = "#a64211"
+            , fontName            = "xft:Ubuntu Mono-9:bold"
+            , decoHeight          = 16
+            , urgentColor         = "#000"
+            , urgentTextColor     = "#638046"
+    }
 
 myStartup = do
     windows $ W.view "Term"
