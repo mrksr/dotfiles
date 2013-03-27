@@ -153,12 +153,6 @@ let g:session_autosave=0
 let g:session_autoload=0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Align
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <leader>A :Align<Space>
-vnoremap <leader>A :Align<Space>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Command-T
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:CommandTMaxFiles=10000
@@ -228,6 +222,9 @@ map <silent><leader>sp [s
 map <silent><leader>sa zg
 map <silent><leader>s? z=
 map <silent><leader>sc z=
+" Align
+nnoremap <leader>a :Align<Space>
+vnoremap <leader>a :Align<Space>
 " Remove trailing whitespace
 nnoremap <silent><leader>w :%s/\s\+$//<CR>:let @/=''<CR>
 vnoremap <silent><leader>w :'<,'>s/\s\+$//<CR>:let @/=''<CR>
