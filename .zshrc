@@ -67,3 +67,7 @@ command fortune -s;echo
 export PATH=$HOME/.cabal/bin:/opt/procfun/sbt/bin:$PATH
 export EDITOR=vim
 export BROWSER=firefox
+
+if [ -e .zshrc_local ]; then
+    source .zshrc_local
+fi
