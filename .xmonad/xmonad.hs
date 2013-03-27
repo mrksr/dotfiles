@@ -20,7 +20,7 @@ myMod = mod4Mask    -- Super
 term = "urxvt"
 
 myWorkspaces =
-    ["Stuff", "Browser", "Term", "IM" ,"Mail", "MMXIII", "J", "SoilentGreen", "George"]
+    ["Stuff", "Browser", "Term", "IM" ,"Mail", "Hannah", "J", "SoilentGreen", "MMXIII"]
 
 myManageHook = composeAll [
       className =? "Pidgin" --> doShift "IM"
@@ -31,7 +31,7 @@ myManageHook = composeAll [
     , className =? "Gvim" --> doShift "Stuff"
     , className =? "Smplayer" --> doFloat
     , className =? "Xfce4-notifyd" --> doIgnore
-    , className =? "Gimp-2.8" --> doShift "MMXIII"
+    , className =? "Gimp-2.8" --> doShift "Hannah"
     , className =? "Gimp-2.8" --> doFloat
     ]
 
@@ -89,16 +89,16 @@ myLayout = onWorkspace "Term" (tabs ||| vs) $
     ratio1   = 21/34
     ratio2   = 23/34
     tabTheme = defaultTheme {
-                  inactiveBorderColor = "#777"
-                , activeBorderColor = "#777"
-                , activeColor = "#222"
+                  inactiveBorderColor = "#444"
+                , activeBorderColor = "#444"
+                , activeColor = "#111"
                 , inactiveColor = "#000"
-                , inactiveTextColor = "aquamarine4"
-                , activeTextColor = "aquamarine1"
-                , fontName = "xft:Ubuntu Mono-9"
-                , decoHeight = 15
+                , inactiveTextColor = "#4d6d99"
+                , activeTextColor = "#a64211"
+                , fontName = "xft:Ubuntu Mono-9:bold"
+                , decoHeight = 16
                 , urgentColor = "#000"
-                , urgentTextColor = "#63b8ff"
+                , urgentTextColor = "#638046"
                 }
 
 myStartup = do
