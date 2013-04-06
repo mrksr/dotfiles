@@ -126,24 +126,24 @@ myStartup = do
     -- Fix <M-q>
     spawnK toKill toSpawn = spawn $ "pkill " ++ toKill ++ ";" ++ toSpawn
 
-main = do
+    main = do
     xmproc <- spawnPipe "xmobar"
     xmonad $ defaultConfig {
-            borderWidth        = 2
-          , terminal           = term
-          , workspaces         = myWorkspaces
-          , modMask            = myMod
-          , normalBorderColor  = "#333"
-          , focusedBorderColor = "#500000"
-          , manageHook         = manageHook defaultConfig <+> manageSpawn <+> manageDocks <+> myManageHook
-          , layoutHook         = smartBorders . avoidStruts $ myLayout
-          , startupHook        = myStartup
-          , logHook            = dynamicLogWithPP xmobarPP {
-                    ppOutput   = hPutStrLn xmproc
-                  , ppTitle    = xmobarColor "#aaaaaa" "" . shorten 150
-                  , ppCurrent  = xmobarColor "#eeeeec" ""
-                  , ppSep      = " λ "
-                  , ppHidden   = xmobarColor "#aaaaaa" ""
-                  , ppLayout   = xmobarColor "#aaaaaa" ""
-          }
+              borderWidth        = 2
+            , terminal           = term
+            , workspaces         = myWorkspaces
+            , modMask            = myMod
+            , normalBorderColor  = "#333"
+            , focusedBorderColor = "#500000"
+            , manageHook         = manageHook defaultConfig <+> manageSpawn <+> manageDocks <+> myManageHook
+            , layoutHook         = smartBorders . avoidStruts $ myLayout
+            , startupHook        = myStartup
+            , logHook            = dynamicLogWithPP xmobarPP {
+                      ppOutput   = hPutStrLn xmproc
+                    , ppTitle    = xmobarColor "#aaaaaa" "" . shorten 150
+                    , ppCurrent  = xmobarColor "#eeeeec" ""
+                    , ppSep      = " λ "
+                    , ppHidden   = xmobarColor "#aaaaaa" ""
+                    , ppLayout   = xmobarColor "#aaaaaa" ""
+            }
     } `additionalKeysP` myKeys
