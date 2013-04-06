@@ -75,6 +75,11 @@ myKeys = [
     , ("M-s", sendMessage ToggleStruts)
     , ("M-S-h", sendMessage MirrorShrink)
     , ("M-S-l", sendMessage MirrorExpand)
+    ] ++ [
+      (modifier ++ "M-<F" ++ show (k - 4) ++ ">" , action) |
+                          k <- [4..8],
+         (modifier, action) <- [("", windows . W.view $ myWorkspaces !! k),
+                                ("S-", windows . W.shift $ myWorkspaces !! k)]
     ]
 
 myLayout = onWorkspace "Term" (tabs ||| vs) $
