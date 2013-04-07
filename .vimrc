@@ -268,6 +268,8 @@ nnoremap <silent>ö :SelectBuf<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " cd to current file
 com! CD cd %:p:h
+com! Q q
+com! Qa qa
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VIM user interface
