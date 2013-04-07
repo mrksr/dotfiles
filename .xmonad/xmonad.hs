@@ -54,8 +54,8 @@ myKeys = [
     , ("M-v", spawn "pavucontrol")
     , ("M-f", spawn "gvim ~/.xmonad/xmonad.hs ~/.xmobarrc ~/.vimrc")
     , ("M-p", spawn dmenu)
-    , ("M1-<F12>", spawn dmenu)
-    , ("<F12>", spawn "kupfer")
+    , ("<F12>", spawn dmenu)
+    , ("M1-<F12>", spawn "kupfer")
     , ("M-d", spawn term)
 
     -- Windows
@@ -126,7 +126,7 @@ myStartup = do
     -- Fix <M-q>
     spawnK toKill toSpawn = spawn $ "pkill " ++ toKill ++ ";" ++ toSpawn
 
-    main = do
+main = do
     xmproc <- spawnPipe "xmobar"
     xmonad $ defaultConfig {
               borderWidth        = 2
