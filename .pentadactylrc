@@ -98,3 +98,5 @@ imap -builtin <S-Insert> <C-v><C-v>
 imap -builtin <C-x> <C-v><C-x>
 imap -builtin <C-z> <C-v><C-z>
 imap -builtin <C-y> <C-v><C-y>
+
+" vim: ft=vim
