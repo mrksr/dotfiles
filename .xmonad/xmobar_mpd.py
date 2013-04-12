@@ -35,17 +35,22 @@ def mpdAuth(client, secret):
     except CommandError:
         return False
     return True
-##
 
 def main():
-    ## MPD object instance
     client = MPDClient()
-    mpdConnect(client, CON_ID)
-    #if mpdConnect(client, CON_ID):
-        #print 'Got connected!'
-    #else:
-        #print 'fail to connect MPD server.'
-        #sys.exit(1)
+    if mpdConnect(client, CON_ID):
+        if client.status()['state'] == 'play':
+            artist = client.currentsong().get('artist')
+            title = client.currentsong().get('title')
+
+            l = filter(bool, [artist, title])
+            l = map(lambda i: i[:30], l)
+            print " - ".join(l)
+        else:
+            print "no music"
+    else:
+        print 'no mpd'
+        sys.exit(0)
 
     # Auth if password is set non False
     #if PASSWORD:
@@ -56,19 +61,6 @@ def main():
             #client.disconnect()
             #sys.exit(2)
 
-    if client.status()['state'] == 'play':
-        artist = client.currentsong().get('artist')
-        title = client.currentsong().get('title')
-
-        if artist is not None:
-            if title is not None:
-                print "%s - %s" % (artist, title)
-            else:
-                print artist
-        else:
-            print title
-    else:
-        print "no music"
 
     client.disconnect()
     sys.exit(0)
