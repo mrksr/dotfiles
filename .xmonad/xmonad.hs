@@ -120,6 +120,7 @@ myStartup = do
     -- GUIs
     spawn "thunderbird"
     spawn "pidgin"
+    spawn "mopidy"
     spawnOn "Term" term
     return ()
     where
