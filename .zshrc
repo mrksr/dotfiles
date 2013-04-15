@@ -29,7 +29,7 @@ ZSH_THEME="_mine"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(mercurial extract wakeonlan cp scala sbt python vi-mode)
+plugins=(mercurial extract wakeonlan cp scala sbt python vi-mode debian)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -41,7 +41,6 @@ set -o vi
 autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd 'v' edit-command-line
-
 
 alias apt-get="sudo apt-get"
 alias apt-search="apt-cache search"
@@ -58,7 +57,6 @@ alias ack="ack-grep"
 # Diskrete Optimierung
 #alias lxmayr="ssh -X kaiserma@lxmayr33.informatik.tu-muenchen.de"
 #alias mayrmake="sshfs kaiserma@lxmayr33.informatik.tu-muenchen.de:make ~/repos/uni/12ss_praktikum;cd ~/repos/uni/12ss_praktikum"
-
 
 #command cowsay -f duck $(fortune -s)
 command fortune -s;echo
