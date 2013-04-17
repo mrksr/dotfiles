@@ -36,6 +36,7 @@ Bundle 'vim-scripts/genutils'
 " Plugins
 Bundle 'Align'
 Bundle 'avakhov/vim-yaml'
+Bundle 'beyondmarc/opengl.vim'
 Bundle 'bufkill.vim'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'edsono/vim-matchit'
