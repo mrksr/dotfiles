@@ -19,6 +19,7 @@ import XMonad.Layout.ResizableTile
 myMod = mod4Mask -- Super
 term  = "urxvt"
 dmenu = "dmenu_run -i -p 'run' -nb '#000' -nf '#4d6d99' -sb '#333' -sf '#cc5214'"
+mpc   = (++) "mpc -h \"banane@localhost\" "
 
 myWorkspaces =
     ["Stuff", "Browser", "Term", "IM" ,"Mail", "Hannah", "J", "SoilentGreen", "MMXIII"]
@@ -42,10 +43,10 @@ myKeys = [
       ("<Print>", spawn "scrot")
     , ("<XF86AudioLowerVolume>", void $ lowerVolume 3)
     , ("<XF86AudioRaiseVolume>", void $ raiseVolume 3)
-    , ("<XF86AudioPlay>", spawn "mpc toggle")
-    , ("<XF86AudioStop>", spawn "mpc stop")
-    , ("<XF86AudioNext>", spawn "mpc next")
-    , ("<XF86AudioPrev>", spawn "mpc prev")
+    , ("<XF86AudioPlay>", spawn $ mpc "toggle")
+    , ("<XF86AudioStop>", spawn $ mpc "stop")
+    , ("<XF86AudioNext>", spawn $ mpc "next")
+    , ("<XF86AudioPrev>", spawn $ mpc "prev")
     , ("<XF86Sleep>", spawn "sudo pm-suspend")
     , ("<XF86ScreenSaver>", spawn "gnome-screensaver-command -l")
 
