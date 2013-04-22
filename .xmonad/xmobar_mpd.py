@@ -10,7 +10,7 @@ from socket import error as SocketError
 
 HOST = 'localhost'
 PORT = '6600'
-PASSWORD = False
+PASSWORD = 'banane'
 ##
 CON_ID = {'host':HOST, 'port':PORT}
 ##
@@ -39,6 +39,13 @@ def mpdAuth(client, secret):
 def main():
     client = MPDClient()
     if mpdConnect(client, CON_ID):
+        # Auth if password is set non False
+        if PASSWORD:
+            if not mpdAuth(client, PASSWORD):
+                print 'Auth error'
+                client.disconnect()
+                sys.exit(2)
+
         if client.status()['state'] == 'play':
             artist = client.currentsong().get('artist')
             title = client.currentsong().get('title')
@@ -52,14 +59,6 @@ def main():
         print 'no mpd'
         sys.exit(0)
 
-    # Auth if password is set non False
-    #if PASSWORD:
-        #if mpdAuth(client, PASSWORD):
-            #print 'Pass auth!'
-        #else:
-            #print 'Error trying to pass auth.'
-            #client.disconnect()
-            #sys.exit(2)
 
 
     client.disconnect()
