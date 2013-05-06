@@ -43,10 +43,12 @@ Bundle 'edsono/vim-matchit'
 Bundle 'ervandew/supertab'
 "Bundle 'FuzzyFinder'
 Bundle 'jcf/vim-latex'
+Bundle 'lekv/vim-clewn'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'lukerandall/haskellmode-vim'
 Bundle 'mattn/zencoding-vim'
 "Bundle 'mru.vim'
+Bundle 'mortice/taglist.vim'
 Bundle 'rygwdn/vim-conque'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
@@ -55,7 +57,7 @@ Bundle 'SelectBuf'
 "Bundle 'ShowMarks'
 Bundle 'TagHighlight'
 Bundle 'tpope/vim-surround'
-"Bundle 'wincent/Command-T'
+Bundle 'wincent/Command-T'
 Bundle 'xolox/vim-session'
 Bundle 'YankRing.vim'
 
@@ -134,7 +136,7 @@ let g:Tex_IgnoreLevel=7
 let g:Tex_FoldedEnvironments='verbatim,comment,eq,gather,align,figure,table,thebibliography,keywords,abstract,titlepage,frame'
 augroup MyIMAPs
     au!
-    au VimEnter * call IMAP('EFE', "\\begin{frame}\<CR>\\setbeamercovered{dynamic}\<CR>\\frametitle{<++>}\<CR><++>\<CR>\\end{frame}<++>", 'tex')
+    au VimEnter * call IMAP('EFE', "\\begin{frame}\<CR>\\frametitle{<++>}\<CR>\\setbeamercovered{dynamic}\<CR><++>\<CR>\\end{frame}<++>", 'tex')
 augroup END
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
