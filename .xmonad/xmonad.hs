@@ -3,6 +3,7 @@ import XMonad
 import qualified XMonad.StackSet as W
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.EwmhDesktops
 import XMonad.Util.Run
 import XMonad.Util.EZConfig
 import XMonad.Actions.Volume
@@ -22,7 +23,7 @@ dmenu = "dmenu_run -i -p 'run' -nb '#000' -nf '#4d6d99' -sb '#333' -sf '#cc5214'
 mpc   = (++) "mpc -h \"banane@localhost\" "
 
 myWorkspaces =
-    ["Stuff", "Browser", "Term", "IM" ,"Mail", "Hannah", "J", "SoilentGreen", "MMXIII"]
+    ["Stuff", "Browser", "Term", "IM" ,"Mail", "George", "J", "SoilentGreen", "MMXIII"]
 
 myManageHook = composeAll [
       className =? "Pidgin"           --> doShift "IM"
@@ -130,13 +131,14 @@ myStartup = do
 
 main = do
     xmproc <- spawnPipe "xmobar"
-    xmonad $ defaultConfig {
+    xmonad $ ewmh defaultConfig {
               borderWidth        = 2
             , terminal           = term
             , workspaces         = myWorkspaces
             , modMask            = myMod
             , normalBorderColor  = "#333"
             , focusedBorderColor = "#500000"
+            , handleEventHook    = handleEventHook defaultConfig <+> fullscreenEventHook
             , manageHook         = manageHook defaultConfig <+> manageSpawn <+> manageDocks <+> myManageHook
             , layoutHook         = smartBorders . avoidStruts $ myLayout
             , startupHook        = myStartup
