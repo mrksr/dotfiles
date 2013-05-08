@@ -342,6 +342,10 @@ set wrap
 set linebreak
 set display=lastline
 
+" IDE
+" local include path
+set path+=include
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Local .vimrc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
