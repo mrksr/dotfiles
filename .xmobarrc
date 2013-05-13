@@ -6,8 +6,8 @@ Config {
     , commands = [
              Run Date "%a, %b %_d %k:%M" "date" 10
            , Run Weather "EDDM" ["-t", "<station>: <tempC>C"] 300
-           , Run Brightness ["-t", "<percent>%"] 2
-           , Run DynNetwork ["-L","0","-H","32","--normal","green","--high","red"] 100
+           , Run Brightness ["-t", "<percent>%"] 5
+           , Run DynNetwork ["-L","0","-H","32","--normal","green","--high","red"] 25
            , Run BatteryP ["BAT0"] [
                   "-t", "<acstatus><left>% - <timeleft>"
                 , "-L", "10", "-H", "80", "-p", "3"
@@ -15,8 +15,8 @@ Config {
                 , "-L", "-15", "-H", "-5"
                 , "-l", "red", "-m", "blue", "-h", "green"
                 ] 60
-           , Run Com "python" ["~/.xmonad/xmobar_mpd.py"] "music" 2
-           , Run Com "sh" ["~/.xmonad/xmobar_volume.sh"] "volume" 2
+           , Run Com "python" ["~/.xmonad/xmobar_mpd.py"] "music" 5
+           , Run Com "sh" ["~/.xmonad/xmobar_volume.sh"] "volume" 5
            , Run StdinReader
            ]
     , sepChar  = "%"
