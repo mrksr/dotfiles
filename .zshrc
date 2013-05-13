@@ -54,11 +54,11 @@ alias apt-filesearch="apt-find search"
 alias vnc="xtightvncviewer 192.168.2.42"
 alias ack="ack-grep"
 
-# Diskrete Optimierung
-#alias lxmayr="ssh -X kaiserma@lxmayr33.informatik.tu-muenchen.de"
-#alias mayrmake="sshfs kaiserma@lxmayr33.informatik.tu-muenchen.de:make ~/repos/uni/12ss_praktikum;cd ~/repos/uni/12ss_praktikum"
+# folder variables
+ba=~/repos/uni/13ba
+theo=~/repos/tutor/13ss.theoinf
 
-#command cowsay -f duck $(fortune -s)
+# greeter
 command fortune -s;echo
 
 # export PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
