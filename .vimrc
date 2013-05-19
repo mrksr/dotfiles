@@ -187,12 +187,17 @@ let g:syntastic_mode_map = { 'mode': 'active',
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set conceallevel=2
 set concealcursor=vin
-let g:clang_complete_auto = 0
-let g:clang_auto_select = 0
-let g:clang_complete_copen=1
+
+let g:clang_complete_auto=0
+let g:clang_auto_select=1
+let g:clang_complete_copen=0
+let g:clang_hl_errors=0
+let g:clang_close_preview=1
+
 let g:clang_snippets=1
-let g:clang_conceal_snippets=1
 let g:clang_snippets_engine='ultisnips'
+
+let g:clang_complete_macros=1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " neocomplcache
@@ -200,11 +205,11 @@ let g:clang_snippets_engine='ultisnips'
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_force_overwrite_completefunc = 1
 
 if !exists('g:neocomplcache_force_omni_patterns')
     let g:neocomplcache_force_omni_patterns = {}
 endif
-let g:neocomplcache_force_overwrite_completefunc = 1
 let g:neocomplcache_force_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
 let g:neocomplcache_force_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 let g:neocomplcache_force_omni_patterns.objc = '[^.[:digit:] *\t]\%(\.\|->\)'
@@ -312,6 +317,10 @@ nnoremap - za
 " Bufexplorer
 nnoremap <silent>ö :SelectBuf<CR>
 
+" Code Completion
+inoremap <S-Space> <C-x><C-o><C-p>
+inoremap <C-Space> <C-x><C-o><C-p>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom Commands
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -343,7 +352,7 @@ autocmd bufenter * set cmdheight=1 " Rather aggressive fix for vim-haskell
 " Commands
 set wildmenu
 set wildmode=longest:full,full
-set completeopt=menuone,longest,preview
+set completeopt=menuone,longest
 set cmdheight=1
 
 " Navigation
@@ -395,10 +404,7 @@ set display=lastline
 " IDE
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" local include path
 set path+=include
-
-" ctags files
 " To create systags run
 " ctags -R -f $LOCALDIR/systags --c-kinds=+p --fields=+iaS --extra=+q /usr/include /usr/local/include
 set tags+=./tags;/
