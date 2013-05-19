@@ -1,21 +1,12 @@
 # Default Snippets according to my style
 
-snippet if "if .. (if)" !
-if (${1:/* condition */}) {
-	${VISUAL}${0:${VISUAL/(.*)/(?1::\/* code *\/)/}}
-}
-endsnippet
+snippet cl "class .. (class)" !
+class ${1:`!p snip.rv = snip.basename or "name"`} {
+public:
+    ${1/(\w+).*/$1/}(${2:arguments});
+    virtual ~${1/(\w+).*/$1/} ();
 
-snippet el "else .. (else)" !
-else {
-	${VISUAL}${0:${VISUAL/(.*)/(?1::\/* code *\/)/}}
-}
-endsnippet
-
-snippet ife "if .. else (ife)" !
-if (${1:/* condition */}) {
-	${2:/* code */}
-} else {
-	${3:/* else */}
-}
+private:
+    ${0:/* data */}
+};
 endsnippet
