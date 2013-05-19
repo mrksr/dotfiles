@@ -45,7 +45,6 @@ Bundle 'edsono/vim-matchit'
 Bundle 'ervandew/supertab'
 Bundle 'JazzCore/neocomplcache-ultisnips'
 Bundle 'jcf/vim-latex'
-Bundle 'lekv/vim-clewn'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'lukerandall/haskellmode-vim'
 Bundle 'mattn/zencoding-vim'
@@ -198,6 +197,9 @@ let g:clang_snippets_engine='ultisnips'
 " neocomplcache
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_smart_case = 1
+let g:neocomplcache_min_syntax_length = 3
+
 if !exists('g:neocomplcache_force_omni_patterns')
     let g:neocomplcache_force_omni_patterns = {}
 endif
@@ -309,6 +311,9 @@ com! CD cd %:p:h
 com! Q q
 com! Qa qa
 
+" create .clang_complete file
+com! CLmake make CC='~/.vim/bundle/clang_complete/bin/cc_args.py gcc' CXX='~/.vim/bundle/clang_complete/bin/cc_args.py g++' -B
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -377,9 +382,13 @@ set wrap
 set linebreak
 set display=lastline
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " IDE
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " local include path
 set path+=include
+
 " ctags files
 " To create systags run
 " ctags -R -f $LOCALDIR/systags --c-kinds=+p --fields=+iaS --extra=+q /usr/include /usr/local/include
