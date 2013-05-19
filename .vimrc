@@ -22,6 +22,7 @@ else
 endif
 let no_selectbuf_maps=1
 
+filetype off
 call vundle#rc()
 
 " Vundle
@@ -35,26 +36,28 @@ Bundle 'vim-scripts/genutils'
 
 " Plugins
 Bundle 'Align'
-Bundle 'autoproto.vim'
 Bundle 'avakhov/vim-yaml'
 Bundle 'beyondmarc/opengl.vim'
 Bundle 'bufkill.vim'
+Bundle 'Cpp11-Syntax-Support'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'edsono/vim-matchit'
 Bundle 'ervandew/supertab'
+Bundle 'JazzCore/neocomplcache-ultisnips'
 Bundle 'jcf/vim-latex'
 Bundle 'lekv/vim-clewn'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'lukerandall/haskellmode-vim'
 Bundle 'mattn/zencoding-vim'
 Bundle 'mortice/taglist.vim'
-Bundle 'msanders/snipmate.vim'
-Bundle 'OmniCppComplete'
+Bundle 'Rip-Rip/clang_complete'
 Bundle 'rygwdn/vim-conque'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'SelectBuf'
+Bundle 'Shougo/neocomplcache.vim'
+Bundle 'SirVer/ultisnips'
 Bundle 'TagHighlight'
 Bundle 'tpope/vim-surround'
 Bundle 'wincent/Command-T'
@@ -180,6 +183,36 @@ let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'passive_filetypes': ['tex'] }
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" clang_complete
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set conceallevel=2
+set concealcursor=vin
+let g:clang_complete_auto = 0
+let g:clang_auto_select = 0
+let g:clang_complete_copen=1
+let g:clang_snippets=1
+let g:clang_conceal_snippets=1
+let g:clang_snippets_engine='ultisnips'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" neocomplcache
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:neocomplcache_enable_at_startup = 1
+if !exists('g:neocomplcache_force_omni_patterns')
+    let g:neocomplcache_force_omni_patterns = {}
+endif
+let g:neocomplcache_force_overwrite_completefunc = 1
+let g:neocomplcache_force_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplcache_force_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+let g:neocomplcache_force_omni_patterns.objc = '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplcache_force_omni_patterns.objcpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Supertab
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:SuperTabDefaultCompletionType='<c-x><c-u>'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom Mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Splits
@@ -247,6 +280,8 @@ vnoremap <silent><leader>e :g/^$/d<CR>:let @/=''<CR>
 " Collapse lines
 nnoremap <silent><leader>r Goj<Esc>:g/^$/.,/./-j<CR>Gdd:let @/=''<CR>
 vnoremap <silent><leader>r :g/^$/.,/./-j<CR>:let @/=''<CR>
+" CTags
+map <leader>t :!ctags -R --c++-kinds=+pl --fields=+iaS --extra=+q .<CR>
 
 " Space scrolling
 nnoremap <Space> <C-f>
@@ -345,6 +380,11 @@ set display=lastline
 " IDE
 " local include path
 set path+=include
+" ctags files
+" To create systags run
+" ctags -R -f $LOCALDIR/systags --c-kinds=+p --fields=+iaS --extra=+q /usr/include /usr/local/include
+set tags+=./tags;/
+let &tags.=",".localdir."systags"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Local .vimrc
