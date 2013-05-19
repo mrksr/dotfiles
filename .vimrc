@@ -59,6 +59,7 @@ Bundle 'Shougo/neocomplcache.vim'
 Bundle 'SirVer/ultisnips'
 Bundle 'TagHighlight'
 Bundle 'tpope/vim-surround'
+Bundle 'ujihisa/neco-ghc'
 Bundle 'wincent/Command-T'
 Bundle 'xolox/vim-session'
 Bundle 'YankRing.vim'
@@ -208,6 +209,8 @@ let g:neocomplcache_force_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
 let g:neocomplcache_force_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 let g:neocomplcache_force_omni_patterns.objc = '[^.[:digit:] *\t]\%(\.\|->\)'
 let g:neocomplcache_force_omni_patterns.objcpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
+let g:necoghc_enable_detailed_browse = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Supertab
