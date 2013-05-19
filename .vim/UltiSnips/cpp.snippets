@@ -3,15 +3,24 @@
 snippet cl "class .. (class)" !
 class ${1:`!p snip.rv = snip.basename or "name"`} {
 public:
-    ${1/(\w+).*/$1/}(${2:arguments});
+    ${1/(\w+).*/$1/}();
     virtual ~${1/(\w+).*/$1/}();
 
 private:
-    ${3:/* data */}
+
 };
 endsnippet
 
 snippet prop "Property getters and setters" b!
 ${1:type} ${2:name}() const { return $2_; }
 void $2($1 $2) { $2_ = $2; }
+endsnippet
+
+snippet map "std::map (map)" !
+std::map<${1:key}, ${2:value}> ${3:name}
+endsnippet
+
+clearsnippets vector
+snippet vec "std::vector (v)" !
+std::vector<${1:char}> ${2:name}
 endsnippet
