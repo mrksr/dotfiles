@@ -108,128 +108,6 @@ set undofile
 set noswapfile
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plugins
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let mapleader=","
-scriptencoding utf-8
-set encoding=utf-8
-
-syntax on
-
-filetype on
-filetype indent on
-filetype plugin on
-
-" Powerline
-set laststatus=2
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-latex
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set grepprg="grep -nH $*"
-
-let g:tex_flavor='latex'
-let g:tex_indent_brace=1
-let g:Tex_SmartKeyQuote=0
-let g:Tex_CompileRule_pdf='pdflatex -synctex=1 -interaction=nonstopmode $*'
-let g:Tex_ViewRule_pdf='zathura'
-let g:Tex_DefaultTargetFormat='pdf'
-let g:Tex_MultipleCompileFormats='dvi,pdf'
-let g:Tex_GotoError=1
-let g:Tex_IgnoreLevel=7
-let g:Tex_FoldedEnvironments='verbatim,comment,eq,gather,align,figure,table,thebibliography,keywords,abstract,titlepage,frame'
-augroup MyIMAPs
-    au!
-    au VimEnter * call IMAP('EFE', "\\begin{frame}\<CR>\\frametitle{<++>}\<CR>\\setbeamercovered{dynamic}\<CR><++>\<CR>\\end{frame}<++>", 'tex')
-augroup END
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Haskellmode
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" use ghc functionality for haskell files
-au Bufenter *.hs compiler ghc
-" see top of file
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Showmarks
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:showmarks_ignore_type='hqpm'
-let g:showmarks_include='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
-let g:showmarks_enable=0
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-session
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set sessionoptions-=help
-set sessionoptions-=options
-set sessionoptions-=resize
-set sessionoptions+=buffers
-let g:session_autosave=0
-let g:session_autoload=0
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Command-T
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:CommandTMaxFiles=10000
-let g:CommandTMaxDepth=15
-let g:CommandTMaxCachedDirectories=1
-let g:CommandTAlwaysShowDotFiles=0
-let g:CommandTMaxHeight=5
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Syntastic
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:syntastic_mode_map = { 'mode': 'active',
-                           \ 'active_filetypes': [],
-                           \ 'passive_filetypes': ['tex'] }
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" clang_complete
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set conceallevel=2
-set concealcursor=vin
-
-let g:clang_complete_auto=0
-let g:clang_auto_select=1
-let g:clang_complete_copen=0
-let g:clang_hl_errors=0
-let g:clang_close_preview=1
-
-let g:clang_snippets=1
-let g:clang_snippets_engine='ultisnips'
-
-let g:clang_complete_macros=1
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" neocomplcache
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_force_overwrite_completefunc = 1
-
-if !exists('g:neocomplcache_force_omni_patterns')
-    let g:neocomplcache_force_omni_patterns = {}
-endif
-let g:neocomplcache_force_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplcache_force_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-let g:neocomplcache_force_omni_patterns.objc = '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplcache_force_omni_patterns.objcpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-
-let g:necoghc_enable_detailed_browse = 1
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" UltiSnips
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:UltiSnipsDontReverseSearchPath="1"
-let g:UltiSnipsEditSplit="vertical"
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Supertab
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:SuperTabDefaultCompletionType='<c-x><c-u>'
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom Mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Splits
@@ -404,6 +282,128 @@ set path+=include
 " ctags -R -f $LOCALDIR/systags --c-kinds=+p --fields=+iaS --extra=+q /usr/include /usr/local/include
 set tags+=./tags;/
 let &tags.="," . localdir . "systags"
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugins
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let mapleader=","
+scriptencoding utf-8
+set encoding=utf-8
+
+syntax on
+
+filetype on
+filetype indent on
+filetype plugin on
+
+" Powerline
+set laststatus=2
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-latex
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set grepprg="grep -nH $*"
+
+let g:tex_flavor='latex'
+let g:tex_indent_brace=1
+let g:Tex_SmartKeyQuote=0
+let g:Tex_CompileRule_pdf='pdflatex -synctex=1 -interaction=nonstopmode $*'
+let g:Tex_ViewRule_pdf='zathura'
+let g:Tex_DefaultTargetFormat='pdf'
+let g:Tex_MultipleCompileFormats='dvi,pdf'
+let g:Tex_GotoError=1
+let g:Tex_IgnoreLevel=7
+let g:Tex_FoldedEnvironments='verbatim,comment,eq,gather,align,figure,table,thebibliography,keywords,abstract,titlepage,frame'
+augroup MyIMAPs
+    au!
+    au VimEnter * call IMAP('EFE', "\\begin{frame}\<CR>\\frametitle{<++>}\<CR>\\setbeamercovered{dynamic}\<CR><++>\<CR>\\end{frame}<++>", 'tex')
+augroup END
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Haskellmode
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" use ghc functionality for haskell files
+au Bufenter *.hs compiler ghc
+" see top of file
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Showmarks
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:showmarks_ignore_type='hqpm'
+let g:showmarks_include='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+let g:showmarks_enable=0
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-session
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set sessionoptions-=help
+set sessionoptions-=options
+set sessionoptions-=resize
+set sessionoptions+=buffers
+let g:session_autosave=0
+let g:session_autoload=0
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Command-T
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:CommandTMaxFiles=10000
+let g:CommandTMaxDepth=15
+let g:CommandTMaxCachedDirectories=1
+let g:CommandTAlwaysShowDotFiles=0
+let g:CommandTMaxHeight=5
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Syntastic
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:syntastic_mode_map = { 'mode': 'active',
+                           \ 'active_filetypes': [],
+                           \ 'passive_filetypes': ['tex'] }
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" clang_complete
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set conceallevel=2
+set concealcursor=vin
+
+let g:clang_complete_auto=0
+let g:clang_auto_select=1
+let g:clang_complete_copen=0
+let g:clang_hl_errors=0
+let g:clang_close_preview=1
+
+let g:clang_snippets=1
+let g:clang_snippets_engine='ultisnips'
+
+let g:clang_complete_macros=1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" neocomplcache
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_smart_case = 1
+let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_force_overwrite_completefunc = 1
+
+if !exists('g:neocomplcache_force_omni_patterns')
+    let g:neocomplcache_force_omni_patterns = {}
+endif
+let g:neocomplcache_force_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplcache_force_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+let g:neocomplcache_force_omni_patterns.objc = '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplcache_force_omni_patterns.objcpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
+let g:necoghc_enable_detailed_browse = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" UltiSnips
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:UltiSnipsDontReverseSearchPath="1"
+let g:UltiSnipsEditSplit="vertical"
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Supertab
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:SuperTabDefaultCompletionType='<c-x><c-u>'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Local .vimrc
