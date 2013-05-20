@@ -36,6 +36,7 @@ Bundle 'vim-scripts/genutils'
 
 " Plugins
 Bundle 'Align'
+Bundle 'argtextobj.vim'
 Bundle 'avakhov/vim-yaml'
 Bundle 'beyondmarc/opengl.vim'
 Bundle 'bufkill.vim'
@@ -408,7 +409,7 @@ set path+=include
 " To create systags run
 " ctags -R -f $LOCALDIR/systags --c-kinds=+p --fields=+iaS --extra=+q /usr/include /usr/local/include
 set tags+=./tags;/
-let &tags.=",".localdir."systags"
+let &tags.="," . localdir . "systags"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Local .vimrc
