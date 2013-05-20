@@ -255,13 +255,10 @@ inoremap <silent><down> <C-o>gj
 map <silent><C-right> :bn<cr>
 map <silent><C-left> :bp<cr>
 
-" Jump to marks
-map ä '
-map Ä `
-
 " Function Keys
 map <silent><F3> :YRShow<CR>
 imap <silent><F3> <ESC>:YRShow<CR>
+vmap <silent><F3> c<ESC>:YRShow<CR>
 map <silent><F8> :TlistToggle<CR>
 map <silent><F9> :NERDTreeToggle<CR><C-W>l
 
@@ -274,8 +271,6 @@ map <silent><leader><Space> :nohl<CR>
 map <silent><leader>l :se nolist!<CR>
 map <silent><leader>n :sign unplace *<CR>
 map <silent><leader>y :SyntasticCheck<CR>
-map <silent><leader>z :MRU<CR>
-map <silent><leader>cd :CD<CR>
 " Spell Checking
 map <silent><leader>ss :setlocal spell!<cr>
 map <silent><leader>sn ]s
@@ -303,7 +298,6 @@ map <leader>t :!ctags -R --c++-kinds=+pl --fields=+iaS --extra=+q .<CR>
 " Space scrolling
 nnoremap <Space> <C-f>
 nnoremap <S-Space> <C-b>
-"inoremap <C-Space> <C-x><C-o>
 
 " Paste and Yank to System Register
 nnoremap ü "+p
