@@ -2,12 +2,11 @@
 
 snippet cl "class .. (class)" !
 class ${1:`!p snip.rv = snip.basename or "name"`} {
-public:
-    ${1/(\w+).*/$1/}();
-    virtual ~${1/(\w+).*/$1/}();
+    public:
+        ${1/(\w+).*/$1/}();
+        virtual ~${1/(\w+).*/$1/}() { }
 
-private:
-
+    private:
 };
 endsnippet
 
@@ -23,4 +22,20 @@ endsnippet
 clearsnippets vector
 snippet vec "std::vector (v)" !
 std::vector<${1:char}> ${2:name}
+endsnippet
+
+snippet dox "Doxygen Comment" !b
+///
+/// ${1:Comment}
+///
+endsnippet
+
+snippet dl "Doxygen Comment extra line" !b
+/// ${1:Comment}
+endsnippet
+
+snippet fora "C++11 forall loop" !b
+for (auto ${1:item} : ${2:collection}) {
+    ${3:/* code */}
+}
 endsnippet
