@@ -56,6 +56,7 @@ alias ack="ack-grep"
 
 # folder variables
 ba=~/repos/uni/13ba
+bac=~/repos/uni/13ba/code
 theo=~/repos/tutor/13ss.theoinf
 
 # greeter
