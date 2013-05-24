@@ -29,11 +29,11 @@ set tabclose=previous,left,opener,right
 set tabopen=link:groupright,orphan:groupright,external:end
 
 " Show tabs in Windows as they do not waste (much) space
-if prefs.get('services.sync.client.name') == 'markus-w510'
-    set showtabline=never
-else
-    set showtabline=always
-endif
+"if prefs.get('services.sync.client.name') == 'markus-w510'
+    "set showtabline=never
+"else
+    "set showtabline=always
+"endif
 
 map -silent D -ex tabc
 map -builtin v <C-^>
