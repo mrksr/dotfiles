@@ -78,7 +78,7 @@ set background=dark
 if has("gui_running")
     colorscheme distinguished
 
-    set gfn=Consolas\ 12
+    set gfn=Bitstream\ Vera\ Sans\ Mono\ 10
     set vb t_vb=
     set background=dark
     set guioptions=aegit
@@ -283,6 +283,9 @@ set path+=include
 set tags+=./tags;/
 let &tags.="," . localdir . "systags"
 
+"au Bufenter *.cpp set filetype=cpp11
+"au Bufenter *.h set filetype=cpp11
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -358,6 +361,7 @@ let g:CommandTMaxHeight=5
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': [],
                            \ 'passive_filetypes': ['tex'] }
+let g:syntastic_cpp_compiler_options = ' -std=c++11'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " clang_complete
