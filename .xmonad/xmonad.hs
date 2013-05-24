@@ -80,12 +80,12 @@ myKeys = [
     ] ++ [
       (modifier ++ "M-<F" ++ show (k - 4) ++ ">" , action) |
                           k <- [4..8],
-         (modifier, action) <- [("", windows . W.view $ myWorkspaces !! k),
+         (modifier, action) <- [("", windows . W.greedyView $ myWorkspaces !! k),
                                 ("S-", windows . W.shift $ myWorkspaces !! k)]
     ]
 
 myLayout = onWorkspace "Term" (tabs ||| vs) $
-           Full ||| tabs ||| vs ||| hs
+           noBorders Full ||| tabs ||| vs ||| hs
     where
     tabs     = named "Tabs" (tabbedBottom shrinkText tabTheme)
     vs       = named "VS" (ResizableTall masters delta ratio1 [])
