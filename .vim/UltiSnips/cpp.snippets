@@ -39,3 +39,7 @@ for (auto ${1:item} : ${2:collection}) {
     ${3:/* code */}
 }
 endsnippet
+
+snippet yatt "YAML attribute" !b
+const ${1:type} ${2:name} = (node["$2"]) ? node["$2"].as<$1>() : ${3:def};
+endsnippet

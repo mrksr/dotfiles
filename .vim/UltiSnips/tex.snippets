@@ -1,0 +1,12 @@
+snippet frame "Beamer frame" !b
+\begin{frame}
+    \frametitle{${1:title}}
+    \setbeamercovered{dynamic}
+
+    ${2:content}
+\end{frame}
+endsnippet
+
+snippet alert "a(lert)" !w
+\alert{${1:${VISUAL:this}}}
+endsnippet
