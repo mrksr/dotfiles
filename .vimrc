@@ -147,6 +147,10 @@ let g:Tex_EnvironmentMaps=0
 let g:Tex_FontMaps=0
 let g:Tex_SectionMaps=0
 
+" nicer conceal
+" this is not part of the vim-latex plugin.
+let g:tex_conceal="adgm"
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Haskellmode
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -191,8 +195,6 @@ let g:syntastic_cpp_compiler_options = ' -std=c++11'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " clang_complete
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set conceallevel=2
-set concealcursor=vin
 
 let g:clang_complete_auto=0
 let g:clang_auto_select=1
@@ -402,6 +404,11 @@ set smartindent
 set wrap
 set linebreak
 set display=lastline
+
+" Conceal
+set conceallevel=2
+"set concealcursor=vin
+hi Conceal guibg=black guifg=white
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " IDE

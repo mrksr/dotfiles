@@ -7,6 +7,26 @@ snippet frame "Beamer frame" !b
 \end{frame}
 endsnippet
 
-snippet alert "a(lert)" !w
+snippet "a(lert)?" "Beamer emph" !w
 \alert{${1:${VISUAL:this}}}
+endsnippet
+
+snippet columns "Beamer columns" !b
+\begin{columns}
+    \begin{column}{${1:width}}
+        ${2:content}
+    \end{column}
+\end{columns}
+endsnippet
+
+snippet column "Beamer column" !b
+\begin{column}{${1:width}}
+    ${2:content}
+\end{column}
+endsnippet
+
+snippet center "Center environment" !b
+\begin{center}
+    ${2:content}
+\end{center}
 endsnippet
