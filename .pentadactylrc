@@ -3,7 +3,7 @@
 loadplugins
 
 " Do not let google or grooveshark steal focus
-set strictfocus='chrome:*':laissez-faire,*:despotic,'tryhaskell.org':laissez-faire,'mega.co.nz':laissez-faire
+set strictfocus='chrome:*':laissez-faire,*:moderate,'google':despotic,'grooveshark':despotic
 
 " h and l to hop history
 map h -ex ba
