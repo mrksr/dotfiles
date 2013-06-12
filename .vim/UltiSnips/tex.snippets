@@ -7,7 +7,7 @@ snippet frame "Beamer frame" !b
 \end{frame}
 endsnippet
 
-snippet "a(lert)?" "Beamer emph" !w
+snippet "a(lert)?" "Beamer emph" !r
 \alert{${1:${VISUAL:this}}}
 endsnippet
 
@@ -29,4 +29,32 @@ snippet center "Center environment" !b
 \begin{center}
     ${2:content}
 \end{center}
+endsnippet
+
+snippet "def(inition)?" "Definition environment" !br
+\begin{definition}[${1:name}]
+    ${2:content}
+\end{definition}
+endsnippet
+
+snippet "the(orem)?" "Theorem environment" !br
+\begin{theorem}[${1:name}]
+    ${2:content}
+\end{theorem}
+endsnippet
+
+snippet "pr(oof)?" "Proof environment" !br
+\begin{proof}
+    ${2:content}
+\end{proof}
+endsnippet
+
+snippet "ex(ample)?" "Example environment" !br
+\begin{example}[${1:name}]
+    ${2:content}
+\end{example}
+endsnippet
+
+snippet "in(put)?" "Input" !br
+\input{${1:file}.tex}
 endsnippet

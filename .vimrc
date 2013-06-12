@@ -63,6 +63,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'ujihisa/neco-ghc'
 Bundle 'wincent/Command-T'
 Bundle 'xolox/vim-session'
+Bundle 'xolox/vim-misc'
 Bundle 'YankRing.vim'
 
 " Colorschemes
