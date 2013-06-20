@@ -62,8 +62,8 @@ Bundle 'TagHighlight'
 Bundle 'tpope/vim-surround'
 Bundle 'ujihisa/neco-ghc'
 Bundle 'wincent/Command-T'
-Bundle 'xolox/vim-session'
 Bundle 'xolox/vim-misc'
+Bundle 'xolox/vim-session'
 Bundle 'YankRing.vim'
 
 " Colorschemes
@@ -173,7 +173,7 @@ set sessionoptions-=help
 set sessionoptions-=options
 set sessionoptions-=resize
 set sessionoptions+=buffers
-let g:session_autosave=0
+let g:session_autosave=1
 let g:session_autoload=0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -314,15 +314,19 @@ vnoremap ü "+y
 vnoremap Ü "+p
 inoremap üü <C-r>*
 
-" Folds
-nnoremap - za
-
 " Bufexplorer
 nnoremap <silent>ö :SelectBuf<CR>
 
 " Code Completion
 inoremap <S-Space> <C-x><C-o><C-p>
 inoremap <C-Space> <C-x><C-o><C-p>
+
+" Remap new Leader Key
+nnoremap - ,
+nnoremap _ ;
+
+" Folds
+nnoremap + za
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom Commands
