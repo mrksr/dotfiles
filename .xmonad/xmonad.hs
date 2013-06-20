@@ -54,7 +54,7 @@ myKeys = [
     -- Spawns
     , ("M-o", spawn "gnome-screensaver-command -l")
     , ("M-v", spawn "pavucontrol")
-    , ("M-f", spawn "gvim ~/.xmonad/xmonad.hs ~/.xmobarrc ~/.vimrc")
+    , ("M-f", spawn "gvim ~/.vimrc ~/.xmonad/xmonad.hs ~/.xmobarrc")
     , ("M-p", spawn dmenu)
     , ("<F12>", spawn dmenu)
     , ("M1-<F12>", spawn "kupfer")
@@ -91,7 +91,7 @@ myLayout = onWorkspace "Term" (tabs ||| vs) $
     vs       = named "VS" (ResizableTall masters delta ratio1 [])
     hs       = named "HS" (Mirror (ResizableTall masters delta ratio2 []))
     masters  = 1
-    delta    = 3/100
+    delta    = 2/100
     ratio1   = 21/34
     ratio2   = 23/34
     tabTheme = defaultTheme {
@@ -108,7 +108,6 @@ myLayout = onWorkspace "Term" (tabs ||| vs) $
     }
 
 myStartup = do
-    windows $ W.view "Term"
     -- Wallpaper
     spawn "nitrogen --restore"
     -- Desktop
@@ -124,6 +123,7 @@ myStartup = do
     spawn "pidgin"
     spawn "mopidy"
     spawnOn "Term" term
+    windows $ W.view "Term"
     return ()
     where
     -- Fix <M-q>

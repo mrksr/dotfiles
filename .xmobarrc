@@ -6,6 +6,12 @@ Config {
     , commands = [
              Run Date "%a, %b %_d %k:%M" "date" 10
            , Run Weather "EDDM" ["-t", "<station>: <tempC>C"] 300
+           , Run ThermalZone 0 [
+                  "-t","<temp>°C"
+                , "-H", "60"
+                , "-h", "red"
+                ] 10
+           , Run ThermalZone 0 ["-t","<temp>°C"] 10
            , Run Brightness ["-t", "<percent>%"] 5
            , Run DynNetwork ["-L","0","-H","32","--normal","green","--high","red"] 25
            , Run BatteryP ["BAT0"] [
@@ -21,7 +27,7 @@ Config {
            ]
     , sepChar  = "%"
     , alignSep = "}{"
-    , template = "%StdinReader% }{%music% - %volume% <fc=#888888>λ</fc> %dynnetwork% <fc=#888888>λ</fc>%battery% <fc=#888888>λ</fc> %bright% <fc=#888888>λ</fc> %date%"
+    , template = "%StdinReader% }{%music% - %volume% <fc=#888888>λ</fc> %dynnetwork% <fc=#888888>λ</fc>%battery% <fc=#888888>λ</fc> %thermal0% <fc=#888888>λ</fc> %bright% <fc=#888888>λ</fc> %date%"
 }
 
 -- vim: set ft=haskell:
