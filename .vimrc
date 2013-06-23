@@ -173,8 +173,9 @@ set sessionoptions-=help
 set sessionoptions-=options
 set sessionoptions-=resize
 set sessionoptions+=buffers
-let g:session_autosave=1
-let g:session_autoload=0
+let g:session_autosave='yes'
+let g:session_autosave_periodic=5
+let g:session_autoload='no'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Command-T
