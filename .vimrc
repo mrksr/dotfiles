@@ -100,8 +100,8 @@ if has("win32")
     cd C:\markus\repos
 else
     let localdir="~/.vim_local/"
-    let &undodir=localdir."undodir//"
     set dir=/tmp//,~/tmp//,.
+    set undodir=~/.vim_local/undodir
 endif
 " localdir is later used for the local vimrc import
 
