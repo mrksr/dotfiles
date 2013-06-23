@@ -141,7 +141,7 @@ let g:Tex_IgnoreLevel=7
 let g:Tex_FoldedEnvironments='verbatim,comment,eq,gather,align,figure,table,thebibliography,keywords,abstract,titlepage,frame'
 
 " Disable everything we want UltiSnips to handle
-let g:Imap_UsePlaceholders=0
+let g:Imap_UsePlaceHolders=0
 let g:SmartKeyBS=0
 let g:SmartKeyQuote=0
 let g:Tex_EnvironmentMaps=0
@@ -197,7 +197,6 @@ let g:syntastic_cpp_compiler_options = ' -std=c++11'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " clang_complete
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 let g:clang_complete_auto=0
 let g:clang_auto_select=1
 let g:clang_complete_copen=0
@@ -335,13 +334,14 @@ nnoremap + za
 " cd to current file
 com! CD cd %:p:h
 
-com! Q q
-com! Qa qa
-
 com! -nargs=* -bang S OpenSession<bang> <args>
 
 " create .clang_complete file
 com! CLmake make CC='~/.vim/bundle/clang_complete/bin/cc_args.py gcc' CXX='~/.vim/bundle/clang_complete/bin/cc_args.py g++' -B
+
+" typo commands
+com! Q q
+com! Qa qa
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VIM user interface
@@ -381,14 +381,14 @@ set hlsearch
 set incsearch
 set lazyredraw
 set showmatch
-set mat=5
+set matchtime=5
 
 " No sound on errors
 set noerrorbells
 set visualbell
 set t_vb=
 autocmd GUIEnter * set visualbell t_vb=
-set tm=500
+set timeoutlen=500
 
 " Show tab-characters
 set list
@@ -419,7 +419,6 @@ hi Conceal guibg=black guifg=white
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " IDE
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 set path+=include
 " To create systags run
 " ctags -R -f $LOCALDIR/systags --c-kinds=+p --fields=+iaS --extra=+q /usr/include /usr/local/include
