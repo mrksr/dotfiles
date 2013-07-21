@@ -79,7 +79,6 @@ set background=dark
 if has("gui_running")
     colorscheme distinguished
 
-    set gfn=Bitstream\ Vera\ Sans\ Mono\ 10
     set vb t_vb=
     set background=dark
     set guioptions=aegit
@@ -94,10 +93,18 @@ else
     endif
 endif
 
+" Font
+if has("gui_running")
+    if has("win32")
+        set gfn=Consolas:h11:cANSI
+    else
+        set gfn=Bitstream\ Vera\ Sans\ Mono\ 10
+    endif
+endif
+
 if has("win32")
     let localdir="%HOME%\\vim_local\\"
     set undodir=C:\Windows\Temp//
-    cd C:\markus\repos
 else
     let localdir="~/.vim_local/"
     set dir=/tmp//,~/tmp//,.
