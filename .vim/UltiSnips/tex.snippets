@@ -7,8 +7,12 @@ snippet frame "Beamer frame" !b
 \end{frame}
 endsnippet
 
-snippet "a(lert)?" "Beamer emph" !r
+snippet "al(ert)?" "Beamer emph" !r
 \alert{${1:${VISUAL:this}}}
+endsnippet
+
+snippet "st(ructure)?" "Beamer emph" !r
+\structure{${1:${VISUAL:this}}}
 endsnippet
 
 snippet columns "Beamer columns" !b
@@ -27,7 +31,7 @@ endsnippet
 
 snippet center "Center environment" !b
 \begin{center}
-    ${2:content}
+    ${2:${VISUAL:content}}
 \end{center}
 endsnippet
 
@@ -57,4 +61,24 @@ endsnippet
 
 snippet "in(put)?" "Input" !br
 \input{${1:file}.tex}
+endsnippet
+
+snippet note "Beamer Note" !b
+\note[item]{${2:content}}
+endsnippet
+
+snippet block "Block environment" !b
+\begin{block}{${1:name}}
+    ${2:content}
+\end{block}
+endsnippet
+
+snippet du "Define Unit" !b
+\defineUnit{${1:name}}{%
+${2:${VISUAL:content}}
+}
+endsnippet
+
+snippet su "Show Unit" !b
+\showUnit{${1:${VISUAL:name}}}
 endsnippet
