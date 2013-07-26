@@ -44,6 +44,7 @@ Bundle 'Cpp11-Syntax-Support'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'edsono/vim-matchit'
 Bundle 'ervandew/supertab'
+Bundle 'godlygeek/tabular.git'
 Bundle 'JazzCore/neocomplcache-ultisnips'
 Bundle 'jcf/vim-latex'
 Bundle 'Lokaltog/vim-powerline'
@@ -343,6 +344,9 @@ com! CLmake make CC='~/.vim/bundle/clang_complete/bin/cc_args.py gcc' CXX='~/.vi
 com! Q q
 com! Qa qa
 
+" write again with root permissions
+cmap w!! w !sudo tee %
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -419,7 +423,7 @@ hi Conceal guibg=black guifg=white
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " IDE
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set path+=include
+set path+=include/**
 " To create systags run
 " ctags -R -f $LOCALDIR/systags --c-kinds=+p --fields=+iaS --extra=+q /usr/include /usr/local/include
 set tags+=./tags;/
