@@ -347,8 +347,9 @@ com! -nargs=* -bang S OpenSession<bang> <args>
 com! CLmake make CC='~/.vim/bundle/clang_complete/bin/cc_args.py gcc' CXX='~/.vim/bundle/clang_complete/bin/cc_args.py g++' -B
 
 " typo commands
-com! Q q
-com! Qa qa
+com! -bang Q q<bang>
+com! -bang Qa qa<bang>
+com! -bang QA qa<bang>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VIM user interface
