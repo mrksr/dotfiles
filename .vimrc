@@ -114,7 +114,7 @@ set noswapfile
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let mapleader=","
+let mapleader=" "
 scriptencoding utf-8
 set encoding=utf-8
 
@@ -283,8 +283,8 @@ vnoremap <silent><leader>o :g/^$/.,/./-j<CR>:let @/=''<CR>
 "map <leader>t :!ctags -R --c++-kinds=+pl --fields=+iaS --extra=+q .<CR>
 
 " Space scrolling
-nnoremap <Space> <C-f>
-nnoremap <S-Space> <C-b>
+"nnoremap <Space> <C-f>
+"nnoremap <S-Space> <C-b>
 
 " Paste and Yank to System Register
 nnoremap ü "+p
