@@ -189,6 +189,7 @@ let g:syntastic_cpp_compiler_options = ' -std=c++11'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 0
+set updatetime=1000
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UltiSnips
@@ -205,11 +206,11 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 " Custom Mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Splits
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
-map ß <C-W>=
+nnoremap <C-j> <C-W>j
+nnoremap <C-k> <C-W>k
+nnoremap <C-h> <C-W>h
+nnoremap <C-l> <C-W>l
+nnoremap ß <C-W>=
 
 " Move by wrapped line
 nnoremap j gj
@@ -224,32 +225,32 @@ inoremap <silent><up> <C-o>gk
 inoremap <silent><down> <C-o>gj
 
 " Use arrows to move between buffers
-map <silent><C-right> :bn<cr>
-map <silent><C-left> :bp<cr>
+nnoremap <silent><C-right> :bn<cr>
+nnoremap <silent><C-left> :bp<cr>
 
 " Function Keys
-map <silent><F3> :YRShow<CR>
-imap <silent><F3> <ESC>:YRShow<CR>
-vmap <silent><F3> c<ESC>:YRShow<CR>
-map <silent><F8> :TlistToggle<CR>
-map <silent><F9> :NERDTreeToggle<CR><C-W>l
+nnoremap <silent><F3> :YRShow<CR>
+inoremap <silent><F3> <ESC>:YRShow<CR>
+vnoremap <silent><F3> c<ESC>:YRShow<CR>
+nnoremap <silent><F8> :TlistToggle<CR>
+nnoremap <silent><F9> :NERDTreeToggle<CR><C-W>l
 
 " Use Perl Regexes
 nnoremap / /\v
 vnoremap / /\v
 
 " Custom leader maps
-map <silent><leader><Space> :nohl<CR>
-map <silent><leader>l :se nolist!<CR>
-map <silent><leader>n :sign unplace *<CR>
-map <silent><leader>y :SyntasticCheck<CR>
+nnoremap <silent><leader><Space> :nohl<CR>
+nnoremap <silent><leader>l :se nolist!<CR>
+nnoremap <silent><leader>n :sign unplace *<CR>
+nnoremap <silent><leader>y :SyntasticCheck<CR>
 " Spell Checking
-map <silent><leader>ss :setlocal spell!<cr>
-map <silent><leader>sn ]s
-map <silent><leader>sp [s
-map <silent><leader>sa zg
-map <silent><leader>s? z=
-map <silent><leader>sc z=
+nnoremap <silent><leader>ss :setlocal spell!<cr>
+nnoremap <silent><leader>sn ]s
+nnoremap <silent><leader>sp [s
+nnoremap <silent><leader>sa zg
+nnoremap <silent><leader>s? z=
+nnoremap <silent><leader>sc z=
 " Align
 nnoremap <leader>i :Align<Space>
 vnoremap <leader>i :Align<Space>
