@@ -9,9 +9,11 @@ set strictfocus='chrome:*':laissez-faire,*:moderate,'google':despotic,'groovesha
 map h -ex ba
 map l -ex fo
 
-" H or m and L or , to hop tabs
+" H, <c-h> or m and L, <c-l> or , to hop tabs
 map H gT
 map L <C-n>
+map <c-h> gT
+map <c-l> <C-n>
 map -builtin m gT
 map -builtin , <C-n>
 
