@@ -45,6 +45,7 @@ Bundle 'edsono/vim-matchit'
 Bundle 'godlygeek/tabular.git'
 Bundle 'jcf/vim-latex'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'Lokaltog/vim-easymotion'
 Bundle 'lukerandall/haskellmode-vim'
 Bundle 'mattn/zencoding-vim'
 Bundle 'mortice/taglist.vim'
@@ -202,6 +203,11 @@ let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" EasyMotion
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:EasyMotion_leader_key='<leader>'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom Mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Splits
@@ -240,9 +246,6 @@ vnoremap / /\v
 
 " Custom leader maps
 nnoremap <silent><leader><Space> :nohl<CR>
-nnoremap <silent><leader>l :se nolist!<CR>
-nnoremap <silent><leader>n :sign unplace *<CR>
-nnoremap <silent><leader>y :SyntasticCheck<CR>
 " Spell Checking
 nnoremap <silent><leader>ss :setlocal spell!<cr>
 nnoremap <silent><leader>sn ]s
@@ -250,20 +253,15 @@ nnoremap <silent><leader>sp [s
 nnoremap <silent><leader>sa zg
 nnoremap <silent><leader>s? z=
 nnoremap <silent><leader>sc z=
-" Align
-nnoremap <leader>i :Align<Space>
-vnoremap <leader>i :Align<Space>
-nnoremap <leader>I :Align!<Space>
-vnoremap <leader>I :Align!<Space>
 " Remove trailing whitespace
-nnoremap <silent><leader>w :%s/\s\+$//<CR>:let @/=''<CR>
-vnoremap <silent><leader>w :'<,'>s/\s\+$//<CR>:let @/=''<CR>
+nnoremap <silent><leader>i :%s/\s\+$//<CR>:let @/=''<CR>
+vnoremap <silent><leader>i :'<,'>s/\s\+$//<CR>:let @/=''<CR>
 " Remove blank lines
-nnoremap <silent><leader>e :g/^$/d<CR>:let @/=''<CR>
-vnoremap <silent><leader>e :g/^$/d<CR>:let @/=''<CR>
+nnoremap <silent><leader>p :g/^$/d<CR>:let @/=''<CR>
+vnoremap <silent><leader>p :g/^$/d<CR>:let @/=''<CR>
 " Collapse lines
-nnoremap <silent><leader>r Goj<Esc>:g/^$/.,/./-j<CR>Gdd:let @/=''<CR>
-vnoremap <silent><leader>r :g/^$/.,/./-j<CR>:let @/=''<CR>
+nnoremap <silent><leader>o Goj<Esc>:g/^$/.,/./-j<CR>Gdd:let @/=''<CR>
+vnoremap <silent><leader>o :g/^$/.,/./-j<CR>:let @/=''<CR>
 " CTags
 "map <leader>t :!ctags -R --c++-kinds=+pl --fields=+iaS --extra=+q .<CR>
 
