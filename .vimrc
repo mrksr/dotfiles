@@ -410,9 +410,6 @@ set path+=include/**
 set tags+=./tags;/
 let &tags.="," . localdir . "systags"
 
-"au Bufenter *.cpp set filetype=cpp11
-"au Bufenter *.h set filetype=cpp11
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Local .vimrc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
