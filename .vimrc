@@ -49,7 +49,6 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'lukerandall/haskellmode-vim'
 Bundle 'mattn/zencoding-vim'
-Bundle 'mortice/taglist.vim'
 Bundle 'rygwdn/vim-conque'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
@@ -76,7 +75,6 @@ set background=dark
 if has("gui_running")
     colorscheme distinguished
 
-    set gfn=Bitstream\ Vera\ Sans\ Mono\ 10
     set vb t_vb=
     set background=dark
     set guioptions=aegit
@@ -91,10 +89,18 @@ else
     endif
 endif
 
+" Font
+if has("gui_running")
+    if has("win32")
+        set gfn=Consolas:h11:cANSI
+    else
+        set gfn=Bitstream\ Vera\ Sans\ Mono\ 10
+    endif
+endif
+
 if has("win32")
     let localdir="%HOME%\\vim_local\\"
     set undodir=C:\Windows\Temp//
-    cd C:\markus\repos
 else
     let localdir="~/.vim_local/"
     set dir=/tmp//,~/tmp//,.
@@ -309,8 +315,9 @@ com! -nargs=* -bang S OpenSession<bang> <args>
 com! CLmake make CC='~/.vim/bundle/clang_complete/bin/cc_args.py gcc' CXX='~/.vim/bundle/clang_complete/bin/cc_args.py g++' -B
 
 " typo commands
-com! Q q
-com! Qa qa
+com! -bang Q q<bang>
+com! -bang Qa qa<bang>
+com! -bang QA qa<bang>
 
 " write again with root permissions
 cmap w!! w !sudo tee %
