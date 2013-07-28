@@ -165,10 +165,14 @@ au Bufenter *.hs compiler ghc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-session
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set sessionoptions+=buffers
+set sessionoptions-=blank
 set sessionoptions-=help
+set sessionoptions-=localoptions
 set sessionoptions-=options
 set sessionoptions-=resize
-set sessionoptions+=buffers
+set sessionoptions-=winpos
+set sessionoptions-=winsize
 let g:session_autosave='yes'
 let g:session_autosave_periodic=5
 let g:session_autoload='no'
