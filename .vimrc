@@ -43,25 +43,21 @@ Bundle 'bufkill.vim'
 Bundle 'Cpp11-Syntax-Support'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'edsono/vim-matchit'
-Bundle 'ervandew/supertab'
 Bundle 'godlygeek/tabular.git'
-Bundle 'JazzCore/neocomplcache-ultisnips'
 Bundle 'jcf/vim-latex'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'lukerandall/haskellmode-vim'
 Bundle 'mattn/zencoding-vim'
 Bundle 'mortice/taglist.vim'
-Bundle 'Rip-Rip/clang_complete'
 Bundle 'rygwdn/vim-conque'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'SelectBuf'
-Bundle 'Shougo/neocomplcache.vim'
 Bundle 'SirVer/ultisnips'
 Bundle 'TagHighlight'
 Bundle 'tpope/vim-surround'
-Bundle 'ujihisa/neco-ghc'
+Bundle 'Valloric/YouCompleteMe'
 Bundle 'wincent/Command-T'
 Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-session'
@@ -196,36 +192,10 @@ let g:syntastic_mode_map = { 'mode': 'active',
 let g:syntastic_cpp_compiler_options = ' -std=c++11'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" clang_complete
+" YouCompleteMe
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:clang_complete_auto=0
-let g:clang_auto_select=1
-let g:clang_complete_copen=0
-let g:clang_hl_errors=0
-let g:clang_close_preview=1
-
-let g:clang_snippets=0
-let g:clang_snippets_engine='ultisnips'
-
-let g:clang_complete_macros=1
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" neocomplcache
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_force_overwrite_completefunc = 1
-
-if !exists('g:neocomplcache_force_omni_patterns')
-    let g:neocomplcache_force_omni_patterns = {}
-endif
-let g:neocomplcache_force_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplcache_force_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-let g:neocomplcache_force_omni_patterns.objc = '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplcache_force_omni_patterns.objcpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-
-let g:necoghc_enable_detailed_browse = 1
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf = 0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UltiSnips
@@ -233,10 +203,10 @@ let g:necoghc_enable_detailed_browse = 1
 let g:UltiSnipsDontReverseSearchPath="1"
 let g:UltiSnipsEditSplit="vertical"
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Supertab
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:SuperTabDefaultCompletionType='<c-x><c-u>'
+" Avoid Clashes with YCM
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom Mappings
