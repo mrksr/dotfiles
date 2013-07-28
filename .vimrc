@@ -44,8 +44,9 @@ Bundle 'derekwyatt/vim-scala'
 Bundle 'edsono/vim-matchit'
 Bundle 'godlygeek/tabular.git'
 Bundle 'jcf/vim-latex'
-Bundle 'Lokaltog/vim-powerline'
+Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-easymotion'
+Bundle 'Lokaltog/vim-powerline'
 Bundle 'lukerandall/haskellmode-vim'
 Bundle 'mattn/zencoding-vim'
 Bundle 'mortice/taglist.vim'
@@ -58,7 +59,6 @@ Bundle 'SirVer/ultisnips'
 Bundle 'TagHighlight'
 Bundle 'tpope/vim-surround'
 Bundle 'Valloric/YouCompleteMe'
-Bundle 'wincent/Command-T'
 Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-session'
 Bundle 'YankRing.vim'
@@ -206,6 +206,13 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 " EasyMotion
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:EasyMotion_leader_key='<leader>'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Ctrl P
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ctrlp_match_window='bottom,order:ttb,min:5,max:5'
+let g:ctrlp_map='<leader>m'
+nnoremap <silent><leader>ö :CtrlPBuffer<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom Mappings
