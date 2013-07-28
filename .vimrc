@@ -157,13 +157,6 @@ au Bufenter *.hs compiler ghc
 " see top of file
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Showmarks
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:showmarks_ignore_type='hqpm'
-let g:showmarks_include='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
-let g:showmarks_enable=0
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-session
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set sessionoptions-=help
