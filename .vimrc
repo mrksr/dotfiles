@@ -293,6 +293,9 @@ vnoremap ü "+y
 vnoremap Ü "+p
 inoremap üü <C-r>*
 
+" Replace without destroying the default register
+vnoremap r "_dP
+
 " Bufexplorer
 nnoremap <silent>ö :SelectBuf<CR>
 
