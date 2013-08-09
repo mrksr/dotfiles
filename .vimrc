@@ -195,6 +195,8 @@ let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': [],
                            \ 'passive_filetypes': ['tex'] }
 let g:syntastic_cpp_compiler_options = ' -std=c++11'
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '⚠'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " YouCompleteMe
@@ -256,6 +258,7 @@ nnoremap <silent><C-left> :bp<cr>
 nnoremap <silent><F3> :YRShow<CR>
 inoremap <silent><F3> <ESC>:YRShow<CR>
 vnoremap <silent><F3> c<ESC>:YRShow<CR>
+nnoremap <silent><F5> :YcmForceCompileAndDiagnostics<CR>
 nnoremap <silent><F8> :TlistToggle<CR>
 nnoremap <silent><F9> :NERDTreeToggle<CR><C-W>l
 
