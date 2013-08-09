@@ -58,6 +58,7 @@ alias ack="ack-grep"
 ba=~/repos/uni/13ba
 bac=~/repos/uni/13ba/code
 theo=~/repos/tutor/13ss.theoinf
+eti=~/repos/uni/11etigp
 
 # greeter
 command fortune -s;echo
