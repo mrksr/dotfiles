@@ -11,6 +11,9 @@ if has("win32")
     let g:haddock_browser="C:/.TOOLS/Mozilla Firefox/firefox.exe"
 
     set rtp+=$VIM/vimfiles/bundle/vundle
+    set rtp+=~/.vim/bundle/vundle/
+
+    cd C:\markus
 else
     let g:haddock_docdir='/usr/local/share/doc/ghc/html/'
     let g:haddock_browser="firefox"
