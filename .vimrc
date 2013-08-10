@@ -284,12 +284,6 @@ vnoremap <silent><leader>p :g/^$/d<CR>:let @/=''<CR>
 " Collapse lines
 nnoremap <silent><leader>o Goj<Esc>:g/^$/.,/./-j<CR>Gdd:let @/=''<CR>
 vnoremap <silent><leader>o :g/^$/.,/./-j<CR>:let @/=''<CR>
-" CTags
-"map <leader>t :!ctags -R --c++-kinds=+pl --fields=+iaS --extra=+q .<CR>
-
-" Space scrolling
-"nnoremap <Space> <C-f>
-"nnoremap <S-Space> <C-b>
 
 " Paste and Yank to System Register
 nnoremap ü "+p
@@ -308,12 +302,11 @@ nnoremap <silent>ö :SelectBuf<CR>
 inoremap <S-Space> <C-x><C-o><C-p>
 inoremap <C-Space> <C-x><C-o><C-p>
 
-" Remap new Leader Key
-nnoremap - ,
-nnoremap _ ;
-
 " Folds
 nnoremap + za
+
+" Macro execution
+nnoremap Q @
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom Commands
