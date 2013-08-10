@@ -47,13 +47,14 @@ Bundle 'derekwyatt/vim-scala'
 Bundle 'edsono/vim-matchit'
 Bundle 'godlygeek/tabular.git'
 Bundle 'jcf/vim-latex'
+Bundle 'kana/vim-textobj-entire'
+Bundle 'kana/vim-textobj-indent'
+Bundle 'kana/vim-textobj-user'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'lukerandall/haskellmode-vim'
 Bundle 'mattn/zencoding-vim'
-Bundle 'michaeljsmith/vim-indent-object'
-Bundle 'Rename'
 Bundle 'rygwdn/vim-conque'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
@@ -61,6 +62,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'SelectBuf'
 Bundle 'SirVer/ultisnips'
 Bundle 'TagHighlight'
+Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-surround'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'xolox/vim-misc'
@@ -68,8 +70,13 @@ Bundle 'xolox/vim-session'
 Bundle 'YankRing.vim'
 
 " Colorschemes
+Bundle 'ciaranm/inkpot'
+Bundle 'jeremycw/darkspectrum'
+Bundle 'lettuce.vim'
 Bundle 'Lokaltog/vim-distinguished'
 Bundle 'matthewtodd/vim-twilight'
+Bundle 'nanotech/jellybeans.vim'
+Bundle 'peaksea'
 Bundle 'sickill/vim-sunburst'
 Bundle 'vim-scripts/synic.vim'
 
@@ -78,7 +85,7 @@ Bundle 'vim-scripts/synic.vim'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set background=dark
 if has("gui_running")
-    colorscheme distinguished
+    colorscheme jellybeans
 
     set vb t_vb=
     set background=dark
@@ -90,7 +97,7 @@ else
     if &t_Co != 256
         colorscheme synic
     else
-        colorscheme distinguished
+        colorscheme jellybeans
     endif
 endif
 
