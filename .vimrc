@@ -55,9 +55,9 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'lukerandall/haskellmode-vim'
 Bundle 'mattn/zencoding-vim'
+Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'rygwdn/vim-conque'
 Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'SelectBuf'
 Bundle 'SirVer/ultisnips'
@@ -90,9 +90,6 @@ if has("gui_running")
     set vb t_vb=
     set background=dark
     set guioptions=aegit
-
-    " Close vim if NERDTree is the last buffer
-    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 else
     if &t_Co != 256
         colorscheme synic
@@ -270,7 +267,6 @@ inoremap <silent><F3> <ESC>:YRShow<CR>
 vnoremap <silent><F3> c<ESC>:YRShow<CR>
 nnoremap <silent><F5> :YcmForceCompileAndDiagnostics<CR>
 nnoremap <silent><F8> :TlistToggle<CR>
-nnoremap <silent><F9> :NERDTreeToggle<CR><C-W>l
 
 " Use Perl Regexes
 nnoremap / /\v
