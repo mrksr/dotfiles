@@ -205,8 +205,8 @@ let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': [],
                            \ 'passive_filetypes': ['tex'] }
 let g:syntastic_cpp_compiler_options = ' -std=c++11'
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_warning_symbol = '⚠'
+let g:syntastic_error_symbol = '!'
+let g:syntastic_warning_symbol = '?'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " YouCompleteMe
