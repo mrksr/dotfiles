@@ -46,7 +46,8 @@ Bundle 'bufkill.vim'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'edsono/vim-matchit'
 Bundle 'godlygeek/tabular.git'
-Bundle 'jcf/vim-latex'
+"Bundle 'jcf/vim-latex'
+Bundle 'LaTeX-Box-Team/LaTeX-Box'
 Bundle 'kana/vim-textobj-entire'
 Bundle 'kana/vim-textobj-indent'
 Bundle 'kana/vim-textobj-user'
@@ -55,9 +56,9 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'lukerandall/haskellmode-vim'
 Bundle 'mattn/zencoding-vim'
+Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'rygwdn/vim-conque'
 Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'SelectBuf'
 Bundle 'SirVer/ultisnips'
@@ -90,9 +91,6 @@ if has("gui_running")
     set vb t_vb=
     set background=dark
     set guioptions=aegit
-
-    " Close vim if NERDTree is the last buffer
-    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 else
     if &t_Co != 256
         colorscheme synic
@@ -151,7 +149,8 @@ let g:Tex_CompileRule_pdf='pdflatex -synctex=1 -interaction=nonstopmode $*'
 let g:Tex_ViewRule_pdf='zathura'
 let g:Tex_DefaultTargetFormat='pdf'
 let g:Tex_MultipleCompileFormats='dvi,pdf'
-let g:Tex_GotoError=1
+let g:Tex_GotoError=0
+let g:Tex_ShowErrorContext=0
 let g:Tex_IgnoreLevel=7
 let g:Tex_FoldedEnvironments='verbatim,comment,eq,gather,align,figure,table,thebibliography,keywords,abstract,titlepage,frame'
 
@@ -236,7 +235,7 @@ let g:EasyMotion_leader_key='<leader>'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:ctrlp_match_window='bottom,order:ttb,min:5,max:5'
 let g:ctrlp_map='<leader>m'
-nnoremap <silent><leader>ö :CtrlPBuffer<CR>
+nnoremap <silent>ö :CtrlPBuffer<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom Mappings
@@ -270,7 +269,6 @@ inoremap <silent><F3> <ESC>:YRShow<CR>
 vnoremap <silent><F3> c<ESC>:YRShow<CR>
 nnoremap <silent><F5> :YcmForceCompileAndDiagnostics<CR>
 nnoremap <silent><F8> :TlistToggle<CR>
-nnoremap <silent><F9> :NERDTreeToggle<CR><C-W>l
 
 " Use Perl Regexes
 nnoremap / /\v
@@ -294,6 +292,8 @@ vnoremap <silent><leader>p :g/^$/d<CR>:let @/=''<CR>
 " Collapse lines
 nnoremap <silent><leader>o Goj<Esc>:g/^$/.,/./-j<CR>Gdd:let @/=''<CR>
 vnoremap <silent><leader>o :g/^$/.,/./-j<CR>:let @/=''<CR>
+" Bufexplorer
+nnoremap <silent><leader>ö :SelectBuf<CR>
 
 " Paste and Yank to System Register
 nnoremap ü "+p
@@ -304,9 +304,6 @@ inoremap üü <C-r>*
 
 " Replace without destroying the default register
 vnoremap r "_dP
-
-" Bufexplorer
-nnoremap <silent>ö :SelectBuf<CR>
 
 " Code Completion
 inoremap <S-Space> <C-x><C-o><C-p>
@@ -324,7 +321,7 @@ nnoremap Q @
 " cd to current file
 com! CD cd %:p:h
 
-com! -nargs=* -bang S OpenSession<bang> <args>
+com! -nargs=* -bang S OpenSession<bang> <args> | set lines&
 
 " create .clang_complete file
 com! CLmake make CC='~/.vim/bundle/clang_complete/bin/cc_args.py gcc' CXX='~/.vim/bundle/clang_complete/bin/cc_args.py g++' -B
