@@ -1,0 +1,12 @@
+[ui]
+username = Markus Kaiser <markus.kaiser@in.tum.de>
+verbose = True
+
+[hostfingerprints]
+hg.zfix.org = 57:4c:f9:34:e2:59:41:b3:fa:87:f2:64:96:39:51:fb:e9:5c:6e:cf
+tutor.zfix.org = 57:4c:f9:34:e2:59:41:b3:fa:87:f2:64:96:39:51:fb:e9:5c:6e:cf
+
+[extensions]
+fetch =
+hgext.convert =
+prompt = ~/.hg_ext/hg-prompt/prompt.py
