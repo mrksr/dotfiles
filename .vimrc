@@ -65,10 +65,13 @@ Bundle 'SirVer/ultisnips'
 Bundle 'TagHighlight'
 Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-surround'
-Bundle 'Valloric/YouCompleteMe'
 Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-session'
 Bundle 'YankRing.vim'
+if v:version > 703 || (v:version == 703 && has('patch584'))
+    " Only load YCM when it will run
+    Bundle 'Valloric/YouCompleteMe'
+endif
 
 " Colorschemes
 Bundle 'ciaranm/inkpot'
