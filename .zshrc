@@ -37,6 +37,8 @@ source $ZSH/oh-my-zsh.sh
 HISTSIZE=1000
 SAVEHIST=1000
 
+setopt extendedglob
+
 set -o vi
 autoload -Uz edit-command-line
 zle -N edit-command-line
@@ -55,9 +57,12 @@ alias vnc="xtightvncviewer 192.168.2.42"
 alias ack="ack-grep"
 
 # folder variables
+repos=~/repos
+uni=~/repos/uni
 ba=~/repos/uni/13ba
 bac=~/repos/uni/13ba/code
-theo=~/repos/tutor/13ss.theoinf
+bat=~/repos/uni/13ba/thesis
+tutor=~/repos/tutor
 eti=~/repos/uni/11etigp
 
 # greeter
