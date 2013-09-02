@@ -303,7 +303,7 @@ vnoremap Ü "+p
 inoremap üü <C-r>*
 
 " Replace without destroying the default register
-vnoremap r "_dP
+vnoremap o "_dP
 
 " Code Completion
 inoremap <S-Space> <C-x><C-o><C-p>
