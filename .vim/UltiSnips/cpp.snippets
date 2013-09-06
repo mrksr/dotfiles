@@ -34,8 +34,14 @@ snippet dl "Doxygen Comment extra line" !b
 /// ${1:Comment}
 endsnippet
 
-snippet fora "C++11 forall loop" !b
+snippet foran "C++11 forall loop" !b
 for (auto ${1:item} : ${2:collection}) {
+    ${3:/* code */}
+}
+endsnippet
+
+snippet fora "C++11 forall loop" !b
+for (auto& ${1:item} : ${2:collection}) {
     ${3:/* code */}
 }
 endsnippet
