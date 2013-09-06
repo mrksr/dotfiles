@@ -66,7 +66,11 @@ tutor=~/repos/tutor
 eti=~/repos/uni/11etigp
 
 # greeter
-command -v fortune -s && echo
+command -v fortune > /dev/null
+if [ $? = 0 ]; then
+    fortune -s;
+    echo;
+fi
 
 # export PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
 export PATH=$HOME/.cabal/bin:/opt/procfun/sbt/bin:$PATH
