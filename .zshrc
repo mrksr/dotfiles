@@ -29,7 +29,19 @@ ZSH_THEME="_mine"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(mercurial extract wakeonlan cp scala sbt python vi-mode debian)
+plugins=( \
+    cp \
+    debian \
+    extract \
+    last-working-dir \
+    mercurial \
+    python \
+    sbt \
+    scala \
+    screen \
+    vi-mode \
+    wakeonlan \
+)
 
 source $ZSH/oh-my-zsh.sh
 
