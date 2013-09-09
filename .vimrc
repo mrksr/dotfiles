@@ -1,6 +1,6 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vundle
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                   Vundle                                   "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible
 
 let g:Powerline_symbols='compatible'
@@ -83,9 +83,9 @@ Bundle 'peaksea'
 Bundle 'sickill/vim-sunburst'
 Bundle 'vim-scripts/synic.vim'
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Environment specifics
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                Environment                                 "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set background=dark
 if has("gui_running")
     colorscheme jellybeans
@@ -123,9 +123,9 @@ endif
 set undofile
 set noswapfile
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plugins
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                  Plugins                                   "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader=" "
 scriptencoding utf-8
 set encoding=utf-8
@@ -139,9 +139,9 @@ filetype plugin on
 " Powerline
 set laststatus=2
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-latex
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""
+"  vim-latex  "
+"""""""""""""""
 set grepprg="grep -nH $*"
 
 let g:tex_flavor='latex'
@@ -168,16 +168,16 @@ let g:Tex_SectionMaps=0
 " this is not part of the vim-latex plugin.
 let g:tex_conceal="adgm"
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Haskellmode
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""
+"  Haskellmode  "
+"""""""""""""""""
 " use ghc functionality for haskell files
 au Bufenter *.hs compiler ghc
 " see top of file
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-session
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""
+"  vim-session  "
+"""""""""""""""""
 set sessionoptions+=buffers
 set sessionoptions-=blank
 set sessionoptions-=help
@@ -190,18 +190,9 @@ let g:session_autosave='yes'
 let g:session_autosave_periodic=5
 let g:session_autoload='no'
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Command-T
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:CommandTMaxFiles=10000
-let g:CommandTMaxDepth=15
-let g:CommandTMaxCachedDirectories=1
-let g:CommandTAlwaysShowDotFiles=0
-let g:CommandTMaxHeight=5
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Syntastic
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""
+"  Syntastic  "
+"""""""""""""""
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': [],
                            \ 'passive_filetypes': ['tex'] }
@@ -209,16 +200,16 @@ let g:syntastic_cpp_compiler_options = ' -std=c++11'
 let g:syntastic_error_symbol = '!'
 let g:syntastic_warning_symbol = '?'
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" YouCompleteMe
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""
+"  YouCompleteMe  "
+"""""""""""""""""""
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 0
 set updatetime=1000
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" UltiSnips
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""
+"  UltiSnips  "
+"""""""""""""""
 let g:UltiSnipsDontReverseSearchPath="1"
 let g:UltiSnipsEditSplit="vertical"
 
@@ -227,21 +218,21 @@ let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" EasyMotion
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""
+"  EasyMotion  "
+""""""""""""""""
 let g:EasyMotion_leader_key='<leader>'
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Ctrl P
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""
+"  Ctrl-P  "
+""""""""""""
 let g:ctrlp_match_window='bottom,order:ttb,min:5,max:5'
 let g:ctrlp_map='<leader>m'
 nnoremap <silent>ö :CtrlPBuffer<CR>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Custom Mappings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                  Mappings                                  "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Splits
 nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
@@ -317,9 +308,9 @@ nnoremap + za
 " Macro execution
 nnoremap Q @
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Custom Commands
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                  Commands                                  "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " cd to current file
 com! CD cd %:p:h
 
@@ -336,9 +327,9 @@ com! -bang QA qa<bang>
 " write again with root permissions
 cmap w!! w !sudo tee %
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" VIM user interface
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 Interface                                  "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use mouse when possible
 set mouse=a
 
@@ -409,18 +400,18 @@ set conceallevel=2
 "set concealcursor=vin
 hi Conceal guibg=black guifg=white
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" IDE
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                    IDE                                     "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set path+=include/**
 " To create systags run
 " ctags -R -f $LOCALDIR/systags --c-kinds=+p --fields=+iaS --extra=+q /usr/include /usr/local/include
 set tags+=./tags;/
 let &tags.="," . localdir . "systags"
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Local .vimrc
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                Local .vimrc                                "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 try
     exec ":so " . localdir . ".vimrc_local"
 catch
