@@ -1,5 +1,4 @@
-xterm*faceName: xft:ubuntu mono for powerline-13
-
+xterm*faceName: xft:ubuntu mono-13
 
 urxvt.termName: rxvt-unicode-256color
 urxvt.depth: 32
@@ -9,7 +8,7 @@ urxvt.intensitystyles: false
 urxvt.scrollBar: false
 urxvt.scrollWithBuffer: false
 urxvt.scrollTtyKeypress: true
-urxvt.font: xft:ubuntu mono for powerline-12
+urxvt.font: xft:ubuntu mono-12
 urxvt.savelines: 5000
 
 urxvt.perl-ext-common: font-size
