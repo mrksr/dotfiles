@@ -2,6 +2,8 @@
 "                                   Vundle                                   "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible
+scriptencoding utf-8
+set encoding=utf-8
 
 if has("win32")
     let $LANG='en'
@@ -124,8 +126,7 @@ set noswapfile
 "                                  Plugins                                   "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader=" "
-scriptencoding utf-8
-set encoding=utf-8
+let maplocalleader=" "
 
 syntax on
 
