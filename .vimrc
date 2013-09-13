@@ -67,8 +67,10 @@ Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-session'
 Bundle 'YankRing.vim'
 if v:version > 703 || (v:version == 703 && has('patch584'))
-    " Only load YCM when it will run
-    Bundle 'Valloric/YouCompleteMe'
+    if !has("win32")
+        " Only load YCM when it will run
+        Bundle 'Valloric/YouCompleteMe'
+    endif
 endif
 
 " Colorschemes
