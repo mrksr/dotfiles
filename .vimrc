@@ -3,7 +3,6 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible
 
-let g:Powerline_symbols='compatible'
 if has("win32")
     let $LANG='en'
 
@@ -17,9 +16,6 @@ if has("win32")
 else
     let g:haddock_docdir='/usr/local/share/doc/ghc/html/'
     let g:haddock_browser="firefox"
-    if has('gui_running')
-        let g:Powerline_symbols='fancy'
-    endif
 
     set rtp+=~/.vim/bundle/vundle/
 endif
@@ -41,18 +37,19 @@ Bundle 'vim-scripts/genutils'
 Bundle 'Align'
 Bundle 'argtextobj.vim'
 Bundle 'avakhov/vim-yaml'
+Bundle 'beyondmarc/glsl.vim'
 Bundle 'beyondmarc/opengl.vim'
+Bundle 'bling/vim-airline'
 Bundle 'bufkill.vim'
+Bundle 'chrisbra/csv.vim'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'edsono/vim-matchit'
-Bundle 'godlygeek/tabular.git'
 Bundle 'kana/vim-textobj-entire'
 Bundle 'kana/vim-textobj-indent'
 Bundle 'kana/vim-textobj-user'
 Bundle 'kien/ctrlp.vim'
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'Lokaltog/vim-powerline'
 Bundle 'lukerandall/haskellmode-vim'
 Bundle 'mattn/emmet-vim'
 Bundle 'nathanaelkane/vim-indent-guides'
@@ -136,33 +133,18 @@ filetype on
 filetype indent on
 filetype plugin on
 
-" Powerline
+"""""""""""""
+"  Airline  "
+"""""""""""""
 set laststatus=2
 
-"""""""""""""""
-"  vim-latex  "
-"""""""""""""""
-set grepprg="grep -nH $*"
+"""""""""""
+"  Latex  "
+"""""""""""
+let g:LatexBox_quickfix=2
+let g:LatexBox_latexmk_preview_continuously=1
 
-let g:tex_flavor='latex'
-let g:tex_indent_brace=1
-let g:Tex_SmartKeyQuote=0
-let g:Tex_CompileRule_pdf='pdflatex -synctex=1 -interaction=nonstopmode $*'
-let g:Tex_ViewRule_pdf='zathura'
-let g:Tex_DefaultTargetFormat='pdf'
-let g:Tex_MultipleCompileFormats='dvi,pdf'
-let g:Tex_GotoError=0
-let g:Tex_ShowErrorContext=0
-let g:Tex_IgnoreLevel=7
-let g:Tex_FoldedEnvironments='verbatim,comment,eq,gather,align,figure,table,thebibliography,keywords,abstract,titlepage,frame'
-
-" Disable everything we want UltiSnips to handle
-let g:Imap_UsePlaceHolders=0
-let g:SmartKeyBS=0
-let g:SmartKeyQuote=0
-let g:Tex_EnvironmentMaps=0
-let g:Tex_FontMaps=0
-let g:Tex_SectionMaps=0
+let g:LatexBox_Folding=1
 
 " nicer conceal
 " this is not part of the vim-latex plugin.
@@ -314,7 +296,7 @@ nnoremap Q @
 " cd to current file
 com! CD cd %:p:h
 
-com! -nargs=* -bang S OpenSession<bang> <args> | set lines&
+com! -nargs=* -bang S OpenSession<bang> <args>
 
 " create .clang_complete file
 com! CLmake make CC='~/.vim/bundle/clang_complete/bin/cc_args.py gcc' CXX='~/.vim/bundle/clang_complete/bin/cc_args.py g++' -B
