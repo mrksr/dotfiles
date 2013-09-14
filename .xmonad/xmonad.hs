@@ -121,7 +121,7 @@ myStartup = do
     -- GUIs
     spawn "thunderbird"
     spawn "pidgin"
-    spawn "mopidy"
+    {-spawn "mopidy"-}
     spawnOn "Term" term
     windows $ W.view "Term"
     return ()
