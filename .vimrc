@@ -281,7 +281,7 @@ vnoremap Ü "+p
 inoremap üü <C-r>*
 
 " Replace without destroying the default register
-vnoremap o "_dP
+vnoremap + "_dP
 
 " Code Completion
 inoremap <S-Space> <C-x><C-o><C-p>
