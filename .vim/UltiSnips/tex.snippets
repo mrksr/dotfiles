@@ -1,3 +1,33 @@
+##########
+#  Meta  #
+##########
+
+snippet "in(put)?" "Input" !br
+\input{${1:file}.tex}
+endsnippet
+
+snippet du "Define Unit" !b
+\defineUnit{${1:name}}{%
+${2:${VISUAL:content}}
+}
+endsnippet
+
+snippet su "Show Unit" !b
+\showUnit{${1:${VISUAL:name}}}
+endsnippet
+
+snippet pac "Package without options" !b
+\usepackage{${1:name}}
+endsnippet
+
+snippet paco "Package with options" !b
+\usepackage[${2:options}]{${1:name}}
+endsnippet
+
+############
+#  Beamer  #
+############
+
 snippet frame "Beamer frame" !b
 \begin{frame}
     \frametitle{${1:title}}
@@ -35,6 +65,14 @@ snippet center "Center environment" !b
 \end{center}
 endsnippet
 
+snippet note "Beamer Note" !b
+\note[item]{${2:content}}
+endsnippet
+
+#############
+#  Theorem  #
+#############
+
 snippet "def(inition)?" "Definition environment" !br
 \begin{definition}[${1:name}]
     ${2:content}
@@ -59,26 +97,61 @@ snippet "ex(ample)?" "Example environment" !br
 \end{example}
 endsnippet
 
-snippet "in(put)?" "Input" !br
-\input{${1:file}.tex}
-endsnippet
-
-snippet note "Beamer Note" !b
-\note[item]{${2:content}}
-endsnippet
-
 snippet block "Block environment" !b
 \begin{block}{${1:name}}
     ${2:content}
 \end{block}
 endsnippet
 
-snippet du "Define Unit" !b
-\defineUnit{${1:name}}{%
-${2:${VISUAL:content}}
-}
+#####################################
+# SECTIONS, CHAPTERS AND THEIR LIKE #
+#####################################
+
+snippet part "Part" !b
+\part{${1:part name}}
+\label{prt:${2:${1/(\w+)|\W+/(?1:\L$0\E:_)/g}}}
+
+${0}
 endsnippet
 
-snippet su "Show Unit" !b
-\showUnit{${1:${VISUAL:name}}}
+snippet cha "Chapter" !b
+\chapter{${1:chapter name}}
+\label{cha:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
+
+${0}
+endsnippet
+
+snippet sec "Section" !b
+\section{${1:section name}}
+\label{sec:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
+
+${0}
+endsnippet
+
+snippet sub "Subsection" !b
+\subsection{${1:subsection name}}
+\label{sub:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
+
+${0}
+endsnippet
+
+snippet ssub "Subsubsection" !b
+\subsubsection{${1:subsubsection name}}
+\label{ssub:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
+
+${0}
+endsnippet
+
+snippet par "Paragraph" !b
+\paragraph{${1:paragraph name}}
+\label{par:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
+
+${0}
+endsnippet
+
+snippet subp "Subparagraph" !b
+\subparagraph{${1:subparagraph name}}
+\label{par:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
+
+${0}
 endsnippet
