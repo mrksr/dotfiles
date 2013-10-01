@@ -6,7 +6,6 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Util.Run
 import XMonad.Util.EZConfig
-import XMonad.Actions.Volume
 import XMonad.Actions.SpawnOn
 import XMonad.Actions.CopyWindow
 import XMonad.Actions.CycleWS
@@ -42,8 +41,8 @@ myKeys = [
     -- M1 ~ Alt
     -- Special Keys
       ("<Print>", spawn "scrot")
-    , ("<XF86AudioLowerVolume>", void $ lowerVolume 3)
-    , ("<XF86AudioRaiseVolume>", void $ raiseVolume 3)
+    , ("<XF86AudioLowerVolume>", spawn $ "amixer set Master playback 1+")
+    , ("<XF86AudioRaiseVolume>", spawn $ "amixer set Master playback 1-")
     , ("<XF86AudioPlay>", spawn $ mpc "toggle")
     , ("<XF86AudioStop>", spawn $ mpc "stop")
     , ("<XF86AudioNext>", spawn $ mpc "next")

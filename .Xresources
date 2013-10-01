@@ -1,3 +1,6 @@
+Xcursor.theme: Vanilla-DMZ
+Xcursor.size: 12
+
 xterm*faceName: xft:ubuntu mono-13
 
 urxvt.termName: rxvt-unicode-256color
