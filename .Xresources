@@ -1,5 +1,6 @@
 Xcursor.theme: Vanilla-DMZ
 Xcursor.size: 12
+Xft.dpi: 100
 
 xterm*faceName: xft:ubuntu mono-13
 
