@@ -20,6 +20,7 @@ myMod = mod4Mask -- Super
 term  = "urxvt"
 dmenu = "dmenu_run -i -p 'run' -nb '#000' -nf '#4d6d99' -sb '#333' -sf '#cc5214'"
 mpc   = (++) "mpc -h \"banane@localhost\" "
+lock  = "slimlock || gnome-screensaver-command -l"
 
 myWorkspaces =
     ["Stuff", "Browser", "Term", "IM" ,"Mail", "George", "J", "SoilentGreen", "MMXIII"]
@@ -41,17 +42,18 @@ myKeys = [
     -- M1 ~ Alt
     -- Special Keys
       ("<Print>", spawn "scrot")
-    , ("<XF86AudioLowerVolume>", spawn $ "amixer set Master playback 1+")
-    , ("<XF86AudioRaiseVolume>", spawn $ "amixer set Master playback 1-")
+    , ("<XF86AudioLowerVolume>", spawn $ "amixer set Master playback 5%-")
+    , ("<XF86AudioRaiseVolume>", spawn $ "amixer set Master playback 5%+")
     , ("<XF86AudioPlay>", spawn $ mpc "toggle")
     , ("<XF86AudioStop>", spawn $ mpc "stop")
     , ("<XF86AudioNext>", spawn $ mpc "next")
     , ("<XF86AudioPrev>", spawn $ mpc "prev")
     , ("<XF86Sleep>", spawn "sudo pm-suspend")
-    , ("<XF86ScreenSaver>", spawn "gnome-screensaver-command -l")
+    , ("<XF86ScreenSaver>", spawn lock)
+    , ("<XF86TouchpadToggle>", spawn "synclient TouchpadOff=$(synclient -l | grep -ce TouchpadOff.*0)")
 
     -- Spawns
-    , ("M-o", spawn "gnome-screensaver-command -l")
+    , ("M-o", spawn lock)
     , ("M-v", spawn "pavucontrol")
     , ("M-f", spawn "gvim ~/.vimrc ~/.xmonad/xmonad.hs ~/.xmobarrc")
     , ("M-p", spawn dmenu)
@@ -116,7 +118,7 @@ myStartup = do
     spawn "dropbox start"
     spawnK "nm-applet" "nm-applet"
     {-spawn "kupfer"-}
-    spawn "xinput --set-prop \"SynPS/2 Synaptics TouchPad\" \"Device Enabled\" 0"
+    spawn "synclient TouchpadOff=1"
     -- GUIs
     spawn "thunderbird"
     spawn "pidgin"
