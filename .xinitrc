@@ -1,14 +1,14 @@
 #!/bin/sh
 
 # Settings
-setxkbmap de
 xrdb -merge ~/.Xresources
 xsetroot -cursor_name left_ptr
+setxkbmap de
+xmodmap ~/.Xmodmap
+xset -b
 
-# Daemons
-/usr/bin/VBoxClient-all &
-devmon &
-dropboxd &
+# Programs
+start-pulseaudio-x11
 
 # WM
 exec xmonad
