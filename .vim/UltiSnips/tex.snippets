@@ -1,7 +1,6 @@
 ##########
 #  Meta  #
 ##########
-
 snippet "in(put)?" "Input" !br
 \input{${1:file}.tex}
 endsnippet
@@ -27,7 +26,6 @@ endsnippet
 ############
 #  Beamer  #
 ############
-
 snippet frame "Beamer frame" !b
 \begin{frame}
     \frametitle{${1:title}}
@@ -69,10 +67,43 @@ snippet note "Beamer Note" !b
 \note[item]{${2:content}}
 endsnippet
 
+##########
+#  Text  #
+##########
+snippet "em(ph)?" "emph" !r
+\emph{${1:${VISUAL:this}}}
+endsnippet
+
+############
+#  Floats  #
+############
+snippet sfi "Subfigure" !b
+\begin{subfigure}{${1:size}}
+${0:${VISUAL:}}
+    \caption{${3:Great Figure!}}
+    \label{fig:${4:label:sublabel}}
+\end{subfigure}
+endsnippet
+
+snippet "fi(gure)?" "Figure" !rb
+\begin{figure}[${1:bthH}]
+    ${0}
+    \caption{${2:Great Figure!}}
+    \label{fig:${3:label}}
+\end{figure}
+endsnippet
+
+snippet "li(sting)?" "Listing" !rb
+\begin{listing}[${1:bthH}]
+    ${0}
+    \caption{${2:Great Listing!}}
+    \label{lst:${3:label}}
+\end{listing}
+endsnippet
+
 #############
 #  Theorem  #
 #############
-
 snippet "def(inition)?" "Definition environment" !br
 \begin{definition}[${1:name}]
     ${2:content}
@@ -106,52 +137,49 @@ endsnippet
 #####################################
 # SECTIONS, CHAPTERS AND THEIR LIKE #
 #####################################
-
 snippet part "Part" !b
 \part{${1:part name}}
 \label{prt:${2:${1/(\w+)|\W+/(?1:\L$0\E:_)/g}}}
-
 ${0}
 endsnippet
 
 snippet cha "Chapter" !b
 \chapter{${1:chapter name}}
 \label{cha:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
-
 ${0}
 endsnippet
 
 snippet sec "Section" !b
 \section{${1:section name}}
 \label{sec:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
-
 ${0}
 endsnippet
 
 snippet sub "Subsection" !b
 \subsection{${1:subsection name}}
 \label{sub:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
-
 ${0}
 endsnippet
 
 snippet ssub "Subsubsection" !b
 \subsubsection{${1:subsubsection name}}
 \label{ssub:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
+${0}
+endsnippet
 
+snippet sssub "Subsubsection without label" !b
+\subsubsection{${1:subsubsection name}}
 ${0}
 endsnippet
 
 snippet par "Paragraph" !b
 \paragraph{${1:paragraph name}}
 \label{par:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
-
 ${0}
 endsnippet
 
 snippet subp "Subparagraph" !b
 \subparagraph{${1:subparagraph name}}
 \label{par:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
-
 ${0}
 endsnippet
