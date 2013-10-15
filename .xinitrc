@@ -3,12 +3,14 @@
 # Settings
 xrdb -merge ~/.Xresources
 xsetroot -cursor_name left_ptr
-setxkbmap de
+#setxkbmap de # moved to xorg.conf.d
 xmodmap ~/.Xmodmap
 xset -b
+( sleep 60 ; /usr/bin/laptop_mode force ) &
 
 # Programs
-start-pulseaudio-x11
+( sleep 5 ; start-pulseaudio-x11 ) &
+dropboxd &
 
 # WM
 exec xmonad
