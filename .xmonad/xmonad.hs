@@ -55,8 +55,8 @@ myKeys = [
     -- Spawns
     , ("M-o", spawn lock)
     , ("M-v", spawn "pavucontrol")
-    , ("M-f", spawn "gvim ~/.vimrc ~/.xmonad/xmonad.hs ~/.xmobarrc")
-    , ("M-p", spawn dmenu)
+    , ("M-f", spawn "gvim ~/.vimrc ~/.xinitrc ~/.xmonad/xmonad.hs ~/.xmobarrc")
+    , ("M-p", spawn "/etc/acpi/actions/docking_station.sh")
     , ("<F12>", spawn dmenu)
     , ("M1-<F12>", spawn "kupfer")
     , ("M-d", spawn term)
@@ -113,10 +113,11 @@ myStartup = do
     spawn "nitrogen --restore"
     -- Desktop
     spawn "nautilus --no-desktop -n"
-    spawnK "trayer" "trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 6 --transparent true --alpha 0 --tint 0x000000 --height 16"
+    spawnK "trayer" "trayer --edge top --align left --SetDockType true --SetPartialStrut true --expand true --widthtype pixel --width 64 --margin 1855 --transparent true --alpha 0 --tint 0x000000 --height 16"
     spawnK "python" "jupiter"
     spawn "dropbox start"
     spawnK "nm-applet" "nm-applet"
+    spawnK "netmon" "netmon"
     {-spawn "kupfer"-}
     spawn "synclient TouchpadOff=1"
     -- GUIs
