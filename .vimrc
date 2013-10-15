@@ -51,14 +51,10 @@ Bundle 'kana/vim-textobj-indent'
 Bundle 'kana/vim-textobj-user'
 Bundle 'kien/ctrlp.vim'
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
-Bundle 'Lokaltog/vim-easymotion'
 Bundle 'lukerandall/haskellmode-vim'
-Bundle 'mattn/emmet-vim'
 Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'rygwdn/vim-conque'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
-Bundle 'SelectBuf'
 Bundle 'SirVer/ultisnips'
 Bundle 'TagHighlight'
 Bundle 'tpope/vim-eunuch'
@@ -146,12 +142,12 @@ set laststatus=2
 """""""""""
 let g:LatexBox_quickfix=2
 let g:LatexBox_latexmk_preview_continuously=1
-
-let g:LatexBox_Folding=1
+let g:LatexBox_viewer="zathura"
+let g:LatexBox_Folding=0
 
 " nicer conceal
 " this is not part of the vim-latex plugin.
-let g:tex_conceal="adgm"
+let g:tex_conceal="abdgm"
 
 """""""""""""""""
 "  Haskellmode  "
