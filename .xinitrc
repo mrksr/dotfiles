@@ -11,6 +11,7 @@ xset -b
 # Programs
 ( sleep 5 ; start-pulseaudio-x11 ) &
 dropboxd &
+redshift -l 52.52:13.38 -t 6300:5300 &
 
 # WM
 exec xmonad
