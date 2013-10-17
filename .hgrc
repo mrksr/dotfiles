@@ -15,3 +15,4 @@ fetch =
 hgext.convert =
 prompt = ~/.hg_ext/hg-prompt/prompt.py
 eol =
+progress =
