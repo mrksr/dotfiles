@@ -112,18 +112,20 @@ myStartup = do
     -- Wallpaper
     spawn "nitrogen --restore"
     -- Desktop
-    spawn "nautilus --no-desktop -n"
     spawnK "trayer" "trayer --edge top --align left --SetDockType true --SetPartialStrut true --expand true --widthtype pixel --width 64 --margin 1855 --transparent true --alpha 0 --tint 0x000000 --height 16"
-    spawnK "python" "jupiter"
-    spawn "dropbox start"
-    spawnK "nm-applet" "nm-applet"
-    spawnK "netmon" "netmon"
-    {-spawn "kupfer"-}
     spawn "synclient TouchpadOff=1"
+    -- Arch
+    spawnK "netmon" "netmon"
+    -- Ubuntu
+    {-spawnK "python" "jupiter"-}
+    {-spawn "dropbox start"-}
+    {-spawnK "nm-applet" "nm-applet"-}
+    {-spawn "kupfer"-}
+    {-spawn "nautilus --no-desktop -n"-}
+    {-spawn "mopidy"-}
     -- GUIs
     spawn "thunderbird"
     spawn "pidgin"
-    {-spawn "mopidy"-}
     spawnOn "Term" term
     windows $ W.view "Term"
     return ()
