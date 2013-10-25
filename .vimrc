@@ -141,6 +141,7 @@ set laststatus=2
 "  Latex  "
 """""""""""
 let g:LatexBox_quickfix=2
+let g:LatexBox_latexmk_async=1
 let g:LatexBox_latexmk_preview_continuously=1
 let g:LatexBox_viewer="zathura"
 let g:LatexBox_Folding=0
