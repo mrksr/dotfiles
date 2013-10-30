@@ -20,7 +20,7 @@ syndaemon -t -k -i 1.5 -d
 ( sleep 8 ; dropboxd ) &
 redshift -l 52.52:13.38 -t 6300:4800 &
 
-##############
-#  Programs  #
-##############
+####################
+#  Window Manager  #
+####################
 exec xmonad
