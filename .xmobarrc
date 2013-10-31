@@ -21,8 +21,8 @@ Config {
                 , "-L", "-15", "-H", "-5"
                 , "-l", "red", "-m", "blue", "-h", "green"
                 ] 60
-           , Run Com "python" ["~/.xmonad/xmobar_mpd.py"] "music" 5
-           , Run Com "sh" ["~/.xmonad/xmobar_volume.sh"] "volume" 5
+           , Run Com "/home/markus/.xmonad/xmobar_mpd.py" [] "music" 5
+           , Run Com "/home/markus/.xmonad/xmobar_volume.sh" [] "volume" 5
            , Run StdinReader
            ]
     , sepChar  = "%"
