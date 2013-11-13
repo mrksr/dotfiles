@@ -115,7 +115,8 @@ myStartup = do
     spawnK "trayer" "trayer --edge top --align left --SetDockType true --SetPartialStrut true --expand true --widthtype pixel --width 96 --margin 1824 --transparent true --alpha 0 --tint 0x000000 --height 16"
     spawn "synclient TouchpadOff=1"
     -- Arch
-    spawnK "python" "netmon"
+    {-spawnK "python" "netmon"-}
+    spawnK "wicd-client" "wicd-client -t"
     -- Ubuntu
     {-spawnK "python" "jupiter"-}
     {-spawn "dropbox start"-}
