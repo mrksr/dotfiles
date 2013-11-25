@@ -67,7 +67,6 @@ alias apt-remove="apt-get remove"
 alias apt-list="dpkg --list-selections"
 alias apt-filesearch="apt-find search"
 alias vnc="vncviewer 192.168.2.42"
-alias ack="ack-grep"
 alias dmesg="dmesg -L auto"
 
 # folder variables
@@ -77,7 +76,10 @@ ba=~/repos/uni/13ba
 bac=~/repos/uni/13ba/code
 bat=~/repos/uni/13ba/thesis
 tutor=~/repos/tutor
-eti=~/repos/uni/11etigp
+ds=~/repos/tutor/13ws.ds
+dsha=~/repos/tutor/13ws.ds.ha
+ml=~/repos/uni/13ws/machinelearning
+auto=~/repos/uni/13ws/automata
 
 # greeter
 command -v fortune > /dev/null
