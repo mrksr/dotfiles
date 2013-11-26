@@ -59,11 +59,11 @@ myKeys = [
     , ("M-p", spawn "/etc/acpi/actions/docking_station.sh")
     , ("<F12>", spawn dmenu)
     , ("M1-<F12>", spawn "kupfer")
-    , ("M-d", spawn term)
+    , ("M-c", spawn term)
 
     -- Windows
     , ("M1-<F4>", kill)
-    , ("M-c", kill)
+    , ("M-d", kill)
     , ("M1-<Return>", windows W.shiftMaster)
     , ("M1-<Tab>", windows W.focusDown)
     , ("M1-S-<Tab>", windows W.focusUp)
