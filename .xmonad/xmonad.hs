@@ -15,6 +15,7 @@ import XMonad.Layout.NoBorders
 import XMonad.Layout.Tabbed
 import XMonad.Layout.Named
 import XMonad.Layout.ResizableTile
+import XMonad.Layout.LayoutHints
 
 myMod = mod4Mask -- Super
 term  = "urxvt"
@@ -86,11 +87,12 @@ myKeys = [
     ]
 
 myLayout = onWorkspace "Term" (tabs ||| vs) $
-           noBorders Full ||| tabs ||| vs ||| hs
+           noBorders full ||| tabs ||| vs ||| hs
     where
-    tabs     = named "Tabs" (tabbedBottom shrinkText tabTheme)
-    vs       = named "VS" (ResizableTall masters delta ratio1 [])
-    hs       = named "HS" (Mirror (ResizableTall masters delta ratio2 []))
+    full     = layoutHints Full
+    tabs     = layoutHints $ named "Tabs" (tabbedBottom shrinkText tabTheme)
+    vs       = layoutHints $ named "VS" (ResizableTall masters delta ratio1 [])
+    hs       = layoutHints $ named "HS" (Mirror (ResizableTall masters delta ratio2 []))
     masters  = 1
     delta    = 2/100
     ratio1   = 21/34
@@ -112,7 +114,7 @@ myStartup = do
     -- Wallpaper
     spawn "nitrogen --restore"
     -- Desktop
-    spawnK "trayer" "trayer --edge top --align left --SetDockType true --SetPartialStrut true --expand true --widthtype pixel --width 96 --margin 1824 --transparent true --alpha 0 --tint 0x000000 --height 16"
+    spawnK "trayer" "trayer --edge top --align left --SetDockType true --SetPartialStrut true --expand true --widthtype pixel --width 97 --margin 1823 --transparent true --alpha 0 --tint 0x000000 --height 16"
     spawn "synclient TouchpadOff=1"
     -- Arch
     {-spawnK "python" "netmon"-}
