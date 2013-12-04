@@ -2,7 +2,7 @@ Config {
       font = "xft:Ubuntu Mono-10"
     , bgColor = "#000000"
     , fgColor = "#eeeeec"
-    , position = Static { xpos = 0, ypos = 0, width = 1805, height = 16 }
+    , position = Static { xpos = 0, ypos = 0, width = 1823, height = 16 }
     , commands = [
              Run Date "%a, %b %_d %k:%M" "date" 10
            , Run Weather "EDDM" ["-t", "<station>: <tempC>C"] 300
@@ -17,17 +17,20 @@ Config {
            , Run BatteryP ["BAT0"] [
                   "-t", "<acstatus><left>% - <timeleft>"
                 , "-L", "10", "-H", "80", "-p", "3"
-                , "--", "-O", "<fc=green>AC</fc> - ", "-o", ""
+                , "--"
+                , "-O", "<fc=green>AC</fc> - "
+                , "-i", "<fc=green>AC</fc> - "
+                , "-o", ""
                 , "-L", "-15", "-H", "-5"
                 , "-l", "red", "-m", "blue", "-h", "green"
                 ] 60
-           , Run Com "/home/markus/.xmonad/xmobar_mpd.py" [] "music" 5
+           -- , Run Com "/home/markus/.xmonad/xmobar_mpd.py" [] "music" 5
            , Run Com "/home/markus/.xmonad/xmobar_volume.sh" [] "volume" 5
            , Run StdinReader
            ]
     , sepChar  = "%"
     , alignSep = "}{"
-    , template = "%StdinReader%}{%music% - %volume% <fc=#888888>λ</fc> %dynnetwork% <fc=#888888>λ</fc> %battery% <fc=#888888>λ</fc> %thermal0% <fc=#888888>λ</fc> %bright% <fc=#888888>λ</fc> %date%"
+    , template = "%StdinReader%}{ %volume% <fc=#888888>λ</fc> %dynnetwork% <fc=#888888>λ</fc> %battery% <fc=#888888>λ</fc> %thermal0% <fc=#888888>λ</fc> %bright% <fc=#888888>λ</fc> %date%"
 }
 
 -- vim: set ft=haskell:
