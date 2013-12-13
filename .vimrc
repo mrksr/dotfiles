@@ -56,7 +56,7 @@ Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
 Bundle 'SirVer/ultisnips'
-Bundle 'TagHighlight'
+"Bundle 'TagHighlight'
 Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-surround'
 Bundle 'xolox/vim-misc'
@@ -177,7 +177,8 @@ let g:session_autoload='no'
 """""""""""""""
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': [],
-                           \ 'passive_filetypes': ['tex'] }
+                           \ 'passive_filetypes': [] }
+let g:syntastic_tex_checkers = ['chktex']
 let g:syntastic_cpp_compiler_options = ' -std=c++11'
 let g:syntastic_error_symbol = '!'
 let g:syntastic_warning_symbol = '?'
@@ -209,7 +210,7 @@ let g:EasyMotion_leader_key='<leader>'
 "  Ctrl-P  "
 """"""""""""
 let g:ctrlp_match_window='bottom,order:ttb,min:5,max:5'
-let g:ctrlp_map='<leader>m'
+let g:ctrlp_map='ä'
 nnoremap <silent>ö :CtrlPBuffer<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
