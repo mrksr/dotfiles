@@ -68,26 +68,18 @@ alias apt-list="dpkg --list-selections"
 alias apt-filesearch="apt-find search"
 alias vnc="vncviewer 192.168.2.42"
 alias dmesg="dmesg -L auto"
-pdf() {
-    local FILE="$(cd ${1:-.};
+alias fzf="fzf -x"
+alias pdf="open-pdf"
+open-pdf() {
+    local PREFIX=$(eval echo "${1:-.}")
+    local FILE="$(cd $PREFIX;
         find . -name '*.pdf' \
-        | fzf -s 1000 )";
+        | fzf )";
     if [[ -n "$FILE" ]]; then
-        zathura "${1:-.}/$FILE"
+        zathura "$PREFIX/$FILE"
     fi
 }
 
-# folder variables
-hash -d repos=~/repos
-hash -d uni=~/repos/uni
-hash -d ba=~/repos/uni/13ba
-hash -d bac=~/repos/uni/13ba/code
-hash -d bat=~/repos/uni/13ba/thesis
-hash -d tut=~/repos/tutor
-hash -d ds=~/repos/tutor/13ws.ds
-hash -d dsha=~/repos/tutor/13ws.ds.ha
-hash -d ml=~/repos/uni/13ws/machinelearning
-hash -d auto=~/repos/uni/13ws/automata
 
 # greeter
 command -v fortune > /dev/null
@@ -95,11 +87,6 @@ if [ $? = 0 ]; then
     fortune -s;
     echo;
 fi
-
-# export PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
-export PATH=$HOME/.cabal/bin:/opt/procfun/sbt/bin:$PATH
-export EDITOR=vim
-export BROWSER=firefox
 
 if [[ -e .fsf.zsh ]]; then
     source .fsf.zsh
