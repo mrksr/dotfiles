@@ -80,7 +80,6 @@ open-pdf() {
     fi
 }
 
-
 # greeter
 command -v fortune > /dev/null
 if [ $? = 0 ]; then
