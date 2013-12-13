@@ -68,6 +68,14 @@ alias apt-list="dpkg --list-selections"
 alias apt-filesearch="apt-find search"
 alias vnc="vncviewer 192.168.2.42"
 alias dmesg="dmesg -L auto"
+pdf() {
+    local FILE="$(cd ${1:-.};
+        find . -name '*.pdf' \
+        | fzf -s 1000 )";
+    if [[ -n "$FILE" ]]; then
+        zathura "${1:-.}/$FILE"
+    fi
+}
 
 # folder variables
 hash -d repos=~/repos
@@ -93,6 +101,9 @@ export PATH=$HOME/.cabal/bin:/opt/procfun/sbt/bin:$PATH
 export EDITOR=vim
 export BROWSER=firefox
 
-if [ -e .zshrc_local ]; then
+if [[ -e .fsf.zsh ]]; then
+    source .fsf.zsh
+fi
+if [[ -e .zshrc_local ]]; then
     source .zshrc_local
 fi
