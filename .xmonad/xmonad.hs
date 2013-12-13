@@ -15,7 +15,6 @@ import XMonad.Layout.NoBorders
 import XMonad.Layout.Tabbed
 import XMonad.Layout.Named
 import XMonad.Layout.ResizableTile
-import XMonad.Layout.LayoutHints
 
 myMod = mod4Mask -- Super
 term  = "urxvt"
@@ -89,10 +88,10 @@ myKeys = [
 myLayout = onWorkspace "Term" (tabs ||| vs) $
            noBorders full ||| tabs ||| vs ||| hs
     where
-    full     = layoutHints Full
-    tabs     = layoutHints $ named "Tabs" (tabbedBottom shrinkText tabTheme)
-    vs       = layoutHints $ named "VS" (ResizableTall masters delta ratio1 [])
-    hs       = layoutHints $ named "HS" (Mirror (ResizableTall masters delta ratio2 []))
+    full     = Full
+    tabs     = named "Tabs" (tabbedBottom shrinkText tabTheme)
+    vs       = named "VS" (ResizableTall masters delta ratio1 [])
+    hs       = named "HS" (Mirror (ResizableTall masters delta ratio2 []))
     masters  = 1
     delta    = 2/100
     ratio1   = 21/34
