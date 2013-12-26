@@ -34,7 +34,7 @@ plugins=( \
     cp \
     debian \
     extract \
-    last-working-dir \
+    #last-working-dir \
     mercurial \
     python \
     sbt \
