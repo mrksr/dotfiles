@@ -20,6 +20,9 @@ fi
 echo $colors[$index]
 }
 
+# vi-mode
+MODE_INDICATOR="%{$fg_bold[blue]%}<<%{$reset_color%}"
+
 setopt prompt_subst
 autoload -Uz vcs_info
 precmd()
@@ -36,8 +39,7 @@ zstyle ':vcs_info:*' hgrevformat "%r"
 zstyle ':vcs_info:*' branchformat "%r"
 zstyle ':vcs_info:*' formats \
 "\
- \
-%{$fg_bold[blue]%}%s%{$reset_color%}\
+%{$fg[blue]%}%s%{$reset_color%}\
  \
 %{$fg_bold[yellow]%}%b%{$reset_color%}\
 %{$fg_bold[red]%}%u%c%{$reset_color%}\
@@ -46,16 +48,10 @@ zstyle ':vcs_info:*' formats \
 zstyle ':vcs_info:*' actionformats \
 "\
  \
-%{$fg_bold[blue]%}%s%{$reset_color%}\
+%{$fg[blue]%}%s%{$reset_color%}\
 %{$fg_bold[red]%}%u%c%a%{$reset_color%}\
  \
 "
 
-PROMPT='%{$fg_bold[$(terminal_color)]%}%n@%m%{$reset_color%} %{$fg_bold[green]%}%~%{$reset_color%}${vcs_info_msg_0_}$fg_bold[yellow]%}λ%{$reset_color%} '
+PROMPT='%{$fg_bold[$(terminal_color)]%}%n@%m%{$reset_color%} %{$fg_bold[green]%}%~%{$reset_color%} ${vcs_info_msg_0_}%{$fg_bold[yellow]%}λ%{$reset_color%} '
 RPROMPT='%{$fg_bold[blue]%}$(vi_mode_prompt_info)%{$reset_color%} %{$fg_bold[red]%}%?%{$reset_color%} %{$fg_bold[yellow]%}[%*]%{$reset_color%}'
-
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[red]%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
-
-# vi-mode
-MODE_INDICATOR="%{$fg_bold[blue]%}<<%{$reset_color%}"
