@@ -11,7 +11,7 @@ xmodmap ~/.Xmodmap
 # No beeping
 xset -b
 # Disable Touchpad when typing
-syndaemon -t -k -i 1.5 -d
+( sleep 10 ; xuserrun syndaemon -k -i 1.5 -d ) &
 
 ##############
 #  Programs  #
