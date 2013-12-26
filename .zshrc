@@ -77,6 +77,7 @@ open-pdf() {
         | fzf )";
     if [[ -n "$FILE" ]]; then
         zathura "$PREFIX/$FILE"
+        echo -n "$PREFIX/$FILE"
     fi
 }
 
