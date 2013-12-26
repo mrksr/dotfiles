@@ -1,10 +1,9 @@
-# Path to your oh-my-zsh configuration.
+#################################
+#  Oh-My-ZSH pre-configuration  #
+#################################
 ZSH=$HOME/.oh-my-zsh
 
-# Theme
 ZSH_THEME="_mine"
-
-# Plugins
 plugins=( \
     archlinux \
     cp \
@@ -20,9 +19,14 @@ plugins=( \
     wakeonlan \
 )
 
+####################
+#  Oh-My-ZSH load  #
+####################
 source $ZSH/oh-my-zsh.sh
 
-# Stuff 'n Stuff
+################
+#  Own config  #
+################
 HISTSIZE=100000
 SAVEHIST=100000
 
