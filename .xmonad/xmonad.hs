@@ -18,7 +18,7 @@ import XMonad.Layout.ResizableTile
 
 myMod = mod4Mask -- Super
 term  = "urxvt"
-dmenu = "dmenu_run -i -p 'run' -nb '#000' -nf '#4d6d99' -sb '#333' -sf '#cc5214'"
+dmenu = "DMENU_OPTIONS=\"-nb #000 -nf #4d6d99 -sb #333 -sf #cc5214\" dmenu-launch"
 mpc   = (++) "mpc -h \"banane@localhost\" "
 lock  = "slimlock || gnome-screensaver-command -l"
 
