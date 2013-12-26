@@ -1,14 +1,3 @@
-function hg_prompt_info {
-hg prompt > /dev/null 2>&1;
-if [ $? = 0 ]; then
-    hg prompt --angle-brackets "\
-%{$fg_bold[blue]%}<update>%{$reset_color%}\
-%{$fg_bold[red]%}<status|modified|unknown>%{$reset_color%}\
-%{$reset_color%}<
-patches: <patches|join( → )|pre_applied(%{$fg[yellow]%})|post_applied(%{$reset_color%})|pre_unapplied(%{$fg_bold[black]%})|post_unapplied(%{$reset_color%})>>%{$reset_color%}" 2>/dev/null
-fi
-}
-
 function terminal_color {
 colors=(blue red yellow cyan magenta)
 case "$(hostname)" in
@@ -31,7 +20,38 @@ fi
 echo $colors[$index]
 }
 
-PROMPT='%{$fg_bold[$(terminal_color)]%}%n@%m%{$reset_color%} %{$fg_bold[green]%}%~%{$reset_color%}$(hg_prompt_info) $(git_prompt_info)%{$fg_bold[yellow]%}λ%{$reset_color%} '
+setopt prompt_subst
+autoload -Uz vcs_info
+precmd()
+{
+    vcs_info
+}
+
+zstyle ':vcs_info:*' use-simple false
+zstyle ':vcs_info:*' get-revision true
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' stagedstr "!"
+zstyle ':vcs_info:*' unstagedstr "?"
+zstyle ':vcs_info:*' hgrevformat "%r"
+zstyle ':vcs_info:*' branchformat "%r"
+zstyle ':vcs_info:*' formats \
+"\
+ \
+%{$fg_bold[blue]%}%s%{$reset_color%}\
+ \
+%{$fg_bold[yellow]%}%b%{$reset_color%}\
+%{$fg_bold[red]%}%u%c%{$reset_color%}\
+ \
+"
+zstyle ':vcs_info:*' actionformats \
+"\
+ \
+%{$fg_bold[blue]%}%s%{$reset_color%}\
+%{$fg_bold[red]%}%u%c%a%{$reset_color%}\
+ \
+"
+
+PROMPT='%{$fg_bold[$(terminal_color)]%}%n@%m%{$reset_color%} %{$fg_bold[green]%}%~%{$reset_color%}${vcs_info_msg_0_}$fg_bold[yellow]%}λ%{$reset_color%} '
 RPROMPT='%{$fg_bold[blue]%}$(vi_mode_prompt_info)%{$reset_color%} %{$fg_bold[red]%}%?%{$reset_color%} %{$fg_bold[yellow]%}[%*]%{$reset_color%}'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[red]%}"

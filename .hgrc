@@ -13,7 +13,7 @@ native = LF
 [extensions]
 fetch =
 hgext.convert =
-prompt = ~/.hg_ext/hg-prompt/prompt.py
+;prompt = ~/.hg_ext/hg-prompt/prompt.py
 eol =
 progress =
 rebase =
