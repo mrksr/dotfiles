@@ -36,7 +36,7 @@ Bundle 'L9'
 Bundle 'vim-scripts/genutils'
 
 " Plugins
-Bundle 'Align'
+"Bundle 'Align'
 Bundle 'argtextobj.vim'
 Bundle 'avakhov/vim-yaml'
 Bundle 'beyondmarc/glsl.vim'
