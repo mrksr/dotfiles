@@ -82,15 +82,17 @@ open-pdf() {
 }
 
 # greeter
-command -v fortune > /dev/null
-if [ $? = 0 ]; then
+if command -v fortune > /dev/null; then
     fortune -s;
     echo;
 fi
 
-if [[ -e .fsf.zsh ]]; then
-    source .fsf.zsh
+if command -v fzf > /dev/null; then
+    if [[ -e .fzf.zsh ]]; then
+        source .fzf.zsh
+    fi
 fi
+
 if [[ -e .zshrc_local ]]; then
     source .zshrc_local
 fi
