@@ -14,8 +14,13 @@ urxvt.scrollWithBuffer: false
 urxvt.scrollTtyKeypress: true
 urxvt.font: xft:ubuntu mono-12
 urxvt.savelines: 5000
+urxvt.iso14755: false
+! C-Tab and C-S-Tab to F19, F20
+urxvt.keysym.Control-Tab: \033[33~
+urxvt.keysym.Control-ISO_Left_Tab: \033[34~
 
-urxvt.perl-ext-common: font-size
+! tmux extension: http://anti.teamidiot.de/static/nei/*/Code/urxvt/osc-xterm-clipboard
+urxvt.perl-ext-common: font-size osc-xterm-clipboard
 urxvt.keysym.C-plus: perl:font-size:increase
 urxvt.keysym.C-minus: perl:font-size:decrease
 
