@@ -36,7 +36,6 @@ Bundle 'L9'
 Bundle 'vim-scripts/genutils'
 
 " Plugins
-"Bundle 'Align'
 Bundle 'argtextobj.vim'
 Bundle 'avakhov/vim-yaml'
 Bundle 'beyondmarc/glsl.vim'
@@ -45,6 +44,7 @@ Bundle 'bling/vim-airline'
 Bundle 'bufkill.vim'
 Bundle 'chrisbra/csv.vim'
 Bundle 'derekwyatt/vim-scala'
+Bundle 'edkolev/tmuxline.vim'
 Bundle 'edsono/vim-matchit'
 Bundle 'kana/vim-textobj-entire'
 Bundle 'kana/vim-textobj-indent'
@@ -56,7 +56,6 @@ Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
 Bundle 'SirVer/ultisnips'
-"Bundle 'TagHighlight'
 Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-surround'
 Bundle 'xolox/vim-misc'
@@ -212,6 +211,11 @@ let g:EasyMotion_leader_key='<leader>'
 let g:ctrlp_match_window='bottom,order:ttb,min:5,max:5'
 let g:ctrlp_map='ä'
 nnoremap <silent>ö :CtrlPBuffer<CR>
+
+""""""""""""""
+"  tmuxline  "
+""""""""""""""
+let g:tmuxline_powerline_separators = 0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  Mappings                                  "
