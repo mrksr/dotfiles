@@ -18,7 +18,8 @@ import XMonad.Layout.ResizableTile
 
 myMod = mod4Mask -- Super
 term  = "urxvt"
-tmux  = "urxvt -e bash -c \"tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME\""
+tmuxd = term ++ " -e bash -c \"tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -ndefault -sdefault\""
+tmuxc = term ++ " -e zsh -c \"tmux attach -dt \\$(tmux list-sessions | fzf | sed -re 's/^([^:]+).*/\\1/')\""
 dmenu = "DMENU_OPTIONS=\"-nb #000 -nf #4d6d99 -sb #333 -sf #cc5214\" dmenu-launch"
 mpc   = (++) "mpc -h \"banane@localhost\" "
 lock  = "slimlock || gnome-screensaver-command -l"
@@ -61,7 +62,8 @@ myKeys = [
     , ("<F12>", spawn dmenu)
     , ("M1-<F12>", spawn "kupfer")
     , ("M-c", spawn term)
-    , ("M-x", spawn tmux)
+    , ("M-x", spawn tmuxd)
+    , ("M-t", spawn tmuxc)
 
     -- Windows
     , ("M1-<F4>", kill)

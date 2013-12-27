@@ -20,7 +20,7 @@ urxvt.keysym.Control-Tab: \033[33~
 urxvt.keysym.Control-ISO_Left_Tab: \033[34~
 
 ! tmux extension: http://anti.teamidiot.de/static/nei/*/Code/urxvt/osc-xterm-clipboard
-urxvt.perl-ext-common: font-size osc-xterm-clipboard
+urxvt.perl-ext-common: font-size,osc-xterm-clipboard
 urxvt.keysym.C-plus: perl:font-size:increase
 urxvt.keysym.C-minus: perl:font-size:decrease
 
