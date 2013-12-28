@@ -141,23 +141,29 @@ myStartup = do
 
 main = do
     xmproc <- spawnPipe "xmobar"
-    xmonad $ ewmh defaultConfig {
-              borderWidth        = 2
-            , terminal           = term
-            , workspaces         = myWorkspaces
-            , modMask            = myMod
-            , normalBorderColor  = "#333"
-            , focusedBorderColor = "#500000"
-            , handleEventHook    = handleEventHook defaultConfig <+> fullscreenEventHook
-            , manageHook         = manageHook defaultConfig <+> manageSpawn <+> manageDocks <+> myManageHook
-            , layoutHook         = smartBorders . avoidStruts $ myLayout
-            , startupHook        = myStartup
-            , logHook            = dynamicLogWithPP xmobarPP {
-                      ppOutput   = hPutStrLn xmproc
-                    , ppTitle    = xmobarColor "#aaaaaa" "" . shorten 150
-                    , ppCurrent  = xmobarColor "#eeeeec" ""
-                    , ppSep      = " λ "
-                    , ppHidden   = xmobarColor "#aaaaaa" ""
-                    , ppLayout   = xmobarColor "#aaaaaa" ""
-            }
-    } `additionalKeysP` myKeys
+    -- Jump through hoops for Java GUIs (fix awt)
+    conf <- return (
+            ewmh defaultConfig {
+                  borderWidth        = 2
+                , terminal           = term
+                , workspaces         = myWorkspaces
+                , modMask            = myMod
+                , normalBorderColor  = "#333"
+                , focusedBorderColor = "#500000"
+                , handleEventHook    = handleEventHook defaultConfig <+> fullscreenEventHook
+                , manageHook         = manageHook defaultConfig <+> manageSpawn <+> manageDocks <+> myManageHook
+                , layoutHook         = smartBorders . avoidStruts $ myLayout
+                , startupHook        = myStartup
+                , logHook            = dynamicLogWithPP xmobarPP {
+                          ppOutput   = hPutStrLn xmproc
+                        , ppTitle    = xmobarColor "#aaaaaa" "" . shorten 150
+                        , ppCurrent  = xmobarColor "#eeeeec" ""
+                        , ppSep      = " λ "
+                        , ppHidden   = xmobarColor "#aaaaaa" ""
+                        , ppLayout   = xmobarColor "#aaaaaa" ""
+                }
+            } `additionalKeysP` myKeys
+        )
+    xmonad conf {
+        startupHook = startupHook conf >> setWMName "LG3D"
+    }
