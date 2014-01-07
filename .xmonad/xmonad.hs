@@ -63,7 +63,7 @@ myKeys = [
     , ("M1-<F12>", spawn "kupfer")
     , ("M-c", spawn term)
     , ("M-x", spawn tmuxd)
-    , ("M-t", spawn tmuxc)
+    , ("M-y", spawn tmuxc)
 
     -- Windows
     , ("M1-<F4>", kill)
