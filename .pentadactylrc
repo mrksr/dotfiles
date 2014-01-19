@@ -12,8 +12,8 @@ map l -ex fo
 " H, <c-h> or m and L, <c-l> or , to hop tabs
 map H gT
 map L <C-n>
-map <c-h> gT
-map <c-l> <C-n>
+map <c-h> <Left>
+map <c-l> <Right>
 map -builtin m gT
 map -builtin , <C-n>
 
