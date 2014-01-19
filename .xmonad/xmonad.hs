@@ -50,7 +50,7 @@ myKeys = [
     , ("<XF86AudioStop>", spawn $ mpc "stop")
     , ("<XF86AudioNext>", spawn $ mpc "next")
     , ("<XF86AudioPrev>", spawn $ mpc "prev")
-    , ("<XF86Sleep>", spawn "sudo pm-suspend")
+    , ("<XF86Sleep>", spawn "systemctl suspend")
     , ("<XF86ScreenSaver>", spawn lock)
     , ("<XF86TouchpadToggle>", spawn "synclient TouchpadOff=$(synclient -l | grep -ce TouchpadOff.*0)")
 
