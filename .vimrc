@@ -57,6 +57,7 @@ Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
 Bundle 'SirVer/ultisnips'
+Bundle 'terryma/vim-multiple-cursors'
 Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-surround'
 Bundle 'xolox/vim-misc'
@@ -217,6 +218,21 @@ nnoremap <silent>ö :CtrlPBuffer<CR>
 "  tmuxline  "
 """"""""""""""
 let g:tmuxline_powerline_separators = 0
+
+""""""""""""""""""""""
+"  multiple-cursors  "
+""""""""""""""""""""""
+let g:multi_cursor_next_key='<C-n>'
+let g:multi_cursor_prev_key='<C-b>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
+
+""""""""""""""
+"  YankRing  "
+""""""""""""""
+let g:yankring_replace_n_pkey='<C-O>'
+let g:yankring_replace_n_nkey='<C-P>'
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  Mappings                                  "
