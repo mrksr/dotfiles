@@ -4,6 +4,7 @@ import qualified XMonad.StackSet as W
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.EwmhDesktops
+import XMonad.Hooks.SetWMName
 import XMonad.Util.Run
 import XMonad.Util.EZConfig
 import XMonad.Actions.SpawnOn
