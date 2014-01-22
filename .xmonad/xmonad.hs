@@ -119,17 +119,8 @@ myStartup = do
     spawn "nitrogen --restore"
     -- Desktop
     spawnK "trayer" "trayer --edge top --align left --SetDockType true --SetPartialStrut true --expand true --widthtype pixel --width 97 --margin 1823 --transparent true --alpha 0 --tint 0x000000 --height 16"
-    spawn "synclient TouchpadOff=1"
     -- Arch
-    {-spawnK "python" "netmon"-}
     spawnK "wicd-client" "wicd-client -t"
-    -- Ubuntu
-    {-spawnK "python" "jupiter"-}
-    {-spawn "dropbox start"-}
-    {-spawnK "nm-applet" "nm-applet"-}
-    {-spawn "kupfer"-}
-    {-spawn "nautilus --no-desktop -n"-}
-    {-spawn "mopidy"-}
     -- GUIs
     spawn "thunderbird"
     spawn "pidgin"
