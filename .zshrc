@@ -49,6 +49,7 @@ alias apt-filesearch="apt-find search"
 alias vnc="vncviewer 192.168.2.42"
 alias dmesg="dmesg -L auto"
 alias fzf="fzf -x"
+alias open="xdg-open"
 alias pdf="open-pdf"
 open-pdf() {
     local PREFIX=$(eval echo "${1:-.}")
@@ -56,8 +57,8 @@ open-pdf() {
         find . -name '*.pdf' \
         | fzf )";
     if [[ -n "$FILE" ]]; then
-        zathura "$PREFIX/$FILE"
-        echo -n "$PREFIX/$FILE"
+        open "$PREFIX/$FILE" > /dev/null
+        echo "$PREFIX/$FILE"
     fi
 }
 
