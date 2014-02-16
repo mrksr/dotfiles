@@ -9,11 +9,13 @@ set strictfocus='chrome:*':laissez-faire,*:moderate,'google':despotic,'groovesha
 map h -ex ba
 map l -ex fo
 
+" <c-h> and <c-l> to scroll
+map -builtin <c-h> h
+map -builtin <c-l> l
+
 " H, <c-h> or m and L, <c-l> or , to hop tabs
 map H gT
 map L <C-n>
-map <c-h> <Left>
-map <c-l> <Right>
 map -builtin m gT
 map -builtin , <C-n>
 
