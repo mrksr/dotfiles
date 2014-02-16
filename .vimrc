@@ -150,6 +150,7 @@ let g:LatexBox_Folding=0
 " nicer conceal
 " this is not part of the vim-latex plugin.
 let g:tex_conceal="abdgm"
+let g:tex_flavor="latex"
 
 """""""""""""""""
 "  Haskellmode  "
