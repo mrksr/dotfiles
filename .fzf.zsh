@@ -20,13 +20,13 @@ zle     -N   fzf-file-widget
 bindkey '^T' fzf-file-widget
 
 # ALT-C - cd into the selected directory
-fzf-cd-widget() {
-  cd "${$(find * -path '*/\.*' -prune \
-          -o -type d -print 2> /dev/null | fzf):-.}"
-  zle reset-prompt
-}
-zle     -N    fzf-cd-widget
-bindkey '\ec' fzf-cd-widget
+#fzf-cd-widget() {
+  #cd "${$(find * -path '*/\.*' -prune \
+          #-o -type d -print 2> /dev/null | fzf):-.}"
+  #zle reset-prompt
+#}
+#zle     -N    fzf-cd-widget
+#bindkey '\ec' fzf-cd-widget
 
 # CTRL-R - Paste the selected command from history into the command line
 fzf-history-widget() {
