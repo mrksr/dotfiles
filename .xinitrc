@@ -13,6 +13,8 @@ xset -b
 # Disable Touchpad when typing
 ( sleep 1 ; xuserrun syndaemon -k -i 1.5 -d ) &
 ( sleep 2 ; xuserrun synclient TouchpadOff=1 ) &
+# Use GPG-agent
+eval $(gpg-agent --daemon)
 
 ##############
 #  Programs  #
