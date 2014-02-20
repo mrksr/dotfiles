@@ -49,7 +49,11 @@ alias apt-filesearch="apt-find search"
 alias vnc="vncviewer 192.168.2.42"
 alias dmesg="dmesg -L auto"
 alias fzf="fzf -x"
-alias open="xdg-open"
+
+alias open="open-background"
+open-background() {
+    xdg-open "$@" >/dev/null &!
+}
 alias pdf="open-pdf"
 open-pdf() {
     local PREFIX=$(eval echo "${1:-.}")
