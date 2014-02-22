@@ -68,7 +68,7 @@ map e :set nst!=<Tab>
 map E :set nss!=<Tab>
 
 " Default search engine
-set defsearch=gg
+set defsearch=dd
 
 " Download Sorts
 set dlsort=-active,-time,-date,+filename
