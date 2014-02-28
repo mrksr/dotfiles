@@ -38,7 +38,7 @@ myManageHook = composeAll [
     {-, className =? "Smplayer"         --> doFloat-}
     , className =? "Xfce4-notifyd"    --> doIgnore
     , className =? "Gimp-2.8"         --> doShift (myWorkspaces !! 5)
-    , className =? "Gimp-2.8"         --> doFloat
+    {-, className =? "Gimp-2.8"         --> doFloat-}
     ]
 
 myKeys = [
