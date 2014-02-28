@@ -1,32 +1,32 @@
 ##########
 #  Meta  #
 ##########
-snippet "in(put)?" "Input" !br
+snippet "in(put)?" "Input" br
 \input{${1:file}.tex}
 endsnippet
 
-snippet du "Define Unit" !b
+snippet du "Define Unit" b
 \defineUnit{${1:name}}{%
 ${2:${VISUAL:content}}
 }
 endsnippet
 
-snippet su "Show Unit" !b
+snippet su "Show Unit" b
 \showUnit{${1:${VISUAL:name}}}
 endsnippet
 
-snippet pac "Package without options" !b
+snippet pac "Package without options" b
 \usepackage{${1:name}}
 endsnippet
 
-snippet paco "Package with options" !b
+snippet paco "Package with options" b
 \usepackage[${2:options}]{${1:name}}
 endsnippet
 
 ############
 #  Beamer  #
 ############
-snippet frame "Beamer frame" !b
+snippet frame "Beamer frame" b
 \begin{frame}
     \frametitle{${1:title}}
 
@@ -34,15 +34,15 @@ snippet frame "Beamer frame" !b
 \end{frame}
 endsnippet
 
-snippet "\bal(ert)?" "Beamer emph" !r
+snippet "\bal(ert)?" "Beamer emph" r
 \alert{${1:${VISUAL:this}}}
 endsnippet
 
-snippet "\bst(ructure)?" "Beamer emph" !r
+snippet "\bst(ructure)?" "Beamer emph" r
 \structure{${1:${VISUAL:this}}}
 endsnippet
 
-snippet columns "Beamer columns" !b
+snippet columns "Beamer columns" b
 \begin{columns}
     \begin{column}{${1:width}}
         ${2:content}
@@ -50,59 +50,60 @@ snippet columns "Beamer columns" !b
 \end{columns}
 endsnippet
 
-snippet column "Beamer column" !b
+snippet column "Beamer column" b
 \begin{column}{${1:width}}
     ${2:content}
 \end{column}
 endsnippet
 
-snippet center "Center environment" !b
+snippet center "Center environment" b
 \begin{center}
     ${2:${VISUAL:content}}
 \end{center}
 endsnippet
 
-snippet note "Beamer Note" !b
+snippet note "Beamer Note" b
 \note[item]{${2:content}}
 endsnippet
 
 ##########
 #  Text  #
 ##########
-snippet "emph?" "emph" !r
+snippet "emph?" "emph" r
 \emph{${1:${VISUAL:this}}}
 endsnippet
 
-snippet enum "Enumerate" !b
+snippet enum "Enumerate" b
 \begin{enumerate}
     \item $0
 \end{enumerate}
 endsnippet
 
-snippet itemize "Itemize" !b
+snippet itemize "Itemize" b
 \begin{itemize}
     \item $0
 \end{itemize}
 endsnippet
 
-snippet desc "Description" !b
+snippet desc "Description" b
 \begin{description}
     \item[$1] $0
 \end{description}
 endsnippet
 
-snippet "it(em)?" "Single Item" !br
-\item $0
-endsnippet
+#snippet "it(em)?" "Single Item" br
+#\item $0
+#endsnippet
 
-snippet "it(em)?o" "Single Item with Options" !br
+snippet "it(em)?o" "Single Item with Options" br
 \item[$1] $0
+
 endsnippet
 
 ############
 #  Floats  #
 ############
-snippet sfi "Subfigure" !b
+snippet sfi "Subfigure" b
 \begin{subfigure}{${1:size}}
 ${0:${VISUAL:}}
     \caption{${3:Great Figure!}}
@@ -110,7 +111,7 @@ ${0:${VISUAL:}}
 \end{subfigure}
 endsnippet
 
-snippet "fi(gure)?" "Figure" !rb
+snippet "fi(gure)?" "Figure" rb
 \begin{figure}[${1:bthH}]
     ${0}
     \caption{${2:Great Figure!}}
@@ -118,7 +119,7 @@ snippet "fi(gure)?" "Figure" !rb
 \end{figure}
 endsnippet
 
-snippet "li(sting)?" "Listing" !rb
+snippet "li(sting)?" "Listing" rb
 \begin{listing}[${1:bthH}]
     ${0}
     \caption{${2:Great Listing!}}
@@ -129,31 +130,31 @@ endsnippet
 #############
 #  Theorem  #
 #############
-snippet "def(inition)?" "Definition environment" !br
+snippet "def(inition)?" "Definition environment" br
 \begin{definition}[${1:name}]
     ${2:content}
 \end{definition}
 endsnippet
 
-snippet "the(orem)?" "Theorem environment" !br
+snippet "the(orem)?" "Theorem environment" br
 \begin{theorem}[${1:name}]
     ${2:content}
 \end{theorem}
 endsnippet
 
-snippet "pr(oof)?" "Proof environment" !br
+snippet "pr(oof)?" "Proof environment" br
 \begin{proof}
     ${2:content}
 \end{proof}
 endsnippet
 
-snippet "ex(ample)?" "Example environment" !br
+snippet "ex(ample)?" "Example environment" br
 \begin{example}[${1:name}]
     ${2:content}
 \end{example}
 endsnippet
 
-snippet block "Block environment" !b
+snippet block "Block environment" b
 \begin{block}{${1:name}}
     ${2:content}
 \end{block}
@@ -162,48 +163,48 @@ endsnippet
 #####################################
 # SECTIONS, CHAPTERS AND THEIR LIKE #
 #####################################
-snippet part "Part" !b
+snippet part "Part" b
 \part{${1:part name}}
 \label{prt:${2:${1/(\w+)|\W+/(?1:\L$0\E:_)/g}}}
 ${0}
 endsnippet
 
-snippet cha "Chapter" !b
+snippet cha "Chapter" b
 \chapter{${1:chapter name}}
 \label{cha:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
 ${0}
 endsnippet
 
-snippet sec "Section" !b
+snippet sec "Section" b
 \section{${1:section name}}
 \label{sec:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
 ${0}
 endsnippet
 
-snippet sub "Subsection" !b
+snippet sub "Subsection" b
 \subsection{${1:subsection name}}
 \label{sub:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
 ${0}
 endsnippet
 
-snippet ssub "Subsubsection" !b
+snippet ssub "Subsubsection" b
 \subsubsection{${1:subsubsection name}}
 \label{ssub:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
 ${0}
 endsnippet
 
-snippet sssub "Subsubsection without label" !b
+snippet sssub "Subsubsection without label" b
 \subsubsection{${1:subsubsection name}}
 ${0}
 endsnippet
 
-snippet par "Paragraph" !b
+snippet par "Paragraph" b
 \paragraph{${1:paragraph name}}
 \label{par:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
 ${0}
 endsnippet
 
-snippet subp "Subparagraph" !b
+snippet subp "Subparagraph" b
 \subparagraph{${1:subparagraph name}}
 \label{par:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
 ${0}
