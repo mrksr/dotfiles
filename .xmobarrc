@@ -4,16 +4,20 @@ Config {
     , fgColor = "#eeeeec"
     , position = Static { xpos = 0, ypos = 0, width = 1823, height = 16 }
     , commands = [
-             Run Date "%a, %b %_d %k:%M" "date" 10
+             Run Date "%a, %_d. %b %k:%M" "date" 10
            , Run Weather "EDDM" ["-t", "<station>: <tempC>C"] 300
            , Run ThermalZone 0 [
                   "-t","<temp>°C"
-                , "-H", "60"
-                , "-h", "red"
+                , "-L", "68"
+                , "-H", "80"
                 ] 10
-           , Run ThermalZone 0 ["-t","<temp>°C"] 10
            , Run Brightness ["-t", "<percent>%"] 5
-           , Run DynNetwork ["-L","0","-H","32","--normal","green","--high","red"] 25
+           , Run DynNetwork [
+                 "-L", "16"
+                ,"-H", "96"
+                ,"--normal", "green"
+                ,"--high", "red"
+                ] 25
            , Run BatteryP ["BAT0"] [
                   "-t", "<acstatus><left>% - <timeleft>"
                 , "-L", "10", "-H", "80", "-p", "3"
