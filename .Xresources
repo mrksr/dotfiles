@@ -10,10 +10,10 @@ urxvt.background: [100]#000000
 urxvt.foreground: [100]#FFFFFF
 urxvt.intensitystyles: false
 urxvt.scrollBar: false
-urxvt.scrollWithBuffer: false
+urxvt.scrollWithBuffer: true
 urxvt.scrollTtyKeypress: true
 urxvt.font: xft:ubuntu mono-12
-urxvt.savelines: 5000
+urxvt.saveLines: 10000
 urxvt.iso14755: false
 ! C-Tab and C-S-Tab to F19, F20
 urxvt.keysym.Control-Tab: \033[33~

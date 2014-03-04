@@ -27,8 +27,8 @@ source $ZSH/oh-my-zsh.sh
 ################
 #  Own config  #
 ################
-HISTSIZE=100000
-SAVEHIST=100000
+HISTSIZE=1000000
+SAVEHIST=1000000
 
 setopt extendedglob
 
