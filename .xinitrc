@@ -11,8 +11,8 @@ xmodmap ~/.Xmodmap
 # No beeping
 xset -b
 # Disable Touchpad when typing
-( sleep 1 ; xuserrun syndaemon -k -i 1.5 -d ) &
-( sleep 2 ; xuserrun synclient TouchpadOff=1 ) &
+( sleep 1 ; syndaemon -k -i 1.5 -d ) &
+( sleep 2 ; synclient TouchpadOff=1 ) &
 # Use GPG-agent
 eval $(gpg-agent --daemon)
 
