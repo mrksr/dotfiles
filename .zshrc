@@ -46,9 +46,12 @@ alias apt-update="apt-get update"
 alias apt-remove="apt-get remove"
 alias apt-list="dpkg --list-selections"
 alias apt-filesearch="apt-find search"
+
 alias vnc="vncviewer 192.168.2.42"
 alias dmesg="dmesg -L auto"
 alias fzf="fzf -x"
+
+alias ls="ls --color=tty --group-directories-first -h"
 
 alias open="open-background"
 open-background() {
@@ -66,7 +69,6 @@ open-pdf() {
     fi
 }
 
-# greeter
 if command -v fortune > /dev/null; then
     fortune -s;
     echo;
