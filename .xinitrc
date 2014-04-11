@@ -21,7 +21,7 @@ eval $(gpg-agent --daemon)
 #  Programs  #
 ##############
 ( sleep 5 ; start-pulseaudio-x11 ) &
-( sleep 5 ; dropboxd ) &
+#( sleep 5 ; dropboxd ) &
 redshift -l 52.52:13.38 -t 6300:4800 &
 
 ####################
