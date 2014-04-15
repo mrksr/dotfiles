@@ -236,6 +236,10 @@ let g:multi_cursor_quit_key='<Esc>'
 let g:yankring_replace_n_pkey='<C-O>'
 let g:yankring_replace_n_nkey='<C-P>'
 
+""""""""""""""
+"  Markdown  "
+""""""""""""""
+au BufEnter *.md :se ft=markdown
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  Mappings                                  "
