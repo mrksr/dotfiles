@@ -59,7 +59,7 @@ myKeys = [
     , ("M-o", spawn lock)
     , ("M-v", spawn "pavucontrol")
     , ("M-f", spawn "gvim ~/.vimrc ~/.xinitrc ~/.xmonad/xmonad.hs ~/.xmobarrc")
-    , ("M-p", spawn "/etc/acpi/actions/docking_station.sh")
+    , ("M-p", spawn "autorandr --force")
     , ("<F12>", spawn dmenu)
     , ("M1-<F12>", spawn "kupfer")
     , ("M-c", spawn term)
