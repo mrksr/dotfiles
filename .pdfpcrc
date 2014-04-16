@@ -4,5 +4,5 @@
 unbind Escape
 unbind F5
 
-bind Escape     start
-bind F5         start
+bind Escape     blank
+bind F5         blank

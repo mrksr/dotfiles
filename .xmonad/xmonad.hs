@@ -78,6 +78,7 @@ myKeys = [
 
     -- Workspaces
     , ("M-^", toggleWS)
+    , ("<XF86Away>", toggleWS) -- Presenter hack
     , ("M-<Tab>", moveTo Next NonEmptyWS)
     , ("M-S-<Tab>", moveTo Prev NonEmptyWS)
     , ("M-s", sendMessage ToggleStruts)
