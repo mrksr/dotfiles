@@ -30,12 +30,12 @@ myWorkspaces =
 
 myManageHook = composeAll [
       className =? "Pidgin"           --> doShift "IM"
+    , className =? "Skype"            --> doShift "IM"
     , className =? "Thunderbird"      --> doShift "Mail"
     , className =? "Firefox"          --> doShift "Browser"
     , className =? "Opera"            --> doShift "Browser"
     , className =? "Chormium-browser" --> doShift "Browser"
     , className =? "Gvim"             --> doShift "Stuff"
-    {-, className =? "Smplayer"         --> doFloat-}
     , className =? "Xfce4-notifyd"    --> doIgnore
     , className =? "Gimp-2.8"         --> doShift (myWorkspaces !! 5)
     {-, className =? "Gimp-2.8"         --> doFloat-}
