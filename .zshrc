@@ -52,6 +52,7 @@ alias dmesg="dmesg -L auto"
 alias fzf="fzf -x"
 
 alias ls="ls --color=tty --group-directories-first -h"
+alias lsd="ls -lhd */"
 
 alias open="open-background"
 open-background() {
