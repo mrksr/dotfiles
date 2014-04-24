@@ -74,6 +74,7 @@ endif
 
 " Colorschemes
 Bundle 'ciaranm/inkpot'
+Bundle 'brendonrapp/smyck-vim'
 Bundle 'jeremycw/darkspectrum'
 Bundle 'lettuce.vim'
 Bundle 'Lokaltog/vim-distinguished'
