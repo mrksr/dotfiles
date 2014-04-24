@@ -59,7 +59,7 @@ Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
 Bundle 'SirVer/ultisnips'
-Bundle 'terryma/vim-multiple-cursors'
+"Bundle 'terryma/vim-multiple-cursors'
 Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-surround'
 Bundle 'xolox/vim-misc'
@@ -198,7 +198,7 @@ set updatetime=1000
 """""""""""""""
 "  UltiSnips  "
 """""""""""""""
-let g:UltiSnipsDontReverseSearchPath="1"
+"let g:UltiSnipsDontReverseSearchPath="1"
 let g:UltiSnipsEditSplit="vertical"
 
 " Avoid Clashes with YCM
@@ -354,7 +354,7 @@ set autoread
 set hidden
 set number
 set ruler
-autocmd bufenter * set cmdheight=1 " Rather aggressive fix for vim-haskell
+autocmd bufenter *.hs set cmdheight=1 " Rather aggressive fix for vim-haskell
 
 " Commands
 set wildmenu
