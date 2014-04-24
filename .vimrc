@@ -32,8 +32,8 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " Libs
-Bundle 'L9'
-Bundle 'vim-scripts/genutils'
+"Bundle 'L9'
+"Bundle 'vim-scripts/genutils'
 
 " Plugins
 Bundle 'argtextobj.vim'
