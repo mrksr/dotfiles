@@ -158,5 +158,5 @@ main = do
             } `additionalKeysP` myKeys
         )
     xmonad conf {
-        startupHook = startupHook conf >> setWMName "LG3D"
+        startupHook = startupHook conf >> setWMName "LG3D" -- Ugly Matlab hack
     }
