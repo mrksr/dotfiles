@@ -7,7 +7,6 @@ xrdb -merge ~/.Xresources
 xsetroot -cursor_name left_ptr
 setxkbmap -layout de -variant nodeadkeys
 xmodmap ~/.Xmodmap
-( sleep 45 ; /usr/bin/laptop_mode force ) &
 # No beeping
 xset -b
 # Disable Touchpad when typing
