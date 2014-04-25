@@ -48,6 +48,7 @@ alias apt-list="dpkg --list-selections"
 alias apt-filesearch="apt-find search"
 
 alias vnc="vncviewer 192.168.2.42"
+alias syc="synergyc --crypto-pass 9ff70869157819ffddb6a2acbfd0ee64 192.168.2.42"
 alias dmesg="dmesg -L auto"
 alias fzf="fzf -x"
 
