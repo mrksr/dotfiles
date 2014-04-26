@@ -31,15 +31,15 @@ call vundle#rc()
 " git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 Bundle 'gmarik/vundle'
 
-" Libs
-"Bundle 'L9'
-"Bundle 'vim-scripts/genutils'
-
-" Plugins
-Bundle 'argtextobj.vim'
+" Syntax
 Bundle 'avakhov/vim-yaml'
 Bundle 'beyondmarc/glsl.vim'
 Bundle 'beyondmarc/opengl.vim'
+Bundle 'Matt-Stevens/vim-systemd-syntax'
+Bundle 'Mediawiki.vim'
+
+" Plugins
+Bundle 'argtextobj.vim'
 Bundle 'bling/vim-airline'
 Bundle 'bufkill.vim'
 Bundle 'chrisbra/csv.vim'
@@ -53,22 +53,23 @@ Bundle 'kana/vim-textobj-user'
 Bundle 'kien/ctrlp.vim'
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
 Bundle 'lukerandall/haskellmode-vim'
-Bundle 'Matt-Stevens/vim-systemd-syntax'
-Bundle 'Mediawiki.vim'
-Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
-Bundle 'SirVer/ultisnips'
-"Bundle 'terryma/vim-multiple-cursors'
 Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-surround'
 Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-session'
 Bundle 'YankRing.vim'
-if v:version > 703 || (v:version == 703 && has('patch584'))
-    if !has("win32")
-        " Only load YCM when it will run
-        Bundle 'Valloric/YouCompleteMe'
+
+" Plugins using externals
+" Prevent startup error messages
+if has("python")
+    Bundle 'SirVer/ultisnips'
+
+    if v:version > 703 || (v:version == 703 && has('patch584'))
+        if !has("win32")
+            Bundle 'Valloric/YouCompleteMe'
+        endif
     endif
 endif
 
