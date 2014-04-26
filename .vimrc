@@ -154,11 +154,6 @@ let g:LatexBox_latexmk_preview_continuously=0
 let g:LatexBox_viewer="zathura"
 let g:LatexBox_Folding=0
 
-" nicer conceal
-" this is not part of the vim-latex plugin.
-let g:tex_conceal="abdgm"
-let g:tex_flavor="latex"
-
 """""""""""""""""
 "  Haskellmode  "
 """""""""""""""""
@@ -414,9 +409,13 @@ set linebreak
 set display=lastline
 
 " Conceal
-set conceallevel=2
-"set concealcursor=vin
-hi Conceal guibg=black guifg=white
+if has("conceal")
+    set conceallevel=2
+    "set concealcursor=vin
+    hi Conceal guibg=black guifg=white
+    let g:tex_conceal="abdgm"
+    let g:tex_flavor="latex"
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                    IDE                                     "
