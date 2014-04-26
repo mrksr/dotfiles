@@ -103,7 +103,6 @@ else
     endif
 endif
 
-" Font
 if has("gui_running")
     if has("win32")
         set gfn=Consolas:h11:cANSI
@@ -114,15 +113,19 @@ endif
 
 if has("win32")
     let localdir="%HOME%\\vim_local\\"
-    set undodir=C:\Windows\Temp//
 else
     let localdir="~/.vim_local/"
     set dir=/tmp//,~/tmp//,.
-    set undodir=~/.vim_local/undodir
 endif
-" localdir is later used for the local vimrc import
 
-set undofile
+if has("persistent_undo")
+    if has("win32")
+        set undodir=C:\Windows\Temp//
+    else
+        set undodir=~/.vim_local/undodir
+    endif
+    set undofile
+endif
 set noswapfile
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
