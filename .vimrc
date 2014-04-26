@@ -238,6 +238,8 @@ let g:multi_cursor_quit_key='<Esc>'
 let g:yankring_replace_n_pkey='<C-O>'
 let g:yankring_replace_n_nkey='<C-P>'
 
+let g:yankring_history_dir=localdir
+
 """"""""""""""
 "  Markdown  "
 """"""""""""""
