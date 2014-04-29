@@ -27,7 +27,7 @@ Config {
                 , "-o", ""
                 , "-L", "-15", "-H", "-5"
                 , "-l", "red", "-m", "blue", "-h", "green"
-                ] 60
+                ] 10
            -- , Run Com "/home/markus/.xmonad/xmobar_mpd.py" [] "music" 5
            , Run Com "/home/markus/.xmonad/xmobar_volume.sh" [] "volume" 5
            , Run StdinReader
