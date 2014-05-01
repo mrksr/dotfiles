@@ -10,7 +10,6 @@ import XMonad.Util.EZConfig
 import XMonad.Actions.SpawnOn
 import XMonad.Actions.CopyWindow
 import XMonad.Actions.CycleWS
-import XMonad.Actions.GridSelect
 import XMonad.Layout.PerWorkspace
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Tabbed
@@ -59,6 +58,7 @@ myKeys = [
     , ("M-o", spawn lock)
     , ("M-v", spawn "pavucontrol")
     , ("M-f", spawn "gvim ~/.vimrc ~/.xinitrc ~/.xmonad/xmonad.hs ~/.xmobarrc")
+    , ("M-g", spawn "gvim")
     , ("M-p", spawn "autorandr --force")
     , ("<F12>", spawn dmenu)
     , ("M1-<F12>", spawn "kupfer")
@@ -72,7 +72,6 @@ myKeys = [
     , ("M1-<Return>", windows W.shiftMaster)
     , ("M1-<Tab>", windows W.focusDown)
     , ("M1-S-<Tab>", windows W.focusUp)
-    , ("M-g", goToSelected defaultGSConfig)
     , ("M-a", windows copyToAll)
     , ("M-S-a", killAllOtherCopies)
 
