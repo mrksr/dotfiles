@@ -2,7 +2,9 @@ Xcursor.theme: Vanilla-DMZ
 Xcursor.size: 12
 Xft.dpi: 96
 
-xterm*faceName: xft:ubuntu mono-13
+xterm.faceName: xft:ubuntu mono-13
+xterm.background: black
+xterm.foreground: white
 
 urxvt.termName: rxvt-unicode-256color
 urxvt.depth: 32
