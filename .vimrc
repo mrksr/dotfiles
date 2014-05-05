@@ -112,7 +112,7 @@ if has("gui_running")
 endif
 
 if has("win32")
-    let localdir="%HOME%\\vim_local\\"
+    let localdir="$HOME/vim_local/"
 else
     let localdir="~/.vim_local/"
     set dir=/tmp//,~/tmp//,.
