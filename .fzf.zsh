@@ -10,7 +10,7 @@ fzf-file-widget() {
   FILES=($(
     find * -path '*/\.*' -prune \
     -o -type f -print \
-    -o -type l -print 2> /dev/null | fzf -m))
+    -o -type l -print 2> /dev/null | fzf -x -m))
   unset IFS
   FILES=$FILES:q
   LBUFFER="${LBUFFER%% #} $FILES"
@@ -30,7 +30,7 @@ bindkey '^T' fzf-file-widget
 
 # CTRL-R - Paste the selected command from history into the command line
 fzf-history-widget() {
-  LBUFFER=$(history | fzf +s | sed "s/ *[0-9]* *//")
+  LBUFFER=$(history | fzf -x +s | sed "s/ *[0-9]* *//")
   zle redisplay
 }
 zle     -N   fzf-history-widget
