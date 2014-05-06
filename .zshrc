@@ -64,7 +64,7 @@ open-pdf() {
     local PREFIX=$(eval echo "${1:-.}")
     local FILE="$(cd $PREFIX;
         find . -name '*.pdf' \
-        | fzf )";
+        | fzf -x )";
     if [[ -n "$FILE" ]]; then
         open "$PREFIX/$FILE" > /dev/null
         echo "$PREFIX/$FILE"
