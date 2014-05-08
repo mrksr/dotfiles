@@ -62,7 +62,6 @@ Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-surround'
 Bundle 'xolox/vim-misc'
-Bundle 'xolox/vim-session'
 Bundle 'YankRing.vim'
 
 " Plugins using externals
@@ -78,15 +77,10 @@ if has("python")
 endif
 
 " Colorschemes
-Bundle 'brendonrapp/smyck-vim'
-Bundle 'chriskempson/base16-vim'
 Bundle 'ciaranm/inkpot'
-Bundle 'jeremycw/darkspectrum'
-Bundle 'lettuce.vim'
 Bundle 'Lokaltog/vim-distinguished'
 Bundle 'matthewtodd/vim-twilight'
 Bundle 'nanotech/jellybeans.vim'
-Bundle 'peaksea'
 Bundle 'sickill/vim-sunburst'
 Bundle 'vim-scripts/synic.vim'
 
@@ -259,10 +253,13 @@ nmap <Leader>a <Plug>(EasyAlign)
 """""""""""""""
 "  CtrlSpace  "
 """""""""""""""
-hi CtrlSpaceSelected term=reverse ctermfg=187  ctermbg=23  cterm=bold
-hi CtrlSpaceNormal   term=NONE    ctermfg=244  ctermbg=232 cterm=NONE
-hi CtrlSpaceFound    ctermfg=220  ctermbg=NONE cterm=bold
-hi CtrlSpaceStatus   ctermfg=230  ctermbg=234  cterm=NONE
+hi CtrlSpaceSelected term=reverse  ctermfg=187      ctermbg=23  cterm=bold
+hi CtrlSpaceNormal   term=NONE     ctermfg=244      ctermbg=232 cterm=NONE
+hi CtrlSpaceFound    ctermfg=220   ctermbg=NONE     cterm=bold
+hi CtrlSpaceStatus   ctermfg=230   ctermbg=234      cterm=NONE
+
+let g:ctrlspace_unicode_font=0
+let g:ctrlspace_save_workspace_on_exit=1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  Mappings                                  "
@@ -286,6 +283,30 @@ vnoremap gk k
 inoremap <silent><up> <C-o>gk
 inoremap <silent><down> <C-o>gj
 
+" Tab Movement
+nnoremap <S-h> gT
+nnoremap <S-l> gt
+" In GVim
+nnoremap <A-1> 1gt
+nnoremap <A-2> 2gt
+nnoremap <A-3> 3gt
+nnoremap <A-4> 4gt
+nnoremap <A-5> 5gt
+nnoremap <A-6> 6gt
+nnoremap <A-7> 7gt
+nnoremap <A-8> 8gt
+nnoremap <A-9> 9gt
+" In urxvt
+nnoremap <Esc>1 1gt
+nnoremap <Esc>2 2gt
+nnoremap <Esc>3 3gt
+nnoremap <Esc>4 4gt
+nnoremap <Esc>5 5gt
+nnoremap <Esc>6 6gt
+nnoremap <Esc>7 7gt
+nnoremap <Esc>8 8gt
+nnoremap <Esc>9 9gt
+
 " Use arrows to move between buffers
 nnoremap <silent><C-right> :bn<cr>
 nnoremap <silent><C-left> :bp<cr>
@@ -302,7 +323,9 @@ nnoremap / /\v
 vnoremap / /\v
 
 " Custom leader maps
-nnoremap <silent><leader><Space> :nohl<CR>
+nnoremap <silent><leader><Space> :CtrlSpace<CR>
+nnoremap <silent><leader>j :nohl<CR>
+nnoremap <silent><leader>k :nohl<CR>
 " Spell Checking
 nnoremap <silent><leader>ss :setlocal spell!<cr>
 nnoremap <silent><leader>sn ]s
@@ -319,8 +342,6 @@ vnoremap <silent><leader>p :g/^$/d<CR>:let @/=''<CR>
 " Collapse lines
 nnoremap <silent><leader>o Goj<Esc>:g/^$/.,/./-j<CR>Gdd:let @/=''<CR>
 vnoremap <silent><leader>o :g/^$/.,/./-j<CR>:let @/=''<CR>
-" Bufexplorer
-nnoremap <silent><leader>ö :SelectBuf<CR>
 
 " Paste and Yank to System Register
 nnoremap ü "+p
