@@ -47,14 +47,18 @@ Bundle 'derekwyatt/vim-scala'
 Bundle 'edkolev/tmuxline.vim'
 Bundle 'edsono/vim-matchit'
 Bundle 'honza/vim-snippets'
+Bundle 'jayflo/vim-skip'
+Bundle 'junegunn/vim-easy-align'
 Bundle 'kana/vim-textobj-entire'
 Bundle 'kana/vim-textobj-indent'
 Bundle 'kana/vim-textobj-user'
-Bundle 'kien/ctrlp.vim'
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
 Bundle 'lukerandall/haskellmode-vim'
-Bundle 'scrooloose/nerdcommenter'
+Bundle 'rhysd/clever-f.vim'
 Bundle 'scrooloose/syntastic'
+Bundle 'sheerun/vim-polyglot'
+Bundle 'szw/vim-ctrlspace'
+Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-surround'
 Bundle 'xolox/vim-misc'
@@ -74,8 +78,9 @@ if has("python")
 endif
 
 " Colorschemes
-Bundle 'ciaranm/inkpot'
 Bundle 'brendonrapp/smyck-vim'
+Bundle 'chriskempson/base16-vim'
+Bundle 'ciaranm/inkpot'
 Bundle 'jeremycw/darkspectrum'
 Bundle 'lettuce.vim'
 Bundle 'Lokaltog/vim-distinguished'
@@ -94,7 +99,7 @@ if has("gui_running")
 
     set vb t_vb=
     set background=dark
-    set guioptions=aegit
+    set guioptions=agit
 else
     if &t_Co != 256
         colorscheme synic
@@ -144,6 +149,8 @@ filetype plugin on
 "  Airline  "
 """""""""""""
 set laststatus=2
+" Ignore Preview for CtrlSpace
+let g:airline_exclude_preview=1
 
 """""""""""
 "  Latex  "
@@ -242,6 +249,20 @@ let g:yankring_history_dir=localdir
 "  Markdown  "
 """"""""""""""
 au BufEnter *.md :se ft=markdown
+
+""""""""""""""""
+"  easy-align  "
+""""""""""""""""
+vmap <Enter> <Plug>(EasyAlign)
+nmap <Leader>a <Plug>(EasyAlign)
+
+"""""""""""""""
+"  CtrlSpace  "
+"""""""""""""""
+hi CtrlSpaceSelected term=reverse ctermfg=187  ctermbg=23  cterm=bold
+hi CtrlSpaceNormal   term=NONE    ctermfg=244  ctermbg=232 cterm=NONE
+hi CtrlSpaceFound    ctermfg=220  ctermbg=NONE cterm=bold
+hi CtrlSpaceStatus   ctermfg=230  ctermbg=234  cterm=NONE
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  Mappings                                  "
