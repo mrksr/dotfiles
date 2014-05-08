@@ -254,10 +254,10 @@ nmap <Leader>a <Plug>(EasyAlign)
 """""""""""""""
 "  CtrlSpace  "
 """""""""""""""
-hi CtrlSpaceSelected term=reverse  ctermfg=187      ctermbg=23  cterm=bold
-hi CtrlSpaceNormal   term=NONE     ctermfg=244      ctermbg=232 cterm=NONE
-hi CtrlSpaceFound    ctermfg=220   ctermbg=NONE     cterm=bold
-hi CtrlSpaceStatus   ctermfg=230   ctermbg=234      cterm=NONE
+hi link CtrlSpaceSelected Visual
+hi link CtrlSpaceNormal   Normal
+hi link CtrlSpaceStatus   Question
+" hi CtrlSpaceFound
 
 let g:ctrlspace_unicode_font=0
 let g:ctrlspace_save_workspace_on_exit=1
@@ -455,8 +455,8 @@ set display=lastline
 if has("conceal")
     set conceallevel=2
     "set concealcursor=vin
-    hi Conceal guibg=black guifg=white
-    let g:tex_conceal="abdgm"
+    hi! link Conceal Normal
+    let g:tex_conceal="abgm"
     let g:tex_flavor="latex"
 endif
 
