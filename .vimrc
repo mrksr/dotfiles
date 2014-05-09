@@ -52,11 +52,13 @@ Bundle 'junegunn/vim-easy-align'
 Bundle 'kana/vim-textobj-indent'
 Bundle 'kana/vim-textobj-line'
 Bundle 'kana/vim-textobj-user'
+Bundle 'kien/ctrlp.vim'
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
 Bundle 'lukerandall/haskellmode-vim'
 Bundle 'rhysd/clever-f.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'sheerun/vim-polyglot'
+Bundle 'soramugi/auto-ctags.vim'
 Bundle 'szw/vim-ctrlspace'
 Bundle 'terryma/vim-expand-region'
 Bundle 'tpope/vim-commentary'
@@ -215,9 +217,13 @@ let g:EasyMotion_leader_key='<leader>'
 """"""""""""
 "  Ctrl-P  "
 """"""""""""
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_cache_dir = $HOME.'/.vim_local/ctrlp'
+let g:ctrlp_switch_buffer = 'e'
 let g:ctrlp_match_window='bottom,order:ttb,min:5,max:5'
 let g:ctrlp_map='ä'
 nnoremap <silent>ö :CtrlPBuffer<CR>
+nnoremap <silent>Ö :CtrlPTag<CR>
 
 """"""""""""""
 "  tmuxline  "
@@ -261,6 +267,14 @@ hi link CtrlSpaceStatus   Question
 
 let g:ctrlspace_unicode_font=0
 let g:ctrlspace_save_workspace_on_exit=1
+
+""""""""""""""""
+"  auto-ctags  "
+""""""""""""""""
+let g:auto_ctags=1
+let g:auto_ctags_directory_list = ['.git', '.hg', '.svn']
+let g:auto_ctags_tags_name = 'tags'
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  Mappings                                  "
@@ -466,7 +480,7 @@ endif
 set path+=include/**
 " To create systags run
 " ctags -R -f $LOCALDIR/systags --c-kinds=+p --fields=+iaS --extra=+q /usr/include /usr/local/include
-set tags+=./tags;/
+set tags+=.git/tags,.hg/tags,.svn/tags
 let &tags.="," . localdir . "systags"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
