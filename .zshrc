@@ -5,16 +5,18 @@ ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="_mine"
 plugins=( \
-    archlinux \
-    cp \
-    debian \
+    # archlinux \
+    # cp \
+    # debian \
     extract \
     #last-working-dir \
     mercurial \
+    git \
     python \
-    sbt \
-    scala \
+    # sbt \
+    # scala \
     screen \
+    tmux \
     vi-mode \
     wakeonlan \
 )
