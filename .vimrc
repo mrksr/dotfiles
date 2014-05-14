@@ -73,7 +73,7 @@ if has("python")
     Bundle 'SirVer/ultisnips'
 
     if v:version > 703 || (v:version == 703 && has('patch584'))
-        if !has("win32")
+        if !has("win32") && !has("win32unix")
             Bundle 'Valloric/YouCompleteMe'
         endif
     endif
