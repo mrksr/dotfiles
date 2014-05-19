@@ -120,8 +120,7 @@ myStartup = do
     -- Desktop
     spawnK "trayer" "trayer --edge top --align left --SetDockType true --SetPartialStrut true --expand true --widthtype pixel --width 97 --margin 1823 --transparent true --alpha 0 --tint 0x000000 --height 16"
     -- Arch
-    {-spawnK "wicd-client" "wicd-client -t"-}
-    spawnK "connman-ui-gtk" "connman-ui-gtk"
+    spawnK "python2" "netmon"
     -- GUIs
     spawn "thunderbird"
     spawn "pidgin"
