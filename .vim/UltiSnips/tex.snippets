@@ -67,6 +67,15 @@ snippet note "Beamer Note" b
 endsnippet
 
 ##########
+#  Tikz  #
+##########
+snippet "lay(er)?" "Pgf Layers" br
+\begin{pgfonlayer}{${1:name}}
+    ${2:${VISUAL:content}}
+\end{pgfonlayer}
+endsnippet
+
+##########
 #  Text  #
 ##########
 snippet "emph?" "emph" r
@@ -142,8 +151,20 @@ snippet "the(orem)?" "Theorem environment" br
 \end{theorem}
 endsnippet
 
+snippet "lem(ma)?" "Lemma environment" br
+\begin{lemma}[${1:name}]
+    ${2:content}
+\end{lemma}
+endsnippet
+
 snippet "pr(oof)?" "Proof environment" br
 \begin{proof}
+    ${2:content}
+\end{proof}
+endsnippet
+
+snippet "problem" "Problem environment" br
+\begin{proof}[${1:name}]
     ${2:content}
 \end{proof}
 endsnippet
