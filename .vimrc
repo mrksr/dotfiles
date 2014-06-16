@@ -196,6 +196,7 @@ let g:syntastic_warning_symbol = '?'
 """""""""""""""""""
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 0
+let g:ycm_collect_identifiers_from_tags_files = 1
 set updatetime=1000
 
 """""""""""""""
@@ -274,6 +275,7 @@ let g:ctrlspace_save_workspace_on_exit=1
 let g:auto_ctags=1
 let g:auto_ctags_directory_list = ['.git', '.hg', '.svn']
 let g:auto_ctags_tags_name = 'tags'
+let g:auto_ctags_tags_args = '--tag-relative --recurse --sort=yes --fields+=l'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -383,6 +385,7 @@ nnoremap Q @
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " cd to current file
 com! CD cd %:p:h
+com! LCD lcd %:p:h
 
 com! -nargs=* -bang S OpenSession<bang> <args>
 
@@ -480,8 +483,13 @@ endif
 set path+=include/**
 " To create systags run
 " ctags -R -f $LOCALDIR/systags --c-kinds=+p --fields=+iaS --extra=+q /usr/include /usr/local/include
-set tags+=.git/tags,.hg/tags,.svn/tags
+set tags+=.git/tags;,.hg/tags;,.svn/tags;
 let &tags.="," . localdir . "systags"
+let g:load_doxygen_syntax=1
+
+augroup commentstrings
+    autocmd FileType cmake set commentstring="#%s"
+augroup END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                Local .vimrc                                "
