@@ -31,19 +31,21 @@ call vundle#rc()
 " git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 Bundle 'gmarik/vundle'
 
-" Syntax
+" Languages
 Bundle 'avakhov/vim-yaml'
 Bundle 'beyondmarc/glsl.vim'
 Bundle 'beyondmarc/opengl.vim'
-Bundle 'Matt-Stevens/vim-systemd-syntax'
+Bundle 'LaTeX-Box-Team/LaTeX-Box'
+Bundle 'lukerandall/haskellmode-vim'
 Bundle 'Mediawiki.vim'
+Bundle 'sheerun/vim-polyglot'
 
 " Plugins
 Bundle 'argtextobj.vim'
 Bundle 'bling/vim-airline'
 Bundle 'bufkill.vim'
 Bundle 'chrisbra/csv.vim'
-Bundle 'derekwyatt/vim-scala'
+Bundle 'DoxygenToolkit.vim'
 Bundle 'edkolev/tmuxline.vim'
 Bundle 'edsono/vim-matchit'
 Bundle 'honza/vim-snippets'
@@ -53,11 +55,8 @@ Bundle 'kana/vim-textobj-indent'
 Bundle 'kana/vim-textobj-line'
 Bundle 'kana/vim-textobj-user'
 Bundle 'kien/ctrlp.vim'
-Bundle 'LaTeX-Box-Team/LaTeX-Box'
-Bundle 'lukerandall/haskellmode-vim'
 Bundle 'rhysd/clever-f.vim'
 Bundle 'scrooloose/syntastic'
-Bundle 'sheerun/vim-polyglot'
 Bundle 'soramugi/auto-ctags.vim'
 Bundle 'szw/vim-ctrlspace'
 Bundle 'terryma/vim-expand-region'
