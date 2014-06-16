@@ -21,11 +21,16 @@ urxvt.iso14755: false
 ! C-Tab and C-S-Tab to F19, F20
 urxvt.keysym.Control-Tab: \033[33~
 urxvt.keysym.Control-ISO_Left_Tab: \033[34~
-
 ! tmux extension: http://anti.teamidiot.de/static/nei/*/Code/urxvt/osc-xterm-clipboard
-urxvt.perl-ext-common: font-size,osc-xterm-clipboard
+urxvt.perl-ext-common: default,font-size,osc-xterm-clipboard,url-select,keyboard-select
+urxvt.url-select.launcher: firefox
+urxvt.url-select.underline: true
+urxvt.keysym.C-s: perl:keyboard-select:search
+urxvt.keysym.C-u: perl:url-select:select_next
+urxvt.keysym.M-Escape: perl:keyboard-select:activate
 urxvt.keysym.C-plus: perl:font-size:increase
 urxvt.keysym.C-minus: perl:font-size:decrease
+
 
 ! https://bbs.archlinux.org/viewtopic.php?pid=1084018#p1084018
 ! Colors
