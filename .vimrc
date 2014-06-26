@@ -488,7 +488,7 @@ let &tags.="," . localdir . "systags"
 let g:load_doxygen_syntax=1
 
 augroup commentstrings
-    autocmd FileType cmake set commentstring="#%s"
+    autocmd FileType cmake setlocal commentstring=#%s
 augroup END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
