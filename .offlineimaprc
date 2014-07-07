@@ -1,0 +1,79 @@
+[general]
+# List of accounts to be synced, separated by a comma.
+accounts = markus,pub,tutor,game
+
+############
+#  Markus  #
+############
+[Account markus]
+localrepository = zfix-markus-local
+remoterepository = zfix-markus-remote
+status_backend = sqlite
+
+[Repository zfix-markus-local]
+type = Maildir
+localfolders = ~/Mail/zfix-markus
+
+[Repository zfix-markus-remote]
+type = IMAP
+remotehost = zfix.org
+transporttunnel = openssl s_client -host zfix.org -port 993 -quiet
+remoteuser = markus@zfix.org
+remotepassfile = ~/.offlineimap.pass.markus
+
+#########
+#  Pub  #
+#########
+[Account pub]
+localrepository = zfix-pub-local
+remoterepository = zfix-pub-remote
+status_backend = sqlite
+
+[Repository zfix-pub-local]
+type = Maildir
+localfolders = ~/Mail/zfix-pub
+
+[Repository zfix-pub-remote]
+type = IMAP
+remotehost = zfix.org
+transporttunnel = openssl s_client -host zfix.org -port 993 -quiet
+remoteuser = pub@zfix.org
+remotepassfile = ~/.offlineimap.pass.pub
+
+###########
+#  tutor  #
+###########
+[Account tutor]
+localrepository = zfix-tutor-local
+remoterepository = zfix-tutor-remote
+status_backend = sqlite
+
+[Repository zfix-tutor-local]
+type = Maildir
+localfolders = ~/Mail/zfix-tutor
+
+[Repository zfix-tutor-remote]
+type = IMAP
+remotehost = zfix.org
+transporttunnel = openssl s_client -host zfix.org -port 993 -quiet
+remoteuser = tutor@zfix.org
+remotepassfile = ~/.offlineimap.pass.tutor
+
+###########
+#  game  #
+###########
+[Account game]
+localrepository = zfix-game-local
+remoterepository = zfix-game-remote
+status_backend = sqlite
+
+[Repository zfix-game-local]
+type = Maildir
+localfolders = ~/Mail/zfix-game
+
+[Repository zfix-game-remote]
+type = IMAP
+remotehost = zfix.org
+transporttunnel = openssl s_client -host zfix.org -port 993 -quiet
+remoteuser = game@zfix.org
+remotepassfile = ~/.offlineimap.pass.game
