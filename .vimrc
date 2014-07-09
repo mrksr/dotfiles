@@ -162,7 +162,7 @@ let g:LatexBox_Folding=0
 "  Haskellmode  "
 """""""""""""""""
 " use ghc functionality for haskell files
-au Bufenter *.hs compiler ghc
+" au Bufenter *.hs compiler ghc
 " see top of file
 
 """""""""""""""""
