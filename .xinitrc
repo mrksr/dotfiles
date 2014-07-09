@@ -13,8 +13,15 @@ xset -b
 ( sleep 0.5 ; syndaemon -k -t -i 1 -d ) &
 ( sleep 1 ; synclient TouchpadOff=1 ) &
 ( sleep 1 ; synclient PalmDetect=1 ) &
-# Use GPG-agent
-eval $(gpg-agent --daemon)
+
+############
+#  Daemons #
+############
+# source /etc/X11/xinit/xinitrc.d/30-dbus
+
+# Start GNOME Keyring
+eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
+export GPG_AGENT_INFO SSH_AUTH_SOCK
 
 ##############
 #  Programs  #
