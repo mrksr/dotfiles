@@ -86,3 +86,7 @@ exclude_tags=deleted;spam;
 #
 [maildir]
 synchronize_flags=true
+
+[addressbook]
+path=/home/markus/.notmuch-abook.db
+backend=sqlite3

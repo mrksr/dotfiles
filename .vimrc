@@ -41,6 +41,7 @@ Bundle 'Mediawiki.vim'
 Bundle 'sheerun/vim-polyglot'
 
 " Plugins
+Bundle "guyzmo/notmuch-abook"
 Bundle 'argtextobj.vim'
 Bundle 'bling/vim-airline'
 Bundle 'bufkill.vim'
