@@ -30,10 +30,6 @@ set thorough_search      # strip headers and eval mimes before searching
 ############
 #  Visual  #
 ############
-set sidebar_delim   = '  │'
-set sidebar_visible = yes
-set sidebar_width   = 32
-
 set status_chars  = " *%A"
 set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
 
@@ -99,70 +95,41 @@ alternates \
 
 # Mailboxes to show in the sidebar.
 mailboxes \
+    +temporary/search \
     +zfix-markus/INBOX \
+    +intum/INBOX \
+    +tum/INBOX \
     +zfix-tutor/INBOX \
     +zfix-pub/INBOX \
     +zfix-game/INBOX \
-    # +intum/INBOX \
-    # +tum/INBOX \
-    +temporary/search
 
 # Other special folders.
 set mbox      = "+zfix-markus/Archive"
 set postponed = "+zfix-markus/Drafts"
 set record = "+zfix-markus/Sent"
+set trash = "+zfix-markus/Trash"
 
 set from     = "markus@zfix.org"
 set sendmail = "msmtp -a markus"
 set sendmail_wait = 0
 
+#############
+#  Sidebar  #
+#############
+set sidebar_delim        = '│'
+set sidebar_visible      = yes
+set sidebar_width        = 40
+set sidebar_folderindent = yes
+set sidebar_indentstr    = ' '
+
+
 ############
 #  Colors  #
 ############
-source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-light-16.muttrc
-source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc
+source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-16.muttrc
+# source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc
 
 ##############
 #  Bindings  #
 ##############
-bind index gg       first-entry
-bind index G        last-entry
-
-bind index R        group-reply
-bind index <tab>    sync-mailbox
-bind index <space>  collapse-thread
-
-# Ctrl-R to mark all as read
-macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
-
-# Sync email
-macro index O "<shell-escape>offlineimap<enter>"           "run offlineimap to sync all mail"
-macro index o "<shell-escape>offlineimap -qf INBOX<enter>" "run offlineimap to sync inbox"
-
-# Saner copy/move dialogs
-macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
-macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
-
-bind index,pager <down>   sidebar-next
-bind index,pager <up>     sidebar-prev
-bind index,pager <right>  sidebar-open
-
-bind pager k  previous-line
-bind pager j  next-line
-bind pager gg top
-bind pager G  bottom
-
-bind pager R  group-reply
-
-# View attachments properly.
-bind attach <return> view-mailcap
-
-bind compose p postpone-message
-bind index p recall-message
-
-macro index S \
-"<enter-command>set my_old_pipe_decode=\$pipe_decode my_old_wait_key=\$wait_key nopipe_decode nowait_key<enter>\
-<shell-escape>notmuch-mutt -o ~/Mail/temporary/search -r --prompt search<enter>\
-<change-folder-readonly>+temporary/search<enter>\
-<enter-command>set pipe_decode=\$my_old_pipe_decode wait_key=\$my_old_wait_key<enter>" \
-     "notmuch: search mail"
+source ~/.mutt/keybindings
