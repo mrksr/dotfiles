@@ -17,8 +17,6 @@ xset -b
 ############
 #  Daemons #
 ############
-# source /etc/X11/xinit/xinitrc.d/30-dbus
-
 # Start GNOME Keyring
 eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
 export GPG_AGENT_INFO SSH_AUTH_SOCK
