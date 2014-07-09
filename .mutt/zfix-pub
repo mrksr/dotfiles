@@ -1,0 +1,9 @@
+set spoolfile = "+zfix-pub/INBOX"
+
+set mbox      = "+zfix-pub/Archive"
+set postponed = "+zfix-pub/Drafts"
+set record    = "+zfix-pub/Sent"
+set trash     = "+zfix-pub/Trash"
+
+set from      = "pub@zfix.org"
+set sendmail  = "msmtp -a pub"

@@ -49,7 +49,7 @@ other_email= markus@zfix.org;mk@zfix.org;m@zfix.org;tutor@zfix.org;pub@zfix.org;
 #
 [new]
 tags=unread;inbox;
-ignore=
+ignore=temporary
 
 # Search configuration
 #

@@ -1,0 +1,9 @@
+set spoolfile = "+zfix-tutor/INBOX"
+
+set mbox      = "+zfix-tutor/Archive"
+set postponed = "+zfix-tutor/Drafts"
+set record    = "+zfix-tutor/Sent"
+set trash     = "+zfix-tutor/Trash"
+
+set from      = "tutor@zfix.org"
+set sendmail  = "msmtp -a tutor"

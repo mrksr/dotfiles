@@ -1,15 +1,15 @@
 [general]
 # List of accounts to be synced, separated by a comma.
-#accounts = markus,pub,tutor,game
-accounts = intum, tum
-maxsyncaccounts = 1
+accounts = markus,pub,tutor,game,intum,tum
+maxsyncaccounts = 10
 pythonfile = ~/.offlineimaprc.pass.py
+ui = quiet
 
 ############
 #  Markus  #
 ############
 [Account markus]
-autorefresh = 5
+autorefresh = 2
 quick = 10
 localrepository = zfix-markus-local
 remoterepository = zfix-markus-remote
@@ -23,7 +23,7 @@ localfolders = ~/Mail/zfix-markus
 [Repository zfix-markus-remote]
 type = IMAP
 remotehost = zfix.org
-transporttunnel = openssl s_client -host zfix.org -port 993 -quiet
+transporttunnel = openssl s_client -host zfix.org -port 993 -quiet 2> /dev/null
 remoteuser = markus@zfix.org
 remotepasseval = get_password("markus", "zfix.org")
 keepalive = 60
@@ -33,7 +33,7 @@ holdconnectionopen = yes
 #  Pub  #
 #########
 [Account pub]
-autorefresh = 5
+autorefresh = 2
 quick = 10
 localrepository = zfix-pub-local
 remoterepository = zfix-pub-remote
@@ -47,7 +47,7 @@ localfolders = ~/Mail/zfix-pub
 [Repository zfix-pub-remote]
 type = IMAP
 remotehost = zfix.org
-transporttunnel = openssl s_client -host zfix.org -port 993 -quiet
+transporttunnel = openssl s_client -host zfix.org -port 993 -quiet 2> /dev/null
 remoteuser = pub@zfix.org
 remotepasseval = get_password("pub", "zfix.org")
 keepalive = 60
@@ -57,7 +57,7 @@ holdconnectionopen = yes
 #  tutor  #
 ###########
 [Account tutor]
-autorefresh = 5
+autorefresh = 2
 quick = 10
 localrepository = zfix-tutor-local
 remoterepository = zfix-tutor-remote
@@ -71,7 +71,7 @@ localfolders = ~/Mail/zfix-tutor
 [Repository zfix-tutor-remote]
 type = IMAP
 remotehost = zfix.org
-transporttunnel = openssl s_client -host zfix.org -port 993 -quiet
+transporttunnel = openssl s_client -host zfix.org -port 993 -quiet 2> /dev/null
 remoteuser = tutor@zfix.org
 remotepassfile = ~/.offlineimap.pass.tutor
 remotepasseval = get_password("tutor", "zfix.org")
@@ -82,7 +82,7 @@ holdconnectionopen = yes
 #  game  #
 ###########
 [Account game]
-autorefresh = 5
+autorefresh = 2
 quick = 10
 localrepository = zfix-game-local
 remoterepository = zfix-game-remote
@@ -96,7 +96,7 @@ localfolders = ~/Mail/zfix-game
 [Repository zfix-game-remote]
 type = IMAP
 remotehost = zfix.org
-transporttunnel = openssl s_client -host zfix.org -port 993 -quiet
+transporttunnel = openssl s_client -host zfix.org -port 993 -quiet 2> /dev/null
 remoteuser = game@zfix.org
 remotepasseval = get_password("game", "zfix.org")
 keepalive = 60
@@ -106,7 +106,7 @@ holdconnectionopen = yes
 #  intum  #
 ###########
 [Account intum]
-autorefresh = 5
+autorefresh = 2
 quick = 10
 localrepository = intum-local
 remoterepository = intum-remote
@@ -120,7 +120,7 @@ localfolders = ~/Mail/intum
 [Repository intum-remote]
 type = IMAP
 remotehost = mail.in.tum.de
-transporttunnel = openssl s_client -host mail.in.tum.de -port 993 -quiet
+transporttunnel = openssl s_client -host mail.in.tum.de -port 993 -quiet 2> /dev/null
 remoteuser = kaiserma
 remotepasseval = get_password("markus.kaiser", "in.tum.de")
 keepalive = 60
@@ -130,7 +130,7 @@ holdconnectionopen = yes
 #  tum  #
 #########
 [Account tum]
-autorefresh = 5
+autorefresh = 2
 quick = 10
 localrepository = tum-local
 remoterepository = tum-remote
@@ -144,8 +144,8 @@ localfolders = ~/Mail/tum
 [Repository tum-remote]
 type = IMAP
 remotehost = mail.mytum.de
-transporttunnel = openssl s_client -host mail.mytum.de -port 993 -quiet
+transporttunnel = openssl s_client -host mail.mytum.de -port 993 -quiet 2> /dev/null
 remoteuser = ga56baf@mytum.de
-remotepasseval = get_password("markus.kaiser", "in.tum.de")
+remotepasseval = get_password("markus.kaiser", "tum.de")
 keepalive = 60
 holdconnectionopen = yes

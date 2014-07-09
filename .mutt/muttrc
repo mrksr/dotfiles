@@ -18,25 +18,18 @@ set wait_key = no        # shut up, mutt
 set mbox_type = Maildir  # mailbox type
 set timeout = 3          # idle time before scanning
 set mail_check = 0       # minimum time between scans
-# unset move               # gmail does that
-# set delete               # don't ask, just do
+set delete               # don't ask, just do
 unset confirmappend      # don't ask, just do!
 set quit                 # don't ask, just do!!
-# unset mark_old           # read/new is good enough for me
-# set beep_new             # bell on new mails
+unset mark_old           # read/new is good enough for me
 set pipe_decode          # strip headers and eval mimes when piping
 set thorough_search      # strip headers and eval mimes before searching
 
-############
-#  Visual  #
-############
+###########
+#  Index  #
+###########
 set status_chars  = " *%A"
 set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
-
-ignore *                                # ignore all headers
-unignore from: to: cc: date: subject:   # show only these
-unhdr_order *                           # some distros order things by default
-hdr_order from: to: cc: date: subject:  # and in this order
 
 set date_format = "%d.%m"
 set index_format = "[%Z]  %D  %-20.20F  %s"
@@ -49,6 +42,11 @@ set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
 ###########
 #  Pager  #
 ###########
+ignore *                                # ignore all headers
+unignore from: to: cc: date: subject:   # show only these
+unhdr_order *                           # some distros order things by default
+hdr_order from: to: cc: date: subject:  # and in this order
+
 set pager_index_lines = 10 # number of index lines to show
 set pager_context = 3      # number of context lines to show
 set pager_stop             # don't go to next message automatically
@@ -82,8 +80,6 @@ set forward_quote                    # include message in forwards
 #  Accounts  #
 ##############
 
-set spoolfile= "+zfix-markus/INBOX"
-
 # Alternate email addresses.
 alternates \
     markus@zfix.org mk@zfix.org m@zfix.org \
@@ -103,15 +99,18 @@ mailboxes \
     +zfix-pub/INBOX \
     +zfix-game/INBOX \
 
-# Other special folders.
-set mbox      = "+zfix-markus/Archive"
-set postponed = "+zfix-markus/Drafts"
-set record = "+zfix-markus/Sent"
-set trash = "+zfix-markus/Trash"
-
-set from     = "markus@zfix.org"
-set sendmail = "msmtp -a markus"
 set sendmail_wait = 0
+
+# Folder Hooks for accounts
+folder-hook "zfix-markus" source ~/.mutt/zfix-markus
+folder-hook "zfix-tutor" source ~/.mutt/zfix-tutor
+folder-hook "zfix-pub" source ~/.mutt/zfix-pub
+folder-hook "zfix-game" source ~/.mutt/zfix-game
+folder-hook "intum" source ~/.mutt/intum
+folder-hook "mytum" source ~/.mutt/mytum
+
+# Default account
+source ~/.mutt/zfix-markus
 
 #############
 #  Sidebar  #

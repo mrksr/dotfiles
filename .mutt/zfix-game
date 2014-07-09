@@ -1,0 +1,9 @@
+set spoolfile = "+zfix-game/INBOX"
+
+set mbox      = "+zfix-game/Archive"
+set postponed = "+zfix-game/Drafts"
+set record    = "+zfix-game/Sent"
+set trash     = "+zfix-game/Trash"
+
+set from      = "game@zfix.org"
+set sendmail  = "msmtp -a game"
