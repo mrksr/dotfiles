@@ -30,11 +30,16 @@ Config {
                 ] 10
            -- , Run Com "/home/markus/.xmonad/xmobar_mpd.py" [] "music" 5
            , Run Com "/home/markus/.xmonad/xmobar_volume.sh" [] "volume" 5
+           , Run Mail [
+                  ("markus:", "~/Mail/zfix-markus/INBOX")
+                , ("intum:", "~/Mail/intum/INBOX")
+                , ("tum:", "~/Mail/tum/INBOX")
+                ] "mail"
            , Run StdinReader
            ]
     , sepChar  = "%"
     , alignSep = "}{"
-    , template = "%StdinReader%}{ %volume% <fc=#888888>λ</fc> %dynnetwork% <fc=#888888>λ</fc> %battery% <fc=#888888>λ</fc> %thermal0% <fc=#888888>λ</fc> %bright% <fc=#888888>λ</fc> %date%"
+    , template = "%StdinReader%}{ %mail% <fc=#888888>λ</fc> %volume% <fc=#888888>λ</fc> %dynnetwork% <fc=#888888>λ</fc> %battery% <fc=#888888>λ</fc> %thermal0% <fc=#888888>λ</fc> %bright% <fc=#888888>λ</fc> %date%"
 }
 
 -- vim: set ft=haskell:

@@ -122,7 +122,7 @@ myStartup = do
     -- Arch
     spawnK "python2" "netmon"
     -- GUIs
-    spawn "thunderbird"
+    -- spawn "thunderbird"
     spawn "pidgin"
     spawnOn "Term" term
     windows $ W.view "Term"
