@@ -28,6 +28,13 @@ macro index S \
 <enter-command>set pipe_decode=\$my_old_pipe_decode wait_key=\$my_old_wait_key<enter>" \
      "notmuch: search mail"
 
+macro index <F1> "<sync-mailbox><change-folder>+zfix-markus/INBOX<enter>"
+macro index <F2> "<sync-mailbox><change-folder>+intum/INBOX<enter>"
+macro index <F3> "<sync-mailbox><change-folder>+tum/INBOX<enter>"
+macro index <F4> "<sync-mailbox><change-folder>+zfix-tutor/INBOX<enter>"
+macro index <F5> "<sync-mailbox><change-folder>+zfix-pub/INBOX<enter>"
+macro index <F6> "<sync-mailbox><change-folder>+zfix-game/INBOX<enter>"
+
 #############
 #  Sidebar  #
 #############
