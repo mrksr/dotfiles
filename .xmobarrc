@@ -32,6 +32,7 @@ Config {
            , Run Com "/home/markus/.xmonad/xmobar_volume.sh" [] "volume" 5
            , Run Mail [
                   ("markus:", "~/Mail/zfix-markus/INBOX")
+                , ("tutor:", "~/Mail/zfix-tutor/INBOX")
                 , ("intum:", "~/Mail/intum/INBOX")
                 , ("tum:", "~/Mail/tum/INBOX")
                 ] "mail"
