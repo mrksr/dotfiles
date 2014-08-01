@@ -57,8 +57,8 @@ myKeys = [
     -- Spawns
     , ("M-o", spawn lock)
     , ("M-v", spawn "pavucontrol")
-    , ("M-f", spawn "gvim ~/.vimrc ~/.xinitrc ~/.xmonad/xmonad.hs ~/.xmobarrc")
-    , ("M-g", spawn "gvim")
+    -- , ("M-g", spawn "gvim ~/.vimrc ~/.xinitrc ~/.xmonad/xmonad.hs ~/.xmobarrc")
+    , ("M-f", spawn "gvim")
     , ("M-p", spawn "autorandr --force")
     , ("<F12>", spawn dmenu)
     , ("M1-<F12>", spawn "kupfer")
