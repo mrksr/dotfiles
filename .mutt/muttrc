@@ -38,7 +38,7 @@ set sort = threads
 set sort_aux = reverse-last-date-received
 set uncollapse_jump
 set sort_re
-set reply_regexp = "^((([Rr][Ee]?|[Aa][Ww])(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+set reply_regexp = "^((([Rr][Ee]?|[Aa][Ww]|[Ww][Gg])(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
 
 ###########
 #  Pager  #
@@ -63,6 +63,7 @@ auto_view text/html
 ##############
 #  Composer  #
 ##############
+set autoedit
 set realname = "Markus Kaiser"
 set envelope_from                    # which from?
 set sig_dashes                       # dashes before sig
