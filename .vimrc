@@ -41,7 +41,6 @@ Bundle 'Mediawiki.vim'
 Bundle 'sheerun/vim-polyglot'
 
 " Plugins
-Bundle "guyzmo/notmuch-abook"
 Bundle 'argtextobj.vim'
 Bundle 'bling/vim-airline'
 Bundle 'bufkill.vim'
@@ -71,6 +70,7 @@ Bundle 'YankRing.vim'
 " Plugins using externals
 " Prevent startup error messages
 if has("python")
+    Bundle 'guyzmo/notmuch-abook'
     Bundle 'SirVer/ultisnips'
 
     if v:version > 703 || (v:version == 703 && has('patch584'))
