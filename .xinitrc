@@ -26,7 +26,7 @@ export GPG_AGENT_INFO SSH_AUTH_SOCK
 ##############
 ( sleep 5 ; start-pulseaudio-x11 ) &
 #( sleep 5 ; dropboxd ) &
-redshift -l 52.52:13.38 -t 6300:4800 &
+redshift -l 59.20:18.3 -t 6300:4800 &
 
 ####################
 #  Window Manager  #
