@@ -6,6 +6,7 @@ hash -d bat=~/repos/uni/13ba/thesis
 hash -d tutor=~/repos/tutor
 hash -d theo=~/repos/tutor/14ss.theoinf
 hash -d 14ss=~/repos/uni/14ss
+hash -d 14ws=~/repos/uni/14ws
 hash -d dm=~/repos/uni/14ss/14dm.code
 hash -d idp=~/repos/uni/14ss/powerdiagrams
 
