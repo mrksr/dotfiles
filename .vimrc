@@ -468,6 +468,7 @@ set smartindent
 set wrap
 set linebreak
 set display=lastline
+set nojoinspaces
 
 " Conceal
 if has("conceal")
