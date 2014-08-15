@@ -1,6 +1,6 @@
 [general]
 # List of accounts to be synced, separated by a comma.
-accounts = markus,pub,tutor,game,intum,tum
+accounts = markus,pub,tutor,game,intum,tum,kth
 maxsyncaccounts = 10
 pythonfile = ~/.offlineimaprc.pass.py
 ui = quiet
@@ -147,5 +147,29 @@ remotehost = mail.mytum.de
 transporttunnel = openssl s_client -host mail.mytum.de -port 993 -quiet 2> /dev/null
 remoteuser = ga56baf@mytum.de
 remotepasseval = get_password("markus.kaiser", "tum.de")
+keepalive = 60
+holdconnectionopen = yes
+
+#########
+#  kth  #
+#########
+[Account kth]
+autorefresh = 2
+quick = 10
+localrepository = kth-local
+remoterepository = kth-remote
+status_backend = sqlite
+postsynchook = notmuch new
+
+[Repository kth-local]
+type = Maildir
+localfolders = ~/Mail/kth
+
+[Repository kth-remote]
+type = IMAP
+remotehost = webmail.kth.se
+transporttunnel = openssl s_client -host webmail.kth.se -port 993 -quiet 2> /dev/null
+remoteuser = mkaiser
+remotepasseval = get_password("mkaiser", "kth.se")
 keepalive = 60
 holdconnectionopen = yes

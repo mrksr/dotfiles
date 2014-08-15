@@ -90,13 +90,15 @@ alternates \
     pub@zfix.org markus-kaiser@gmx.de \
     game@zfix.org \
     markus.kaiser@in.tum.de \
-    markus.kaiser@tum.de markus-kaiser@mytum.de
+    markus.kaiser@tum.de markus-kaiser@mytum.de \
+    mkaiser@kth.se
 
 # Mailboxes to show in the sidebar.
 mailboxes \
     +temporary/search \
     +zfix-markus/INBOX \
     +intum/INBOX \
+    +kth/INBOX \
     +tum/INBOX \
     +zfix-tutor/INBOX \
     +zfix-pub/INBOX \
@@ -111,6 +113,7 @@ folder-hook "zfix-pub" source ~/.mutt/zfix-pub
 folder-hook "zfix-game" source ~/.mutt/zfix-game
 folder-hook "intum" source ~/.mutt/intum
 folder-hook "mytum" source ~/.mutt/mytum
+folder-hook "kth" source ~/.mutt/kth
 
 # Default account
 source ~/.mutt/zfix-markus
