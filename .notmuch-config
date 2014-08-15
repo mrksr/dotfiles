@@ -48,7 +48,7 @@ other_email= markus@zfix.org;mk@zfix.org;m@zfix.org;tutor@zfix.org;pub@zfix.org;
 #		in the mail store.
 #
 [new]
-tags=unread;inbox;
+tags=unread;inbox;new
 ignore=temporary
 
 # Search configuration
