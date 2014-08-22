@@ -453,7 +453,7 @@ set list
 set listchars=tab:»·,trail:·
 
 " Spell checking
-set spelllang=de,en
+set spelllang=de,en,sv
 set nospell
 
 " Tabs
