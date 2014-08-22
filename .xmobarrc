@@ -33,6 +33,7 @@ Config {
            , Run Mail [
                   ("markus:", "~/Mail/zfix-markus/INBOX")
                 , ("tutor:", "~/Mail/zfix-tutor/INBOX")
+                , ("kth:", "~/Mail/kth/INBOX")
                 , ("intum:", "~/Mail/intum/INBOX")
                 , ("tum:", "~/Mail/tum/INBOX")
                 ] "mail"
