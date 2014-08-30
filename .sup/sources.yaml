@@ -1,0 +1,51 @@
+---
+- !supmua.org,2006-10-01/Redwood/Maildir
+  uri: maildir:/home/markus/Mail/zfix-markus/INBOX
+  usual: true
+  archived: false
+  sync_back: true
+  id: 1
+  labels: []
+- !supmua.org,2006-10-01/Redwood/Maildir
+  uri: maildir:/home/markus/Mail/intum/INBOX
+  usual: true
+  archived: false
+  sync_back: true
+  id: 2
+  labels: []
+- !supmua.org,2006-10-01/Redwood/Maildir
+  uri: maildir:/home/markus/Mail/kth/INBOX
+  usual: true
+  archived: false
+  sync_back: true
+  id: 3
+  labels: []
+- !supmua.org,2006-10-01/Redwood/Maildir
+  uri: maildir:/home/markus/Mail/tum/INBOX
+  usual: true
+  archived: false
+  sync_back: true
+  id: 4
+  labels: []
+- !supmua.org,2006-10-01/Redwood/Maildir
+  uri: maildir:/home/markus/Mail/zfix-tutor/INBOX
+  usual: true
+  archived: false
+  sync_back: true
+  id: 5
+  labels: []
+- !supmua.org,2006-10-01/Redwood/Maildir
+  uri: maildir:/home/markus/Mail/zfix-game/INBOX
+  usual: true
+  archived: false
+  sync_back: true
+  id: 6
+  labels: []
+- !supmua.org,2006-10-01/Redwood/Maildir
+  uri: maildir:/home/markus/Mail/zfix-pub/INBOX
+  usual: true
+  archived: false
+  sync_back: true
+  id: 7
+  labels: []
+- !supmua.org,2006-10-01/Redwood/SentLoader {}
