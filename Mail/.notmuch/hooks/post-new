@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# see https://github.com/guyzmo/notmuch-abook/
+# first update notmuch-abook
+for file in $(notmuch search --output=files tag:new) ; do
+    cat $file | $HOME/.mutt/notmuch-abook update
+done
+
+# remove all new tags
+notmuch tag -new tag:new
