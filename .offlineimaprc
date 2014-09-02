@@ -164,6 +164,7 @@ postsynchook = notmuch new
 [Repository kth-local]
 type = Maildir
 localfolders = ~/Mail/kth
+folderfilter = lambda name: name not in ['Calendar', 'Calendar.Calendar']
 
 [Repository kth-remote]
 type = IMAP
@@ -173,3 +174,4 @@ remoteuser = mkaiser
 remotepasseval = get_password("mkaiser", "kth.se")
 keepalive = 60
 holdconnectionopen = yes
+folderfilter = lambda name: name not in ['Calendar', 'Calendar.Calendar']
