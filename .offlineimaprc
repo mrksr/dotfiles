@@ -22,8 +22,9 @@ localfolders = ~/Mail/zfix-markus
 
 [Repository zfix-markus-remote]
 type = IMAP
-remotehost = zfix.org
-transporttunnel = openssl s_client -host zfix.org -port 993 -quiet 2> /dev/null
+remotehost = imap.zfix.org
+ssl = yes
+sslcacertfile = /etc/ssl/certs/zfix.pem
 remoteuser = markus@zfix.org
 remotepasseval = get_password("markus", "zfix.org")
 keepalive = 60
@@ -46,8 +47,9 @@ localfolders = ~/Mail/zfix-pub
 
 [Repository zfix-pub-remote]
 type = IMAP
-remotehost = zfix.org
-transporttunnel = openssl s_client -host zfix.org -port 993 -quiet 2> /dev/null
+remotehost = imap.zfix.org
+ssl = yes
+sslcacertfile = /etc/ssl/certs/zfix.pem
 remoteuser = pub@zfix.org
 remotepasseval = get_password("pub", "zfix.org")
 keepalive = 60
@@ -70,8 +72,9 @@ localfolders = ~/Mail/zfix-tutor
 
 [Repository zfix-tutor-remote]
 type = IMAP
-remotehost = zfix.org
-transporttunnel = openssl s_client -host zfix.org -port 993 -quiet 2> /dev/null
+remotehost = imap.zfix.org
+ssl = yes
+sslcacertfile = /etc/ssl/certs/zfix.pem
 remoteuser = tutor@zfix.org
 remotepassfile = ~/.offlineimap.pass.tutor
 remotepasseval = get_password("tutor", "zfix.org")
@@ -95,8 +98,9 @@ localfolders = ~/Mail/zfix-game
 
 [Repository zfix-game-remote]
 type = IMAP
-remotehost = zfix.org
-transporttunnel = openssl s_client -host zfix.org -port 993 -quiet 2> /dev/null
+remotehost = imap.zfix.org
+ssl = yes
+sslcacertfile = /etc/ssl/certs/zfix.pem
 remoteuser = game@zfix.org
 remotepasseval = get_password("game", "zfix.org")
 keepalive = 60
@@ -120,7 +124,8 @@ localfolders = ~/Mail/intum
 [Repository intum-remote]
 type = IMAP
 remotehost = mail.in.tum.de
-transporttunnel = openssl s_client -host mail.in.tum.de -port 993 -quiet 2> /dev/null
+ssl = yes
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 remoteuser = kaiserma
 remotepasseval = get_password("markus.kaiser", "in.tum.de")
 keepalive = 60
@@ -144,7 +149,8 @@ localfolders = ~/Mail/tum
 [Repository tum-remote]
 type = IMAP
 remotehost = mail.mytum.de
-transporttunnel = openssl s_client -host mail.mytum.de -port 993 -quiet 2> /dev/null
+ssl = yes
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 remoteuser = ga56baf@mytum.de
 remotepasseval = get_password("markus.kaiser", "tum.de")
 keepalive = 60
@@ -169,7 +175,8 @@ folderfilter = lambda name: name not in ['Calendar', 'Calendar.Calendar']
 [Repository kth-remote]
 type = IMAP
 remotehost = webmail.kth.se
-transporttunnel = openssl s_client -host webmail.kth.se -port 993 -quiet 2> /dev/null
+ssl = yes
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 remoteuser = mkaiser
 remotepasseval = get_password("mkaiser", "kth.se")
 keepalive = 60
