@@ -12,6 +12,7 @@ urxvt.background: [100]#000000
 urxvt.foreground: [100]#FFFFFF
 urxvt.intensitystyles: false
 urxvt.scrollBar: false
+urxvt.scrollTtyOutput: false
 urxvt.scrollWithBuffer: true
 urxvt.scrollTtyKeypress: true
 urxvt.font: xft:ubuntu mono-12
