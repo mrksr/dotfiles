@@ -1,6 +1,5 @@
 Xcursor.theme: Vanilla-DMZ
 Xcursor.size: 12
-Xft.dpi: 96
 
 xterm.faceName: xft:ubuntu mono-13
 xterm.background: black
@@ -15,7 +14,7 @@ urxvt.scrollBar: false
 urxvt.scrollTtyOutput: false
 urxvt.scrollWithBuffer: true
 urxvt.scrollTtyKeypress: true
-urxvt.font: xft:ubuntu mono-12
+urxvt.font: xft:Liberation Mono-10
 urxvt.letterSpace: 0
 urxvt.saveLines: 10000
 urxvt.iso14755: false
