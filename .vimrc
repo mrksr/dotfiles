@@ -5,8 +5,7 @@ set encoding=utf-8
 scriptencoding utf-8
 
 if has('neovim')
-  let s:python_host_init = 'python2 -c "import neovim; neovim.start_host()"'
-  let &initpython = s:python_host_init
+    runtime! plugin/python_setup.vim
 endif
 
 if has("win32")
