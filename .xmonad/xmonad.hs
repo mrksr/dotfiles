@@ -29,6 +29,7 @@ myWorkspaces =
 
 myManageHook = composeAll [
       className =? "Pidgin"           --> doShift "IM"
+    , className =? "Gajim"            --> doShift "IM"
     , className =? "Skype"            --> doShift "IM"
     , className =? "Thunderbird"      --> doShift "Mail"
     , className =? "Firefox"          --> doShift "Browser"
@@ -123,7 +124,7 @@ myStartup = do
     spawnK "python2" "netmon"
     -- GUIs
     -- spawn "thunderbird"
-    spawn "pidgin"
+    spawn "gajim"
     spawnOn "Term" term
     windows $ W.view "Term"
     return ()
