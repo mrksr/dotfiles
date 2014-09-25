@@ -1,5 +1,12 @@
 Xcursor.theme: Vanilla-DMZ
-Xcursor.size: 12
+Xcursor.size:  12
+Xft.antialias: 1
+Xft.autohint:  0
+Xft.dpi:       96
+Xft.hinting:   1
+Xft.hintstyle: hintfull
+Xft.lcdfilter: lcddefault
+Xft.rgba:      rgb
 
 xterm.faceName: xft:ubuntu mono-13
 xterm.background: black
