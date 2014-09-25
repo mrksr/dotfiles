@@ -6,5 +6,5 @@ for file in $(notmuch search --output=files tag:new) ; do
     cat $file | $HOME/.mutt/notmuch-abook update
 done
 
-# remove all new tags
-notmuch tag -new tag:new
+# remove new tags of read email
+notmuch tag -new -- NOT tag:unread AND tag:new
