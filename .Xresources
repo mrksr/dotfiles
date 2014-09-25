@@ -8,35 +8,38 @@ Xft.hintstyle: hintfull
 Xft.lcdfilter: lcddefault
 Xft.rgba:      rgb
 
-xterm.faceName: xft:ubuntu mono-13
+xterm.faceName:   xft:ubuntu mono-13
 xterm.background: black
 xterm.foreground: white
 
-urxvt.termName: rxvt-unicode-256color
-urxvt.depth: 32
-urxvt.background: [100]#000000
-urxvt.foreground: [100]#FFFFFF
-urxvt.intensitystyles: false
-urxvt.scrollBar: false
-urxvt.scrollTtyOutput: false
-urxvt.scrollWithBuffer: true
-urxvt.scrollTtyKeypress: true
-urxvt.font: xft:Liberation Mono-10
-urxvt.letterSpace: 0
-urxvt.saveLines: 10000
-urxvt.iso14755: false
+urxvt.font: \
+        xft:Bitstream Vera Sans Mono-11,\
+        xft:DeJaVu Sans-11,\
+        xft:Liberation Mono-11,\
+        xft:Code2000-11
+urxvt.termName:                    rxvt-unicode-256color
+urxvt.depth:                       32
+urxvt.background:                  [100]#000000
+urxvt.foreground:                  [100]#FFFFFF
+urxvt.intensitystyles:             false
+urxvt.scrollBar:                   false
+urxvt.scrollTtyOutput:             false
+urxvt.scrollWithBuffer:            true
+urxvt.scrollTtyKeypress:           true
+urxvt.saveLines:                   10000
+urxvt.iso14755:                    false
 ! C-Tab and C-S-Tab to F19, F20
-urxvt.keysym.Control-Tab: \033[33~
+urxvt.keysym.Control-Tab:          \033[33~
 urxvt.keysym.Control-ISO_Left_Tab: \033[34~
 ! tmux extension: http://anti.teamidiot.de/static/nei/*/Code/urxvt/osc-xterm-clipboard
-urxvt.perl-ext-common: default,font-size,osc-xterm-clipboard,url-select,keyboard-select
-urxvt.url-select.launcher: firefox
-urxvt.url-select.underline: true
-urxvt.keysym.M-s: perl:keyboard-select:search
-urxvt.keysym.M-Escape: perl:keyboard-select:activate
-urxvt.keysym.M-u: perl:url-select:select_next
-urxvt.keysym.M-plus: perl:font-size:increase
-urxvt.keysym.M-minus: perl:font-size:decrease
+urxvt.perl-ext-common:             default,font-size,osc-xterm-clipboard,url-select,keyboard-select
+urxvt.url-select.launcher:         firefox
+urxvt.url-select.underline:        true
+urxvt.keysym.M-s:                  perl:keyboard-select:search
+urxvt.keysym.M-Escape:             perl:keyboard-select:activate
+urxvt.keysym.M-u:                  perl:url-select:select_next
+urxvt.keysym.M-plus:               perl:font-size:increase
+urxvt.keysym.M-minus:              perl:font-size:decrease
 
 ! Slightly adjusted X::Poppy! from http://dotshare.it
 !black
