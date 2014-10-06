@@ -11,12 +11,15 @@ Config {
                 , "-L", "68"
                 , "-H", "80"
                 ] 10
-           , Run Brightness ["-t", "<percent>%"] 5
+           , Run Brightness [
+                  "-t"
+                , "<percent>%"
+                ] 5
            , Run DynNetwork [
-                 "-L", "16"
-                ,"-H", "96"
-                ,"--normal", "green"
-                ,"--high", "red"
+                  "-L", "16"
+                , "-H", "96"
+                , "--normal", "green"
+                , "--high", "red"
                 ] 25
            , Run BatteryP ["BAT0"] [
                   "-t", "<acstatus><left>% - <timeleft>"
