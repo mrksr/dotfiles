@@ -63,6 +63,8 @@ text/x-tex=gvim.desktop
 application/x-shellscript=gvim.desktop
 text/x-c=gvim.desktop
 text/x-c++=gvim.desktop
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
 
 [Added Associations]
 x-scheme-handler/mailto=userapp-Thunderbird-08373W.desktop;
