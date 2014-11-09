@@ -57,8 +57,8 @@ alias fzf="fzf -x"
 alias ls="ls --color=tty --group-directories-first -h"
 alias lsd="ls -lhd */"
 
-alias vga="xrandr --output VGA-1 --right-of LVDS-1 --auto"
-alias novga="xrandr --output VGA-1 --off"
+alias vga="xrandr --output VGA-0 --right-of LVDS-0 --auto"
+alias novga="xrandr --output VGA-0 --off"
 
 alias open="open-background"
 open-background() {
