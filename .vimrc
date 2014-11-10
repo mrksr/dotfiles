@@ -334,8 +334,8 @@ nnoremap <silent><F5> :YcmForceCompileAndDiagnostics<CR>
 nnoremap <silent><F8> :TlistToggle<CR>
 
 " Use Perl Regexes
-nnoremap / /\v
-vnoremap / /\v
+" nnoremap / /\v
+" vnoremap / /\v
 
 " Custom leader maps
 nnoremap <silent><leader><Space> :CtrlSpace<CR>
