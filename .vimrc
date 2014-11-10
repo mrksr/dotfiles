@@ -4,8 +4,8 @@
 set encoding=utf-8
 scriptencoding utf-8
 
-if has('neovim')
-    runtime! plugin/python_setup.vim
+if has('nvim')
+    runtime! python_setup.vim
 endif
 
 if has("win32")
