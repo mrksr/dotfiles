@@ -164,13 +164,6 @@ let g:LatexBox_viewer="zathura"
 let g:LatexBox_Folding=0
 
 """""""""""""""""
-"  Haskellmode  "
-"""""""""""""""""
-" use ghc functionality for haskell files
-" au Bufenter *.hs compiler ghc
-" see top of file
-
-"""""""""""""""""
 "  vim-session  "
 """""""""""""""""
 set sessionoptions+=buffers
@@ -392,11 +385,6 @@ nnoremap Q @
 com! CD cd %:p:h
 com! LCD lcd %:p:h
 
-com! -nargs=* -bang S OpenSession<bang> <args>
-
-" create .clang_complete file
-com! CLmake make CC='~/.vim/bundle/clang_complete/bin/cc_args.py gcc' CXX='~/.vim/bundle/clang_complete/bin/cc_args.py g++' -B
-
 " typo commands
 com! -bang Q q<bang>
 com! -bang Qa qa<bang>
@@ -415,12 +403,10 @@ set mouse=a
 set history=1000
 
 " Buffers
-" set autochdir
 set autoread
 set hidden
 set number
 set ruler
-autocmd bufenter *.hs set cmdheight=1 " Rather aggressive fix for vim-haskell
 
 " Commands
 set wildmenu
