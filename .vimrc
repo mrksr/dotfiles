@@ -57,10 +57,11 @@ Bundle 'junegunn/vim-easy-align'
 Bundle 'kana/vim-textobj-indent'
 Bundle 'kana/vim-textobj-line'
 Bundle 'kana/vim-textobj-user'
-Bundle 'kien/ctrlp.vim'
 Bundle 'osyo-manga/vim-over'
 Bundle 'rhysd/clever-f.vim'
 Bundle 'scrooloose/syntastic'
+Bundle 'Shougo/unite.vim'
+Bundle 'Shougo/vimproc.vim'
 Bundle 'soramugi/auto-ctags.vim'
 Bundle 'szw/vim-ctrlspace'
 Bundle 'terryma/vim-expand-region'
@@ -68,8 +69,8 @@ Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
+Bundle 'tsukkee/unite-tag'
 Bundle 'xolox/vim-misc'
-Bundle 'YankRing.vim'
 
 " Plugins using externals
 " Prevent startup error messages
@@ -213,17 +214,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 """"""""""""""""
 let g:EasyMotion_leader_key='<leader>'
 
-""""""""""""
-"  Ctrl-P  "
-""""""""""""
-let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_cache_dir = $HOME.'/.vim_local/ctrlp'
-let g:ctrlp_switch_buffer = 'e'
-let g:ctrlp_match_window='bottom,order:ttb,min:5,max:5'
-let g:ctrlp_map='ä'
-nnoremap <silent>ö :CtrlPBuffer<CR>
-nnoremap <silent>Ö :CtrlPTag<CR>
-
 """"""""""""""
 "  tmuxline  "
 """"""""""""""
@@ -237,13 +227,22 @@ let g:multi_cursor_prev_key='<C-b>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
 
-""""""""""""""
-"  YankRing  "
-""""""""""""""
-let g:yankring_replace_n_pkey='<C-O>'
-let g:yankring_replace_n_nkey='<C-P>'
+"""""""""""
+"  Unite  "
+"""""""""""
+let g:unite_source_history_yank_enable = 1
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#custom#profile('default', 'context', {
+\   'start_insert': 1,
+\   'winheight': 10,
+\   'direction': 'botright',
+\ })
+let g:unite_source_rec_async_command = 'pt --nocolor --nogroup -g .'
 
-let g:yankring_history_dir=localdir
+nnoremap <silent><F3> :<C-u>Unite history/yank<CR>
+nnoremap <silent>ä :<C-u>Unite -start-insert file_rec/async:!<CR>
+nnoremap <silent>ö :<C-u>Unite buffer<CR>
+nnoremap <silent>Ö :<C-u>Unite tag<CR>
 
 """"""""""""""
 "  Markdown  "
@@ -325,13 +324,6 @@ nnoremap <Esc>9 9gt
 " Use arrows to move between buffers
 nnoremap <silent><C-right> :bn<cr>
 nnoremap <silent><C-left> :bp<cr>
-
-" Function Keys
-nnoremap <silent><F3> :YRShow<CR>
-inoremap <silent><F3> <ESC>:YRShow<CR>
-vnoremap <silent><F3> c<ESC>:YRShow<CR>
-nnoremap <silent><F5> :YcmForceCompileAndDiagnostics<CR>
-nnoremap <silent><F8> :TlistToggle<CR>
 
 " Use Perl Regexes
 " nnoremap / /\v
