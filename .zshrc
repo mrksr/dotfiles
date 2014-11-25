@@ -62,7 +62,7 @@ alias novga="xrandr --output VGA-0 --off"
 
 alias open="open-background"
 open-background() {
-    xdg-open "$@" >/dev/null &!
+    xdg-open "$@" >/dev/null 2>&1 &!
 }
 alias pdf="open-pdf"
 open-pdf() {
