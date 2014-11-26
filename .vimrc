@@ -45,6 +45,7 @@ Bundle 'sheerun/vim-polyglot'
 
 " Plugins
 Bundle 'argtextobj.vim'
+Bundle 'bbchung/clighter'
 Bundle 'bling/vim-airline'
 Bundle 'bufkill.vim'
 Bundle 'chrisbra/csv.vim'
