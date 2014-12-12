@@ -476,6 +476,11 @@ augroup commentstrings
     autocmd FileType cmake setlocal commentstring=#%s
 augroup END
 
+" Remove special case '#'
+inoremap # X#
+set cinkeys-=0#
+set indentkeys-=0#
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                Local .vimrc                                "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
