@@ -1,4 +1,5 @@
-#!/usb/bin/python
+#!/usr/bin/env python
+#*-* coding: utf-8 *-*
 
 import locale
 from subprocess import Popen, PIPE
