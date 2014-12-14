@@ -37,4 +37,3 @@
     - game@zfix.org
     :sendmail: "msmtp -t --read-envelope-from"
     :signature: "/home/markus/.signature"
-    :gpgkey: ''
