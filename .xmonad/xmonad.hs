@@ -52,7 +52,7 @@ myKeys = [
     , ("<XF86AudioPrev>", spawn $ mpc "prev")
     , ("<XF86Sleep>", spawn "systemctl suspend")
     , ("<XF86ScreenSaver>", spawn lock)
-    , ("<XF86TouchpadToggle>", spawn "synclient TouchpadOff=$(synclient -l | grep -ce TouchpadOff.*0)")
+    , ("<XF86TouchpadToggle>", spawn touchpadToggle)
 
     -- Spawns
     , ("M-o", spawn lock)
@@ -89,6 +89,11 @@ myKeys = [
          (modifier, action) <- [("", windows . W.greedyView $ myWorkspaces !! k),
                                 ("S-", windows . W.shift $ myWorkspaces !! k)]
     ]
+    where
+        touchpadToggle = toggle ++ " && " ++ palmrest
+        toggle = "synclient TouchpadOff=$(synclient -l | grep -ce TouchpadOff.*0)"
+        palmrest = "pkill syndaemon && (sleep 0.5 ; syndaemon -k -i 1 -d ) && (sleep 0.75 ; synclient PalmDetect=1)"
+
 
 myLayout = onWorkspace "Term" (tabs ||| vs) $
            noBorders full ||| tabs ||| vs ||| hs
