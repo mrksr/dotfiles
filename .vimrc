@@ -245,6 +245,19 @@ nnoremap <silent>ä :<C-u>Unite -start-insert file_rec/async:!<CR>
 nnoremap <silent>ö :<C-u>Unite buffer<CR>
 nnoremap <silent>Ö :<C-u>Unite tag<CR>
 
+" Custom mappings for the unite buffer
+autocmd FileType unite call s:unite_settings()
+function! s:unite_settings()
+    " Enable navigation with control-j and control-k in insert mode
+    imap <buffer> <C-j> <Plug>(unite_select_next_line)
+    imap <buffer> <C-k> <Plug>(unite_select_previous_line)
+endfunction
+
+""""""""""""""
+"  clighter  "
+""""""""""""""
+let g:clighter_cursor_hl_default = 0
+
 """"""""""""""
 "  Markdown  "
 """"""""""""""
