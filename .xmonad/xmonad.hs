@@ -92,7 +92,7 @@ myKeys = [
     where
         touchpadToggle = toggle ++ " && " ++ palmrest
         toggle = "synclient TouchpadOff=$(synclient -l | grep -ce TouchpadOff.*0)"
-        palmrest = "pkill syndaemon && (sleep 0.5 ; syndaemon -k -i 1 -d ) && (sleep 0.75 ; synclient PalmDetect=1)"
+        palmrest = "pkill syndaemon && (sleep 0.5 ; syndaemon -k -i 0.8 -d ) && (sleep 0.75 ; synclient PalmDetect=1)"
 
 
 myLayout = onWorkspace "Term" (tabs ||| vs) $
