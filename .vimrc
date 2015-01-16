@@ -85,13 +85,7 @@ if has("python")
 
     if v:version > 703 || (v:version == 703 && has('patch584'))
         if !has("win32") && !has("win32unix")
-            NeoBundle 'Valloric/YouCompleteMe', {
-                 \ 'build' : {
-                 \     'unix' : './install.sh --clang-completer --system-libclang',
-                 \     'windows' : './install.sh --clang-completer --system-libclang',
-                 \     'cygwin' : './install.sh --clang-completer --system-libclang'
-                 \    }
-                 \ }
+            NeoBundle 'Valloric/YouCompleteMe'
             NeoBundle 'bbchung/clighter' " Only need it with ycm
         endif
     endif
