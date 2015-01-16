@@ -14,85 +14,88 @@ if has("win32")
     let g:haddock_docdir='C:/Program Files (x86)/Haskell Platform/2012.2.0.0/doc/html'
     let g:haddock_browser="C:/.TOOLS/Mozilla Firefox/firefox.exe"
 
-    set rtp+=$VIM/vimfiles/bundle/vundle
-    set rtp+=~/.vim/bundle/vundle/
+    set rtp+=$VIM/vimfiles/bundle/noebundle.vim
+    set rtp+=~/.vim/bundle/neobundle.vim
 
     cd C:\markus
 else
     let g:haddock_docdir='/usr/local/share/doc/ghc/html/'
     let g:haddock_browser="firefox"
 
-    set rtp+=~/.vim/bundle/vundle/
+    set rtp+=~/.vim/bundle/neobundle.vim
 endif
 let no_selectbuf_maps=1
 
 filetype off
-call vundle#rc()
+call neobundle#begin(expand('~/.vim/bundle/'))
 
 " Vundle
 " To setup in new environment:
 " git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-Bundle 'gmarik/vundle'
+NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Languages
-Bundle 'avakhov/vim-yaml'
-Bundle 'beyondmarc/glsl.vim'
-Bundle 'beyondmarc/opengl.vim'
-" Bundle 'LaTeX-Box-Team/LaTeX-Box'
-" Bundle 'lukerandall/haskellmode-vim'
-Bundle 'Mediawiki.vim'
-Bundle 'sheerun/vim-polyglot'
+NeoBundle 'avakhov/vim-yaml'
+NeoBundle 'beyondmarc/glsl.vim'
+NeoBundle 'beyondmarc/opengl.vim'
+" NeoBundle 'LaTeX-Box-Team/LaTeX-Box'
+" NeoBundle 'lukerandall/haskellmode-vim'
+NeoBundle 'Mediawiki.vim'
+NeoBundle 'sheerun/vim-polyglot'
 
 " Plugins
-Bundle 'argtextobj.vim'
-Bundle 'bbchung/clighter'
-Bundle 'bling/vim-airline'
-Bundle 'bufkill.vim'
-Bundle 'chrisbra/csv.vim'
-Bundle 'DoxygenToolkit.vim'
-Bundle 'edkolev/tmuxline.vim'
-Bundle 'edsono/vim-matchit'
-Bundle 'honza/vim-snippets'
-Bundle 'jayflo/vim-skip'
-Bundle 'junegunn/vim-easy-align'
-Bundle 'kana/vim-textobj-indent'
-Bundle 'kana/vim-textobj-line'
-Bundle 'kana/vim-textobj-user'
-Bundle 'osyo-manga/vim-over'
-Bundle 'rhysd/clever-f.vim'
-Bundle 'scrooloose/syntastic'
-Bundle 'Shougo/unite.vim'
-Bundle 'Shougo/vimproc.vim'
-Bundle 'soramugi/auto-ctags.vim'
-Bundle 'szw/vim-ctrlspace'
-Bundle 'terryma/vim-expand-region'
-Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-eunuch'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-surround'
-Bundle 'tsukkee/unite-tag'
-Bundle 'xolox/vim-misc'
+NeoBundle 'argtextobj.vim'
+NeoBundle 'bling/vim-airline'
+NeoBundle 'bufkill.vim'
+NeoBundle 'chrisbra/csv.vim'
+NeoBundle 'DoxygenToolkit.vim'
+NeoBundle 'edkolev/tmuxline.vim'
+NeoBundle 'edsono/vim-matchit'
+NeoBundle 'honza/vim-snippets'
+NeoBundle 'jayflo/vim-skip'
+NeoBundle 'junegunn/vim-easy-align'
+NeoBundle 'kana/vim-textobj-indent'
+NeoBundle 'kana/vim-textobj-line'
+NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'osyo-manga/vim-over'
+NeoBundle 'rhysd/clever-f.vim'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimproc.vim'
+NeoBundle 'soramugi/auto-ctags.vim'
+NeoBundle 'szw/vim-ctrlspace'
+NeoBundle 'terryma/vim-expand-region'
+NeoBundle 'tpope/vim-commentary'
+NeoBundle 'tpope/vim-eunuch'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'tsukkee/unite-tag'
+NeoBundle 'xolox/vim-misc'
 
 " Plugins using externals
 " Prevent startup error messages
 if has("python")
-    Bundle 'guyzmo/notmuch-abook'
-    Bundle 'SirVer/ultisnips'
+    NeoBundle 'guyzmo/notmuch-abook'
+    NeoBundle 'SirVer/ultisnips'
 
     if v:version > 703 || (v:version == 703 && has('patch584'))
         if !has("win32") && !has("win32unix")
-            Bundle 'Valloric/YouCompleteMe'
+            NeoBundle 'Valloric/YouCompleteMe'
+            NeoBundle 'bbchung/clighter' " Only need it with ycm
         endif
     endif
 endif
 
 " Colorschemes
-Bundle 'ciaranm/inkpot'
-Bundle 'Lokaltog/vim-distinguished'
-Bundle 'matthewtodd/vim-twilight'
-Bundle 'nanotech/jellybeans.vim'
-Bundle 'sickill/vim-sunburst'
-Bundle 'vim-scripts/synic.vim'
+NeoBundle 'ciaranm/inkpot'
+NeoBundle 'Lokaltog/vim-distinguished'
+NeoBundle 'matthewtodd/vim-twilight'
+NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'sickill/vim-sunburst'
+NeoBundle 'vim-scripts/synic.vim'
+
+call neobundle#end()
+NeoBundleCheck
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                Environment                                 "
