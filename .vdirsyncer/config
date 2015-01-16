@@ -1,62 +1,23 @@
-# An example configuration for vdirsyncer.
-# Optional parameters are commented out.
-
 [general]
-# A folder where vdirsyncer can store some metadata about each pair.
 status_path = ~/.vdirsyncer/status/
 password_command = ~/.vdirsyncer/pass.py
 
 # CARDDAV
 [pair zfix_contacts]
-# A `[pair <name>]` block defines two storages `a` and `b` that should be
-# synchronized. The definition of these storages follows in `[storage <name>]`
-# blocks. This is similar to accounts in OfflineIMAP.
 a = zfix_contacts_local
 b = zfix_contacts_remote
-
-# If you want to synchronize several addressbooks, calendars etc that share
-# the same storage location and differ only in a suffix to this location
-# (i.e., a subdirectory) you can use collections. The comma-separated values
-# in this parameter represent these subdirectories and are added as URL
-# segments or similar.
-
-# Together with the definition of the following two `[storage]` blocks below
-# in this example it means that
-#   - https://owncloud.example.com/remote.php/carddav/addressbooks/bob/default/
-#     will get synced with ~/.contacts/default/
-#   - https://owncloud.example.com/remote.php/carddav/addressbooks/bob/work/
-#     will get synced with ~/.contacts/work/
-
-# Omitting this parameter implies that the given path and URL in the
-# corresponding `[storage <name>]` blocks are already pointing to a
-# collection each.
 collections = ["contacts.vcf"]
 
-# To resolve a conflict the following values are possible:
-#   `None` - abort when collisions occur (default)
-#   `a wins` - assume a's items to be more up-to-date
-#   `b wins` - assume b's items to be more up-to-date
-#conflict_resolution = None
-
 [storage zfix_contacts_local]
-# A storage references actual data on a remote server or on the local disk.
-# Similar to repositories in OfflineIMAP.
 type = filesystem
 path = ~/.khal/contacts
 fileext = .vcf
-# Create the directory if it doesn't exist: `True` or `False`
-#create = True
-#encoding = utf-8
 
 [storage zfix_contacts_remote]
 type = carddav
 url = https://radicale.zfix.org/markus
-# Auth types. If you know yours, set it explicitly for performance.
-# - basic
-# - digest
-# - guess (default)
-#auth = guess
-username = markus
+auth = basic
+username = "markus"
 verify = /etc/ssl/cert.pem
 
 # CALDAV
@@ -73,7 +34,7 @@ fileext = .ics
 [storage zfix_calendars_remote]
 type = caldav
 url = https://radicale.zfix.org/markus
-#auth = guess
+auth = basic
 username = markus
 verify = /etc/ssl/cert.pem
 
