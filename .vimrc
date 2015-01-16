@@ -33,6 +33,13 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 " To setup in new environment:
 " git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundle 'Shougo/vimproc.vim', {
+\ 'build' : {
+\     'linux' : 'make',
+\     'windows' : 'tools\\update-dll-mingw',
+\     'cygwin' : 'make -f make_cygwin.mak',
+\    },
+\ }
 
 " Languages
 NeoBundle 'avakhov/vim-yaml'
@@ -61,7 +68,6 @@ NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'rhysd/clever-f.vim'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimproc.vim'
 NeoBundle 'soramugi/auto-ctags.vim'
 NeoBundle 'szw/vim-ctrlspace'
 NeoBundle 'terryma/vim-expand-region'
@@ -80,7 +86,13 @@ if has("python")
 
     if v:version > 703 || (v:version == 703 && has('patch584'))
         if !has("win32") && !has("win32unix")
-            NeoBundle 'Valloric/YouCompleteMe'
+            NeoBundle 'Valloric/YouCompleteMe', {
+                 \ 'build' : {
+                 \     'unix' : './install.sh --clang-completer --system-libclang',
+                 \     'windows' : './install.sh --clang-completer --system-libclang',
+                 \     'cygwin' : './install.sh --clang-completer --system-libclang'
+                 \    }
+                 \ }
             NeoBundle 'bbchung/clighter' " Only need it with ycm
         endif
     endif
