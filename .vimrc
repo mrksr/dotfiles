@@ -294,6 +294,17 @@ let g:auto_ctags_directory_list = ['.git', '.hg', '.svn']
 let g:auto_ctags_tags_name = 'tags'
 let g:auto_ctags_tags_args = '--tag-relative --recurse --sort=yes --fields+=l'
 
+"""""""""""
+"  sneak  "
+"""""""""""
+let g:sneak#s_next = 1
+let g:sneak#streak = 1
+
+"""""""""
+"  csv  "
+"""""""""
+let g:csv_nomap_h = 1
+let g:csv_nomap_l = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  Mappings                                  "
