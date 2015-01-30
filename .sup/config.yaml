@@ -14,7 +14,7 @@
 :discard_snippets_from_encrypted_messages: false
 :load_more_threads_when_scrolling: true
 :default_attachment_save_dir: ''
-:sent_source: sup://sent
+:sent_source: maildir:/home/markus/Mail/zfix-markus/Sent
 :archive_sent: true
 :poll_interval: 300
 :wrap_width: 0
