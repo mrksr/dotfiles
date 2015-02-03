@@ -73,7 +73,6 @@ NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tsukkee/unite-tag'
-NeoBundle 'xolox/vim-misc'
 
 " Plugins using externals
 " Prevent startup error messages
@@ -204,6 +203,8 @@ let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_collect_identifiers_from_tags_files = 1
 set updatetime=1000
+
+nnoremap <leader>g :YcmCompleter GoToImprecise<CR>
 
 """""""""""""""
 "  UltiSnips  "
@@ -351,10 +352,6 @@ nnoremap <Esc>6 6gt
 nnoremap <Esc>7 7gt
 nnoremap <Esc>8 8gt
 nnoremap <Esc>9 9gt
-
-" Use arrows to move between buffers
-nnoremap <silent><C-right> :bn<cr>
-nnoremap <silent><C-left> :bp<cr>
 
 " Use Perl Regexes
 " nnoremap / /\v
