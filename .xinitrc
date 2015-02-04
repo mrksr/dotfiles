@@ -31,4 +31,4 @@ redshift -l 59.20:18.3 -t 6300:4800 &
 ####################
 #  Window Manager  #
 ####################
-exec xmonad
+exec "$@"
