@@ -60,6 +60,8 @@ alias lsd="ls -lhd */"
 alias vga="xrandr --output VGA-0 --right-of LVDS-0 --auto"
 alias novga="xrandr --output VGA-0 --off"
 
+alias imap="offlineimap -u basic -o"
+
 alias open="open-background"
 open-background() {
     xdg-open "$@" >/dev/null 2>&1 &!
