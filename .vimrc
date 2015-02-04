@@ -121,7 +121,7 @@ if has("gui_running")
     if has("win32")
         set gfn=Consolas:h11:cANSI
     else
-        set gfn=Bitstream\ Vera\ Sans\ Mono\ 11
+        set gfn=DeJaVu\ Sans\ Mono\ 11
     endif
 endif
 

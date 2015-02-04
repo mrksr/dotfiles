@@ -13,8 +13,8 @@ xterm.background: black
 xterm.foreground: white
 
 urxvt.font: \
+        xft:DeJaVu Sans Mono-11,\
         xft:Bitstream Vera Sans Mono-11,\
-        xft:DeJaVu Sans-11,\
         xft:Liberation Mono-11,\
         xft:Code2000-11
 urxvt.termName:                    rxvt-unicode-256color
