@@ -58,7 +58,7 @@ local function batteryformatter(_, data)
         ["−"] = ""
     }
 
-    return format("%s%s%%%s", battery_state[state], percent, time)
+    return format("%s%s%% - %s", battery_state[state], percent, time)
 end
 vicious.register(widgets.battery, vicious.widgets.bat, batteryformatter, 10, "BAT0")
 vicious.register(widgets.brightness, brightness, "$3%", 0.5, "acpi_video0")
