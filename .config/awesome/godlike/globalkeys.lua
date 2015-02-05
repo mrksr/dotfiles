@@ -90,7 +90,10 @@ godlike.globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "c",       function() exec(godlike.terminal) end),
     awful.key({ modkey,           }, "m",       function() godlike.menu:show({keygrabber=true}) end),
     awful.key({ modkey,           }, "x",       function() godlike.screens[mouse.screen].promptbox:run() end),
-    -- awful.key({ modkey,           }, "s",       quake.toggle),
+    awful.key({ modkey            }, "s",       function ()
+                                                    local wibox = godlike.screens[mouse.screen].wibox
+                                                    wibox.visible = not wibox.visible
+                                                end),
     -- awful.key({ modkey },      "e",   function () revelation.expose({class=""}, mouse.screen) end),
     awful.key({ modkey,           }, "v",       function() exec("pavucontrol") end),
     awful.key({ modkey,           }, "f",       function() exec("gvim") end),
