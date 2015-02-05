@@ -8,6 +8,7 @@ godlike.clientkeys = awful.util.table.join(
     awful.key({ modkey,           }, "e",      function (c) c.fullscreen = not c.fullscreen  end),
     awful.key({ modkey,           }, "r",      function (c) c.ontop = not c.ontop            end),
     awful.key({ modkey,           }, "t",      awful.client.floating.toggle                     ),
+    awful.key({ modkey,           }, "a",      function (c) c.sticky = not c.sticky          end),
     awful.key({ modkey,           }, "Return", function (c) c:swap(awful.client.getmaster()) end),
     awful.key({ modkey, "Shift"   }, "o",      awful.client.movetoscreen                        ),
     awful.key({ modkey, "Shift"   }, "r",      function (c) c:redraw()                       end),
