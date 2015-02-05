@@ -20,7 +20,7 @@ godlike.layouts = godlike.layouts or
 
 for s = 1, screen.count() do
     godlike.screens[s].tags = awful.tag({
-        'Stuff', 'Net', 'Term', 'IM', 'Mail', 'George', 'J', 'Soilent', 'MXIII'
+        'Stuff', 'Net', 'Term', 'IM', 'Mail', 'George', 'J', 'Soilent', 'MMXIII'
         }, s,  awful.layout.suit.max)
 end
 
