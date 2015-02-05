@@ -29,7 +29,7 @@ awful.rules.rules = {
       properties = { tag = godlike.screens[1].tags[2] } },
     { rule = { class = "Opera" },
       properties = { tag = godlike.screens[1].tags[2] } },
-    { rule = { class = "Chromium-browser" },
+    { rule = { class = "Chromium" },
       properties = { tag = godlike.screens[1].tags[2] } },
     { rule = { class = "Google-chrome-stable" },
       properties = { tag = godlike.screens[1].tags[2] } },

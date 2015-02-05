@@ -93,7 +93,8 @@ godlike.globalkeys = awful.util.table.join(
     -- awful.key({ modkey,           }, "s",       quake.toggle),
     -- awful.key({ modkey },      "e",   function () revelation.expose({class=""}, mouse.screen) end),
     awful.key({ modkey,           }, "v",       function() exec("pavucontrol") end),
-    awful.key({ modkey,           }, "o",       function() exec("gvim") end)
+    awful.key({ modkey,           }, "o",       function() exec("gvim") end),
+    awful.key({                   }, "F12",     function() sexec("DMENU_OPTIONS=\"-nb #000 -nf #4d6d99 -sb #333 -sf #cc5214\" dmenu-launch") end)
 )
 
 -- Tag manipulation
