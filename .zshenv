@@ -10,6 +10,7 @@ hash -d idp=~/repos/uni/14ss/powerdiagrams
 
 hash -d swedish=~/repos/uni/swedish
 hash -d 14ws=~/repos/uni/14ws
+hash -d 15ss=~/repos/uni/15ss
 hash -d ai=~/repos/uni/14ws/ai
 hash -d ml=~/repos/uni/14ws/ml
 
