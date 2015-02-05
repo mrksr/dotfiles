@@ -22,7 +22,7 @@ local widgets = {}
 
 -- Separators
 widgets.separator = wibox.widget.textbox()
-widgets.separator:set_text(" λ ")
+widgets.separator:set_text("  λ  ")
 widgets.space = wibox.widget.textbox()
 widgets.space:set_text(" ")
 
@@ -44,7 +44,7 @@ widgets.clock = wibox.widget.textbox()
 vicious.register(widgets.wifi, vicious.widgets.wifi, "${ssid} ${linp}%", 5, "wlp3s0")
 widgets.wifi:buttons(awful.util.table.join(awful.button({}, 1, function() godlike.lanmenu:toggle() end)))
 
-vicious.register(widgets.clock, vicious.widgets.date, "%a %d.%m - %H:%M", 5)
+vicious.register(widgets.clock, vicious.widgets.date, "%a %d. %b - %H:%M", 5)
 
 vicious.register(widgets.battery, vicious.widgets.bat, "$1$2% - $3", 10, "BAT0")
 
