@@ -46,14 +46,24 @@ widgets.wifi:buttons(awful.util.table.join(awful.button({}, 1, function() godlik
 
 vicious.register(widgets.clock, vicious.widgets.date, "%a %d. %b - %H:%M", 5)
 
-vicious.register(widgets.battery, vicious.widgets.bat, "$1$2% - $3", 10, "BAT0")
+local function batteryformatter(_, data)
+    local state = data[1]
+    local percent = data[2]
+    local time = data[3]
 
+    local battery_state = {
+        ["↯"] = '<span color="green">AC</span> - ',
+        ["⌁"] = "",
+        ["↯"] = '<span color="green">AC</span> - ',
+        ["−"] = ""
+    }
+
+    return format("%s%s%%%s", battery_state[state], percent, time)
+end
+vicious.register(widgets.battery, vicious.widgets.bat, batteryformatter, 10, "BAT0")
 vicious.register(widgets.brightness, brightness, "$3%", 0.5, "acpi_video0")
-
 vicious.register(widgets.thermal, vicious.widgets.thermal, "$1°C", 1, "thermal_zone0")
-
 -- vicious.register(widgets.traffic, vicious.widgets.net, "${wlp3s0 up_kb}k ⇅ ${wlp3s0 down_kb}k", 1)
-
 vicious.register(widgets.volume, vicious.widgets.volume, "$1%", 0.5, "Master")
 
 
