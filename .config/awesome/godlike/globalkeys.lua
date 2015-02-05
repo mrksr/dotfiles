@@ -39,7 +39,7 @@ godlike.globalkeys = awful.util.table.join(
     awful.key({}, "XF86Sleep",            function() sexec("systemctl suspend") end ),
     awful.key({}, "XF86ScreenSaver",      function() sexec("slimlock") end ),
     awful.key({}, "XF86TouchpadToggle",   function()
-                                                local toggle = "synclient TouchpadOff=$(synclient -l | grep -ce TouchpadOff.*0)"
+                                                local toggle = "synclient TouchpadOff=$(synclient -l | grep -ce 'TouchpadOff.*0')"
                                                 local palmrest = "pkill syndaemon && (sleep 0.5 ; syndaemon -k -i 0.8 -d ) && (sleep 0.75 ; synclient PalmDetect=1)"
                                                 sexec(toggle .. " && " .. palmrest)
                                           end ),
