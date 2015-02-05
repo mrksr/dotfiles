@@ -190,7 +190,7 @@ let g:session_autoload='no'
 """""""""""""""
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': [],
-                           \ 'passive_filetypes': ['tex'] }
+                           \ 'passive_filetypes': ['tex', 'scala'] }
 let g:syntastic_tex_checkers = ['chktex']
 let g:syntastic_cpp_compiler_options = ' -std=c++11'
 let g:syntastic_error_symbol = '!'
