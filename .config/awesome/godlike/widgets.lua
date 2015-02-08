@@ -54,7 +54,7 @@ local function batteryformatter(_, data)
     local battery_state = {
         ["↯"] = '<span color="green">AC</span> - ',
         ["⌁"] = '<span color="green">AC</span> - ',
-        ["↯"] = '<span color="green">AC</span> - ',
+        ["+"] = '<span color="green">AC</span> - ',
         ["−"] = ""
     }
 
