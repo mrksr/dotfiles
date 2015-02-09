@@ -9,8 +9,8 @@ ui = quiet
 #  Markus  #
 ############
 [Account markus]
-autorefresh = 2
-quick = 10
+autorefresh = 0.2
+quick = 4
 localrepository = zfix-markus-local
 remoterepository = zfix-markus-remote
 status_backend = sqlite
@@ -34,8 +34,8 @@ holdconnectionopen = yes
 #  Pub  #
 #########
 [Account pub]
-autorefresh = 2
-quick = 10
+autorefresh = 0.2
+quick = 4
 localrepository = zfix-pub-local
 remoterepository = zfix-pub-remote
 status_backend = sqlite
@@ -59,8 +59,8 @@ holdconnectionopen = yes
 #  tutor  #
 ###########
 [Account tutor]
-autorefresh = 2
-quick = 10
+autorefresh = 0.2
+quick = 4
 localrepository = zfix-tutor-local
 remoterepository = zfix-tutor-remote
 status_backend = sqlite
@@ -85,8 +85,8 @@ holdconnectionopen = yes
 #  game  #
 ###########
 [Account game]
-autorefresh = 2
-quick = 10
+autorefresh = 0.2
+quick = 4
 localrepository = zfix-game-local
 remoterepository = zfix-game-remote
 status_backend = sqlite
@@ -110,8 +110,8 @@ holdconnectionopen = yes
 #  intum  #
 ###########
 [Account intum]
-autorefresh = 2
-quick = 10
+autorefresh = 0.2
+quick = 4
 localrepository = intum-local
 remoterepository = intum-remote
 status_backend = sqlite
@@ -135,8 +135,8 @@ holdconnectionopen = yes
 #  tum  #
 #########
 [Account tum]
-autorefresh = 2
-quick = 10
+autorefresh = 0.2
+quick = 4
 localrepository = tum-local
 remoterepository = tum-remote
 status_backend = sqlite
@@ -160,8 +160,8 @@ holdconnectionopen = yes
 #  kth  #
 #########
 [Account kth]
-autorefresh = 2
-quick = 10
+autorefresh = 0.2
+quick = 4
 localrepository = kth-local
 remoterepository = kth-remote
 status_backend = sqlite
