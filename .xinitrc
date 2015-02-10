@@ -1,6 +1,6 @@
 #!/bin/sh
 
-[-x "~/.xprofile"] && . "~/.xprofile"
+[ -x ~/.xprofile ] && . ~/.xprofile
 
 ####################
 #  Window Manager  #
