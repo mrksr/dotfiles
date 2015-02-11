@@ -65,9 +65,9 @@ function formatters.net(_, data)
     end
 
 
-    active = activeInterface()
-    up = direction(active, "up")
-    down = direction(active, "down")
+    local active = activeInterface()
+    local up = direction(active, "up")
+    local down = direction(active, "down")
 
     return format("%s ⇅ %s", up, down)
 end

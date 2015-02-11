@@ -47,7 +47,6 @@ vicious.register(widgets.thermal, vicious.widgets.thermal, "$1°C", 1, "thermal_
 vicious.register(widgets.battery, vicious.widgets.bat, formatters.battery, 0.5, "BAT0")
 vicious.register(widgets.traffic, vicious.widgets.net, formatters.net, 1)
 vicious.register(widgets.wifi, vicious.widgets.wifi, "${ssid} ${linp}%", 5, "wlp3s0")
-widgets.wifi:buttons(awful.util.table.join(awful.button({}, 1, function() godlike.lanmenu:toggle() end)))
 vicious.register(widgets.volume, vicious.widgets.volume, "$1%", 0.5, "Master")
 
 local home = godlike.home
