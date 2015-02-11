@@ -51,10 +51,10 @@ widgets.wifi:buttons(awful.util.table.join(awful.button({}, 1, function() godlik
 vicious.register(widgets.volume, vicious.widgets.volume, "$1%", 0.5, "Master")
 
 local home = godlike.home
-vicious.register(widgets.mail_markus, vicious.widgets.mdir, formatters.mail("markus:"), 5, {home .. "/Mail/zfix-markus/INBOX"})
-vicious.register(widgets.mail_tutor, vicious.widgets.mdir, formatters.mail("tutor:"), 5, {home .. "/Mail/zfix-tutor/INBOX"})
-vicious.register(widgets.mail_kth, vicious.widgets.mdir, formatters.mail("kth:"), 5, {home .. "/Mail/kth/INBOX"})
-vicious.register(widgets.mail_intum, vicious.widgets.mdir, formatters.mail("intum:"), 5, {home .. "/Mail/intum/INBOX"})
-vicious.register(widgets.mail_tum, vicious.widgets.mdir, formatters.mail("tum:"), 5, {home .. "/Mail/tum/INBOX"})
+vicious.register(widgets.mail_markus, vicious.widgets.mdir, formatters.mail("markus"), 2, {home .. "/Mail/zfix-markus/INBOX"})
+vicious.register(widgets.mail_tutor, vicious.widgets.mdir, formatters.mail("tutor"), 2, {home .. "/Mail/zfix-tutor/INBOX"})
+vicious.register(widgets.mail_kth, vicious.widgets.mdir, formatters.mail("kth"), 2, {home .. "/Mail/kth/INBOX"})
+vicious.register(widgets.mail_intum, vicious.widgets.mdir, formatters.mail("intum"), 2, {home .. "/Mail/intum/INBOX"})
+vicious.register(widgets.mail_tum, vicious.widgets.mdir, formatters.mail("tum"), 2, {home .. "/Mail/tum/INBOX"})
 
 return widgets

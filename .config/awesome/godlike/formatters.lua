@@ -99,7 +99,7 @@ function formatters.mail(name)
     local function fmt(_, data)
         local news = data[1] + data[2]
         if news > 0 then
-            return format(" %s%d", name, news)
+            return format(" %s:%d", name, news)
         else
             return ""
         end
