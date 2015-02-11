@@ -4,6 +4,7 @@ accounts = markus,pub,tutor,game,intum,tum,kth
 maxsyncaccounts = 10
 pythonfile = ~/.offlineimaprc.pass.py
 ui = quiet
+socktimeout = 30
 
 ############
 #  Markus  #
