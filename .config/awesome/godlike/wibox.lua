@@ -87,7 +87,7 @@ for si = 1, screen.count() do
     layout_right:add(widgets.volume)
     layout_right:add(widgets.separator)
     layout_right:add(widgets.wifi)
-    layout_right:add(widgets.space)
+    layout_right:add(widgets.separator)
     layout_right:add(widgets.traffic)
     layout_right:add(widgets.separator)
     layout_right:add(widgets.battery)
