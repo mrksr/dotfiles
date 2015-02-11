@@ -33,33 +33,25 @@ function formatters.net(_, data)
     end
 
     local function colorize(str, unit)
-        local thresholds = {
-            0,
-            64 * 1024,
-            128 * 1024
-        }
         local colors = {
-            {"", ""},
-            {"<span color='green'>", "</span>"},
-            {"<span color='red'>", "</span>"}
+            {0, "", ""},
+            {64 * 1024, "<span color='green'>", "</span>"},
+            {128 * 1024, "<span color='red'>", "</span>"}
         }
 
         c = 1
-        for ix, th in ipairs(thresholds) do
-            if unit > th then
+        for ix, th in ipairs(colors) do
+            if unit >= th[1] then
                 c = ix
             end
         end
 
-        return format("%s%s%s", colors[c][1], str, colors[c][2])
+        return format("%s%s%s", colors[c][2], str, colors[c][3])
     end
 
     local function direction(interface, dir)
         low = 64 * 1024 -- in kb
 
-        -- for k, v in pairs(data) do
-        --     return k
-        -- end
         traffic = tonumber(data["{" .. interface .. " " .. dir .. "_b}"])
         if traffic < low then
             unit = "low"
