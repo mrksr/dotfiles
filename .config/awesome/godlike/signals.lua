@@ -1,6 +1,9 @@
 local awful = require("awful")
 local beautiful = require("beautiful")
 
+-------------------
+--  Positioning  --
+-------------------
 client.connect_signal("manage", function (c, startup)
     -- Enable sloppy focus
     c:connect_signal("mouse::enter", function(c)
@@ -23,31 +26,72 @@ client.connect_signal("manage", function (c, startup)
     end
 end)
 
+----------------------------
+--  Above while floating  --
+----------------------------
+client.connect_signal("property::floating", function(c)
+    if awful.client.floating.get(c) then
+        c.above = true
+    else
+        c.above = false
+    end
+end)
+
+client.connect_signal("property::sticky", function(c)
+    if c.sticky then
+        awful.client.setslave(c)
+    end
+end)
+
+---------------------
+--  Border Colors  --
+---------------------
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
--- No Borders for single windows
--- Floating windos are always on top
+-------------------------------------
+--  No Borders for single windows  --
+-------------------------------------
 for s = 1, screen.count() do screen[s]:connect_signal("arrange", function ()
     local clients = awful.client.visible(s)
     local layout = awful.layout.getname(awful.layout.get(s))
 
-    if #clients > 0 then
-        for _, c in pairs(clients) do
-            if awful.client.floating.get(c) or layout == "floating" then
-                c.border_width = beautiful.border_width
-
-                if not c.fullscreen then
-                    c.above = true
-                end
-            elseif #clients == 1 or layout == "max" then
-                c.border_width = 0
-            else
-                c.border_width = beautiful.border_width
-            end
+    for _, c in pairs(clients) do
+        if awful.client.floating.get(c) then
+            c.border_width = beautiful.border_width
+        elseif #clients == 1 or layout == "max" then
+            c.border_width = 0
+        else
+            c.border_width = beautiful.border_width
         end
     end
     end)
+end
+
+-------------------------------------------------
+--  Don't get (so) confused by sticky windows  --
+-------------------------------------------------
+for s = 1, screen.count() do
+    for _, tag in pairs(awful.tag.gettags(s)) do
+        tag:connect_signal("property::selected", function(tag)
+            local focus = client.focus
+            if focus and focus.sticky then
+                local first = awful.client.visible(s)[1]
+                for _, c in pairs(awful.client.visible(s)) do
+                    if not c.sticky and awful.client.focus.filter(c) then
+                        client.focus = c
+                        c:raise()
+                        return
+                    end
+                end
+
+                if first and awful.client.focus.filter(first) then
+                    client.focus = first
+                    first:raise()
+                end
+            end
+        end)
+    end
 end
 
 return godlike
