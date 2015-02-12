@@ -23,7 +23,8 @@ awful.rules.rules = {
     { rule = { class = "Gajim" },
       properties = { tag = godlike.screens[1].tags[4] } },
     { rule = { class = "Skype" },
-      properties = { tag = godlike.screens[1].tags[4] } },
+      properties = { tag = godlike.screens[1].tags[4] },
+      callback = awful.client.setslave },
 
     { rule = { class = "Firefox" },
       properties = { tag = godlike.screens[1].tags[2] } },
