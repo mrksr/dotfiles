@@ -4,8 +4,8 @@
 
 local awful   = require("awful")
 local menubar = require("menubar")
-local quake   = require("godlike.quake")
 local naughty = require("naughty")
+local lm      = require("godlike.layoutmode")
 --require("revelation")
 
 local modkey  = godlike.modkey
@@ -80,6 +80,7 @@ godlike.globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "l",       function() awful.tag.incncol(-1)         end),
 
     awful.key({ modkey, "Control" }, "n",       awful.client.restore),
+    awful.key({ modkey,           }, "g",       function() lm.activate() end),
 
     -- Awesome control
     awful.key({ modkey,           }, "q",       awesome.restart),
@@ -88,7 +89,6 @@ godlike.globalkeys = awful.util.table.join(
     -- The actual cool stuff
     awful.key({ modkey,           }, "p",       function() menubar.show() end),
     awful.key({ modkey,           }, "c",       function() exec(godlike.terminal) end),
-    awful.key({ modkey,           }, "m",       function() godlike.menu:show({keygrabber=true}) end),
     awful.key({ modkey,           }, "x",       function() godlike.screens[mouse.screen].promptbox:run() end),
     awful.key({ modkey            }, "s",       function ()
                                                     local wibox = godlike.screens[mouse.screen].wibox
