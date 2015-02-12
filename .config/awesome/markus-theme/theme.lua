@@ -1,7 +1,7 @@
 -- Based on Nice and Clean awesome theme
 local awful = require("awful")
 
-theme = {}
+local theme = {}
 theme.theme_dir = awful.util.getdir("config") .. "/markus-theme"
 theme.wallpaper = theme.theme_dir .. "/background.png"
 

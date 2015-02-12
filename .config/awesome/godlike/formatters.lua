@@ -4,11 +4,11 @@ local formatters = {}
 
 function formatters.net(_, data)
     local function activeInterface()
-        interfaces = {"wlp3s0", "enp0s25"}
+        local interfaces = {"wlp3s0", "enp0s25"}
 
-        max = {0, -1}
+        local max = {0, -1}
         for ix, name in pairs(interfaces) do
-            traffic = data["{" .. name .. " up_b}"] + data["{" .. name.. " down_b}"]
+            local traffic = data["{" .. name .. " up_b}"] + data["{" .. name.. " down_b}"]
             if traffic > max[2] then
                 max[1] = ix
                 max[2] = traffic
@@ -39,7 +39,7 @@ function formatters.net(_, data)
             {128 * 1024, "<span color='red'>", "</span>"}
         }
 
-        c = 1
+        local c = 1
         for ix, th in ipairs(colors) do
             if unit >= th[1] then
                 c = ix
@@ -50,20 +50,21 @@ function formatters.net(_, data)
     end
 
     local function direction(interface, dir)
-        low = 64 * 1024 -- in kb
+        local low = {
+            ["up"] = 32 * 1024, -- in kb
+            ["down"] = 64 * 1024
+        }
 
-        traffic = tonumber(data["{" .. interface .. " " .. dir .. "_b}"])
-        if traffic < low then
-            unit = "low"
-            out = "low"
-        else
+        local traffic = tonumber(data["{" .. interface .. " " .. dir .. "_b}"])
+        local unit = "low"
+        local out = "low"
+        if traffic > low[dir] then
             unit = activeUnit(traffic)
             out = format("%s%s", data["{" .. interface .. " " .. dir .. "_" .. unit .. "}"], unit)
         end
 
         return colorize(out, traffic)
     end
-
 
     local active = activeInterface()
     local up = direction(active, "up")
