@@ -13,6 +13,7 @@ hash -d 14ws=~/repos/uni/14ws
 hash -d ml2=~/repos/uni/14ws/ml2
 hash -d 15ss=~/repos/uni/15ss
 hash -d cc=~/repos/uni/15ss/compiler
+hash -d crypto=~/repos/uni/15ss/crypto
 
 # variables
 export PATH=$HOME/.cabal/bin:/opt/procfun/sbt/bin:$PATH
