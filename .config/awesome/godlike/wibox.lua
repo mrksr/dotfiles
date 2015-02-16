@@ -17,7 +17,7 @@ godlike.taglistbuttons = godlike.taglistbuttons or
 godlike.tasklistbuttons = godlike.tasklistbuttons or
     awful.util.table.join(
                awful.button({ }, 1, function (c)
-                                       if c == client.focus then c.minimized = true
+                                       if c == client.focus then -- c.minimized = true
                                        else c.minimized = false
                                             if not c:isvisible() then awful.tag.viewonly(c:tags()[1]) end
                                             client.focus = c; c:raise()
