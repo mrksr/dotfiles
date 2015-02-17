@@ -78,6 +78,10 @@ open-pdf() {
     fi
 }
 
+precmd() {
+    echo -ne '\a'
+}
+
 if command -v fortune > /dev/null; then
     fortune -s;
     echo;
