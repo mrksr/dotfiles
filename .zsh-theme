@@ -25,10 +25,12 @@ MODE_INDICATOR="%{$fg_bold[blue]%}<<%{$reset_color%}"
 
 setopt prompt_subst
 autoload -Uz vcs_info
-precmd()
+vcs_info_precmd()
 {
     vcs_info
 }
+[[ -z $precmd_functions ]] && precmd_functions=()
+precmd_functions=($precmd_functions vcs_info_precmd)
 
 zstyle ':vcs_info:*' use-simple false
 zstyle ':vcs_info:*' get-revision true

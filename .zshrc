@@ -78,9 +78,11 @@ open-pdf() {
     fi
 }
 
-precmd() {
+bell_before_command() {
     echo -ne '\a'
 }
+[[ -z $precmd_functions ]] && precmd_functions=()
+precmd_functions=($precmd_functions bell_before_command)
 
 if command -v fortune > /dev/null; then
     fortune -s;
