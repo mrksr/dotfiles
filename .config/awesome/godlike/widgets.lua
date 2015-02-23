@@ -44,13 +44,13 @@ widgets.clock = wibox.widget.textbox()
 
 -- Widgets
 vicious.register(widgets.clock, vicious.widgets.date, "%a %d. %b - %H:%M", 5)
-vicious.register(widgets.brightness, brightness, "$3%", 0.5, "acpi_video0")
+vicious.register(widgets.brightness, brightness, "$3%", 1, "acpi_video0")
 vicious.register(widgets.thermal, vicious.widgets.thermal, "$1°C", 1, "thermal_zone0")
-vicious.register(widgets.battery, vicious.widgets.bat, formatters.battery, 0.5, "BAT0")
+vicious.register(widgets.battery, vicious.widgets.bat, formatters.battery, 1, "BAT0")
 vicious.register(widgets.traffic, vicious.widgets.net, formatters.net, 1)
 vicious.register(widgets.wifi, vicious.widgets.wifi, "${ssid} ${linp}%", 5, "wlp3s0")
-vicious.register(widgets.volume, vicious.widgets.volume, "$1%", 0.5, "Master")
-vicious.register(widgets.nowplaying, nowplaying, "$1", 2)
+vicious.register(widgets.volume, vicious.widgets.volume, "$1%", 1, "Master")
+vicious.register(widgets.nowplaying, nowplaying, "$1", 5)
 
 local home = godlike.home
 vicious.register(widgets.mail_markus, vicious.widgets.mdir, formatters.mail("markus"), 2, {home .. "/Mail/zfix-markus/INBOX"})
