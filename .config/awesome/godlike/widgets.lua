@@ -4,6 +4,7 @@ local awful = require("awful")
 local wibox = require("wibox")
 local vicious = require("vicious")
 local brightness = require("godlike.brightness")
+local nowplaying = require("godlike.nowplaying")
 local formatters = require("godlike.formatters")
 
 local widgets = {}
@@ -33,6 +34,7 @@ widgets.mail_kth = wibox.widget.textbox()
 widgets.mail_intum = wibox.widget.textbox()
 widgets.mail_tum = wibox.widget.textbox()
 widgets.volume = wibox.widget.textbox()
+widgets.nowplaying = wibox.widget.textbox()
 widgets.traffic = wibox.widget.textbox()
 widgets.wifi = wibox.widget.textbox()
 widgets.battery = wibox.widget.textbox()
@@ -48,6 +50,7 @@ vicious.register(widgets.battery, vicious.widgets.bat, formatters.battery, 0.5, 
 vicious.register(widgets.traffic, vicious.widgets.net, formatters.net, 1)
 vicious.register(widgets.wifi, vicious.widgets.wifi, "${ssid} ${linp}%", 5, "wlp3s0")
 vicious.register(widgets.volume, vicious.widgets.volume, "$1%", 0.5, "Master")
+vicious.register(widgets.nowplaying, nowplaying, "$1", 2)
 
 local home = godlike.home
 vicious.register(widgets.mail_markus, vicious.widgets.mdir, formatters.mail("markus"), 2, {home .. "/Mail/zfix-markus/INBOX"})

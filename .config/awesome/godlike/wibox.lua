@@ -84,6 +84,8 @@ for si = 1, screen.count() do
     layout_right:add(widgets.mail_intum)
     layout_right:add(widgets.mail_tum)
     layout_right:add(widgets.separator)
+    layout_right:add(widgets.nowplaying)
+    layout_right:add(widgets.separator)
     layout_right:add(widgets.volume)
     layout_right:add(widgets.separator)
     layout_right:add(widgets.wifi)
