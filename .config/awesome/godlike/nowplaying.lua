@@ -5,7 +5,7 @@ local util = require("awful.util")
 local string = {
     format = string.format,
     byte = string.byte,
-    sub = string.sub
+    sub = string.sub,
 }
 
 
@@ -40,7 +40,7 @@ local function worker(_)
         end
     end
 
-    return {ret}
+    return {util.escape(ret)}
 end
 
 return setmetatable(nowplaying, { __call = function(_, ...) return worker(...) end })
