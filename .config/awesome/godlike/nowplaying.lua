@@ -27,7 +27,7 @@ local function worker(_)
     local ret = ""
     if exist then
         local status = trim(util.pread("playerctl status"))
-        if status == "Playing" or status == "Paused" then
+        if status == "Playing" then
             local artist = trim(util.pread("playerctl metadata xesam:artist"))
             local title = trim(util.pread("playerctl metadata xesam:title"))
             if #title > 24 then
