@@ -14,9 +14,9 @@ map -builtin <c-h> h
 map -builtin <c-l> l
 
 " H, <c-h> or m and L, <c-l> or , to hop tabs
-map H gT
+map H <C-p>
 map L <C-n>
-map -builtin m gT
+map -builtin m <C-p>
 map -builtin , <C-n>
 
 " Hints only use left-hand accessible keys
