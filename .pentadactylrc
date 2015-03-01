@@ -29,8 +29,8 @@ map Ü -ex set guioptions!=s
 
 " Tabs
 set! browser.tabs.loadInBackground=true
-set tabclose=previous,left,opener,right
-set tabopen=link:groupright,orphan:groupright,external:end
+" set tabclose=previous,left,opener,right
+" set tabopen=link:groupright,orphan:groupright,external:end
 
 " Show tabs in Windows as they do not waste (much) space
 "if prefs.get('services.sync.client.name') == 'markus-w510'
@@ -39,7 +39,7 @@ set tabopen=link:groupright,orphan:groupright,external:end
     "set showtabline=always
 "endif
 
-map -silent D -ex tabc
+map -silent D dgT
 map -builtin v <C-^>
 map -builtin gt <C-n>
 map -builtin -silent c :tabc! <Nop>
