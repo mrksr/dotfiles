@@ -73,6 +73,7 @@ NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tsukkee/unite-tag'
+NeoBundle 'floobits/floobits-neovim'
 
 " Plugins using externals
 " Prevent startup error messages
@@ -398,6 +399,10 @@ nnoremap + za
 " Macro execution
 nnoremap Q @
 
+" More convenient help browsing
+au FileType help nnoremap <buffer> <CR> <C-]>
+au FileType help nnoremap <buffer> <BS> <C-T>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  Commands                                  "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -501,6 +506,11 @@ let g:load_doxygen_syntax=1
 
 augroup commentstrings
     autocmd FileType cmake setlocal commentstring=#%s
+augroup END
+
+augroup todostrings
+    autocmd Syntax * call matchadd('Todo', '\v\W\zs(BUG|TODO|FIXME)(\(.*\))?:?', -1)
+    autocmd Syntax * call matchadd('Todo', '\v\W\zs(NOTE)(\(.*\))?:?', -2)
 augroup END
 
 " Remove special case '#'
