@@ -26,6 +26,9 @@ awful.rules.rules = {
       properties = { tag = godlike.screens[1].tags[4] },
       callback = awful.client.setslave },
 
+    { rule = { class = "Thunderbird" },
+      properties = { tag = godlike.screens[1].tags[5] } },
+
     { rule = { class = "Firefox" },
       properties = { tag = godlike.screens[1].tags[2] } },
     { rule = { class = "Opera" },
@@ -34,6 +37,9 @@ awful.rules.rules = {
       properties = { tag = godlike.screens[1].tags[2] } },
     { rule = { class = "Google-chrome-stable" },
       properties = { tag = godlike.screens[1].tags[2] } },
+
+    { rule = { class = "Spotify" },
+      properties = { tag = godlike.screens[1].tags[9] } },
 }
 
 return godlike
