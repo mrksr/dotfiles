@@ -80,7 +80,7 @@ function formatters.battery(_, data)
 
     local battery_state = {
         ["↯"] = '<span color="green">F</span> - ',
-        ["⌁"] = '<span color="green">AC</span> - ',
+        ["⌁"] = '<span color="green">U</span> - ',
         ["+"] = '<span color="green">AC</span> - ',
         ["−"] = ""
     }
