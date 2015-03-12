@@ -28,6 +28,7 @@ end
 godlike.globalkeys = awful.util.table.join(
     -- Multimedia
     awful.key({}, "XF86AudioMute",        function() godlike.audio.mute()  end ),
+    awful.key({}, "XF86AudioMicMute",     function() godlike.audio.micmute()end ),
     awful.key({}, "XF86AudioRaiseVolume", function() godlike.audio.raise() end ),
     awful.key({}, "XF86AudioLowerVolume", function() godlike.audio.lower() end ),
     awful.key({}, "XF86AudioNext",        function() godlike.audio.next()  end ),
