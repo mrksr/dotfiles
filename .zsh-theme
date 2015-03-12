@@ -4,6 +4,9 @@ case "$(hostname)" in
     markus-w510 )
         index=1
         ;;
+    markus-t450s )
+        index=1
+        ;;
     h1949215.stratoserver.net )
         index=2
         ;;

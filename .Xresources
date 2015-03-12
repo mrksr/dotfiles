@@ -17,6 +17,7 @@ urxvt.font: \
         xft:Bitstream Vera Sans Mono-11,\
         xft:Liberation Mono-11,\
         xft:Code2000-11
+urxvt.letterSpace:                 0
 urxvt.termName:                    rxvt-unicode-256color
 urxvt.depth:                       32
 urxvt.background:                  [100]#000000
