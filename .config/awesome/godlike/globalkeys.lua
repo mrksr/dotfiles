@@ -41,6 +41,8 @@ godlike.globalkeys = awful.util.table.join(
     awful.key({}, "XF86MonBrightnessDown",function() sexec("xbacklight -dec 10 -time 100 -steps 10")  end ),
     -- Special Keys
     awful.key({}, "XF86Sleep",            function() sexec("systemctl suspend") end ),
+    -- Most fun workaround ever: http://www.spinics.net/lists/intel-gfx/msg61017.html
+    awful.key({ modkey }, "p",            function() sexec("glxgears & systemctl suspend") end ),
     awful.key({}, "XF86ScreenSaver",      function() sexec("slimlock") end ),
     awful.key({}, "XF86TouchpadToggle",   function()
                                                 local toggle = "synclient TouchpadOff=$(synclient -l | grep -ce 'TouchpadOff.*0')"
@@ -91,7 +93,7 @@ godlike.globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "q",       awesome.quit),
 
     -- The actual cool stuff
-    awful.key({ modkey,           }, "p",       function() menubar.show() end),
+    -- awful.key({ modkey,           }, "p",       function() menubar.show() end),
     awful.key({ modkey,           }, "c",       function() exec(godlike.terminal) end),
     awful.key({ modkey,           }, "x",       function() godlike.screens[mouse.screen].promptbox:run() end),
     awful.key({ modkey            }, "s",       function ()
