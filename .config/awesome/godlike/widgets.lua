@@ -44,7 +44,7 @@ widgets.clock = wibox.widget.textbox()
 
 -- Widgets
 vicious.register(widgets.clock, vicious.widgets.date, "%a %d. %b - %H:%M", 5)
-vicious.register(widgets.brightness, brightness, "$3%", 1, "acpi_video0")
+vicious.register(widgets.brightness, brightness, "$3%", 1, "intel_backlight")
 vicious.register(widgets.thermal, vicious.widgets.thermal, "$1°C", 1, "thermal_zone0")
 vicious.register(widgets.battery, vicious.widgets.bat, formatters.battery, 1, "BAT0")
 vicious.register(widgets.traffic, vicious.widgets.net, formatters.net, 1)
