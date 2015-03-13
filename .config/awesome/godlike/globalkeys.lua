@@ -31,10 +31,16 @@ godlike.globalkeys = awful.util.table.join(
     awful.key({}, "XF86AudioMicMute",     function() godlike.audio.micmute()end ),
     awful.key({}, "XF86AudioRaiseVolume", function() godlike.audio.raise() end ),
     awful.key({}, "XF86AudioLowerVolume", function() godlike.audio.lower() end ),
+    ---
     awful.key({}, "XF86AudioNext",        function() godlike.audio.next()  end ),
     awful.key({}, "XF86AudioPrev",        function() godlike.audio.prev()  end ),
     awful.key({}, "XF86AudioPlay",        function() godlike.audio.play()  end ),
     awful.key({}, "XF86AudioStop",        function() godlike.audio.stop()  end ),
+    ---
+    awful.key({ modkey }, "Right",        function() godlike.audio.next()  end ),
+    awful.key({ modkey }, "Left",         function() godlike.audio.prev()  end ),
+    awful.key({ modkey }, "Down",         function() godlike.audio.play()  end ),
+    awful.key({ modkey }, "Up",           function() godlike.audio.stop()  end ),
 
     -- Brightness
     awful.key({}, "XF86MonBrightnessUp",  function() sexec("xbacklight -inc 10 -time 100 -steps 10")  end ),
