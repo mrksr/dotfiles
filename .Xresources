@@ -8,9 +8,9 @@ Xft.hintstyle: hintfull
 Xft.lcdfilter: lcddefault
 Xft.rgba:      rgb
 
-xterm.faceName:   xft:ubuntu mono-13
-xterm.background: black
-xterm.foreground: white
+xterm*faceName:   xft:ubuntu mono-13
+xterm*background: black
+xterm*foreground: white
 
 urxvt.font: \
         xft:DeJaVu Sans Mono-11,\
