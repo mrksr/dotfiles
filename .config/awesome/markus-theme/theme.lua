@@ -5,7 +5,7 @@ local theme = {}
 theme.theme_dir = awful.util.getdir("config") .. "/markus-theme"
 theme.wallpaper = theme.theme_dir .. "/background.png"
 
-theme.font          = "DeJaVu Sans 10"
+theme.font          = "Aller 11"
 
 theme.bg_normal     = "#222222"
 theme.bg_focus      = "#444444"
