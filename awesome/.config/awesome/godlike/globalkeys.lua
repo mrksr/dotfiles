@@ -47,9 +47,11 @@ godlike.globalkeys = awful.util.table.join(
     awful.key({}, "XF86MonBrightnessDown",function() sexec("xbacklight -dec 10 -time 100 -steps 10")  end ),
     -- Special Keys
     awful.key({}, "XF86Sleep",            function() sexec("systemctl suspend") end ),
+    awful.key({}, "XF86ScreenSaver",      function() sexec("dm-tool lock") end ),
     -- Most fun workaround ever: http://www.spinics.net/lists/intel-gfx/msg61017.html
     awful.key({ modkey }, "p",            function() sexec("glxgears & systemctl suspend") end ),
-    awful.key({}, "XF86ScreenSaver",      function() sexec("slimlock") end ),
+    awful.key({ modkey }, "o",            function() sexec("dm-tool lock") end),
+
     awful.key({}, "XF86TouchpadToggle",   function()
                                                 local toggle = "synclient TouchpadOff=$(synclient -l | grep -ce 'TouchpadOff.*0')"
                                                 local palmrest = "pkill syndaemon && (sleep 0.5 ; syndaemon -k -i 0.8 -d ) && (sleep 0.75 ; synclient PalmDetect=1)"
@@ -109,7 +111,6 @@ godlike.globalkeys = awful.util.table.join(
     -- awful.key({ modkey },      "e",   function () revelation.expose({class=""}, mouse.screen) end),
     awful.key({ modkey,           }, "v",       function() exec("pavucontrol") end),
     awful.key({ modkey,           }, "f",       function() exec("gvim") end),
-    awful.key({ modkey,           }, "o",       function() exec("slimlock") end),
     awful.key({                   }, "F12",     function() sexec('yeganesh -x -- -i -fn "Aller-11" -nb "#222" -nf "#ccc" -sb "#333" -sf "#cc5214" | /bin/sh') end)
 )
 
