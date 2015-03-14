@@ -15,12 +15,16 @@ xset -b
 # ( sleep 1 ; synclient PalmDetect=1 ) &
 ( sleep 1 ; synclient TouchpadOff=1 ) &
 
-############
-#  Daemons #
-############
-# Start GNOME Keyring
-eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
-export GPG_AGENT_INFO SSH_AUTH_SOCK
+################
+#  SLiM stuff  #
+################
+# eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
+# export GPG_AGENT_INFO SSH_AUTH_SOCK
+
+###################
+#  LightDM stuff  #
+###################
+light-locker &
 
 ##############
 #  Programs  #
@@ -28,4 +32,3 @@ export GPG_AGENT_INFO SSH_AUTH_SOCK
 start-pulseaudio-x11 &
 redshift -l 59.20:18.3 -t 6300:4800 &
 unclutter &
-light-locker &
