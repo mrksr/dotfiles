@@ -72,7 +72,7 @@ flags = [
 # more details: http://clang.llvm.org/docs/JSONCompilationDatabase.html
 #
 # Most projects will NOT need to set this to anything; you can just change the
-# 'flags' list of compilation flags. Notice that YCM itself uses that approach.
+# 'flags' list of compilation flags.
 compilation_database_folder = ''
 
 if os.path.exists( compilation_database_folder ):
@@ -138,6 +138,8 @@ def GetCompilationInfoForFile( filename ):
   return database.GetCompilationInfoForFile( filename )
 
 
+# This is the entry point; this function is called by ycmd to produce flags for
+# a file.
 def FlagsForFile( filename, **kwargs ):
   if database:
     # Bear in mind that compilation_info.compiler_flags_ does NOT return a
