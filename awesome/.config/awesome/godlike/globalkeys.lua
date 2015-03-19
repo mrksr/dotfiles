@@ -43,8 +43,8 @@ godlike.globalkeys = awful.util.table.join(
     awful.key({ modkey }, "Up",           function() godlike.audio.stop()  end ),
 
     -- Brightness
-    awful.key({}, "XF86MonBrightnessUp",  function() sexec("xbacklight -inc 10 -time 100 -steps 10")  end ),
-    awful.key({}, "XF86MonBrightnessDown",function() sexec("xbacklight -dec 10 -time 100 -steps 10")  end ),
+    awful.key({}, "XF86MonBrightnessUp",  function() sexec("xbacklight -inc 5 -time 100 -steps 10")  end ),
+    awful.key({}, "XF86MonBrightnessDown",function() sexec("xbacklight -dec 5 -time 100 -steps 10")  end ),
     -- Special Keys
     awful.key({}, "XF86Sleep",            function() sexec("systemctl suspend") end ),
     awful.key({}, "XF86ScreenSaver",      function() sexec("dm-tool lock") end ),
@@ -63,6 +63,7 @@ godlike.globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "Tab",    function() view_non_empty(-1, mouse.screen) end ),
     awful.key({ modkey,           }, "^",      awful.tag.history.restore),
     awful.key({ modkey,           }, "u",      awful.client.urgent.jumpto),
+    awful.key({ modkey,           }, "g",      awful.client.urgent.jumpto),
 
     awful.key({ altkey,           }, "^",      function()
                                                     awful.client.focus.history.previous()
@@ -94,7 +95,7 @@ godlike.globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "l",       function() awful.tag.incncol(-1)         end),
 
     awful.key({ modkey, "Control" }, "n",       awful.client.restore),
-    awful.key({ modkey,           }, "g",       function() lm.activate() end),
+    awful.key({ modkey,           }, "b",       function() lm.activate() end),
 
     -- Awesome control
     awful.key({ modkey,           }, "q",       awesome.restart),
