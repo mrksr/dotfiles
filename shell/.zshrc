@@ -31,6 +31,7 @@ source $ZSH/oh-my-zsh.sh
 ################
 HISTSIZE=1000000
 SAVEHIST=1000000
+setopt HIST_IGNORE_SPACE
 
 setopt extendedglob
 
