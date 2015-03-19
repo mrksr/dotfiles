@@ -200,10 +200,9 @@ let g:syntastic_warning_symbol = '?'
 """""""""""""""""""
 "  YouCompleteMe  "
 """""""""""""""""""
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_collect_identifiers_from_tags_files = 1
-set updatetime=1000
 
 nnoremap <leader>g :YcmCompleter GoToImprecise<CR>
 
@@ -241,15 +240,16 @@ let g:multi_cursor_quit_key='<Esc>'
 """""""""""
 let g:unite_source_history_yank_enable = 1
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
 call unite#custom#profile('default', 'context', {
 \   'start_insert': 1,
 \   'winheight': 10,
 \   'direction': 'botright',
 \ })
-let g:unite_source_rec_async_command = 'pt --nocolor --nogroup -g .'
+let g:unite_source_rec_async_command = 'ag --follow --nocolor --nogroup --hidden -g ""'
 
 nnoremap <silent><F3> :<C-u>Unite history/yank<CR>
-nnoremap <silent>ä :<C-u>Unite -start-insert file_rec/async:!<CR>
+nnoremap <silent>ä :<C-u>Unite file_rec/async:!<CR>
 nnoremap <silent>ö :<C-u>Unite buffer<CR>
 nnoremap <silent>Ö :<C-u>Unite tag<CR>
 
