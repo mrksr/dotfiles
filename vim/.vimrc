@@ -67,7 +67,7 @@ NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'soramugi/auto-ctags.vim'
-NeoBundle 'szw/vim-ctrlspace'
+NeoBundle 'mhinz/vim-startify'
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'tpope/vim-fugitive'
@@ -98,7 +98,6 @@ NeoBundle 'sickill/vim-sunburst'
 NeoBundle 'vim-scripts/synic.vim'
 
 call neobundle#end()
-NeoBundleCheck
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                Environment                                 "
@@ -159,8 +158,6 @@ filetype plugin on
 "  Airline  "
 """""""""""""
 set laststatus=2
-" Ignore Preview for CtrlSpace
-let g:airline_exclude_preview=1
 
 """""""""""
 "  Latex  "
@@ -264,6 +261,7 @@ endfunction
 """"""""""""""
 "  clighter  "
 """"""""""""""
+let g:ClighterOccurrences = 0
 let g:clighter_cursor_hl_default = 0
 
 """"""""""""""
@@ -277,16 +275,31 @@ au BufEnter *.md :se ft=markdown
 vmap <Enter> <Plug>(EasyAlign)
 nmap <Leader>a <Plug>(EasyAlign)
 
-"""""""""""""""
-"  CtrlSpace  "
-"""""""""""""""
-hi link CtrlSpaceSelected Visual
-hi link CtrlSpaceNormal   Normal
-hi link CtrlSpaceStatus   Question
-" hi CtrlSpaceFound
+""""""""""""""
+"  startify  "
+""""""""""""""
+let g:startify_list_order = [
+  \ ['   Sessions:'],
+  \ 'sessions',
+  \ ['   Bookmarks:'],
+  \ 'bookmarks',
+  \ ['   LRU:'],
+  \ 'files',
+  \ ['   LRU within this dir:'],
+  \ 'dir',
+  \ ]
 
-let g:ctrlspace_unicode_font=0
-let g:ctrlspace_save_workspace_on_exit=1
+let g:startify_bookmarks = ['~/.vimrc', '~/dotfiles']
+
+let g:startify_custom_header =
+      \ map(split(system('figlet -f big <<< "vim."'), '\n'), '"   ". v:val') + ['']
+
+let g:startify_custom_indices = map(range(1,100), 'string(v:val)')
+
+let g:startify_session_persistence = 1
+let g:startify_session_delete_buffers = 1
+let g:startify_change_to_vcs_root = 1
+let g:startify_files_number = 8
 
 """"""""""""""""
 "  auto-ctags  "
@@ -359,7 +372,6 @@ nnoremap <Esc>9 9gt
 " vnoremap / /\v
 
 " Custom leader maps
-nnoremap <silent><leader><Space> :CtrlSpace<CR>
 nnoremap <silent><leader>j :nohl<CR>
 nnoremap <silent><leader>k :nohl<CR>
 " Spell Checking
