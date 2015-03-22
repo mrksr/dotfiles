@@ -58,22 +58,23 @@ NeoBundle 'bufkill.vim'
 NeoBundle 'DoxygenToolkit.vim'
 NeoBundle 'edkolev/tmuxline.vim'
 NeoBundle 'edsono/vim-matchit'
+NeoBundle 'floobits/floobits-neovim'
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'justinmk/vim-sneak'
 NeoBundle 'kana/vim-textobj-indent'
 NeoBundle 'kana/vim-textobj-line'
 NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'mhinz/vim-signify'
+NeoBundle 'mhinz/vim-startify'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'soramugi/auto-ctags.vim'
-NeoBundle 'mhinz/vim-startify'
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tsukkee/unite-tag'
-NeoBundle 'floobits/floobits-neovim'
 
 " Plugins using externals
 " Prevent startup error messages
@@ -158,6 +159,10 @@ filetype plugin on
 "  Airline  "
 """""""""""""
 set laststatus=2
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#tab_min_count = 2
+let g:airline#extensions#tabline#show_tab_type = 0
 
 """""""""""
 "  Latex  "
@@ -167,21 +172,6 @@ let g:LatexBox_latexmk_async=0
 let g:LatexBox_latexmk_preview_continuously=0
 let g:LatexBox_viewer="zathura"
 let g:LatexBox_Folding=0
-
-"""""""""""""""""
-"  vim-session  "
-"""""""""""""""""
-set sessionoptions+=buffers
-set sessionoptions-=blank
-set sessionoptions-=help
-set sessionoptions-=localoptions
-set sessionoptions-=options
-set sessionoptions-=resize
-set sessionoptions-=winpos
-set sessionoptions-=winsize
-let g:session_autosave='yes'
-let g:session_autosave_periodic=5
-let g:session_autoload='no'
 
 """""""""""""""
 "  Syntastic  "
@@ -202,6 +192,13 @@ let g:ycm_confirm_extra_conf = 0
 let g:ycm_collect_identifiers_from_tags_files = 1
 
 nnoremap <leader>g :YcmCompleter GoToImprecise<CR>
+
+"""""""""""""
+"  Signify  "
+"""""""""""""
+nnoremap <leader>h :SignifyToggleHighlight<CR>
+nmap <leader>j <plug>(signify-next-hunk)
+nmap <leader>k <plug>(signify-prev-hunk)
 
 """""""""""""""
 "  UltiSnips  "
@@ -372,8 +369,7 @@ nnoremap <Esc>9 9gt
 " vnoremap / /\v
 
 " Custom leader maps
-nnoremap <silent><leader>j :nohl<CR>
-nnoremap <silent><leader>k :nohl<CR>
+nnoremap <silent><leader><leader> :nohl<CR>
 " Spell Checking
 nnoremap <silent><leader>ss :setlocal spell!<cr>
 nnoremap <silent><leader>sn ]s
@@ -505,6 +501,18 @@ if has("conceal")
     let g:tex_conceal="abgm"
     let g:tex_flavor="latex"
 endif
+
+" Sessions
+set sessionoptions+=buffers
+set sessionoptions+=tabpages
+set sessionoptions+=globals
+set sessionoptions-=blank
+set sessionoptions-=help
+set sessionoptions-=localoptions
+set sessionoptions-=options
+set sessionoptions-=resize
+set sessionoptions-=winpos
+set sessionoptions-=winsize
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                    IDE                                     "
