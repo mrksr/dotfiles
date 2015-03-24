@@ -24,7 +24,7 @@ xset -b
 ###################
 #  LightDM stuff  #
 ###################
-light-locker &
+# light-locker &
 
 ##############
 #  Programs  #

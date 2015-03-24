@@ -25,6 +25,12 @@ function view_non_empty(step, s)
     end
 end
 
+local function touchpadToggle()
+    local toggle = "synclient TouchpadOff=$(synclient -l | grep -ce 'TouchpadOff.*0')"
+    local palmrest = "pkill syndaemon && (sleep 0.5 ; syndaemon -k -i 0.8 -d ) && (sleep 0.75 ; synclient PalmDetect=1)"
+    sexec(toggle .. " && " .. palmrest)
+end
+
 godlike.globalkeys = awful.util.table.join(
     -- Multimedia
     awful.key({}, "XF86AudioMute",        function() godlike.audio.mute()  end ),
@@ -48,15 +54,11 @@ godlike.globalkeys = awful.util.table.join(
     -- Special Keys
     awful.key({}, "XF86Sleep",            function() sexec("systemctl suspend") end ),
     awful.key({}, "XF86ScreenSaver",      function() sexec("dm-tool lock") end ),
-    -- Most fun workaround ever: http://www.spinics.net/lists/intel-gfx/msg61017.html
-    awful.key({ modkey }, "p",            function() sexec("glxgears & systemctl suspend") end ),
+    awful.key({ modkey }, "p",            function() sexec("systemctl suspend") end ),
     awful.key({ modkey }, "o",            function() sexec("dm-tool lock") end),
 
-    awful.key({}, "XF86TouchpadToggle",   function()
-                                                local toggle = "synclient TouchpadOff=$(synclient -l | grep -ce 'TouchpadOff.*0')"
-                                                local palmrest = "pkill syndaemon && (sleep 0.5 ; syndaemon -k -i 0.8 -d ) && (sleep 0.75 ; synclient PalmDetect=1)"
-                                                sexec(toggle .. " && " .. palmrest)
-                                          end ),
+    awful.key({}, "XF86TouchpadToggle",   touchpadToggle),
+    awful.key({}, "XF86Tools",            touchpadToggle),
 
     -- Navigation and Focus
     awful.key({ modkey,           }, "Tab",    function() view_non_empty(1, mouse.screen) end ),
