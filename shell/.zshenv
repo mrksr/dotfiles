@@ -16,6 +16,6 @@ hash -d cc=~/repos/uni/15ss/compiler
 hash -d crypto=~/repos/uni/15ss/crypto
 
 # variables
-export PATH=$HOME/.cabal/bin:/opt/procfun/sbt/bin:$PATH
+export PATH=$HOME/.cabal/bin:$PATH
 export EDITOR=vim
 export BROWSER=firefox
