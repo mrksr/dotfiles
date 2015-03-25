@@ -529,8 +529,8 @@ augroup commentstrings
 augroup END
 
 augroup todostrings
-    autocmd Syntax * call matchadd('Todo', '\v\W\zs(BUG|TODO|FIXME)(\(.*\))?:?', -1)
-    autocmd Syntax * call matchadd('Todo', '\v\W\zs(NOTE)(\(.*\))?:?', -2)
+    autocmd Syntax * call matchadd('Todo', '\v\W\zs(BUG|TODO|FIXME)(\(.{-}\))?:?', -1)
+    autocmd Syntax * call matchadd('Todo', '\v\W\zs(NOTE)(\(.{-}\))?:?', -2)
 augroup END
 
 " Remove special case '#'
