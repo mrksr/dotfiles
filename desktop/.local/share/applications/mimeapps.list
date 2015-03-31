@@ -3,6 +3,7 @@ x-scheme-handler/mailto=userapp-Thunderbird-08373W.desktop
 message/rfc822=userapp-Thunderbird-08373W.desktop
 application/x-extension-eml=userapp-Thunderbird-08373W.desktop
 application/pdf=zathura.desktop
+image/vnd.djvu=zathura.desktop
 image/bmp=sxiv.desktop
 image/gif=sxiv.desktop
 image/jpeg=sxiv.desktop
