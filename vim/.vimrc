@@ -172,6 +172,7 @@ let g:LatexBox_latexmk_async=0
 let g:LatexBox_latexmk_preview_continuously=0
 let g:LatexBox_viewer="zathura"
 let g:LatexBox_Folding=0
+let g:LatexBox_custom_indent=0
 
 """""""""""""""
 "  Syntastic  "
