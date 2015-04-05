@@ -15,11 +15,11 @@ xset -b
 # ( sleep 1 ; synclient PalmDetect=1 ) &
 ( sleep 1 ; synclient TouchpadOff=1 ) &
 
-################
-#  SLiM stuff  #
-################
-# eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
-# export GPG_AGENT_INFO SSH_AUTH_SOCK
+#############
+#  Keyring  #
+#############
+eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
+export GPG_AGENT_INFO SSH_AUTH_SOCK
 
 ###################
 #  LightDM stuff  #
