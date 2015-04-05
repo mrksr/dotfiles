@@ -31,11 +31,11 @@ map Ü -ex set guioptions!=s
 set! browser.tabs.loadInBackground=true
 if "tabclose" in dactyl.modules.options
     " If the tab-options plugin is loaded
-    set tabclose=previous,left,opener,right
+    set tabclose=previous,right,opener,left
     set tabopen=link:groupright,orphan:groupright,external:end
 
     map -builtin d :tabc<CR>
-    map -builtin D :tabc<CR>
+    map -builtin D :tabc<CR>gT
 
     " Disable firefox's own related feature to prevent bugs
     set! browser.tabs.insertRelatedAfterCurrent=false
