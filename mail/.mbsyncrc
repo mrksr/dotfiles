@@ -15,7 +15,8 @@ IMAPStore zfix-markus-remote
     Host imap.zfix.org
     User markus@zfix.org
     PassCmd "secret-tool lookup service imap user markus server zfix.org"
-    RequireSSL yes
+    SSLType STARTTLS
+    SSLVersions TLSv1.2
     CertificateFile /etc/ssl/certs/ca-certificates.crt
 
 MaildirStore zfix-markus-local
@@ -35,7 +36,8 @@ IMAPStore zfix-pub-remote
     Host imap.zfix.org
     User pub@zfix.org
     PassCmd "secret-tool lookup service imap user pub server zfix.org"
-    RequireSSL yes
+    SSLType STARTTLS
+    SSLVersions TLSv1.2
     CertificateFile /etc/ssl/certs/ca-certificates.crt
 
 MaildirStore zfix-pub-local
@@ -55,7 +57,8 @@ IMAPStore zfix-tutor-remote
     Host imap.zfix.org
     User tutor@zfix.org
     PassCmd "secret-tool lookup service imap user tutor server zfix.org"
-    RequireSSL yes
+    SSLType STARTTLS
+    SSLVersions TLSv1.2
     CertificateFile /etc/ssl/certs/ca-certificates.crt
 
 MaildirStore zfix-tutor-local
@@ -75,7 +78,8 @@ IMAPStore zfix-game-remote
     Host imap.zfix.org
     User game@zfix.org
     PassCmd "secret-tool lookup service imap user game server zfix.org"
-    RequireSSL yes
+    SSLType STARTTLS
+    SSLVersions TLSv1.2
     CertificateFile /etc/ssl/certs/ca-certificates.crt
 
 MaildirStore zfix-game-local
@@ -95,7 +99,8 @@ IMAPStore intum-remote
     Host mail.in.tum.de
     User kaiserma
     PassCmd "secret-tool lookup service imap user markus.kaiser server in.tum.de"
-    RequireSSL yes
+    SSLType STARTTLS
+    SSLVersions TLSv1.2 TLSv1.1 TLSv1
     CertificateFile /etc/ssl/certs/ca-certificates.crt
 
 MaildirStore intum-local
@@ -115,7 +120,8 @@ IMAPStore tum-remote
     Host mail.mytum.de
     User ga56baf@mytum.de
     PassCmd "secret-tool lookup service imap user markus.kaiser server tum.de"
-    RequireSSL yes
+    SSLType STARTTLS
+    SSLVersions TLSv1.2
     CertificateFile /etc/ssl/certs/ca-certificates.crt
 
 MaildirStore tum-local
@@ -135,7 +141,8 @@ IMAPStore kth-remote
     Host webmail.kth.se
     User mkaiser
     PassCmd "secret-tool lookup service imap user mkaiser server kth.se"
-    RequireSSL yes
+    SSLType STARTTLS
+    SSLVersions TLSv1.2 TLSv1.1 TLSv1
     CertificateFile /etc/ssl/certs/ca-certificates.crt
 
 MaildirStore kth-local
