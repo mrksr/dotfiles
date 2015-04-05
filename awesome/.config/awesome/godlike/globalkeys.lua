@@ -49,8 +49,9 @@ godlike.globalkeys = awful.util.table.join(
     awful.key({ modkey }, "Up",           function() godlike.audio.stop()  end ),
 
     -- Brightness
-    awful.key({}, "XF86MonBrightnessUp",  function() sexec("xbacklight -inc 5 -time 100 -steps 10")  end ),
-    awful.key({}, "XF86MonBrightnessDown",function() sexec("xbacklight -dec 5 -time 100 -steps 10")  end ),
+    awful.key({}, "XF86MonBrightnessUp",  function() sexec("xbacklight -inc 10 -time 100 -steps 10")  end ),
+    awful.key({}, "XF86MonBrightnessDown",function() sexec("xbacklight -dec 10 -time 100 -steps 10")  end ),
+    awful.key({}, "XF86Display",          function() sexec("xbacklight -set 1")  end ),
     -- Special Keys
     awful.key({}, "XF86Sleep",            function() sexec("systemctl suspend") end ),
     awful.key({}, "XF86ScreenSaver",      function() sexec("dm-tool lock") end ),
