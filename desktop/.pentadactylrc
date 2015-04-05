@@ -29,17 +29,20 @@ map Ü -ex set guioptions!=s
 
 " Tabs
 set! browser.tabs.loadInBackground=true
-" set tabclose=previous,left,opener,right
-" set tabopen=link:groupright,orphan:groupright,external:end
+if "tabclose" in dactyl.modules.options
+    " If the tab-options plugin is loaded
+    set tabclose=previous,left,opener,right
+    set tabopen=link:groupright,orphan:groupright,external:end
 
-" Show tabs in Windows as they do not waste (much) space
-"if prefs.get('services.sync.client.name') == 'markus-w510'
-    "set showtabline=never
-"else
-    "set showtabline=always
-"endif
+    map -builtin d :tabc<CR>
+    map -builtin D :tabc<CR>
 
-map -silent D dgT
+    " Disable firefox's own related feature to prevent bugs
+    set! browser.tabs.insertRelatedAfterCurrent=false
+else
+    map -silent D dgT
+endif
+
 map -builtin v <C-^>
 map -builtin gt <C-n>
 map -builtin -silent c :tabc! <Nop>
