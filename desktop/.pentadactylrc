@@ -47,6 +47,13 @@ map -builtin v <C-^>
 map -builtin gt <C-n>
 map -builtin -silent c :tabc! <Nop>
 
+" Default to Full-Zoom, alternate bindings for Text-Zoom
+map -builtin + ZI
+map -builtin "-" ZO
+map -builtin * zi
+map -builtin _ zo
+map -builtin = zZ
+
 " a and q to set on-page-bookmarks
 " m is used for tabs
 map -builtin a m
