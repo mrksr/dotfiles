@@ -1,11 +1,13 @@
 -- define widgets to show in wibox
 
-local awful = require("awful")
-local wibox = require("wibox")
-local vicious = require("vicious")
+local awful      = require("awful")
+local wibox      = require("wibox")
+local vicious    = require("vicious")
+local beautiful  = require("beautiful")
 local brightness = require("godlike.brightness")
 local nowplaying = require("godlike.nowplaying")
 local formatters = require("godlike.formatters")
+local format     = string.format
 
 local widgets = {}
 
@@ -44,14 +46,60 @@ widgets.brightness = wibox.widget.textbox()
 widgets.clock = wibox.widget.textbox()
 
 -- Widgets
-vicious.register(widgets.clock, vicious.widgets.date, "%a %d. %b - %H:%M", 5)
-vicious.register(widgets.brightness, brightness, "$3%", 1, "intel_backlight")
-vicious.register(widgets.thermal, vicious.widgets.thermal, "$1°C", 1, "thermal_zone0")
-vicious.register(widgets.battery0, vicious.widgets.bat, formatters.battery, 1, "BAT0")
-vicious.register(widgets.battery1, vicious.widgets.bat, formatters.battery, 1, "BAT1")
-vicious.register(widgets.traffic, vicious.widgets.net, formatters.net, 1)
-vicious.register(widgets.wifi, vicious.widgets.wifi, "${ssid} ${linp}%", 5, "wlp3s0")
-vicious.register(widgets.volume, vicious.widgets.volume, "$1%", 1, "Master -c 1")
+vicious.register(
+    widgets.clock,
+    vicious.widgets.date,
+    "%a %d. %b - %H:%M",
+    5
+)
+vicious.register(
+    widgets.brightness,
+    brightness,
+    format("%s $3%%", formatters.colored("☀", beautiful.yellow)),
+    1,
+    "intel_backlight"
+)
+vicious.register(
+    widgets.thermal,
+    vicious.widgets.thermal,
+    format("$1%s", formatters.colored("°C", beautiful.yellow)),
+    1,
+    "thermal_zone0"
+)
+vicious.register(
+    widgets.battery0,
+    vicious.widgets.bat,
+    formatters.battery,
+    1,
+    "BAT0"
+)
+vicious.register(
+    widgets.battery1,
+    vicious.widgets.bat,
+    formatters.battery,
+    1,
+    "BAT1"
+)
+vicious.register(
+    widgets.traffic,
+    vicious.widgets.net,
+    formatters.net,
+    1
+)
+vicious.register(
+    widgets.wifi,
+    vicious.widgets.wifi,
+    format("${ssid} %s ${linp}%%", formatters.colored("⚡", beautiful.yellow)),
+    5,
+    "wlp3s0"
+)
+vicious.register(
+    widgets.volume,
+    vicious.widgets.volume,
+    format("%s $1%%", formatters.colored("♬", beautiful.yellow)),
+    1,
+    "Master -c 1"
+)
 -- vicious.register(widgets.nowplaying, nowplaying, "$1", 5)
 
 local home = godlike.home

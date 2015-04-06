@@ -16,11 +16,13 @@ end
 naughty.config.presets = {
     normal = {},
     low = {
+        bg = beautiful.bg_normal,
+        fg = beautiful.fg_normal,
         timeout = 5
     },
     critical = {
-        bg = "#cc5214",
-        fg = "#000000",
+        bg = beautiful.bg_urgent,
+        fg = beautiful.fg_urgent,
         timeout = 0,
     }
 }

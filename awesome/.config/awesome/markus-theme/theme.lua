@@ -7,20 +7,25 @@ theme.wallpaper = theme.theme_dir .. "/background.png"
 
 theme.font          = "Aller 11"
 
+theme.red           = "#f07746"
+theme.yellow        = "#f0a746"
+theme.green         = "#30a573"
+theme.blue          = "#346e9a"
+
 theme.bg_normal     = "#3c3b37"
-theme.bg_focus      = "#555555"
-theme.bg_urgent     = "#f07746"
-theme.bg_minimize   = "#3c3b73"
+theme.bg_focus      = "#66645e"
+theme.bg_urgent     = theme.red
+theme.bg_minimize   = theme.blue
 
 theme.fg_normal     = "#d1cec5"
-theme.fg_focus      = "#ffffff"
-theme.fg_urgent     = "#000000"
-theme.fg_minimize   = "#ffffff"
+theme.fg_focus      = "#f2efe4"
+theme.fg_urgent     = "#262624"
+theme.fg_minimize   = "#f2efe4"
 
 theme.border_width  = 2
-theme.border_normal = "#000000"
-theme.border_focus  = "#555555"
-theme.border_marked = "#f07746"
+theme.border_normal = "#262624"
+theme.border_focus  = "#66645e"
+theme.border_marked = theme.red
 
 theme.wibox_height  = 18
 

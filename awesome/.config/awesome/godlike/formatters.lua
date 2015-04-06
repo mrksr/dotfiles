@@ -1,6 +1,11 @@
-local format = string.format
+local format    = string.format
+local beautiful = require("beautiful")
 
 local formatters = {}
+
+function formatters.colored(str, color)
+    return format("<span color='%s'>%s</span>", color, str)
+end
 
 function formatters.net(_, data)
     local function activeInterface()
@@ -35,8 +40,8 @@ function formatters.net(_, data)
     local function colorize(str, unit)
         local colors = {
             {0, "", ""},
-            {64 * 1024, "<span color='green'>", "</span>"},
-            {128 * 1024, "<span color='red'>", "</span>"}
+            {64 * 1024, format("<span color='%s'>", beautiful.green), "</span>"},
+            {128 * 1024, format("<span color='%s'>", beautiful.red), "</span>"}
         }
 
         local c = 1
@@ -70,7 +75,7 @@ function formatters.net(_, data)
     local up = direction(active, "up")
     local down = direction(active, "down")
 
-    return format("%s ⇅ %s", up, down)
+    return format("%s %s %s", up, formatters.colored("⇅", beautiful.yellow), down)
 end
 
 function formatters.battery(_, data)
@@ -79,13 +84,17 @@ function formatters.battery(_, data)
     local time = data[3]
 
     local battery_state = {
-        ["↯"] = '<span color="green">F</span> - ',
-        ["⌁"] = '<span color="green">U</span> - ',
-        ["+"] = '<span color="green">AC</span> - ',
-        ["−"] = ""
+        ["↯"] = format('<span color="%s">↯</span>', beautiful.green),
+        ["⌁"] = format('<span color="%s">?</span>', beautiful.green),
+        ["+"] = format('<span color="%s">↟</span>', beautiful.red),
+        ["−"] = format('<span color="%s">↡</span>', beautiful.blue),
     }
 
-    return format("%s%s%% - %s", battery_state[state], percent, time)
+    if time == "N/A" then
+        return format("%s%s%%", battery_state[state], percent)
+    else
+        return format("%s%s%% - %s", battery_state[state], percent, time)
+    end
 end
 
 function formatters.mail(name)
