@@ -99,8 +99,8 @@ godlike.globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "k",       function() awful.client.swap.byidx( -1)    end),
     awful.key({ modkey, "Shift"   }, "l",       function() awful.screen.focus_relative( 1) end),
     awful.key({ modkey, "Shift"   }, "h",       function() awful.screen.focus_relative(-1) end),
-    awful.key({ modkey,           }, "w",       function() awful.screen.focus_relative( 1) end),
-    awful.key({ modkey,           }, "q",       function() awful.screen.focus_relative(-1) end),
+    awful.key({ modkey,           }, "q",       function() awful.screen.focus(1) end),
+    awful.key({ modkey,           }, "w",       function() awful.screen.focus(2) end),
 
     awful.key({ modkey,           }, "l",       function() awful.tag.incmwfact( 0.05)    end),
     awful.key({ modkey,           }, "h",       function() awful.tag.incmwfact(-0.05)    end),
