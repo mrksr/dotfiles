@@ -19,27 +19,27 @@ awful.rules.rules = {
       properties = { floating = true } },
 
     { rule = { class = "Pidgin" },
-      properties = { tag = godlike.tags[1][4] } },
+      properties = { tag = godlike.tags[4] } },
     { rule = { class = "Gajim" },
-      properties = { tag = godlike.tags[1][4] } },
+      properties = { tag = godlike.tags[4] } },
     { rule = { class = "Skype" },
-      properties = { tag = godlike.tags[1][4] },
+      properties = { tag = godlike.tags[4] },
       callback = awful.client.setslave },
 
     { rule = { class = "Thunderbird" },
-      properties = { tag = godlike.tags[1][5] } },
+      properties = { tag = godlike.tags[5] } },
 
     { rule = { class = "Firefox" },
-      properties = { tag = godlike.tags[1][2] } },
+      properties = { tag = godlike.tags[2] } },
     { rule = { class = "Opera" },
-      properties = { tag = godlike.tags[1][2] } },
+      properties = { tag = godlike.tags[2] } },
     { rule = { class = "Chromium" },
-      properties = { tag = godlike.tags[1][2] } },
+      properties = { tag = godlike.tags[2] } },
     { rule = { class = "Google-chrome-stable" },
-      properties = { tag = godlike.tags[1][2] } },
+      properties = { tag = godlike.tags[2] } },
 
     { rule = { class = "Spotify" },
-      properties = { tag = godlike.tags[1][9] } },
+      properties = { tag = godlike.tags[9] } },
 }
 
 return godlike
