@@ -117,14 +117,12 @@ godlike.globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "q",       awesome.quit),
 
     -- The actual cool stuff
-    -- awful.key({ modkey,           }, "p",       function() menubar.show() end),
     awful.key({ modkey,           }, "c",       function() exec(godlike.terminal) end),
     awful.key({ modkey,           }, "x",       function() godlike.screens[mouse.screen].promptbox:run() end),
     awful.key({ modkey            }, "s",       function ()
                                                     local wibox = godlike.screens[mouse.screen].wibox
                                                     wibox.visible = not wibox.visible
                                                 end),
-    -- awful.key({ modkey },      "e",   function () revelation.expose({class=""}, mouse.screen) end),
     awful.key({ modkey,           }, "v",       function() exec("pavucontrol") end),
     awful.key({ modkey,           }, "f",       function() exec("gvim") end),
     awful.key({                   }, "F12",     function() sexec(launcher) end)
@@ -134,64 +132,74 @@ godlike.globalkeys = awful.util.table.join(
 -- This loop uses keycodes to map
 for i = 1, 9 do
     godlike.globalkeys = awful.util.table.join(godlike.globalkeys,
-        -- View tag only.
         awful.key({ modkey }, "#" .. i + 9,
-                  function()
-                        local tag = awful.tag.gettags(mouse.screen)[i]
-                        if tag then awful.tag.viewonly(tag) end
+                  function ()
+                        local t = godlike.tags[i]
+                        local swap_t = awful.tag.selected()
+                        local swap_s = t.screen
+                        local sel = t.selected
+                        if t.screen ~= mouse.screen then
+                            sharetags.tag_move(t, mouse.screen)
+                        end
+                        if sel == true then
+                            sharetags.tag_move(swap_t, swap_s)
+                            awful.tag.viewonly(swap_t)
+                        end
+                        awful.tag.viewonly(t)
                   end),
-        -- Toggle tag.
         awful.key({ modkey, "Control" }, "#" .. i + 9,
-                  function()
-                      local tag = awful.tag.gettags(mouse.screen)[i]
-                      if tag then awful.tag.viewtoggle(tag) end
-                  end),
-        -- Move client to tag.
-        awful.key({ modkey, "Shift" }, "#" .. i + 9,
-                  function()
-                      if client.focus then
-                          local tag = awful.tag.gettags(mouse.screen)[i]
-                          if tag then awful.client.movetotag(tag) end
+                  function ()
+                      if godlike.tags[i] then
+                          awful.tag.viewtoggle(godlike.tags[i])
                       end
                   end),
-        -- Toggle tag.
+        awful.key({ modkey, "Shift" }, "#" .. i + 9,
+                  function ()
+                      if client.focus and godlike.tags[i] then
+                          awful.client.movetotag(godlike.tags[i])
+                      end
+                  end),
         awful.key({ modkey, "Control", "Shift" }, "#" .. i + 9,
-                  function()
-                      if client.focus then
-                          local tag = awful.tag.gettags(mouse.screen)[i]
-                          if tag then awful.client.toggletag(tag) end
+                  function ()
+                      if client.focus and godlike.tags[i] then
+                          awful.client.toggletag(godlike.tags[i])
                       end
                   end))
 end
 -- Do the same for F-keys
 for i = 6, 9 do
     godlike.globalkeys = awful.util.table.join(godlike.globalkeys,
-        -- View tag only.
         awful.key({ modkey }, "F" .. i - 5,
-                  function()
-                        local tag = awful.tag.gettags(mouse.screen)[i]
-                        if tag then awful.tag.viewonly(tag) end
+                  function ()
+                        local t = godlike.tags[i]
+                        local swap_t = awful.tag.selected()
+                        local swap_s = t.screen
+                        local sel = t.selected
+                        if t.screen ~= mouse.screen then
+                            sharetags.tag_move(t, mouse.screen)
+                        end
+                        if sel == true then
+                            sharetags.tag_move(swap_t, swap_s)
+                            awful.tag.viewonly(swap_t)
+                        end
+                        awful.tag.viewonly(t)
                   end),
-        -- Toggle tag.
         awful.key({ modkey, "Control" }, "F" .. i - 5,
-                  function()
-                      local tag = awful.tag.gettags(mouse.screen)[i]
-                      if tag then awful.tag.viewtoggle(tag) end
-                  end),
-        -- Move client to tag.
-        awful.key({ modkey, "Shift" }, "F" .. i - 5,
-                  function()
-                      if client.focus then
-                          local tag = awful.tag.gettags(mouse.screen)[i]
-                          if tag then awful.client.movetotag(tag) end
+                  function ()
+                      if godlike.tags[i] then
+                          awful.tag.viewtoggle(godlike.tags[i])
                       end
                   end),
-        -- Toggle tag.
+        awful.key({ modkey, "Shift" }, "F" .. i - 5,
+                  function ()
+                      if client.focus and godlike.tags[i] then
+                          awful.client.movetotag(godlike.tags[i])
+                      end
+                  end),
         awful.key({ modkey, "Control", "Shift" }, "F" .. i - 5,
-                  function()
-                      if client.focus then
-                          local tag = awful.tag.gettags(mouse.screen)[i]
-                          if tag then awful.client.toggletag(tag) end
+                  function ()
+                      if client.focus and godlike.tags[i] then
+                          awful.client.toggletag(godlike.tags[i])
                       end
                   end))
 end
