@@ -25,7 +25,7 @@ local widgets = {}
 
 -- Separators
 widgets.separator = wibox.widget.textbox()
-widgets.separator:set_text("  λ  ")
+widgets.separator:set_markup(formatters.colored("  λ  ", beautiful.blue))
 widgets.space = wibox.widget.textbox()
 widgets.space:set_text(" ")
 
