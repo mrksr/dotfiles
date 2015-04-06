@@ -21,6 +21,18 @@ godlike.tagnames = {
     'Stuff', 'Net', 'Term', 'IM', 'Mail', 'George', 'J', 'Soilent', 'MMXIII'
 }
 
-godlike.tags = sharetags.create_tags(godlike.tagnames, godlike.layouts)
+local default_layouts = {
+    awful.layout.suit.max,
+    awful.layout.suit.max,
+    awful.layout.suit.max,
+    awful.layout.suit.max,
+    awful.layout.suit.max,
+    awful.layout.suit.max,
+    awful.layout.suit.max,
+    awful.layout.suit.max,
+    awful.layout.suit.max
+}
+
+godlike.tags = sharetags.create_tags(godlike.tagnames, default_layouts)
 
 return godlike
