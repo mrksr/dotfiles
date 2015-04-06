@@ -1,8 +1,9 @@
 -- define the wibox
-local awful = require("awful")
-local wibox = require("wibox")
+local awful     = require("awful")
 local beautiful = require("beautiful")
-local widgets = require("godlike.widgets")
+local sharetags = require("sharetags")
+local wibox     = require("wibox")
+local widgets   = require("godlike.widgets")
 
 godlike.taglistbuttons = godlike.taglistbuttons or
     awful.util.table.join(
@@ -58,7 +59,7 @@ for si = 1, screen.count() do
     end
 
     s.taglist = s.taglist or
-        awful.widget.taglist(
+        sharetags.taglist_new(
             si,
             awful.widget.taglist.filter.noempty,
             godlike.taglistbuttons

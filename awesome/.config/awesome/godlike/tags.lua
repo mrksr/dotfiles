@@ -1,6 +1,5 @@
--- create initial tags and define layouts
-
-local awful = require("awful")
+local awful     = require("awful")
+local sharetags = require("sharetags")
 
 godlike.layouts = godlike.layouts or
 {
@@ -18,10 +17,10 @@ godlike.layouts = godlike.layouts or
     -- awful.layout.suit.floating,
 }
 
-for s = 1, screen.count() do
-    godlike.screens[s].tags = awful.tag({
-        'Stuff', 'Net', 'Term', 'IM', 'Mail', 'George', 'J', 'Soilent', 'MMXIII'
-        }, s,  awful.layout.suit.max)
-end
+godlike.tagnames = {
+    'Stuff', 'Net', 'Term', 'IM', 'Mail', 'George', 'J', 'Soilent', 'MMXIII'
+}
+
+godlike.tags = sharetags.create_tags(godlike.tagnames, godlike.layouts)
 
 return godlike

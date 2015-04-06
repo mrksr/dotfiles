@@ -25,9 +25,10 @@ godlike.exec       = awful.util.spawn
 godlike.sexec      = awful.util.spawn_with_shell
 godlike.xexec      = godlike.spawn
 godlike.screens    = { }
+godlike.tags       = { }
 
 for i = 1, screen.count() do
-    godlike.screens[i] = {}
+    godlike.screens[i] = { }
 end
 
 menubar.utils.terminal = godlike.terminal -- Set the terminal for applications that require it
