@@ -2,16 +2,17 @@
 -- you should use all of them with modkey
 -- except for multimedia keys of course
 
-local awful   = require("awful")
-local menubar = require("menubar")
-local naughty = require("naughty")
-local lm      = require("godlike.layoutmode")
---require("revelation")
+local awful     = require("awful")
+local menubar   = require("menubar")
+local naughty   = require("naughty")
+local beautiful = require("beautiful")
+local lm        = require("godlike.layoutmode")
 
-local modkey  = godlike.modkey
-local altkey  = godlike.altkey
-local exec    = godlike.exec
-local sexec   = godlike.sexec
+local modkey    = godlike.modkey
+local altkey    = godlike.altkey
+local exec      = godlike.exec
+local sexec     = godlike.sexec
+local format    = string.format
 
 function view_non_empty(step, s)
     local s = s or 1
@@ -30,6 +31,15 @@ local function touchpadToggle()
     local palmrest = "pkill syndaemon && (sleep 0.5 ; syndaemon -k -i 0.8 -d ) && (sleep 0.75 ; synclient PalmDetect=1)"
     sexec(toggle .. " && " .. palmrest)
 end
+
+local launcher = format(
+    'yeganesh -x -- -i -fn "%s" -nb "%s" -nf "%s" -sb "%s" -sf "%s" | /bin/sh',
+    beautiful.font,
+    beautiful.bg_normal,
+    beautiful.fg_normal,
+    beautiful.bg_urgent,
+    beautiful.fg_urgent
+)
 
 godlike.globalkeys = awful.util.table.join(
     -- Multimedia
@@ -115,7 +125,7 @@ godlike.globalkeys = awful.util.table.join(
     -- awful.key({ modkey },      "e",   function () revelation.expose({class=""}, mouse.screen) end),
     awful.key({ modkey,           }, "v",       function() exec("pavucontrol") end),
     awful.key({ modkey,           }, "f",       function() exec("gvim") end),
-    awful.key({                   }, "F12",     function() sexec('yeganesh -x -- -i -fn "Aller-11" -nb "#222" -nf "#ccc" -sb "#333" -sf "#cc5214" | /bin/sh') end)
+    awful.key({                   }, "F12",     function() sexec(launcher) end)
 )
 
 -- Tag manipulation

@@ -7,20 +7,22 @@ theme.wallpaper = theme.theme_dir .. "/background.png"
 
 theme.font          = "Aller 11"
 
-theme.bg_normal     = "#222222"
-theme.bg_focus      = "#444444"
-theme.bg_urgent     = "#d02e54"
-theme.bg_minimize   = "#333333"
+theme.bg_normal     = "#3c3b37"
+theme.bg_focus      = "#555555"
+theme.bg_urgent     = "#f07746"
+theme.bg_minimize   = "#3c3b73"
 
-theme.fg_normal     = "#cccccc"
-theme.fg_focus      = "#cccccc"
-theme.fg_urgent     = "#ffffff"
+theme.fg_normal     = "#d1cec5"
+theme.fg_focus      = "#ffffff"
+theme.fg_urgent     = "#000000"
 theme.fg_minimize   = "#ffffff"
 
 theme.border_width  = 2
 theme.border_normal = "#000000"
-theme.border_focus  = "#535d6c"
-theme.border_marked = "#91231c"
+theme.border_focus  = "#555555"
+theme.border_marked = "#f07746"
+
+theme.wibox_height  = 18
 
 -- There are other variable sets
 -- overriding the default one when
