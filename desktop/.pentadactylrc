@@ -31,7 +31,7 @@ map Ü -ex set guioptions!=s
 set! browser.tabs.loadInBackground=true
 if "tabclose" in dactyl.modules.options
     " If the tab-options plugin is loaded
-    set tabclose=previous,right,opener,left
+    set tabclose=right,previous,opener,left
     set tabopen=link:groupright,orphan:groupright,external:end
 
     map -builtin d :tabc<CR>
