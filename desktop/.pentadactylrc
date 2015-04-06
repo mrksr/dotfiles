@@ -36,11 +36,13 @@ if "tabclose" in dactyl.modules.options
 
     map -builtin d :tabc<CR>
     map -builtin D :tabc<CR>gT
+    map -builtin . :tabc<CR>
 
     " Disable firefox's own related feature to prevent bugs
     set! browser.tabs.insertRelatedAfterCurrent=false
 else
     map -silent D dgT
+    map -builtin . d
 endif
 
 map -builtin v <C-^>
