@@ -1,9 +1,9 @@
 -- theming and visual stuff
 
-local gears = require("gears")
-local awful = require("awful")
+local gears     = require("gears")
+local awful     = require("awful")
 local beautiful = require("beautiful")
-local naughty = require("naughty")
+local naughty   = require("naughty")
 
 beautiful.init(awful.util.getdir("config") .. "/markus-theme/theme.lua")
 
