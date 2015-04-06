@@ -72,8 +72,8 @@ godlike.globalkeys = awful.util.table.join(
     awful.key({}, "XF86Tools",            touchpadToggle),
 
     -- Navigation and Focus
-    awful.key({ modkey,           }, "Tab",    function() view_non_empty(1, mouse.screen) end ),
-    awful.key({ modkey, "Shift"   }, "Tab",    function() view_non_empty(-1, mouse.screen) end ),
+    awful.key({ modkey,           }, "Tab",    function() view_non_empty(1, client.focus.screen) end ),
+    awful.key({ modkey, "Shift"   }, "Tab",    function() view_non_empty(-1, client.focus.screen) end ),
     awful.key({ modkey,           }, "^",      awful.tag.history.restore),
     awful.key({ modkey,           }, "u",      awful.client.urgent.jumpto),
     awful.key({ modkey,           }, "g",      awful.client.urgent.jumpto),
@@ -117,12 +117,12 @@ godlike.globalkeys = awful.util.table.join(
     -- The actual cool stuff
     -- awful.key({ modkey,           }, "p",       function() menubar.show() end),
     awful.key({ modkey,           }, "c",       function() exec(godlike.terminal) end),
-    awful.key({ modkey,           }, "x",       function() godlike.screens[mouse.screen].promptbox:run() end),
+    awful.key({ modkey,           }, "x",       function() godlike.screens[client.focus.screen].promptbox:run() end),
     awful.key({ modkey            }, "s",       function ()
-                                                    local wibox = godlike.screens[mouse.screen].wibox
+                                                    local wibox = godlike.screens[client.focus.screen].wibox
                                                     wibox.visible = not wibox.visible
                                                 end),
-    -- awful.key({ modkey },      "e",   function () revelation.expose({class=""}, mouse.screen) end),
+    -- awful.key({ modkey },      "e",   function () revelation.expose({class=""}, client.focus.screen) end),
     awful.key({ modkey,           }, "v",       function() exec("pavucontrol") end),
     awful.key({ modkey,           }, "f",       function() exec("gvim") end),
     awful.key({                   }, "F12",     function() sexec(launcher) end)
@@ -135,13 +135,13 @@ for i = 1, 9 do
         -- View tag only.
         awful.key({ modkey }, "#" .. i + 9,
                   function()
-                        local tag = awful.tag.gettags(mouse.screen)[i]
+                        local tag = awful.tag.gettags(client.focus.screen)[i]
                         if tag then awful.tag.viewonly(tag) end
                   end),
         -- Toggle tag.
         awful.key({ modkey, "Control" }, "#" .. i + 9,
                   function()
-                      local tag = awful.tag.gettags(mouse.screen)[i]
+                      local tag = awful.tag.gettags(client.focus.screen)[i]
                       if tag then awful.tag.viewtoggle(tag) end
                   end),
         -- Move client to tag.
@@ -167,13 +167,13 @@ for i = 6, 9 do
         -- View tag only.
         awful.key({ modkey }, "F" .. i - 5,
                   function()
-                        local tag = awful.tag.gettags(mouse.screen)[i]
+                        local tag = awful.tag.gettags(client.focus.screen)[i]
                         if tag then awful.tag.viewonly(tag) end
                   end),
         -- Toggle tag.
         awful.key({ modkey, "Control" }, "F" .. i - 5,
                   function()
-                      local tag = awful.tag.gettags(mouse.screen)[i]
+                      local tag = awful.tag.gettags(client.focus.screen)[i]
                       if tag then awful.tag.viewtoggle(tag) end
                   end),
         -- Move client to tag.
