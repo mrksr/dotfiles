@@ -49,7 +49,7 @@ widgets.clock = wibox.widget.textbox()
 vicious.register(
     widgets.clock,
     vicious.widgets.date,
-    format("%s - %s", "%a %d. %b", formatters.colored("%H:%M", beautiful.yellow)),
+    format("%s %s", "%a %d. %b", formatters.colored("%H:%M", beautiful.yellow)),
     5
 )
 vicious.register(
