@@ -7,40 +7,50 @@ local widgets   = require("godlike.widgets")
 
 godlike.taglistbuttons = godlike.taglistbuttons or
     awful.util.table.join(
-       awful.button({ }, 1, awful.tag.viewonly),
-       awful.button({ modkey }, 1, awful.client.movetotag),
-       awful.button({ }, 3, awful.tag.viewtoggle),
-       awful.button({ modkey }, 3, awful.client.toggletag),
-       awful.button({ }, 4, function(t) awful.tag.viewnext(awful.tag.getscreen(t)) end),
-       awful.button({ }, 5, function(t) awful.tag.viewprev(awful.tag.getscreen(t)) end)
+        awful.button({ }, 1, function(t)
+            local swap_t = awful.tag.selected()
+            local swap_s = t.screen
+            local sel = t.selected
+            if t.screen ~= mouse.screen then
+                sharetags.tag_move(t, mouse.screen)
+            end
+            if sel == true then
+                sharetags.tag_move(swap_t, swap_s)
+                awful.tag.viewonly(swap_t)
+            end
+            awful.tag.viewonly(t)
+        end),
+        awful.button({ modkey }, 1, awful.client.movetotag),
+        awful.button({ }, 3, function(t)
+            if t.screen ~= mouse.screen then
+                sharetags.tag_move(t, mouse.screen)
+            end
+            awful.tag.viewtoggle(t)
+        end),
+        awful.button({ modkey }, 3, awful.client.toggletag),
+        awful.button({ }, 4, function(t) awful.tag.viewnext(awful.tag.getscreen(t)) end),
+        awful.button({ }, 5, function(t) awful.tag.viewprev(awful.tag.getscreen(t)) end)
     )
 
 godlike.tasklistbuttons = godlike.tasklistbuttons or
-awful.util.table.join(
-    awful.button({ }, 1, function(t)
-        local swap_t = awful.tag.selected()
-        local swap_s = t.screen
-        local sel = t.selected
-        if t.screen ~= mouse.screen then
-            sharetags.tag_move(t, mouse.screen)
-        end
-        if sel == true then
-            sharetags.tag_move(swap_t, swap_s)
-            awful.tag.viewonly(swap_t)
-        end
-        awful.tag.viewonly(t)
-    end),
-    awful.button({ modkey }, 1, awful.client.movetotag),
-    awful.button({ }, 3, function(t)
-        if t.screen ~= mouse.screen then
-            sharetags.tag_move(t, mouse.screen)
-        end
-        awful.tag.viewtoggle(t)
-    end),
-    awful.button({ modkey }, 3, awful.client.toggletag),
-    awful.button({ }, 4, function(t) awful.tag.viewnext(awful.tag.getscreen(t)) end),
-    awful.button({ }, 5, function(t) awful.tag.viewprev(awful.tag.getscreen(t)) end)
-)
+    awful.util.table.join(
+               awful.button({ }, 1, function (c)
+                                       if c == client.focus then -- c.minimized = true
+                                       else c.minimized = false
+                                            if not c:isvisible() then awful.tag.viewonly(c:tags()[1]) end
+                                            client.focus = c; c:raise()
+                                       end end),
+               awful.button({ }, 3, function ()
+                                       if instance then instance:hide(); instance = nil
+                                       else instance = awful.menu.clients({ theme = { width = 250 } })
+                                       end end),
+               awful.button({ }, 4, function ()
+                                       awful.client.focus.byidx(1)
+                                       if client.focus then client.focus:raise() end end),
+               awful.button({ }, 5, function ()
+                                       awful.client.focus.byidx(-1)
+                                       if client.focus then client.focus:raise() end end)
+    )
 
 godlike.layoutboxbuttons = godlike.layoutboxbuttons or
     awful.util.table.join(
