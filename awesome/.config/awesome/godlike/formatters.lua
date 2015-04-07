@@ -86,8 +86,8 @@ function formatters.battery(_, data)
     local battery_state = {
         ["↯"] = format('<span color="%s">↯</span>', beautiful.green),
         ["⌁"] = format('<span color="%s">? </span>', beautiful.green),
-        ["+"] = format('<span color="%s">▲</span>', beautiful.red),
-        ["−"] = format('<span color="%s">▼</span>', beautiful.blue),
+        ["+"] = format('<span color="%s">▲</span>', beautiful.blue),
+        ["−"] = format('<span color="%s">▼</span>', beautiful.red),
     }
 
     if time == "N/A" then
