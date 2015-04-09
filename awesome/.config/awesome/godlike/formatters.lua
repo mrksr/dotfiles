@@ -75,7 +75,7 @@ function formatters.net(_, data)
     local up = direction(active, "up")
     local down = direction(active, "down")
 
-    return format("%s %s %s", up, formatters.colored("⇅", beautiful.yellow), down)
+    return format("%s %s %s", down, formatters.colored("⇵", beautiful.yellow), up)
 end
 
 function formatters.battery(_, data)
