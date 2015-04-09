@@ -31,3 +31,4 @@ export GPG_AGENT_INFO SSH_AUTH_SOCK
 ##############
 start-pulseaudio-x11 &
 redshift -l 59.20:18.3 -t 6300:4800 &
+blueman-applet &
