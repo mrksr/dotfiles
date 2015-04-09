@@ -14,6 +14,7 @@ hash -d ml2=~/repos/uni/14ws/ml2
 hash -d 15ss=~/repos/uni/15ss
 hash -d cc=~/repos/uni/15ss/compiler
 hash -d crypto=~/repos/uni/15ss/crypto
+hash -d sem=~/repos/uni/15ss/semantics
 
 # variables
 export PATH=$HOME/.cabal/bin:$PATH
