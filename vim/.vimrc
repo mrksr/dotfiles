@@ -524,6 +524,7 @@ endif
 set sessionoptions+=buffers
 set sessionoptions+=tabpages
 set sessionoptions-=globals
+set sessionoptions-=folds
 set sessionoptions-=blank
 set sessionoptions-=help
 set sessionoptions-=localoptions
