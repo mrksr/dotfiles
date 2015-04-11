@@ -323,6 +323,8 @@ let g:EasyClipShareYanks = 1
 let g:EasyClipShareYanksFile = "easyclip"
 let g:EasyClipShareYanksDirectory = localdir
 
+nnoremap Y :EasyClipBeforeYank<cr>yy:EasyClipOnYanksChanged<cr>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  Mappings                              {{{1"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
