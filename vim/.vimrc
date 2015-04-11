@@ -24,7 +24,6 @@ else
 
     set rtp+=~/.vim/bundle/neobundle.vim
 endif
-let no_selectbuf_maps=1
 
 filetype off
 call neobundle#begin(expand('~/.vim/bundle/'))
@@ -61,7 +60,6 @@ NeoBundle 'edsono/vim-matchit'
 NeoBundle 'floobits/floobits-neovim'
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'junegunn/vim-easy-align'
-NeoBundle 'justinmk/vim-sneak'
 NeoBundle 'kana/vim-textobj-indent'
 NeoBundle 'kana/vim-textobj-line'
 NeoBundle 'kana/vim-textobj-user'
@@ -212,23 +210,10 @@ let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
-""""""""""""""""
-"  EasyMotion  "
-""""""""""""""""
-let g:EasyMotion_leader_key='<leader>'
-
 """"""""""""""
 "  tmuxline  "
 """"""""""""""
 let g:tmuxline_powerline_separators = 0
-
-""""""""""""""""""""""
-"  multiple-cursors  "
-""""""""""""""""""""""
-let g:multi_cursor_next_key='<C-n>'
-let g:multi_cursor_prev_key='<C-b>'
-let g:multi_cursor_skip_key='<C-x>'
-let g:multi_cursor_quit_key='<Esc>'
 
 """""""""""
 "  Unite  "
@@ -306,12 +291,6 @@ let g:auto_ctags=1
 let g:auto_ctags_directory_list = ['.git', '.hg', '.svn']
 let g:auto_ctags_tags_name = 'tags'
 let g:auto_ctags_tags_args = '--tag-relative --recurse --sort=yes --fields+=l'
-
-"""""""""""
-"  sneak  "
-"""""""""""
-let g:sneak#s_next = 1
-let g:sneak#streak = 1
 
 """""""""
 "  csv  "
