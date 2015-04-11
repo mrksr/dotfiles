@@ -66,11 +66,14 @@ NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'mhinz/vim-signify'
 NeoBundle 'mhinz/vim-startify'
 NeoBundle 'scrooloose/syntastic'
+NeoBundle 'Shougo/unite-outline'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'soramugi/auto-ctags.vim'
+NeoBundle 'svermeulen/vim-easyclip'
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tsukkee/unite-tag'
 
@@ -230,6 +233,7 @@ let g:unite_source_rec_async_command = 'ag --follow --nocolor --nogroup --hidden
 
 nnoremap <silent><F3> :<C-u>Unite history/yank<CR>
 nnoremap <silent>ä :<C-u>Unite file_rec/async:!<CR>
+nnoremap <silent>Ä :<C-u>Unite outline<CR>
 nnoremap <silent>ö :<C-u>Unite buffer<CR>
 nnoremap <silent>Ö :<C-u>Unite tag<CR>
 
@@ -297,6 +301,13 @@ let g:auto_ctags_tags_args = '--tag-relative --recurse --sort=yes --fields+=l'
 """""""""
 let g:csv_nomap_h = 1
 let g:csv_nomap_l = 1
+
+""""""""""""""
+"  EasyClip  "
+""""""""""""""
+let g:EasyClipShareYanks = 1
+let g:EasyClipShareYanksFile = "easyclip"
+let g:EasyClipShareYanksDirectory = localdir
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  Mappings                                  "
