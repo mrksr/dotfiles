@@ -523,7 +523,7 @@ endif
 " Sessions
 set sessionoptions+=buffers
 set sessionoptions+=tabpages
-set sessionoptions+=globals
+set sessionoptions-=globals
 set sessionoptions-=blank
 set sessionoptions-=help
 set sessionoptions-=localoptions
