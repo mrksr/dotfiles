@@ -46,7 +46,7 @@ NeoBundle 'avakhov/vim-yaml'
 NeoBundle 'beyondmarc/glsl.vim'
 NeoBundle 'beyondmarc/opengl.vim'
 " NeoBundle 'chrisbra/csv.vim'
-" NeoBundle 'LaTeX-Box-Team/LaTeX-Box'
+NeoBundle 'LaTeX-Box-Team/LaTeX-Box'
 " NeoBundle 'lukerandall/haskellmode-vim'
 NeoBundle 'Mediawiki.vim'
 NeoBundle 'sheerun/vim-polyglot'
@@ -169,12 +169,25 @@ let g:airline#extensions#tabline#show_tab_type = 0
 """""""""""
 "  Latex  "
 """""""""""
-let g:LatexBox_quickfix=2
-let g:LatexBox_latexmk_async=0
-let g:LatexBox_latexmk_preview_continuously=0
-let g:LatexBox_viewer="zathura"
-let g:LatexBox_Folding=0
-let g:LatexBox_custom_indent=0
+let g:LatexBox_quickfix = 2
+let g:LatexBox_latexmk_async = 0
+let g:LatexBox_latexmk_preview_continuously = 0
+let g:LatexBox_viewer = "zathura"
+let g:LatexBox_custom_indent = 0
+let g:LatexBox_Folding = 1
+let g:LatexBox_fold_automatic = 0
+let g:LatexBox_fold_envs = 0
+let g:LatexBox_fold_envs_force = [
+    \ 'frame',
+    \ 'abstract',
+    \ 'figure',
+    \ 'table',
+    \ 'listing',
+    \ 'tikzpicture'
+    \]
+
+" Calculate folds on open
+autocmd FileType tex LatexFold
 
 """""""""""""""
 "  Syntastic  "
@@ -395,6 +408,7 @@ inoremap <C-Space> <C-x><C-o><C-p>
 
 " Folds
 nnoremap <leader>f za
+nnoremap <leader>F zMzvzz
 
 " Macro execution
 nnoremap Q @
@@ -490,6 +504,9 @@ set foldmethod=syntax
 set foldlevel=1
 set foldnestmax=3
 set nofoldenable
+augroup folds
+    autocmd FileType tex set foldlevel=0 foldnestmax=1 foldenable
+augroup END
 
 " Conceal
 if has("conceal")
