@@ -1,5 +1,6 @@
+" vim: fdm=marker fdl=0 fen
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                   Vundle                                   "
+"                                  Bundles                               {{{1"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set encoding=utf-8
 scriptencoding utf-8
@@ -102,7 +103,7 @@ NeoBundle 'vim-scripts/synic.vim'
 call neobundle#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                Environment                                 "
+"                                Environment                             {{{1"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set background=dark
 if has("gui_running")
@@ -145,7 +146,7 @@ endif
 set noswapfile
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                  Plugins                                   "
+"                                  Plugins                               {{{1"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader=" "
 let maplocalleader=" "
@@ -310,7 +311,7 @@ let g:EasyClipShareYanksFile = "easyclip"
 let g:EasyClipShareYanksDirectory = localdir
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                  Mappings                                  "
+"                                  Mappings                              {{{1"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Splits
 nnoremap <C-j> <C-W>j
@@ -393,7 +394,7 @@ inoremap <S-Space> <C-x><C-o><C-p>
 inoremap <C-Space> <C-x><C-o><C-p>
 
 " Folds
-nnoremap + za
+nnoremap <leader>f za
 
 " Macro execution
 nnoremap Q @
@@ -403,7 +404,7 @@ au FileType help nnoremap <buffer> <CR> <C-]>
 au FileType help nnoremap <buffer> <BS> <C-T>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                  Commands                                  "
+"                                  Commands                              {{{1"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " cd to current file
 com! CD cd %:p:h
@@ -418,7 +419,7 @@ com! -bang QA qa<bang>
 cmap w!! w !sudo tee %
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                 Interface                                  "
+"                                 Interface                              {{{1"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use mouse when possible
 set mouse=a
@@ -484,6 +485,12 @@ set linebreak
 set display=lastline
 set nojoinspaces
 
+" Folds
+set foldmethod=syntax
+set foldlevel=1
+set foldnestmax=3
+set nofoldenable
+
 " Conceal
 if has("conceal")
     set conceallevel=2
@@ -506,7 +513,7 @@ set sessionoptions-=winpos
 set sessionoptions-=winsize
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                    IDE                                     "
+"                                    IDE                                 {{{1"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set path+=include/**
 " To create systags run
@@ -530,7 +537,7 @@ set cinkeys-=0#
 set indentkeys-=0#
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                Local .vimrc                                "
+"                                Local .vimrc                            {{{1"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 try
     exec ":so " . localdir . ".vimrc_local"
