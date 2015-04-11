@@ -504,10 +504,11 @@ set nojoinspaces
 " Folds
 set foldmethod=syntax
 set foldlevel=1
-set foldnestmax=3
+set foldnestmax=2
 set nofoldenable
 augroup folds
-    autocmd FileType tex set foldlevel=0 foldnestmax=1 foldenable
+    autocmd FileType tex setl foldlevel=0 foldnestmax=1 foldenable
+    autocmd BufRead,BufNewFile *.c,*.cpp setl foldlevel=0 foldnestmax=1
 augroup END
 
 " Conceal
