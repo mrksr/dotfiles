@@ -7,26 +7,29 @@ local widgets   = require("godlike.widgets")
 
 godlike.taglistbuttons = godlike.taglistbuttons or
     awful.util.table.join(
-        awful.button({ }, 1, function(t)
-            local swap_t = awful.tag.selected()
-            local swap_s = t.screen
-            local sel = t.selected
-            if t.screen ~= mouse.screen then
-                sharetags.tag_move(t, mouse.screen)
-            end
-            if sel == true then
-                sharetags.tag_move(swap_t, swap_s)
-                awful.tag.viewonly(swap_t)
-            end
-            awful.tag.viewonly(t)
-        end),
+        awful.button({ }, 1,
+            function(t)
+                local swap_t = awful.tag.selected()
+                local sel = awful.tag.getproperty(t, "selected")
+                local t_screen = awful.tag.getproperty(t, "screen")
+                if t_screen ~= mouse.screen then
+                    sharetags.tag_move(t, mouse.screen)
+                end
+                if swap_t and sel == true then
+                    sharetags.tag_move(swap_t, t_screen)
+                    awful.tag.viewonly(swap_t)
+                end
+                awful.tag.viewonly(t)
+            end),
         awful.button({ modkey }, 1, awful.client.movetotag),
-        awful.button({ }, 3, function(t)
-            if t.screen ~= mouse.screen then
-                sharetags.tag_move(t, mouse.screen)
-            end
-            awful.tag.viewtoggle(t)
-        end),
+        awful.button({ }, 3,
+            function(t)
+                local t_screen = awful.tag.getproperty(t, "screen")
+                if t_screen ~= mouse.screen then
+                    sharetags.tag_move(t, mouse.screen)
+                end
+                awful.tag.viewtoggle(t)
+            end),
         awful.button({ modkey }, 3, awful.client.toggletag),
         awful.button({ }, 4, function(t) awful.tag.viewnext(awful.tag.getscreen(t)) end),
         awful.button({ }, 5, function(t) awful.tag.viewprev(awful.tag.getscreen(t)) end)
