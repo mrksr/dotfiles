@@ -20,10 +20,7 @@ function create_tags(names, layouts)
         count = capi.screen.count() + 1
     end
     for tagnumber = 1, count do
-        tags[tagnumber] = awful.tag.add(names[tagnumber], {})
-        tag.setproperty(tags[tagnumber], "number", tagnumber)
-        -- Add tags to screen one by one
-        tag.setproperty(tags[tagnumber], "screen", 1)
+        tags[tagnumber] = awful.tag.add(names[tagnumber], { screen = 1 })
         awful.layout.set(layouts[tagnumber], tags[tagnumber])
     end
 
