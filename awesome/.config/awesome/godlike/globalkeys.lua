@@ -70,12 +70,12 @@ godlike.globalkeys = awful.util.table.join(
 
     awful.key({}, "XF86TouchpadToggle",   touchpadToggle),
     awful.key({}, "XF86Tools",            touchpadToggle),
+    awful.key({ modkey }, "u",            touchpadToggle),
 
     -- Navigation and Focus
     awful.key({ modkey,           }, "Tab",    function() view_non_empty(1, mouse.screen) end ),
     awful.key({ modkey, "Shift"   }, "Tab",    function() view_non_empty(-1, mouse.screen) end ),
     awful.key({ modkey,           }, "^",      awful.tag.history.restore),
-    awful.key({ modkey,           }, "u",      awful.client.urgent.jumpto),
     awful.key({ modkey,           }, "g",      awful.client.urgent.jumpto),
 
     awful.key({ altkey,           }, "^",      function()
@@ -136,13 +136,13 @@ for i = 1, 9 do
                   function ()
                         local t = godlike.tags[i]
                         local swap_t = awful.tag.selected()
-                        local swap_s = t.screen
-                        local sel = t.selected
-                        if t.screen ~= mouse.screen then
+                        local sel = awful.tag.getproperty(t, "selected")
+                        local t_screen = awful.tag.getproperty(t, "screen")
+                        if t_screen ~= mouse.screen then
                             sharetags.tag_move(t, mouse.screen)
                         end
-                        if sel == true then
-                            sharetags.tag_move(swap_t, swap_s)
+                        if swap_t and sel == true then
+                            sharetags.tag_move(swap_t, t_screen)
                             awful.tag.viewonly(swap_t)
                         end
                         awful.tag.viewonly(t)
@@ -173,13 +173,13 @@ for i = 6, 9 do
                   function ()
                         local t = godlike.tags[i]
                         local swap_t = awful.tag.selected()
-                        local swap_s = t.screen
-                        local sel = t.selected
-                        if t.screen ~= mouse.screen then
+                        local sel = awful.tag.getproperty(t, "selected")
+                        local t_screen = awful.tag.getproperty(t, "screen")
+                        if t_screen ~= mouse.screen then
                             sharetags.tag_move(t, mouse.screen)
                         end
-                        if sel == true then
-                            sharetags.tag_move(swap_t, swap_s)
+                        if swap_t and sel == true then
+                            sharetags.tag_move(swap_t, t_screen)
                             awful.tag.viewonly(swap_t)
                         end
                         awful.tag.viewonly(t)
