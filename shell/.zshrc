@@ -35,11 +35,6 @@ setopt HIST_IGNORE_SPACE
 
 setopt extendedglob
 
-set -o vi
-autoload -Uz edit-command-line
-zle -N edit-command-line
-bindkey -M vicmd 'v' edit-command-line
-
 alias apt-get="sudo apt-get"
 alias apt-search="apt-cache search"
 alias apt-find="apt-search"
@@ -58,10 +53,15 @@ alias fzf="fzf -x"
 alias ls="ls --color=tty --group-directories-first -h"
 alias lsd="ls -lhd */"
 
-alias vga="xrandr --output VGA-0 --right-of LVDS-0 --auto"
-alias novga="xrandr --output VGA-0 --off"
+alias vga="xrandr --output DP2 --right-of eDP1 --auto"
+alias novga="xrandr --output DP2 --off"
 
-alias imap="offlineimap -u basic -o"
+alias imap="mbsync auto"
+
+alias bl="set-backlight"
+set-backlight() {
+    xbacklight -set $1
+}
 
 alias open="open-background"
 open-background() {
