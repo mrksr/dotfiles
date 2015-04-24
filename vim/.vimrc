@@ -419,6 +419,15 @@ nnoremap Q @
 au FileType help nnoremap <buffer> <CR> <C-]>
 au FileType help nnoremap <buffer> <BS> <C-T>
 
+" Nvim bindings
+if has('nvim')
+    tnoremap <Esc><Esc> <C-\><C-n>
+    nnoremap <C-j> <C-\><C-n><C-W>j
+    nnoremap <C-k> <C-\><C-n><C-W>k
+    nnoremap <C-h> <C-\><C-n><C-W>h
+    nnoremap <C-l> <C-\><C-n><C-W>l
+endif
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  Commands                              {{{1"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
