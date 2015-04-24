@@ -7,13 +7,13 @@ local tag = require("awful.tag")
 
 local awful = require("awful")
 
-module("sharetags")
+local sharetags = { }
 
 --- create_tags: create a table of tags and bind them to screens
 -- @param names : list to label the tags
 -- @param layouts : list of layouts for the tags
 -- @return table of tag objects
-function create_tags(names, layouts)
+function sharetags.create_tags(names, layouts)
     local tags = {}
     local count = #names
     if capi.screen.count() >= #names then
@@ -31,7 +31,7 @@ end
 --- tag_move: move a tag to a screen
 -- @param t : the tag object to move
 -- @param scr : the screen object to move to
-function tag_move(t, scr)
+function sharetags.tag_move(t, scr)
     if not t or not scr then return end
     local t_screen = tag.getproperty(t, "screen")
 
@@ -49,3 +49,5 @@ function tag_move(t, scr)
         end
     end
 end
+
+return sharetags
