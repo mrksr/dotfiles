@@ -212,6 +212,9 @@ nnoremap <leader>g :YcmCompleter GoToImprecise<CR>
 """""""""""""
 "  Signify  "
 """""""""""""
+let g:signify_update_on_bufenter = 0
+let g:signify_update_on_focusgained = 1
+
 nnoremap <leader>h :SignifyToggleHighlight<CR>
 nmap <leader>j <plug>(signify-next-hunk)
 nmap <leader>k <plug>(signify-prev-hunk)
