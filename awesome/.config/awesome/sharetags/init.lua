@@ -1,36 +1,19 @@
 -- functions to share tags on multiple screens
-
---{{{ Grab environment we need
 local capi = { widget = widget,
                screen = screen,
                image = image,
                client = client,
                button = button }
 local math = math
-local type = type
 local setmetatable = setmetatable
-local pcall = pcall
-local pairs = pairs
 local ipairs = ipairs
-local table = table
-local common = require("awful.widget.common")
-local util = require("awful.util")
 local tag = require("awful.tag")
-local beautiful = require("beautiful")
-local fixed = require("wibox.layout.fixed")
-local surface = require("gears.surface")
 
-local naughty = require("naughty")
-
-local awful = require("awful") 
-local mouse = mouse
---}}}
+local awful = require("awful")
 
 module("sharetags")
 
---{{{ Functions
-
---{{{ create_tags: create a table of tags and bind them to screens
+-- create_tags: create a table of tags and bind them to screens
 -- @param names : list to label the tags
 -- @param layouts : list of layouts for the tags
 -- @return table of tag objects
@@ -56,14 +39,13 @@ function create_tags(names, layouts)
     -- end
     return tags
 end
---}}}
 
---{{{ tag_move: move a tag to a screen
+-- tag_move: move a tag to a screen
 -- @param t : the tag object to move
 -- @param scr : the screen object to move to
 function tag_move(t, scr)
-    local ts = t or awful.tag.selected()
-    if not scr then return end
+    if not ts or scr then return end
+    local ts = t
     local target = scr
     local t_screen = tag.getproperty(t, "screen")
 
@@ -81,6 +63,3 @@ function tag_move(t, scr)
         end
     end
 end
---}}}
-
--- vim: fdm=marker:
