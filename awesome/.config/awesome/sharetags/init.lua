@@ -1,9 +1,5 @@
 -- functions to share tags on multiple screens
-local capi = { widget = widget,
-               screen = screen,
-               image = image,
-               client = client,
-               button = button }
+local capi = { screen = screen }
 local math = math
 local setmetatable = setmetatable
 local ipairs = ipairs
