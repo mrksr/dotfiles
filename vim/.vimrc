@@ -517,7 +517,7 @@ set foldnestmax=2
 set nofoldenable
 augroup folds
     autocmd FileType tex setl foldlevel=0 foldnestmax=1 foldenable
-    autocmd BufRead,BufNewFile *.c,*.cpp setl foldlevel=0 foldnestmax=1
+    autocmd BufRead,BufNewFile *.c,*.cpp,*.cc setl foldlevel=0 foldnestmax=1
 augroup END
 
 " Conceal
