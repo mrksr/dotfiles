@@ -9,7 +9,7 @@ local awful = require("awful")
 
 module("sharetags")
 
--- create_tags: create a table of tags and bind them to screens
+--- create_tags: create a table of tags and bind them to screens
 -- @param names : list to label the tags
 -- @param layouts : list of layouts for the tags
 -- @return table of tag objects
@@ -33,7 +33,7 @@ function create_tags(names, layouts)
     return tags
 end
 
--- tag_move: move a tag to a screen
+--- tag_move: move a tag to a screen
 -- @param t : the tag object to move
 -- @param scr : the screen object to move to
 function tag_move(t, scr)
