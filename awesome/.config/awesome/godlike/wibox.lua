@@ -7,20 +7,7 @@ local widgets   = require("godlike.widgets")
 
 godlike.taglistbuttons = godlike.taglistbuttons or
     awful.util.table.join(
-        awful.button({ }, 1,
-            function(t)
-                local swap_t = awful.tag.selected()
-                local sel = awful.tag.getproperty(t, "selected")
-                local t_screen = awful.tag.getproperty(t, "screen")
-                if t_screen ~= mouse.screen then
-                    sharetags.tag_move(t, mouse.screen)
-                end
-                if swap_t and sel == true then
-                    sharetags.tag_move(swap_t, t_screen)
-                    awful.tag.viewonly(swap_t)
-                end
-                awful.tag.viewonly(t)
-            end),
+        awful.button({ }, 1, sharetags.tag_viewonly),
         awful.button({ modkey }, 1, awful.client.movetotag),
         awful.button({ }, 3,
             function(t)

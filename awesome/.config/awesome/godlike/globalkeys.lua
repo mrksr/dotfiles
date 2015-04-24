@@ -7,6 +7,7 @@ local menubar   = require("menubar")
 local naughty   = require("naughty")
 local beautiful = require("beautiful")
 local lm        = require("godlike.layoutmode")
+local sharetags = require("sharetags")
 
 local modkey    = godlike.modkey
 local altkey    = godlike.altkey
@@ -134,18 +135,7 @@ for i = 1, 9 do
     godlike.globalkeys = awful.util.table.join(godlike.globalkeys,
         awful.key({ modkey }, "#" .. i + 9,
             function ()
-                  local t = godlike.tags[i]
-                  local swap_t = awful.tag.selected()
-                  local sel = awful.tag.getproperty(t, "selected")
-                  local t_screen = awful.tag.getproperty(t, "screen")
-                  if t_screen ~= mouse.screen then
-                      sharetags.tag_move(t, mouse.screen)
-                  end
-                  if swap_t and sel == true then
-                      sharetags.tag_move(swap_t, t_screen)
-                      awful.tag.viewonly(swap_t)
-                  end
-                  awful.tag.viewonly(t)
+                sharetags.tag_viewonly(godlike.tags[i])
             end),
         awful.key({ modkey, "Control" }, "#" .. i + 9,
             function ()
@@ -171,18 +161,7 @@ for i = 6, 9 do
     godlike.globalkeys = awful.util.table.join(godlike.globalkeys,
         awful.key({ modkey }, "F" .. i - 5,
             function ()
-                local t = godlike.tags[i]
-                local swap_t = awful.tag.selected()
-                local sel = awful.tag.getproperty(t, "selected")
-                local t_screen = awful.tag.getproperty(t, "screen")
-                if t_screen ~= mouse.screen then
-                    sharetags.tag_move(t, mouse.screen)
-                end
-                if swap_t and sel == true then
-                    sharetags.tag_move(swap_t, t_screen)
-                    awful.tag.viewonly(swap_t)
-                end
-                awful.tag.viewonly(t)
+                sharetags.tag_viewonly(godlike.tags[i])
             end),
         awful.key({ modkey, "Control" }, "F" .. i - 5,
             function ()

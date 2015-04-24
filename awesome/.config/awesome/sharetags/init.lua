@@ -49,4 +49,22 @@ function sharetags.tag_move(t, scr)
     end
 end
 
+--- tag_viewonly: switch to tag on current screen
+-- @param t : the tag to view
+function sharetags.tag_viewonly(t)
+    local swap_t = awful.tag.selected()
+    local sel = awful.tag.getproperty(t, "selected")
+    local t_screen = awful.tag.getproperty(t, "screen")
+
+    if t_screen ~= mouse.screen then
+        sharetags.tag_move(t, mouse.screen)
+    end
+
+    if swap_t and sel == true then
+        sharetags.tag_move(swap_t, t_screen)
+        awful.tag.viewonly(swap_t)
+    end
+    awful.tag.viewonly(t)
+end
+
 return sharetags
