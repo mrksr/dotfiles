@@ -28,12 +28,6 @@ local mouse = mouse
 
 module("sharetags")
 
---{{{ Private structures
-tagwidgets = setmetatable({}, { __mode = 'k' })
-local cachedtags = {}
-label = {}
---}}}
-
 --{{{ Functions
 
 --{{{ create_tags: create a table of tags and bind them to screens
@@ -53,12 +47,13 @@ function create_tags(names, layouts)
         tag.setproperty(tags[tagnumber], "screen", 1)
         awful.layout.set(layouts[tagnumber], tags[tagnumber])
     end
-    for s = 1, capi.screen.count() do
-        -- I'm sure you want to see at least one tag.
-        tag.setproperty(tags[s], "screen", s)
-        tag.setproperty(tags[s], "selected", true)
-    end
-    cachedtags = tags
+
+    tags[1].selected = true
+    -- for s = 1, capi.screen.count() do
+    --     -- I'm sure you want to see at least one tag.
+    --     tag.setproperty(tags[s], "screen", s)
+    --     tag.setproperty(tags[s], "selected", true)
+    -- end
     return tags
 end
 --}}}

@@ -113,8 +113,8 @@ godlike.globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "b",       function() lm.activate() end),
 
     -- Awesome control
-    awful.key({ modkey, "Shift"   }, "q",       awesome.restart),
-    awful.key({ modkey, "Control" }, "q",       awesome.quit),
+    awful.key({ modkey, "Shift"   }, "r",       awesome.restart),
+    awful.key({ modkey, "Control" }, "r",       awesome.quit),
 
     -- The actual cool stuff
     awful.key({ modkey,           }, "c",       function() exec(godlike.terminal) end),
