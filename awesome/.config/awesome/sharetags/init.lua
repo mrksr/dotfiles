@@ -3,7 +3,6 @@ local capi = { screen = screen }
 local math = math
 local setmetatable = setmetatable
 local ipairs = ipairs
-local tag = require("awful.tag")
 
 local awful = require("awful")
 
@@ -33,11 +32,11 @@ end
 -- @param scr : the screen object to move to
 function sharetags.tag_move(t, scr)
     if not t or not scr then return end
-    local t_screen = tag.getproperty(t, "screen")
+    local t_screen = awful.tag.getproperty(t, "screen")
 
     if t_screen and scr ~= t_screen then
         -- switch for tag
-        tag.setproperty(t, "screen", scr)
+        awful.tag.setproperty(t, "screen", scr)
         -- switch for all clients on tag
         for _ , c in ipairs(t:clients()) do
             if not c.sticky then
