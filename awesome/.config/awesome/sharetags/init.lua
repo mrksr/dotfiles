@@ -37,21 +37,19 @@ end
 -- @param t : the tag object to move
 -- @param scr : the screen object to move to
 function tag_move(t, scr)
-    if not ts or scr then return end
-    local ts = t
-    local target = scr
+    if not t or not scr then return end
     local t_screen = tag.getproperty(t, "screen")
 
-    if t_screen and target ~= t_screen then
+    if t_screen and scr ~= t_screen then
         -- switch for tag
-        tag.setproperty(t, "screen", target)
+        tag.setproperty(t, "screen", scr)
         -- switch for all clients on tag
-        for _ , c in ipairs(ts:clients()) do
+        for _ , c in ipairs(t:clients()) do
             if not c.sticky then
-                c.screen = target
-                c:tags( {ts} )
+                c.screen = scr
+                c:tags({ t })
             else
-                awful.client.toggletag(ts,c)
+                awful.client.toggletag(t, c)
             end
         end
     end
