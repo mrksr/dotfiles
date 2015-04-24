@@ -94,6 +94,7 @@ for si = 1, screen.count() do
     layout_left:add(s.layoutbox)
     layout_left:add(s.taglist)
     layout_left:add(s.promptbox)
+    layout_left:add(widgets.space)
 
     local layout_right = wibox.layout.fixed.horizontal()
     layout_right:add(widgets.mail_markus)
