@@ -25,11 +25,6 @@ function create_tags(names, layouts)
     end
 
     tags[1].selected = true
-    -- for s = 1, capi.screen.count() do
-    --     -- I'm sure you want to see at least one tag.
-    --     tag.setproperty(tags[s], "screen", s)
-    --     tag.setproperty(tags[s], "selected", true)
-    -- end
     return tags
 end
 
