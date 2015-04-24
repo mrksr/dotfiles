@@ -1,5 +1,4 @@
 -- define widgets to show in wibox
-
 local awful      = require("awful")
 local wibox      = require("wibox")
 local vicious    = require("vicious")
