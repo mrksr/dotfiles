@@ -23,7 +23,11 @@ urxvt.depth:                       32
 urxvt.background:                  [100]#000000
 urxvt.foreground:                  [100]#FFFFFF
 urxvt.intensitystyles:             false
-urxvt.scrollBar:                   false
+urxvt.scrollstyle:                 plain
+urxvt.scrollBar:                   true
+urxvt.secondaryScreen:             true
+urxvt.secondaryScroll:             true
+urxvt.secondaryWheel:              true
 urxvt.scrollTtyOutput:             false
 urxvt.scrollWithBuffer:            true
 urxvt.scrollTtyKeypress:           true
