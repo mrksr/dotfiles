@@ -65,9 +65,9 @@ godlike.globalkeys = awful.util.table.join(
     awful.key({}, "XF86Display",          function() sexec("xbacklight -set 1")  end ),
     -- Special Keys
     awful.key({}, "XF86Sleep",            function() sexec("systemctl suspend") end ),
-    awful.key({}, "XF86ScreenSaver",      function() sexec("dm-tool lock") end ),
+    awful.key({}, "XF86ScreenSaver",      function() sexec("light-locker-command -l || dm-tool lock") end ),
     awful.key({ modkey }, "p",            function() sexec("systemctl suspend") end ),
-    awful.key({ modkey }, "o",            function() sexec("dm-tool lock") end),
+    awful.key({ modkey }, "o",            function() sexec("light-locker-command -l || dm-tool lock") end),
 
     awful.key({}, "XF86TouchpadToggle",   touchpadToggle),
     awful.key({}, "XF86Tools",            touchpadToggle),

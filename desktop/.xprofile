@@ -23,7 +23,7 @@ export GPG_AGENT_INFO SSH_AUTH_SOCK
 ###################
 #  LightDM stuff  #
 ###################
-# light-locker &
+light-locker &
 
 ##############
 #  Programs  #
