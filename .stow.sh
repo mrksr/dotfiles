@@ -3,6 +3,9 @@
 # If stow does not exist on the system, get it from
 # http://ftp.download-by.net/gnu/gnu/stow/stow-latest.tar.gz
 
+STOW=${STOW_PATH:-stow}
+echo "Using stow executable $STOW."
+
 for dir in "$@"
 do
     echo "###############"
@@ -21,5 +24,5 @@ do
 
     echo "Running stow $dir"
     echo "-----------------"
-    stow $dir
+    $STOW $dir
 done
