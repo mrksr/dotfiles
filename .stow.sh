@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# If stow does not exist on the system, get it from
+# http://ftp.download-by.net/gnu/gnu/stow/stow-latest.tar.gz
+
 for dir in "$@"
 do
     echo "###############"
