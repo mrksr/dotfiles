@@ -42,7 +42,7 @@ urxvt.perl-ext-common:             default,font-size,osc-xterm-clipboard,url-sel
 urxvt.url-select.launcher:         firefox
 urxvt.url-select.underline:        true
 urxvt.keysym.M-s:                  perl:keyboard-select:search
-urxvt.keysym.M-Escape:             perl:keyboard-select:activate
+urxvt.keysym.M-v:                  perl:keyboard-select:activate
 urxvt.keysym.M-u:                  perl:url-select:select_next
 urxvt.keysym.M-plus:               perl:font-size:increase
 urxvt.keysym.M-minus:              perl:font-size:decrease
