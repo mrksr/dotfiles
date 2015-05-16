@@ -71,6 +71,7 @@ NeoBundle 'Shougo/unite-outline'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'soramugi/auto-ctags.vim'
 NeoBundle 'svermeulen/vim-easyclip'
+NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'tpope/vim-fugitive'
@@ -332,6 +333,12 @@ let g:EasyClipShareYanksFile = "easyclip"
 let g:EasyClipShareYanksDirectory = localdir
 
 nnoremap Y :EasyClipBeforeYank<cr>yy:EasyClipOnYanksChanged<cr>
+
+"""""""""""""""""""
+"  expand-region  "
+"""""""""""""""""""
+map K <Plug>(expand_region_expand)
+" map J <Plug>(expand_region_shrink)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  Mappings                              {{{1"
