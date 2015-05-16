@@ -86,7 +86,12 @@ if has("python")
 
     if v:version > 703 || (v:version == 703 && has('patch584'))
         if !has("win32") && !has("win32unix")
-            NeoBundle 'Valloric/YouCompleteMe'
+            " Fix ycmd update
+            NeoBundle 'Valloric/YouCompleteMe', {
+                        \ 'build' : {
+                        \     'other' : 'git submodule update --recursive',
+                        \    },
+                        \ }
             NeoBundle 'bbchung/clighter' " Only need it with ycm
         endif
     endif
