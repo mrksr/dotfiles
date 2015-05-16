@@ -7,8 +7,11 @@ verbose = True
 native = LF
 
 [extensions]
-fetch =
 hgext.convert =
 progress =
 rebase =
 histedit =
+color =
+
+[color]
+diff.trailingwhitespace = bold red_background
