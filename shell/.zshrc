@@ -1,4 +1,9 @@
 #################################
+#  Ensure Oh-My-ZSH is present  #
+#################################
+[[ -d "$HOME/.oh-my-zsh" ]] || git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
+
+#################################
 #  Oh-My-ZSH pre-configuration  #
 #################################
 ZSH=$HOME/.oh-my-zsh

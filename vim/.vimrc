@@ -2,6 +2,28 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  Bundles                               {{{1"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function s:InstallNeoBundle()
+  let repo = 'https://github.com/Shougo/neobundle.vim'
+  let path = substitute( $HOME . '/.vim/bundle/neobundle.vim', '/', has( 'win32' ) ? '\\' : '/', 'g' )
+
+  if ! executable('git')
+    echohl WarningMsg | echomsg 'Git is not available.' | echohl None
+    return
+  endif
+
+  if ! isdirectory( path )
+    silent! if ! mkdir( path, 'p' )
+      echohl ErrorMsg | echomsg 'Cannot create directory (may be a regular file): ' . path | echohl None
+      return
+    endif
+  endif
+
+  if system( 'git clone "' . repo . '" "' . path . '"'  ) =~ 'fatal'
+    echohl ErrorMsg | echomsg 'Cannot clone ' . repo . ' (' . path . ' may be not empty)' | echohl None
+    return
+  endif
+endfunction
+
 set encoding=utf-8
 scriptencoding utf-8
 
@@ -15,7 +37,7 @@ if has("win32")
     let g:haddock_docdir='C:/Program Files (x86)/Haskell Platform/2012.2.0.0/doc/html'
     let g:haddock_browser="C:/.TOOLS/Mozilla Firefox/firefox.exe"
 
-    set rtp+=$VIM/vimfiles/bundle/noebundle.vim
+    " set rtp+=$VIM/vimfiles/bundle/neobundle.vim
     set rtp+=~/.vim/bundle/neobundle.vim
 
     cd C:\markus
@@ -27,11 +49,15 @@ else
 endif
 
 filetype off
-call neobundle#begin(expand('~/.vim/bundle/'))
 
-" Vundle
-" To setup in new environment:
-" git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+let s:freshInstall = 0
+if ! isdirectory('~/.vim/bundle/neobundle.vim')
+    call s:InstallNeoBundle()
+
+    let s:freshInstall = 1
+endif
+
+call neobundle#begin('~/.vim/bundle/')
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc.vim', {
 \ 'build' : {
@@ -107,6 +133,10 @@ NeoBundle 'sickill/vim-sunburst'
 NeoBundle 'vim-scripts/synic.vim'
 
 call neobundle#end()
+
+if s:freshInstall
+    NeoBundleInstall
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                Environment                             {{{1"
