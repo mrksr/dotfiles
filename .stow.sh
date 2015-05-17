@@ -3,7 +3,7 @@
 # If stow does not exist on the system, get it from
 # http://ftp.download-by.net/gnu/gnu/stow/stow-latest.tar.gz
 
-STOW=${STOW_PATH:-stow}
+STOW=${STOW_PATH:-./.bin/stow}
 echo "Using stow executable $STOW."
 
 for dir in "$@"
