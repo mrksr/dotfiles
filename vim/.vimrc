@@ -51,13 +51,13 @@ endif
 filetype off
 
 let s:freshInstall = 0
-if ! isdirectory('~/.vim/bundle/neobundle.vim')
+if ! isdirectory(expand('~/.vim/bundle/neobundle.vim'))
     call s:InstallNeoBundle()
 
     let s:freshInstall = 1
 endif
 
-call neobundle#begin('~/.vim/bundle/')
+call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc.vim', {
 \ 'build' : {
