@@ -3,7 +3,8 @@
 #################################
 ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="_mine"
+# Hack to use the theme in $HOME
+ZSH_THEME="../../"
 plugins=( \
     # archlinux \
     # cp \
