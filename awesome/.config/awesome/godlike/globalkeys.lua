@@ -72,6 +72,8 @@ godlike.globalkeys = awful.util.table.join(
     awful.key({}, "XF86TouchpadToggle",   touchpadToggle),
     awful.key({}, "XF86Tools",            touchpadToggle),
     awful.key({ modkey }, "u",            touchpadToggle),
+    ---
+    awful.key({}, "Print",                function() sexec("scrot -mz -e 'mv $f /tmp'") end ),
 
     -- Navigation and Focus
     awful.key({ modkey,           }, "Tab",    function() view_non_empty(1, mouse.screen) end ),
