@@ -1,1 +1,10 @@
+set font "monospace normal 11"
+
 set scroll-page-aware true
+set zoom-max 5000
+set zoom-min 5
+set zoom-step 75
+set page-cache-size 30
+
+set window-title-basename true
+set window-title-page true
