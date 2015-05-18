@@ -18,6 +18,7 @@ function s:InstallNeoBundle()
     endif
   endif
 
+  echomsg 'Cloning neobundle.'
   if system( 'git clone "' . repo . '" "' . path . '"'  ) =~ 'fatal'
     echohl ErrorMsg | echomsg 'Cannot clone ' . repo . ' (' . path . ' may be not empty)' | echohl None
     return
