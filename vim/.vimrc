@@ -220,6 +220,9 @@ let g:LatexBox_fold_envs_force = [
     \ 'figure',
     \ 'table',
     \ 'listing',
+    \ 'figure*',
+    \ 'table*',
+    \ 'listing*',
     \ 'tikzpicture'
     \]
 
@@ -332,8 +335,15 @@ let g:startify_list_order = [
 
 let g:startify_bookmarks = ['~/.vimrc', '~/dotfiles']
 
-let g:startify_custom_header =
-      \ map(split(system('figlet -f big <<< "vim."'), '\n'), '"   ". v:val') + ['']
+let g:startify_custom_header = [
+      \ '           _',
+      \ '          (_)',
+      \ '    __   ___ _ __ ___',
+      \ '    \ \ / / | ´_ ` _ \',
+      \ '     \ V /| | | | | | |_',
+      \ '      \_/ |_|_| |_| |_(_)',
+      \ '',
+      \ '']
 
 let g:startify_custom_indices = map(range(1,100), 'string(v:val)')
 
