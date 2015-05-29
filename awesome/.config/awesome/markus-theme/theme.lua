@@ -12,19 +12,19 @@ theme.yellow        = "#d8a200"
 theme.green         = "#679816"
 theme.blue          = "#546acf"
 
-theme.bg_normal     = "#3c3b37"
-theme.bg_focus      = "#66645e"
+theme.bg_normal     = "#454545"
+theme.bg_focus      = "#666666"
 theme.bg_urgent     = theme.blue
 theme.bg_minimize   = theme.green
 
-theme.fg_normal     = "#d1cec5"
-theme.fg_focus      = "#f2efe4"
-theme.fg_urgent     = "#262624"
-theme.fg_minimize   = "#f2efe4"
+theme.fg_normal     = "#dfdfdf"
+theme.fg_focus      = "#f2f2f2"
+theme.fg_urgent     = "#262626"
+theme.fg_minimize   = "#f2f2f2"
 
 theme.border_width  = 2
-theme.border_normal = "#262624"
-theme.border_focus  = "#66645e"
+theme.border_normal = "#262626"
+theme.border_focus  = "#666666"
 theme.border_marked = theme.red
 
 theme.wibox_height  = 18
