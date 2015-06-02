@@ -91,6 +91,18 @@ bell_before_command() {
 [[ -z $precmd_functions ]] && precmd_functions=()
 precmd_functions=($precmd_functions bell_before_command)
 
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    BUFFER="fg"
+    zle accept-line
+  else
+    zle push-input
+    zle clear-screen
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
+
 if command -v fortune > /dev/null; then
     fortune -s;
     echo;
