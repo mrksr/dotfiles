@@ -19,7 +19,7 @@ theme.bg_minimize   = theme.green
 
 theme.fg_normal     = "#dfdfdf"
 theme.fg_focus      = "#f2f2f2"
-theme.fg_urgent     = "#262626"
+theme.fg_urgent     = "#f2f2f2"
 theme.fg_minimize   = "#f2f2f2"
 
 theme.border_width  = 2
