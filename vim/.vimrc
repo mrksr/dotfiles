@@ -72,11 +72,10 @@ NeoBundle 'Shougo/vimproc.vim', {
 NeoBundle 'avakhov/vim-yaml'
 NeoBundle 'beyondmarc/glsl.vim'
 NeoBundle 'beyondmarc/opengl.vim'
-" NeoBundle 'chrisbra/csv.vim'
 NeoBundle 'LaTeX-Box-Team/LaTeX-Box'
-" NeoBundle 'lukerandall/haskellmode-vim'
 NeoBundle 'Mediawiki.vim'
 NeoBundle 'sheerun/vim-polyglot'
+NeoBundle 'Superbil/llvm.vim'
 
 " Plugins
 NeoBundle 'argtextobj.vim'
