@@ -33,6 +33,11 @@ local function touchpadToggle()
     sexec(toggle .. "; " .. palmrest)
 end
 
+local function lockSession()
+  -- sexec("light-locker-command -l || dm-tool lock")
+  sexec("slimlock")
+end
+
 local launcher = format(
     'yeganesh -x -- -i -fn "%s" -nb "%s" -nf "%s" -sb "%s" -sf "%s" | /bin/sh',
     beautiful.font,
@@ -65,9 +70,9 @@ godlike.globalkeys = awful.util.table.join(
     awful.key({}, "XF86Display",          function() sexec("xbacklight -set 1")  end ),
     -- Special Keys
     awful.key({}, "XF86Sleep",            function() sexec("systemctl suspend") end ),
-    awful.key({}, "XF86ScreenSaver",      function() sexec("light-locker-command -l || dm-tool lock") end ),
+    awful.key({}, "XF86ScreenSaver",      lockSession ),
     awful.key({ modkey }, "p",            function() sexec("systemctl suspend") end ),
-    awful.key({ modkey }, "o",            function() sexec("light-locker-command -l || dm-tool lock") end),
+    awful.key({ modkey }, "o",            lockSession ),
 
     awful.key({}, "XF86TouchpadToggle",   touchpadToggle),
     awful.key({}, "XF86Tools",            touchpadToggle),
