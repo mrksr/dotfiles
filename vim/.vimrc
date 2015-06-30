@@ -131,6 +131,7 @@ NeoBundle 'matthewtodd/vim-twilight'
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'sickill/vim-sunburst'
 NeoBundle 'vim-scripts/synic.vim'
+NeoBundle 'chriskempson/base16-vim'
 
 call neobundle#end()
 
@@ -143,16 +144,18 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set background=dark
 if has("gui_running")
-    colorscheme jellybeans
+    colorscheme base16-tomorrow
 
     set vb t_vb=
     set background=dark
     set guioptions=agit
 else
     if &t_Co != 256
-        colorscheme synic
+        let base16colorspace=16
+        colorscheme base16-tomorrow
     else
-        colorscheme jellybeans
+        let base16colorspace=256
+        colorscheme base16-tomorrow
     endif
 endif
 
