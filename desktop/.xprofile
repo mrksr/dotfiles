@@ -29,5 +29,5 @@ light-locker &
 #  Programs  #
 ##############
 start-pulseaudio-x11 &
-redshift -l 59.20:18.3 -t 6300:4800 &
+redshift -l 48.25:11.65 -t 6300:4800 &
 blueman-applet &
