@@ -47,28 +47,52 @@ urxvt.keysym.M-u:                  perl:url-select:select_next
 urxvt.keysym.M-plus:               perl:font-size:increase
 urxvt.keysym.M-minus:              perl:font-size:decrease
 
-! Slightly adjusted X::Poppy! from http://dotshare.it
-!black
-*color0:  #373737
-*color8:  #474747
-!red
-*color1:  #CC4141
-*color9:  #BA2929
-!green
-*color2:  #43803D
-*color10: #2F632A
-!blue
-*color3:  #bf8c25
-*color11: #e6a82d
-!yellow
-*color4:  #7882BF
-*color12: #596196
-!magenta
-*color5:  #BF849C
-*color13: #B06A86
-!cyan
-*color6:  #6AA9B0
-*color14: #4D8B91
-!white
-*color7:  #E39036
-*color15: #C97820
+! ! Slightly adjusted X::Poppy! from http://dotshare.it
+! !black
+! *color0:  #373737
+! *color8:  #474747
+! !red
+! *color1:  #CC4141
+! *color9:  #BA2929
+! !green
+! *color2:  #43803D
+! *color10: #2F632A
+! !blue
+! *color3:  #bf8c25
+! *color11: #e6a82d
+! !yellow
+! *color4:  #7882BF
+! *color12: #596196
+! !magenta
+! *color5:  #BF849C
+! *color13: #B06A86
+! !cyan
+! *color6:  #6AA9B0
+! *color14: #4D8B91
+! !white
+! *color7:  #E39036
+! *color15: #C97820
+
+! Base16-Tomorrow
+*color00: #1D1F21
+*color01: #CC6666
+*color02: #B5BD68
+*color03: #F0C674
+*color04: #81A2BE
+*color05: #B294BB
+*color06: #8ABEB7
+*color07: #C5C8C6
+*color08: #969896
+*color09: #CC6666
+*color10: #B5BD68
+*color11: #F0C674
+*color12: #81A2BE
+*color13: #B294BB
+*color14: #8ABEB7
+*color15: #FFFFFF
+*color16: #DE935F
+*color17: #A3685A
+*color18: #282A2E
+*color19: #373B41
+*color20: #B4B7B4
+*color21: #E0E0E0
