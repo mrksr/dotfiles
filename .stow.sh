@@ -4,6 +4,7 @@
 # http://ftp.download-by.net/gnu/gnu/stow/stow-latest.tar.gz
 
 STOW=${STOW_PATH:-./.bin/stow}
+STOWLIB=$(dirname $STOW)
 echo "Using stow executable $STOW."
 
 for dir in "$@"
@@ -24,5 +25,5 @@ do
 
     echo "Running stow $dir"
     echo "-----------------"
-    $STOW $dir
+    perl -I$STOWLIB $STOW $dir
 done
