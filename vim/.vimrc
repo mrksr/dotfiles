@@ -119,7 +119,7 @@ if has("python")
                         \     'other' : 'git submodule update --recursive',
                         \    },
                         \ }
-            NeoBundle 'bbchung/clighter' " Only need it with ycm
+            " NeoBundle 'bbchung/clighter' " Only need it with ycm
         endif
     endif
 endif
