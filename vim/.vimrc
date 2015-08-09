@@ -75,7 +75,6 @@ NeoBundle 'beyondmarc/opengl.vim'
 NeoBundle 'LaTeX-Box-Team/LaTeX-Box'
 NeoBundle 'Mediawiki.vim'
 NeoBundle 'sheerun/vim-polyglot'
-NeoBundle 'Superbil/llvm.vim'
 
 " Plugins
 NeoBundle 'argtextobj.vim'
