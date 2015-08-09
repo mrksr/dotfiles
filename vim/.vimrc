@@ -219,6 +219,7 @@ let g:LatexBox_fold_envs = 0
 let g:LatexBox_fold_envs_force = [
     \ 'frame',
     \ 'abstract',
+    \ 'algorithm',
     \ 'figure',
     \ 'table',
     \ 'listing',
