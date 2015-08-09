@@ -23,6 +23,21 @@ snippet paco "Package with options" b
 \usepackage[${2:options}]{${1:name}}
 endsnippet
 
+################
+#  Todo Notes  #
+################
+snippet todo "Simple ToDo note" b
+\todo{${1:Note}}
+endsnippet
+
+snippet todoi "Inline ToDo note" b
+\todo[inline]{${1:Note}}
+endsnippet
+
+snippet todof "Missing Figure" b
+\missingfigure{${1:Missing Figure}}
+endsnippet
+
 ############
 #  Beamer  #
 ############
@@ -122,6 +137,7 @@ endsnippet
 
 snippet "fi(gure)?" "Figure" rb
 \begin{figure}[${1:bthH}]
+    \centering
     ${0}
     \caption{${2:Great Figure!}}
     \label{fig:${3:label}}

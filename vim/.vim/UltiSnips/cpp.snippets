@@ -50,7 +50,11 @@ snippet yatt "YAML attribute" b
 const ${1:type} ${2:name} = (node["$2"]) ? node["$2"].as<$1>() : ${3:def};
 endsnippet
 
-snippet cout "Debug Output" b
+snippet cerr "cerr Debug Output" b
+std::cerr << ${1} << std::endl;
+endsnippet
+
+snippet cout "cout Debug Output" b
 std::cout << ${1} << std::endl;
 endsnippet
 
