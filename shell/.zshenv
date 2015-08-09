@@ -7,6 +7,7 @@ hash -d tutor=~/repos/tutor
 
 hash -d 14ss=~/repos/uni/14ss
 hash -d idp=~/repos/uni/14ss/powerdiagrams
+hash -d idpt=~/repos/uni/14ss/powerdiagrams.tex
 
 hash -d swedish=~/repos/uni/swedish
 hash -d 14ws=~/repos/uni/14ws
