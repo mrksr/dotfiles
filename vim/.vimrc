@@ -3,26 +3,26 @@
 "                                  Bundles                               {{{1"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function s:InstallNeoBundle()
-  let repo = 'https://github.com/Shougo/neobundle.vim'
-  let path = substitute( $HOME . '/.vim/bundle/neobundle.vim', '/', has( 'win32' ) ? '\\' : '/', 'g' )
+    let repo = 'https://github.com/Shougo/neobundle.vim'
+    let path = substitute( $HOME . '/.vim/bundle/neobundle.vim', '/', has( 'win32' ) ? '\\' : '/', 'g' )
 
-  if ! executable('git')
-    echohl WarningMsg | echomsg 'Git is not available.' | echohl None
-    return
-  endif
-
-  if ! isdirectory( path )
-    silent! if ! mkdir( path, 'p' )
-      echohl ErrorMsg | echomsg 'Cannot create directory (may be a regular file): ' . path | echohl None
-      return
+    if ! executable('git')
+        echohl WarningMsg | echomsg 'Git is not available.' | echohl None
+        return
     endif
-  endif
 
-  echomsg 'Cloning neobundle.'
-  if system( 'git clone "' . repo . '" "' . path . '"'  ) =~ 'fatal'
-    echohl ErrorMsg | echomsg 'Cannot clone ' . repo . ' (' . path . ' may be not empty)' | echohl None
-    return
-  endif
+    if ! isdirectory( path )
+        silent! if ! mkdir( path, 'p' )
+            echohl ErrorMsg | echomsg 'Cannot create directory (may be a regular file): ' . path | echohl None
+            return
+        endif
+    endif
+
+    echomsg 'Cloning neobundle.'
+    if system( 'git clone "' . repo . '" "' . path . '"'  ) =~ 'fatal'
+        echohl ErrorMsg | echomsg 'Cannot clone ' . repo . ' (' . path . ' may be not empty)' | echohl None
+        return
+    endif
 endfunction
 
 set encoding=utf-8
