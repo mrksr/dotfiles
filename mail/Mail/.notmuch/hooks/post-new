@@ -3,7 +3,7 @@
 # see https://github.com/guyzmo/notmuch-abook/
 # first update notmuch-abook
 for file in $(notmuch search --output=files tag:new) ; do
-    cat $file | $HOME/.mutt/notmuch-abook update
+    cat $file | $HOME/.notmuch-abook update
 done
 
 # remove new tags of read email

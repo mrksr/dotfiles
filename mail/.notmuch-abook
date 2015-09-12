@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+python2 ~/.vim/bundle/notmuch-abook/pythonx/notmuch_abook.py "$@"
