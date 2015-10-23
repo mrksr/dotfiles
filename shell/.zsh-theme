@@ -41,7 +41,7 @@ zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' stagedstr "!"
 zstyle ':vcs_info:*' unstagedstr "?"
 zstyle ':vcs_info:*' hgrevformat "%r"
-zstyle ':vcs_info:*' branchformat "%b:%r"
+zstyle ':vcs_info:*' branchformat "%b %r"
 zstyle ':vcs_info:*' formats \
 "\
 %{$fg[blue]%}%s%{$reset_color%}\
