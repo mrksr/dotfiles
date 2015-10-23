@@ -9,14 +9,16 @@ end
 
 function formatters.net(_, data)
     local function activeInterface()
-        local interfaces = {"wlp3s0", "enp0s25"}
+        local interfaces = {"wlp3s0", "enp0s25", "enp3s0"}
 
         local max = {0, -1}
         for ix, name in pairs(interfaces) do
-            local traffic = data["{" .. name .. " up_b}"] + data["{" .. name.. " down_b}"]
-            if traffic > max[2] then
-                max[1] = ix
-                max[2] = traffic
+            if data["{" .. name .. " up_b}"] then
+                local traffic = data["{" .. name .. " up_b}"] + data["{" .. name.. " down_b}"]
+                if traffic > max[2] then
+                    max[1] = ix
+                    max[2] = traffic
+                end
             end
         end
 
@@ -79,16 +81,18 @@ function formatters.net(_, data)
 end
 
 function formatters.battery(_, data)
-    local state = data[1]
-    local percent = data[2]
-    local time = data[3]
-
     local battery_state = {
         ["↯"] = format('<span color="%s">↯</span>', beautiful.green),
         ["⌁"] = format('<span color="%s">? </span>', beautiful.green),
         ["+"] = format('<span color="%s">▲</span>', beautiful.blue),
         ["−"] = format('<span color="%s">▼</span>', beautiful.red),
     }
+
+    if not data then return battery_state["⌁"] end
+
+    local state = data[1]
+    local percent = data[2]
+    local time = data[3]
 
     if time == "N/A" then
         return format("%s%s%%", battery_state[state], percent)

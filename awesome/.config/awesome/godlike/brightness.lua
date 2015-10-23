@@ -11,8 +11,8 @@ local function worker(format, warg)
 
     local _bright = helpers.pathtotable("/sys/class/backlight/" .. warg .. "/")
 
-    local curr = tonumber(_bright.brightness)
-    local max = tonumber(_bright.max_brightness)
+    local curr = tonumber(_bright.brightness) or 0
+    local max = tonumber(_bright.max_brightness) or 1
 
     local percent = math.floor(100 * curr / max + 0.5)
 
