@@ -13,6 +13,7 @@ xset -b
 ( sleep 0.5 ; syndaemon -k -i 1 -d ) &
 ( sleep 1 ; synclient PalmDetect=1 ) &
 ( sleep 1 ; synclient TouchpadOff=1 ) &
+export LIBVA_DRIVER_NAME=vdpau
 
 #############
 #  Keyring  #
