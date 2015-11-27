@@ -1,5 +1,12 @@
 #!/bin/sh
 
+#############
+#  Keyring  #
+#############
+dbus-update-activation-environment --systemd DISPLAY
+eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
+export GPG_AGENT_INFO SSH_AUTH_SOCK
+
 ##############
 #  Settings  #
 ##############
@@ -9,21 +16,8 @@ setxkbmap -layout de -variant nodeadkeys
 xmodmap ~/.Xmodmap
 # No beeping
 xset -b
-# Disable Touchpad when typing
-( sleep 0.5 ; syndaemon -k -i 1 -d ) &
-( sleep 1 ; synclient PalmDetect=1 ) &
-( sleep 1 ; synclient TouchpadOff=1 ) &
-
-#############
-#  Keyring  #
-#############
-eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
-export GPG_AGENT_INFO SSH_AUTH_SOCK
-
-###################
-#  LightDM stuff  #
-###################
-light-locker &
+# Disable Touchpad
+xinput set-prop "SynPS/2 Synaptics TouchPad" "Device Enabled" 0
 
 ##############
 #  Programs  #

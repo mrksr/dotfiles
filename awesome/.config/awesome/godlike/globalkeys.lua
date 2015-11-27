@@ -28,9 +28,9 @@ function view_non_empty(step, s)
 end
 
 local function touchpadToggle()
-    local toggle = "synclient TouchpadOff=$(synclient -l | grep -ce 'TouchpadOff.*0')"
-    local palmrest = "pkill syndaemon; (sleep 0.5 ; syndaemon -k -i 0.8 -d ); (sleep 0.75 ; synclient PalmDetect=1)"
-    sexec(toggle .. "; " .. palmrest)
+    local check = 'xinput list-props "SynPS/2 Synaptics TouchPad" | grep -ce "Device Enabled.*0$"'
+    local toggle = 'xinput set-prop "SynPS/2 Synaptics TouchPad" "Device Enabled" $(' .. check .. ')'
+    sexec(toggle)
 end
 
 local function lockSession()
