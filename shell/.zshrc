@@ -25,6 +25,7 @@ plugins=( \
     tmux \
     vi-mode \
     wakeonlan \
+    autojump \
 )
 
 ####################
