@@ -79,7 +79,6 @@ NeoBundle 'sheerun/vim-polyglot'
 " Plugins
 NeoBundle 'argtextobj.vim'
 NeoBundle 'bling/vim-airline'
-NeoBundle 'bufkill.vim'
 NeoBundle 'DoxygenToolkit.vim'
 NeoBundle 'edkolev/tmuxline.vim'
 NeoBundle 'edsono/vim-matchit'
@@ -89,6 +88,7 @@ NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'kana/vim-textobj-indent'
 NeoBundle 'kana/vim-textobj-line'
 NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'mhinz/vim-sayonara'
 NeoBundle 'mhinz/vim-signify'
 NeoBundle 'mhinz/vim-startify'
 NeoBundle 'scrooloose/syntastic'
@@ -382,6 +382,11 @@ nnoremap Y :EasyClipBeforeYank<cr>yy:EasyClipOnYanksChanged<cr>
 """""""""""""""""""
 map K <Plug>(expand_region_expand)
 " map J <Plug>(expand_region_shrink)
+
+""""""""""""""
+"  sayonara  "
+""""""""""""""
+com! -bang BD Sayonara!
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  Mappings                              {{{1"
