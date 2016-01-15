@@ -2,29 +2,6 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  Bundles                               {{{1"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function s:InstallNeoBundle()
-    let repo = 'https://github.com/Shougo/neobundle.vim'
-    let path = substitute( $HOME . '/.vim/bundle/neobundle.vim', '/', has( 'win32' ) ? '\\' : '/', 'g' )
-
-    if ! executable('git')
-        echohl WarningMsg | echomsg 'Git is not available.' | echohl None
-        return
-    endif
-
-    if ! isdirectory( path )
-        silent! if ! mkdir( path, 'p' )
-            echohl ErrorMsg | echomsg 'Cannot create directory (may be a regular file): ' . path | echohl None
-            return
-        endif
-    endif
-
-    echomsg 'Cloning neobundle.'
-    if system( 'git clone "' . repo . '" "' . path . '"'  ) =~ 'fatal'
-        echohl ErrorMsg | echomsg 'Cannot clone ' . repo . ' (' . path . ' may be not empty)' | echohl None
-        return
-    endif
-endfunction
-
 set encoding=utf-8
 scriptencoding utf-8
 
@@ -34,108 +11,79 @@ endif
 
 if has("win32")
     let $LANG='en'
-
-    let g:haddock_docdir='C:/Program Files (x86)/Haskell Platform/2012.2.0.0/doc/html'
-    let g:haddock_browser="C:/.TOOLS/Mozilla Firefox/firefox.exe"
-
-    " set rtp+=$VIM/vimfiles/bundle/neobundle.vim
-    set rtp+=~/.vim/bundle/neobundle.vim
-
-    cd C:\markus
-else
-    let g:haddock_docdir='/usr/local/share/doc/ghc/html/'
-    let g:haddock_browser="firefox"
-
-    set rtp+=~/.vim/bundle/neobundle.vim
 endif
-
-filetype off
 
 let s:freshInstall = 0
-if ! isdirectory(expand('~/.vim/bundle/neobundle.vim'))
-    call s:InstallNeoBundle()
-
+if empty(glob('~/.vim/autoload/plug.vim'))
     let s:freshInstall = 1
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * Plugestall | source $MYVIMRC
 endif
 
-call neobundle#begin(expand('~/.vim/bundle/'))
-NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/vimproc.vim', {
-\ 'build' : {
-\     'linux' : 'make',
-\     'windows' : 'tools\\update-dll-mingw',
-\     'cygwin' : 'make -f make_cygwin.mak',
-\    },
-\ }
-
+call plug#begin('~/.vim/bundle/')
 " Languages
-NeoBundle 'avakhov/vim-yaml'
-NeoBundle 'beyondmarc/glsl.vim'
-NeoBundle 'beyondmarc/opengl.vim'
-NeoBundle 'LaTeX-Box-Team/LaTeX-Box'
-NeoBundle 'Mediawiki.vim'
-NeoBundle 'sheerun/vim-polyglot'
+Plug 'avakhov/vim-yaml'
+Plug 'beyondmarc/glsl.vim'
+Plug 'beyondmarc/opengl.vim'
+Plug 'LaTeX-Box-Team/LaTeX-Box'
+Plug 'Mediawiki.vim'
+Plug 'sheerun/vim-polyglot'
 
 " Plugins
-NeoBundle 'argtextobj.vim'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'DoxygenToolkit.vim'
-NeoBundle 'edkolev/tmuxline.vim'
-NeoBundle 'edsono/vim-matchit'
-NeoBundle 'floobits/floobits-neovim'
-NeoBundle 'honza/vim-snippets'
-NeoBundle 'junegunn/vim-easy-align'
-NeoBundle 'kana/vim-textobj-indent'
-NeoBundle 'kana/vim-textobj-line'
-NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'mhinz/vim-sayonara'
-NeoBundle 'mhinz/vim-signify'
-NeoBundle 'mhinz/vim-startify'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'Shougo/unite-outline'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'soramugi/auto-ctags.vim'
-NeoBundle 'svermeulen/vim-easyclip'
-NeoBundle 'terryma/vim-expand-region'
-NeoBundle 'tpope/vim-commentary'
-NeoBundle 'tpope/vim-eunuch'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'tpope/vim-repeat'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tsukkee/unite-tag'
+Plug 'argtextobj.vim'
+Plug 'bling/vim-airline'
+Plug 'DoxygenToolkit.vim'
+Plug 'edkolev/tmuxline.vim'
+Plug 'edsono/vim-matchit'
+Plug 'floobits/floobits-neovim'
+Plug 'honza/vim-snippets'
+Plug 'junegunn/vim-easy-align'
+Plug 'kana/vim-textobj-indent'
+Plug 'kana/vim-textobj-line'
+Plug 'kana/vim-textobj-user'
+Plug 'mhinz/vim-sayonara'
+Plug 'mhinz/vim-signify'
+Plug 'mhinz/vim-startify'
+Plug 'scrooloose/syntastic'
+Plug 'Shougo/unite-outline'
+Plug 'Shougo/unite.vim'
+Plug 'soramugi/auto-ctags.vim'
+Plug 'svermeulen/vim-easyclip'
+Plug 'terryma/vim-expand-region'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tsukkee/unite-tag'
 
 " Plugins using externals
 " Prevent startup error messages
 if has("python")
-    NeoBundle 'guyzmo/notmuch-abook'
-    NeoBundle 'SirVer/ultisnips'
+    Plug 'guyzmo/notmuch-abook'
+    Plug 'SirVer/ultisnips'
 
     if v:version > 703 || (v:version == 703 && has('patch584'))
         if !has("win32") && !has("win32unix")
-            " Fix ycmd update
-            NeoBundle 'Valloric/YouCompleteMe', {
-                        \ 'build' : {
-                        \     'other' : 'git submodule update --recursive',
-                        \    },
-                        \ }
-            " NeoBundle 'bbchung/clighter' " Only need it with ycm
+            Plug 'Valloric/YouCompleteMe'
+            " Plug 'bbchung/clighter' " Only need it with ycm
         endif
     endif
 endif
 
 " Colorschemes
-NeoBundle 'ciaranm/inkpot'
-NeoBundle 'Lokaltog/vim-distinguished'
-NeoBundle 'matthewtodd/vim-twilight'
-NeoBundle 'nanotech/jellybeans.vim'
-NeoBundle 'sickill/vim-sunburst'
-NeoBundle 'vim-scripts/synic.vim'
-NeoBundle 'chriskempson/base16-vim'
-
-call neobundle#end()
+Plug 'ciaranm/inkpot'
+Plug 'Lokaltog/vim-distinguished'
+Plug 'matthewtodd/vim-twilight'
+Plug 'nanotech/jellybeans.vim'
+Plug 'sickill/vim-sunburst'
+Plug 'vim-scripts/synic.vim'
+Plug 'chriskempson/base16-vim'
+call plug#end()
 
 if s:freshInstall
-    NeoBundleInstall
+    PlugInstall
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
