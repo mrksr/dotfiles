@@ -45,6 +45,7 @@ Plug 'kana/vim-textobj-user'
 Plug 'mhinz/vim-sayonara'
 Plug 'mhinz/vim-signify'
 Plug 'mhinz/vim-startify'
+Plug 'nathanaelkane/vim-indent-guides'
 Plug 'scrooloose/syntastic'
 Plug 'Shougo/unite-outline'
 Plug 'Shougo/unite.vim'
@@ -335,6 +336,12 @@ map K <Plug>(expand_region_expand)
 "  sayonara  "
 """"""""""""""
 com! -bang BD Sayonara!
+
+"""""""""""""""""""""""
+"  vim-indent-guides  "
+"""""""""""""""""""""""
+let g:indent_guides_color_change_percent = 3
+let g:indent_guides_enable_on_vim_startup = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  Mappings                              {{{1"
