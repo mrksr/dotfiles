@@ -335,7 +335,7 @@ map K <Plug>(expand_region_expand)
 """"""""""""""
 "  sayonara  "
 """"""""""""""
-com! -bang BD Sayonara!
+com! -bang BD Sayonara<bang>
 
 """""""""""""""""""""""
 "  vim-indent-guides  "
