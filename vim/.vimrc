@@ -49,6 +49,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'scrooloose/syntastic'
 Plug 'Shougo/unite-outline'
 Plug 'Shougo/unite.vim'
+Plug 'Shougo/vimproc.vim', { 'do' : 'make' }
 Plug 'soramugi/auto-ctags.vim'
 Plug 'svermeulen/vim-easyclip'
 Plug 'terryma/vim-expand-region'
