@@ -57,8 +57,6 @@ alias apt-remove="apt-get remove"
 alias apt-list="dpkg --list-selections"
 alias apt-filesearch="apt-find search"
 
-alias vnc="vncviewer 192.168.2.42"
-alias syc="synergyc --crypto-pass 9ff70869157819ffddb6a2acbfd0ee64 192.168.2.42"
 alias dmesg="dmesg -L auto"
 alias fzf="fzf -x"
 
@@ -67,8 +65,6 @@ alias lsd="ls -lhd */"
 
 alias vga="xrandr --output DP2 --right-of eDP1 --auto"
 alias novga="xrandr --output DP2 --off"
-
-alias imap="mbsync auto"
 
 alias bl="set-backlight"
 set-backlight() {
