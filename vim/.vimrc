@@ -32,7 +32,6 @@ Plug 'sheerun/vim-polyglot'
 
 " Plugins
 Plug 'argtextobj.vim'
-Plug 'bling/vim-airline'
 Plug 'DoxygenToolkit.vim'
 Plug 'edkolev/tmuxline.vim'
 Plug 'edsono/vim-matchit'
@@ -59,6 +58,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tsukkee/unite-tag'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Plugins using externals
 " Prevent startup error messages
@@ -153,6 +154,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#tab_min_count = 2
 let g:airline#extensions#tabline#show_tab_type = 0
+let g:airline_theme='tomorrow'
 
 """""""""""
 "  Latex  "
