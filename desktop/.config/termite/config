@@ -1,0 +1,14 @@
+[options]
+font=Code2000 11
+font=Liberation Mono 11
+font=Bitstream Vera Sans Mono 11
+font=DeJaVu Sans Mono 11
+
+urgent_on_bell=true
+clickable_url=true
+dynamic_title=true
+mouse_autohide=true
+
+scrollback_lines=10000
+scroll_on_keystroke=true
+scroll_on_output=false

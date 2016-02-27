@@ -32,7 +32,6 @@ Plug 'sheerun/vim-polyglot'
 
 " Plugins
 Plug 'argtextobj.vim'
-Plug 'bling/vim-airline'
 Plug 'DoxygenToolkit.vim'
 Plug 'edkolev/tmuxline.vim'
 Plug 'edsono/vim-matchit'
@@ -45,9 +44,11 @@ Plug 'kana/vim-textobj-user'
 Plug 'mhinz/vim-sayonara'
 Plug 'mhinz/vim-signify'
 Plug 'mhinz/vim-startify'
+Plug 'nathanaelkane/vim-indent-guides'
 Plug 'scrooloose/syntastic'
 Plug 'Shougo/unite-outline'
 Plug 'Shougo/unite.vim'
+Plug 'Shougo/vimproc.vim', { 'do' : 'make' }
 Plug 'soramugi/auto-ctags.vim'
 Plug 'svermeulen/vim-easyclip'
 Plug 'terryma/vim-expand-region'
@@ -57,6 +58,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tsukkee/unite-tag'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Plugins using externals
 " Prevent startup error messages
@@ -151,6 +154,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#tab_min_count = 2
 let g:airline#extensions#tabline#show_tab_type = 0
+let g:airline_theme='tomorrow'
 
 """""""""""
 "  Latex  "
@@ -334,7 +338,13 @@ map K <Plug>(expand_region_expand)
 """"""""""""""
 "  sayonara  "
 """"""""""""""
-com! -bang BD Sayonara!
+com! -bang BD Sayonara<bang>
+
+"""""""""""""""""""""""
+"  vim-indent-guides  "
+"""""""""""""""""""""""
+let g:indent_guides_color_change_percent = 3
+let g:indent_guides_enable_on_vim_startup = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  Mappings                              {{{1"
