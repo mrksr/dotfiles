@@ -2,7 +2,7 @@ Xcursor.theme: Human
 Xcursor.size:  24
 Xft.antialias: 1
 Xft.autohint:  0
-Xft.dpi:       120
+Xft.dpi:       160
 Xft.hinting:   1
 Xft.hintstyle: hintfull
 Xft.lcdfilter: lcddefault
