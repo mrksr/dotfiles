@@ -8,6 +8,10 @@ hash -d idp=~/repos/uni/14ss/powerdiagrams
 hash -d idpt=~/repos/uni/14ss/powerdiagrams.tex
 
 # variables
-export PATH=$HOME/.cabal/bin:$PATH
+export PATH=$HOME/bin:$HOME/.cabal/bin:$PATH
 export EDITOR=vim
 export BROWSER=firefox
+
+if [[ -e .zshenv_local ]]; then
+    source .zshenv_local
+fi
