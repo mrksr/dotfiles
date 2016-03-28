@@ -12,11 +12,11 @@ local menubar = require("menubar")
 
 godlike = godlike or {}
 
-godlike.terminal   = godlike.terminal   or "urxvt"
+godlike.terminal   = godlike.terminal   or "termite"
 godlike.browser    = godlike.browser    or os.getenv("BROWSER") or "firefox"
 godlike.home       = godlike.home       or os.getenv("HOME") or nil
 godlike.editor     = godlike.editor     or os.getenv("EDITOR") or "vim"
-godlike.editor_cmd = godlike.editor_cmd or "urxvt -e vim "
+godlike.editor_cmd = godlike.editor_cmd or "termite -e vim "
 godlike.modkey     = godlike.modkey     or "Mod4"
 godlike.altkey     = godlike.altkey     or "Mod1"
 godlike.hostname   = godlike.hostname   or awful.util.pread('uname -n'):gsub('\n', '')
