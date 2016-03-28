@@ -1,0 +1,35 @@
+#############
+#  General  #
+#############
+startup_message off
+term screen-256color
+vbell off
+multiuser on
+
+defutf8 on on
+setenv DISPLAY ':0'
+
+nonblock on
+msgwait 1
+
+#############
+#  Windows  #
+#############
+select 0
+bind c screen 1 # Window numbering starts at 1, not 0.
+bind 0 select 10
+
+bind = resize =
+bind + resize +1
+bind - resize -1
+bind _ resize max
+
+bindkey "^[Od" prev  # <C-left>
+bindkey "^[Oc" next  # <C-right>
+
+#################
+#  Status Line  #
+#################
+hardstatus on
+hardstatus alwayslastline '%{= k.}%{g}[%{Y}%H%{g}][%= %{kw}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= kw}%?%+Lw%?%?%= %{g}][%{Y}%l%{g}]%{g}[%{=b C}%d.%m %c%{=}%{g}]%{W}'
+rendition so =rb kr
