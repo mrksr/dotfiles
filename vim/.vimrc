@@ -26,6 +26,7 @@ call plug#begin('~/.vim/bundle/')
 Plug 'avakhov/vim-yaml'
 Plug 'beyondmarc/glsl.vim'
 Plug 'beyondmarc/opengl.vim'
+Plug 'hynek/vim-python-pep8-indent'
 Plug 'LaTeX-Box-Team/LaTeX-Box'
 Plug 'Mediawiki.vim'
 Plug 'sheerun/vim-polyglot'
