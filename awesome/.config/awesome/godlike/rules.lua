@@ -28,6 +28,8 @@ awful.rules.rules = {
 
     { rule = { class = "Thunderbird" },
       properties = { tag = godlike.tags[5] } },
+    { rule = { class = "Astroid" },
+      properties = { tag = godlike.tags[5] } },
 
     { rule = { class = "Firefox" },
       properties = { tag = godlike.tags[2] } },
