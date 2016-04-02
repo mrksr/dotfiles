@@ -5,7 +5,7 @@
         },
         "notmuch_config": "\/home\/markus\/.notmuch-config",
         "debug": {
-            "dryrun_sending": "true"
+            "dryrun_sending": "false"
         }
     },
     "thread_index": {
