@@ -8,11 +8,6 @@
             "dryrun_sending": "true"
         }
     },
-    "startup": {
-        "queries": {
-            "inbox": "tag:inbox"
-        }
-    },
     "thread_index": {
         "page_jump_rows": "6",
         "sort_order": "newest",
@@ -85,6 +80,11 @@
     "crypto": {
         "gpg": {
             "path": "gpg2"
+        }
+    },
+    "startup": {
+        "queries": {
+            "inbox": "tag:inbox"
         }
     },
     "accounts": {
