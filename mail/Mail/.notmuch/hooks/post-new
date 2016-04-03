@@ -6,5 +6,11 @@ for file in $(notmuch search --output=files tag:new) ; do
     cat $file | $HOME/.notmuch-abook update
 done
 
-# remove new tags of read email
-notmuch tag -new -- NOT tag:unread AND tag:new
+# hack for astroid: mark every new mail as relevant
+notmuch tag +astroidhack -- tag:new
+# toggle read state for relevant mail I read in astroid
+notmuch tag +unread +astroidread -- tag:astroidhack AND NOT tag:unread
+notmuch tag -unread -astroidread -astroidhack -- tag:astroidread
+
+# remove new tags
+notmuch tag -new -- tag:new
