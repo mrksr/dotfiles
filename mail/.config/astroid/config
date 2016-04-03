@@ -23,7 +23,7 @@
             "subject_color_selected": "#000000",
             "background_color_selected": "",
             "tags_color": "#31587a",
-            "hidden_tags": "attachment,flagged,unread,new"
+            "hidden_tags": "attachment,flagged,unread,new,astroidhack"
         }
     },
     "general": {
