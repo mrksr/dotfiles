@@ -120,9 +120,9 @@ if has("gui_running")
 endif
 
 if has("win32")
-    let localdir="$HOME/vim_local/"
+    let s:localdir="$HOME/vim_local/"
 else
-    let localdir="~/.vim_local/"
+    let s:localdir="~/.vim_local/"
     set dir=/tmp//,~/tmp//,.
 endif
 
@@ -327,7 +327,7 @@ let g:csv_nomap_l = 1
 """"""""""""""
 let g:EasyClipShareYanks = 1
 let g:EasyClipShareYanksFile = "easyclip"
-let g:EasyClipShareYanksDirectory = localdir
+let g:EasyClipShareYanksDirectory = s:localdir
 
 nnoremap Y :EasyClipBeforeYank<cr>yy:EasyClipOnYanksChanged<cr>
 
@@ -572,7 +572,7 @@ set path+=include/**
 " To create systags run
 " ctags -R -f $LOCALDIR/systags --c-kinds=+p --fields=+iaS --extra=+q /usr/include /usr/local/include
 set tags+=.git/tags;,.hg/tags;,.svn/tags;
-let &tags.="," . localdir . "systags"
+let &tags.="," . s:localdir . "systags"
 let g:load_doxygen_syntax=1
 
 augroup commentstrings
@@ -593,6 +593,6 @@ set indentkeys-=0#
 "                                Local .vimrc                            {{{1"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 try
-    exec ":so " . localdir . ".vimrc_local"
+    exec ":so " . s:localdir . ".vimrc_local"
 catch
 endtry
