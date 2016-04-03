@@ -5,23 +5,28 @@
 set encoding=utf-8
 scriptencoding utf-8
 
-if has('nvim')
-    runtime! python_setup.vim
-endif
-
 if has("win32")
     let $LANG='en'
 endif
 
-let s:freshInstall = 0
-if empty(glob('~/.vim/autoload/plug.vim'))
-    let s:freshInstall = 1
-    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd VimEnter * Plugestall | source $MYVIMRC
+if has('nvim')
+    runtime! python_setup.vim
+
+    let s:plugPath = '~/.config/nvim/autoload/plug.vim'
+    let s:bundlePath = '~/.config/nvim/bundle/'
+else
+    let s:plugPath = '~/.vim/autoload/plug.vim'
+    let s:bundlePath = '~/.vim/bundle/'
 endif
 
-call plug#begin('~/.vim/bundle/')
+let s:freshInstall = 0
+if empty(glob(s:plugPath))
+    let s:freshInstall = 1
+    execute '!curl -fLo ' . s:plugPath . ' --create-dirs ' .
+                \ 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+endif
+
+call plug#begin(s:bundlePath)
 " Languages
 Plug 'avakhov/vim-yaml'
 Plug 'beyondmarc/glsl.vim'
@@ -36,7 +41,6 @@ Plug 'argtextobj.vim'
 Plug 'DoxygenToolkit.vim'
 Plug 'edkolev/tmuxline.vim'
 Plug 'edsono/vim-matchit'
-Plug 'floobits/floobits-neovim'
 Plug 'honza/vim-snippets'
 Plug 'junegunn/vim-easy-align'
 Plug 'justinmk/vim-sneak'
@@ -69,7 +73,15 @@ if has("python")
     Plug 'guyzmo/notmuch-abook'
     Plug 'SirVer/ultisnips'
 
-    if v:version > 703 || (v:version == 703 && has('patch584'))
+endif
+
+" Plugins specific to nvim or vim
+if has("nvim")
+    Plug 'Shougo/deoplete.nvim'
+    Plug 'zchee/deoplete-jedi'
+    Plug 'floobits/floobits-neovim'
+else
+    if has("python") && (v:version > 703 || (v:version == 703 && has('patch584')))
         if !has("win32") && !has("win32unix")
             Plug 'Valloric/YouCompleteMe'
             " Plug 'bbchung/clighter' " Only need it with ycm
@@ -88,6 +100,7 @@ Plug 'chriskempson/base16-vim'
 call plug#end()
 
 if s:freshInstall
+    echo "Installing Plugins"
     PlugInstall
 endif
 
@@ -235,13 +248,15 @@ let g:tmuxline_powerline_separators = 0
 "  Unite  "
 """""""""""
 let g:unite_source_history_yank_enable = 1
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#filters#sorter_default#use(['sorter_rank'])
-call unite#custom#profile('default', 'context', {
-\   'start_insert': 1,
-\   'winheight': 10,
-\   'direction': 'botright',
-\ })
+if exists("unite")
+    call unite#filters#matcher_default#use(['matcher_fuzzy'])
+    call unite#filters#sorter_default#use(['sorter_rank'])
+    call unite#custom#profile('default', 'context', {
+    \   'start_insert': 1,
+    \   'winheight': 10,
+    \   'direction': 'botright',
+    \ })
+endif
 let g:unite_source_rec_async_command = 'ag --follow --nocolor --nogroup --hidden -g ""'
 
 nnoremap <silent><F3> :<C-u>Unite history/yank<CR>
