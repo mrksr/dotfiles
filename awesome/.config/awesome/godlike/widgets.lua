@@ -97,7 +97,7 @@ vicious.register(
     vicious.widgets.volume,
     format("%s $1%%", formatters.colored("♬", beautiful.yellow)),
     1,
-    "Master -c 1"
+    "Master"
 )
 -- vicious.register(widgets.nowplaying, nowplaying, "$1", 5)
 
