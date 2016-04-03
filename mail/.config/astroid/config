@@ -49,7 +49,7 @@
             "quote_line": "Forwarding %1's message of %2:",
             "disposition": "inline"
         },
-        "sent_tags": "sent"
+        "sent_tags": "sent,inbox"
     },
     "poll": {
         "interval": "60"
