@@ -34,6 +34,7 @@ widgets.mail_tutor = wibox.widget.textbox()
 widgets.mail_kth = wibox.widget.textbox()
 widgets.mail_intum = wibox.widget.textbox()
 widgets.mail_tum = wibox.widget.textbox()
+widgets.mail_pub = wibox.widget.textbox()
 widgets.volume = wibox.widget.textbox()
 -- widgets.nowplaying = wibox.widget.textbox()
 widgets.traffic = wibox.widget.textbox()
@@ -107,5 +108,6 @@ vicious.register(widgets.mail_tutor, vicious.widgets.mdir, formatters.mail("tuto
 vicious.register(widgets.mail_kth, vicious.widgets.mdir, formatters.mail("kth"), 2, {home .. "/Mail/kth/INBOX"})
 vicious.register(widgets.mail_intum, vicious.widgets.mdir, formatters.mail("intum"), 2, {home .. "/Mail/intum/INBOX"})
 vicious.register(widgets.mail_tum, vicious.widgets.mdir, formatters.mail("tum"), 2, {home .. "/Mail/tum/INBOX"})
+vicious.register(widgets.mail_pub, vicious.widgets.mdir, formatters.mail("pub"), 2, {home .. "/Mail/zfix-pub/INBOX"})
 
 return widgets
