@@ -248,7 +248,7 @@ let g:tmuxline_powerline_separators = 0
 "  Unite  "
 """""""""""
 let g:unite_source_history_yank_enable = 1
-if exists("unite")
+if exists(":Unite")
     call unite#filters#matcher_default#use(['matcher_fuzzy'])
     call unite#filters#sorter_default#use(['sorter_rank'])
     call unite#custom#profile('default', 'context', {
