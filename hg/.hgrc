@@ -12,6 +12,7 @@ progress =
 rebase =
 histedit =
 color =
+shelve =
 
 [color]
 diff.trailingwhitespace = bold red_background
