@@ -87,6 +87,13 @@ open-pdf() {
     fi
 }
 
+alias texdoco="online-texdoc"
+online-texdoc() {
+    TEMPFILE=$(mktemp -t "online_texdoc.${1}.XXXXX")
+    wget http://texdoc.net/pkg/${1} -O "$TEMPFILE"
+    open-background "$TEMPFILE"
+}
+
 bell_before_command() {
     echo -ne '\a'
 }
