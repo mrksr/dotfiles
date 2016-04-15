@@ -5,6 +5,10 @@ snippet "in(put)?" "Input" br
 \input{${1:file}.tex}
 endsnippet
 
+snippet "inc(lude)?" "Include" br
+\include{${1:file}}
+endsnippet
+
 snippet du "Define Unit" b
 \defineUnit{${1:name}}{%
 ${2:${VISUAL:content}}
@@ -43,9 +47,9 @@ endsnippet
 ############
 snippet frame "Beamer frame" b
 \begin{frame}
-    \frametitle{${1:title}}
+	\frametitle{${1:title}}
 
-    ${2:content}
+	${2:content}
 \end{frame}
 endsnippet
 
@@ -59,21 +63,21 @@ endsnippet
 
 snippet columns "Beamer columns" b
 \begin{columns}
-    \begin{column}{${1:width}}
-        ${2:content}
-    \end{column}
+	\begin{column}{${1:width}}
+		${2:content}
+	\end{column}
 \end{columns}
 endsnippet
 
 snippet column "Beamer column" b
 \begin{column}{${1:width}}
-    ${2:content}
+	${2:content}
 \end{column}
 endsnippet
 
 snippet center "Center environment" b
 \begin{center}
-    ${2:${VISUAL:content}}
+	${2:${VISUAL:content}}
 \end{center}
 endsnippet
 
@@ -86,7 +90,7 @@ endsnippet
 ##########
 snippet "lay(er)?" "Pgf Layers" br
 \begin{pgfonlayer}{${1:name}}
-    ${2:${VISUAL:content}}
+	${2:${VISUAL:content}}
 \end{pgfonlayer}
 endsnippet
 
@@ -99,19 +103,19 @@ endsnippet
 
 snippet enum "Enumerate" b
 \begin{enumerate}
-    \item $0
+	\item $0
 \end{enumerate}
 endsnippet
 
 snippet itemize "Itemize" b
 \begin{itemize}
-    \item $0
+	\item $0
 \end{itemize}
 endsnippet
 
 snippet desc "Description" b
 \begin{description}
-    \item[$1] $0
+	\item[$1] $0
 \end{description}
 endsnippet
 
@@ -121,7 +125,24 @@ endsnippet
 
 snippet "it(em)?o" "Single Item with Options" br
 \item[$1] $0
+endsnippet
 
+##########
+#  Math  #
+##########
+snippet sfrac "Inline-Fraction" w
+\sfrac{${1:${VISUAL:nom}}}{${2:denom}}
+endsnippet
+
+#############
+#  SIUnitX  #
+#############
+snippet SI "Number with unit" w
+\SI{${1:${VISUAL:number}}}{${2:unit}}
+endsnippet
+
+snippet si "SI-Unit" w
+\si{${1:${VISUAL:unit}}}
 endsnippet
 
 ############
@@ -130,26 +151,45 @@ endsnippet
 snippet sfi "Subfigure" b
 \begin{subfigure}{${1:size}}
 ${0:${VISUAL:}}
-    \caption{${3:Great Figure!}}
-    \label{fig:${4:label:sublabel}}
+	\caption{${3:Great Figure!}}
+	\label{fig:${4:label:sublabel}}
 \end{subfigure}
 endsnippet
 
 snippet "fi(gure)?" "Figure" rb
-\begin{figure}[${1:bthH}]
-    \centering
-    ${0}
-    \caption{${2:Great Figure!}}
-    \label{fig:${3:label}}
+\begin{figure}[${1:htbp}]
+	\centering
+	${0}
+	\caption{${2:Great Figure!}}
+	\label{fig:${3:label}}
 \end{figure}
 endsnippet
 
 snippet "li(sting)?" "Listing" rb
-\begin{listing}[${1:bthH}]
-    ${0}
-    \caption{${2:Great Listing!}}
-    \label{lst:${3:label}}
+\begin{listing}[${1:htbp}]
+	${0}
+	\caption{${2:Great Listing!}}
+	\label{lst:${3:label}}
 \end{listing}
+endsnippet
+
+snippet "ta(ble)?" "Table" rb
+\begin{table}[${1:htbp}]
+	\centering
+	\caption{${2:Great Table!}}
+	\label{tab:${3:label}}
+	${0}
+\end{table}
+endsnippet
+
+snippet tabx "TabularX environment" b
+\begin{tabularx}{${1:\textwidth}}{${2:cXc}}
+	\toprule
+	${3:Headline}
+	\midrule
+	${0:Data}
+	\bottomrule
+\end{tabularx}
 endsnippet
 
 #############
@@ -157,49 +197,49 @@ endsnippet
 #############
 snippet "def(inition)?" "Definition environment" br
 \begin{definition}[${1:name}]
-    ${2:content}
+	${2:content}
 \end{definition}
 endsnippet
 
 snippet "the(orem)?" "Theorem environment" br
 \begin{theorem}[${1:name}]
-    ${2:content}
+	${2:content}
 \end{theorem}
 endsnippet
 
 snippet "lem(ma)?" "Lemma environment" br
 \begin{lemma}[${1:name}]
-    ${2:content}
+	${2:content}
 \end{lemma}
 endsnippet
 
 snippet "pr(oof)?" "Proof environment" br
 \begin{proof}
-    ${2:content}
+	${2:content}
 \end{proof}
 endsnippet
 
 snippet "problem" "Problem environment" br
 \begin{proof}[${1:name}]
-    ${2:content}
+	${2:content}
 \end{proof}
 endsnippet
 
 snippet "ex(ample)?" "Example environment" br
 \begin{example}[${1:name}]
-    ${2:content}
+	${2:content}
 \end{example}
 endsnippet
 
 snippet block "Block environment" b
 \begin{block}{${1:name}}
-    ${2:content}
+	${2:content}
 \end{block}
 endsnippet
 
-#####################################
-# SECTIONS, CHAPTERS AND THEIR LIKE #
-#####################################
+###################################
+# Sections, Chapters and the like #
+###################################
 snippet part "Part" b
 \part{${1:part name}}
 \label{prt:${2:${1/(\w+)|\W+/(?1:\L$0\E:_)/g}}}
