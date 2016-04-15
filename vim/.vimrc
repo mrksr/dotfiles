@@ -9,6 +9,20 @@ if has("win32")
     let $LANG='en'
 endif
 
+if has("win32")
+    let s:localdir="$HOME/vim_local/"
+else
+    let s:localdir="~/.vim_local/"
+    set dir=/tmp//,~/tmp//,.
+endif
+
+let s:fancyFile = s:localdir . "with_fancy"
+if empty(glob(s:fancyFile))
+    let s:fancyPlugins = 0
+else
+    let s:fancyPlugins = 1
+endif
+
 if has('nvim')
     runtime! python_setup.vim
 
@@ -74,20 +88,17 @@ Plug 'vim-airline/vim-airline-themes'
 if has("python")
     Plug 'guyzmo/notmuch-abook'
     Plug 'SirVer/ultisnips'
-
 endif
 
-" Plugins specific to nvim or vim
-if has("nvim")
-    Plug 'Shougo/deoplete.nvim'
-    Plug 'zchee/deoplete-jedi'
-    Plug 'floobits/floobits-neovim'
-else
-    if has("python") && (v:version > 703 || (v:version == 703 && has('patch584')))
-        if !has("win32") && !has("win32unix")
-            Plug 'Valloric/YouCompleteMe'
-            " Plug 'bbchung/clighter' " Only need it with ycm
-        endif
+if s:fancyPlugins
+    " Plugins specific to nvim or vim
+    if has("nvim")
+        Plug 'Shougo/deoplete.nvim'
+        Plug 'zchee/deoplete-jedi'
+        Plug 'floobits/floobits-neovim'
+    else
+        Plug 'Valloric/YouCompleteMe'
+        " Plug 'bbchung/clighter'
     endif
 endif
 
@@ -132,13 +143,6 @@ if has("gui_running")
     else
         set gfn=DeJaVu\ Sans\ Mono\ 11
     endif
-endif
-
-if has("win32")
-    let s:localdir="$HOME/vim_local/"
-else
-    let s:localdir="~/.vim_local/"
-    set dir=/tmp//,~/tmp//,.
 endif
 
 if has("persistent_undo")
@@ -611,6 +615,6 @@ set indentkeys-=0#
 "                                Local .vimrc                            {{{1"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 try
-    exec ":so " . s:localdir . ".vimrc_local"
+    exec ":so " . s:localdir . "vimrc_local"
 catch
 endtry
