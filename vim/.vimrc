@@ -250,7 +250,7 @@ let g:tmuxline_powerline_separators = 0
 "  Unite  "
 """""""""""
 let g:unite_source_history_yank_enable = 1
-if exists(":Unite")
+try
     call unite#filters#matcher_default#use(['matcher_fuzzy'])
     call unite#filters#sorter_default#use(['sorter_rank'])
     call unite#custom#profile('default', 'context', {
@@ -258,7 +258,8 @@ if exists(":Unite")
     \   'winheight': 10,
     \   'direction': 'botright',
     \ })
-endif
+catch
+endtry
 let g:unite_source_rec_async_command = 'ag --follow --nocolor --nogroup --hidden -g ""'
 
 nnoremap <silent><F3> :<C-u>Unite history/yank<CR>
