@@ -191,6 +191,11 @@ let g:vimtex_complete_close_braces = 1
 let g:vimtex_fold_enabled = 1
 let g:vimtex_quickfix_open_on_warning = 0
 let g:vimtex_view_method = 'zathura'
+let g:vimtex_quickfix_ignored_warnings = [
+    \ 'Underfull',
+    \ 'Overfull',
+    \ 'specifier changed to',
+    \ ]
 
 if !exists('g:ycm_semantic_triggers')
     let g:ycm_semantic_triggers = {}
