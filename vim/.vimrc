@@ -46,7 +46,7 @@ Plug 'avakhov/vim-yaml'
 Plug 'beyondmarc/glsl.vim'
 Plug 'beyondmarc/opengl.vim'
 Plug 'hynek/vim-python-pep8-indent'
-Plug 'LaTeX-Box-Team/LaTeX-Box'
+Plug 'lervag/vimtex'
 Plug 'Mediawiki.vim'
 Plug 'sheerun/vim-polyglot'
 
@@ -167,6 +167,13 @@ filetype on
 filetype indent on
 filetype plugin on
 
+""""""""""""""
+"  polyglot  "
+""""""""""""""
+let g:polyglot_disabled = [
+    \ "latex"
+    \]
+
 """""""""""""
 "  Airline  "
 """""""""""""
@@ -180,29 +187,31 @@ let g:airline_theme='base16'
 """""""""""
 "  Latex  "
 """""""""""
-let g:LatexBox_quickfix = 2
-let g:LatexBox_latexmk_async = 0
-let g:LatexBox_latexmk_preview_continuously = 0
-let g:LatexBox_viewer = "zathura"
-let g:LatexBox_custom_indent = 1
-let g:LatexBox_Folding = 1
-let g:LatexBox_fold_automatic = 0
-let g:LatexBox_fold_envs = 0
-let g:LatexBox_fold_envs_force = [
-    \ 'frame',
-    \ 'abstract',
-    \ 'algorithm',
-    \ 'figure',
-    \ 'table',
-    \ 'listing',
-    \ 'figure*',
-    \ 'table*',
-    \ 'listing*',
-    \ 'tikzpicture'
-    \]
+let g:vimtex_complete_close_braces = 1
+let g:vimtex_fold_enabled = 1
+let g:vimtex_quickfix_open_on_warning = 0
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_quickfix_ignored_warnings = [
+    \ 'Underfull',
+    \ 'Overfull',
+    \ 'specifier changed to',
+    \ ]
 
-" Calculate folds on open
-autocmd FileType tex LatexFold
+if !exists('g:ycm_semantic_triggers')
+    let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers.tex = [
+    \ 're!\\[A-Za-z]*cite[A-Za-z]*(\[[^]]*\]){0,2}{[^}]*',
+    \ 're!\\[A-Za-z]*ref({[^}]*|range{([^,{}]*(}{)?))',
+    \ 're!\\hyperref\[[^]]*',
+    \ 're!\\includegraphics\*?(\[[^]]*\]){0,2}{[^}]*',
+    \ 're!\\(include(only)?|input){[^}]*',
+    \ 're!\\\a*(gls|Gls|GLS)(pl)?\a*(\s*\[[^]]*\]){0,2}\s*\{[^}]*',
+    \ 're!\\includepdf(\s*\[[^]]*\])?\s*\{[^}]*',
+    \ 're!\\includestandalone(\s*\[[^]]*\])?\s*\{[^}]*',
+    \ ]
+nnoremap <localleader>lt :<c-u>Unite vimtex_toc<cr>
+nnoremap <localleader>ly :<c-u>Unite vimtex_labels<cr>
 
 """""""""""""""
 "  Syntastic  "

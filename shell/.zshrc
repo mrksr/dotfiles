@@ -44,9 +44,11 @@ source $ZSH/oh-my-zsh.sh
 HISTSIZE=1000000
 SAVEHIST=1000000
 setopt HIST_IGNORE_SPACE
-
 setopt extendedglob
 
+########################
+#  Alias and Commands  #
+########################
 alias apt-get="sudo apt-get"
 alias apt-search="apt-cache search"
 alias apt-find="apt-search"
@@ -94,12 +96,16 @@ online-texdoc() {
     open-background "$TEMPFILE"
 }
 
-bell_before_command() {
-    echo -ne '\a'
+alias mail="mbsync-update"
+mbsync-update() {
+    SET="${1:-auto}"
+    mbsync $SET
+    notmuch new
 }
-[[ -z $precmd_functions ]] && precmd_functions=()
-precmd_functions=($precmd_functions bell_before_command)
 
+##################
+#  zsh bindings  #
+##################
 fancy-ctrl-z () {
   if [[ $#BUFFER -eq 0 ]]; then
     BUFFER="fg"
@@ -112,6 +118,15 @@ fancy-ctrl-z () {
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
+bell_before_command() {
+    echo -ne '\a'
+}
+[[ -z $precmd_functions ]] && precmd_functions=()
+precmd_functions=($precmd_functions bell_before_command)
+
+#############
+#  Startup  #
+#############
 if command -v fortune > /dev/null; then
     fortune -s;
     echo;
@@ -123,6 +138,9 @@ if command -v fzf > /dev/null; then
     fi
 fi
 
+##################
+#  Local .zshrc  #
+##################
 if [[ -e .zshrc_local ]]; then
     source .zshrc_local
 fi
