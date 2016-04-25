@@ -438,6 +438,7 @@ nnoremap <silent><leader>sp [s
 nnoremap <silent><leader>sa zg
 nnoremap <silent><leader>s? z=
 nnoremap <silent><leader>sc z=
+nnoremap <silent><leader>sf 1z=
 " Remove trailing whitespace
 nnoremap <silent><leader>i :%s/\s\+$//<CR>:let @/=''<CR>
 vnoremap <silent><leader>i :'<,'>s/\s\+$//<CR>:let @/=''<CR>
