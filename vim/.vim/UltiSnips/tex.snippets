@@ -97,25 +97,28 @@ endsnippet
 ##########
 #  Text  #
 ##########
-snippet "emph?" "emph" r
+snippet "em(ph)?" "emph" r
 \emph{${1:${VISUAL:this}}}
 endsnippet
 
 snippet enum "Enumerate" b
 \begin{enumerate}
-	\item $0
+	\item $1
+	$2
 \end{enumerate}
 endsnippet
 
 snippet itemize "Itemize" b
 \begin{itemize}
-	\item $0
+	\item $1
+	$2
 \end{itemize}
 endsnippet
 
 snippet desc "Description" b
 \begin{description}
-	\item[$1] $0
+	\item[$1] $2
+	$3
 \end{description}
 endsnippet
 
@@ -124,7 +127,8 @@ endsnippet
 #endsnippet
 
 snippet "it(em)?o" "Single Item with Options" br
-\item[$1] $0
+\item[$1] $2
+$3
 endsnippet
 
 ##########
@@ -132,6 +136,12 @@ endsnippet
 ##########
 snippet sfrac "Inline-Fraction" w
 \sfrac{${1:${VISUAL:nom}}}{${2:denom}}
+endsnippet
+
+snippet align "Simple align environment" b
+\begin{align}
+	${0}
+\end{align}
 endsnippet
 
 #############
