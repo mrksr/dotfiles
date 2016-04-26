@@ -97,10 +97,6 @@ endsnippet
 ##########
 #  Text  #
 ##########
-snippet "em(ph)?" "emph" r
-\emph{${1:${VISUAL:this}}}
-endsnippet
-
 snippet enum "Enumerate" b
 \begin{enumerate}
 	\item $1
@@ -142,6 +138,18 @@ snippet align "Simple align environment" b
 \begin{align}
 	${0}
 \end{align}
+endsnippet
+
+snippet "\bma\b" "bold matrix" r
+\mat{${1:${VISUAL:content}}}
+endsnippet
+
+snippet "\bbin(om)?\b" "binomial coefficient" r
+\binom{${1:n}}{${2:k}}
+endsnippet
+
+snippet "\brv\b" "random variable" r
+\rv{${1:${VISUAL:content}}}
 endsnippet
 
 #############
