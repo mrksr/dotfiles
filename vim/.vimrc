@@ -52,6 +52,7 @@ Plug 'sheerun/vim-polyglot'
 
 " Plugins
 Plug 'argtextobj.vim'
+Plug 'coderifous/textobj-word-column.vim'
 Plug 'DoxygenToolkit.vim'
 Plug 'edkolev/tmuxline.vim'
 Plug 'edsono/vim-matchit'
@@ -59,14 +60,10 @@ Plug 'honza/vim-snippets'
 Plug 'jceb/vim-orgmode'
 Plug 'junegunn/vim-easy-align'
 Plug 'justinmk/vim-sneak'
-Plug 'kana/vim-textobj-indent'
-Plug 'kana/vim-textobj-line'
-Plug 'kana/vim-textobj-user'
 Plug 'mhinz/vim-sayonara'
 Plug 'mhinz/vim-signify'
 Plug 'mhinz/vim-startify'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'scrooloose/syntastic'
 Plug 'Shougo/unite-outline'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimproc.vim', { 'do' : 'make' }
@@ -82,6 +79,7 @@ Plug 'tpope/vim-surround'
 Plug 'tsukkee/unite-tag'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'wellle/targets.vim'
 
 " Plugins using externals
 " Prevent startup error messages
@@ -93,10 +91,12 @@ endif
 if s:fancyPlugins
     " Plugins specific to nvim or vim
     if has("nvim")
+        Plug 'floobits/floobits-neovim'
+        Plug 'neomake/neomake'
         Plug 'Shougo/deoplete.nvim'
         Plug 'zchee/deoplete-jedi'
-        Plug 'floobits/floobits-neovim'
     else
+        Plug 'scrooloose/syntastic'
         Plug 'Valloric/YouCompleteMe'
         " Plug 'bbchung/clighter'
     endif

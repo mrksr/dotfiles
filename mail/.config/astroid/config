@@ -1,7 +1,7 @@
 {
     "astroid": {
         "config": {
-            "version": "3"
+            "version": "5"
         },
         "notmuch_config": "\/home\/markus\/.notmuch-config",
         "debug": {
@@ -34,12 +34,13 @@
         }
     },
     "editor": {
+        "cmd": "gvim -geom 10x10 --servername %2 --socketid %3 -f -c 'set ft=mail' '+set fileencoding=utf-8' '+set ff=unix' '+set enc=utf-8' %1",
+        "charset": "utf-8",
+        "save_draft_on_force_quit": "true",
         "gvim": {
             "cmd": "gvim",
             "args": "-f -c 'set ft=mail' '+set fileencoding=utf-8' '+set ff=unix' '+set enc=utf-8'"
-        },
-        "charset": "utf-8",
-        "save_draft_on_force_quit": "true"
+        }
     },
     "mail": {
         "reply": {
@@ -97,7 +98,10 @@
             "save_sent": "true",
             "save_sent_to": "\/home\/markus\/Mail\/zfix-markus\/Sent\/cur\/",
             "additional_sent_tags": "",
-            "save_drafts_to": "\/home\/markus\/Mail\/zfix-markus\/Drafts\/cur\/"
+            "save_drafts_to": "\/home\/markus\/Mail\/zfix-markus\/Drafts\/cur\/",
+            "signature_file": "",
+            "signature_default_on": "true",
+            "signature_attach": "false"
         },
         "intum": {
             "name": "Markus Kaiser",
@@ -108,7 +112,10 @@
             "save_sent": "true",
             "save_sent_to": "\/home\/markus\/Mail\/intum\/Sent\/cur\/",
             "additional_sent_tags": "",
-            "save_drafts_to": "\/home\/markus\/Mail\/intum\/Drafts\/cur\/"
+            "save_drafts_to": "\/home\/markus\/Mail\/intum\/Drafts\/cur\/",
+            "signature_file": "",
+            "signature_default_on": "true",
+            "signature_attach": "false"
         },
         "tum": {
             "name": "Markus Kaiser",
@@ -119,7 +126,10 @@
             "save_sent": "true",
             "save_sent_to": "\/home\/markus\/Mail\/tum\/Sent\/cur\/",
             "additional_sent_tags": "",
-            "save_drafts_to": "\/home\/markus\/Mail\/tum\/Drafts\/cur\/"
+            "save_drafts_to": "\/home\/markus\/Mail\/tum\/Drafts\/cur\/",
+            "signature_file": "",
+            "signature_default_on": "true",
+            "signature_attach": "false"
         },
         "kth": {
             "name": "Markus Kaiser",
@@ -130,7 +140,10 @@
             "save_sent": "true",
             "save_sent_to": "\/home\/markus\/Mail\/kth\/Sent\/cur\/",
             "additional_sent_tags": "",
-            "save_drafts_to": "\/home\/markus\/Mail\/kth\/Drafts\/cur\/"
+            "save_drafts_to": "\/home\/markus\/Mail\/kth\/Drafts\/cur\/",
+            "signature_file": "",
+            "signature_default_on": "true",
+            "signature_attach": "false"
         },
         "pub": {
             "name": "Markus Kaiser",
@@ -141,7 +154,10 @@
             "save_sent": "true",
             "save_sent_to": "\/home\/markus\/Mail\/zfix-pub\/Sent\/cur\/",
             "additional_sent_tags": "",
-            "save_drafts_to": "\/home\/markus\/Mail\/zfix-pub\/Drafts\/cur\/"
+            "save_drafts_to": "\/home\/markus\/Mail\/zfix-pub\/Drafts\/cur\/",
+            "signature_file": "",
+            "signature_default_on": "true",
+            "signature_attach": "false"
         },
         "tutor": {
             "name": "Markus Kaiser",
@@ -152,7 +168,10 @@
             "save_sent": "true",
             "save_sent_to": "\/home\/markus\/Mail\/zfix-tutor\/Sent\/cur\/",
             "additional_sent_tags": "",
-            "save_drafts_to": "\/home\/markus\/Mail\/zfix-tutor\/Drafts\/cur\/"
+            "save_drafts_to": "\/home\/markus\/Mail\/zfix-tutor\/Drafts\/cur\/",
+            "signature_file": "",
+            "signature_default_on": "true",
+            "signature_attach": "false"
         }
     }
 }
