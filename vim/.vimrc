@@ -367,6 +367,10 @@ nnoremap Y :EasyClipBeforeYank<cr>yy:EasyClipOnYanksChanged<cr>
 """""""""""""""""""
 map K <Plug>(expand_region_expand)
 " map J <Plug>(expand_region_shrink)
+imap <A-j> <Plug>(expand_region_expand)
+imap <A-k> <Plug>(expand_region_shrink)
+vmap <A-j> <Plug>(expand_region_expand)
+vmap <A-k> <Plug>(expand_region_shrink)
 
 """"""""""""""
 "  sayonara  "
