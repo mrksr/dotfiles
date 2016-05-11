@@ -10,7 +10,7 @@ if has("win32")
 endif
 
 if has("win32")
-    let s:localdir="$HOME/vim_local/"
+    let s:localdir=expand("$HOME/vim_local/")
 else
     let s:localdir="~/.vim_local/"
     set dir=/tmp//,~/tmp//,.
