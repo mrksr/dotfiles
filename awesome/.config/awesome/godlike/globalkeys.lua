@@ -49,40 +49,40 @@ local launcher = format(
 
 godlike.globalkeys = awful.util.table.join(
     -- Multimedia
-    awful.key({}, "XF86AudioMute",        function() godlike.audio.mute() end ),
-    awful.key({}, "XF86AudioMicMute",     function() godlike.audio.micmute() end ),
-    awful.key({}, "XF86AudioRaiseVolume", function() godlike.audio.raise() end ),
-    awful.key({}, "XF86AudioLowerVolume", function() godlike.audio.lower() end ),
+    awful.key({}, "XF86AudioMute",        function() godlike.audio.mute() end),
+    awful.key({}, "XF86AudioMicMute",     function() godlike.audio.micmute() end),
+    awful.key({}, "XF86AudioRaiseVolume", function() godlike.audio.raise() end),
+    awful.key({}, "XF86AudioLowerVolume", function() godlike.audio.lower() end),
     ---
-    awful.key({}, "XF86AudioNext",        function() godlike.audio.next() end ),
-    awful.key({}, "XF86AudioPrev",        function() godlike.audio.prev() end ),
-    awful.key({}, "XF86AudioPlay",        function() godlike.audio.play() end ),
-    awful.key({}, "XF86AudioStop",        function() godlike.audio.stop() end ),
+    awful.key({}, "XF86AudioNext",        function() godlike.audio.next() end),
+    awful.key({}, "XF86AudioPrev",        function() godlike.audio.prev() end),
+    awful.key({}, "XF86AudioPlay",        function() godlike.audio.play() end),
+    awful.key({}, "XF86AudioStop",        function() godlike.audio.stop() end),
     ---
-    awful.key({ modkey }, "Right",        function() godlike.audio.next() end ),
-    awful.key({ modkey }, "Left",         function() godlike.audio.prev() end ),
-    awful.key({ modkey }, "Down",         function() godlike.audio.play() end ),
-    awful.key({ modkey }, "Up",           function() godlike.audio.stop() end ),
+    awful.key({ modkey }, "Right",        function() godlike.audio.next() end),
+    awful.key({ modkey }, "Left",         function() godlike.audio.prev() end),
+    awful.key({ modkey }, "Down",         function() godlike.audio.play() end),
+    awful.key({ modkey }, "Up",           function() godlike.audio.stop() end),
 
     -- Brightness
-    awful.key({}, "XF86MonBrightnessUp",  function() sexec("xbacklight -inc 10 -time 100 -steps 10") end ),
-    awful.key({}, "XF86MonBrightnessDown",function() sexec("xbacklight -dec 10 -time 100 -steps 10") end ),
-    awful.key({}, "XF86Display",          function() sexec("xbacklight -set 1") end ),
+    awful.key({}, "XF86MonBrightnessUp",  function() sexec("xbacklight -inc 10 -time 100 -steps 10") end),
+    awful.key({}, "XF86MonBrightnessDown",function() sexec("xbacklight -dec 10 -time 100 -steps 10") end),
+    awful.key({}, "XF86Display",          function() sexec("xbacklight -set 1") end),
     -- Special Keys
-    awful.key({}, "XF86Sleep",            function() sexec("systemctl suspend") end ),
+    awful.key({}, "XF86Sleep",            function() sexec("systemctl suspend") end),
     awful.key({}, "XF86ScreenSaver",      lockSession ),
-    awful.key({ modkey }, "p",            function() sexec("systemctl suspend") end ),
+    awful.key({ modkey }, "p",            function() sexec("systemctl suspend") end),
     awful.key({ modkey }, "o",            lockSession ),
 
     awful.key({}, "XF86TouchpadToggle",   touchpadToggle),
     awful.key({}, "XF86Tools",            touchpadToggle),
     awful.key({ modkey }, "u",            touchpadToggle),
     ---
-    awful.key({}, "Print",                function() sexec("scrot -mz -e 'mv $f /tmp'") end ),
+    awful.key({}, "Print",                function() sexec("scrot -mz -e 'mv $f /tmp'") end),
 
     -- Navigation and Focus
-    awful.key({ modkey,           }, "Tab",    function() view_non_empty(1, mouse.screen) end ),
-    awful.key({ modkey, "Shift"   }, "Tab",    function() view_non_empty(-1, mouse.screen) end ),
+    awful.key({ modkey,           }, "Tab",    function() view_non_empty(1, mouse.screen) end),
+    awful.key({ modkey, "Shift"   }, "Tab",    function() view_non_empty(-1, mouse.screen) end),
     awful.key({ modkey,           }, "^",      awful.tag.history.restore),
     awful.key({ modkey,           }, "g",      awful.client.urgent.jumpto),
 
