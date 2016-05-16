@@ -49,25 +49,25 @@ local launcher = format(
 
 godlike.globalkeys = awful.util.table.join(
     -- Multimedia
-    awful.key({}, "XF86AudioMute",        function() godlike.audio.mute()  end ),
-    awful.key({}, "XF86AudioMicMute",     function() godlike.audio.micmute()end ),
+    awful.key({}, "XF86AudioMute",        function() godlike.audio.mute() end ),
+    awful.key({}, "XF86AudioMicMute",     function() godlike.audio.micmute() end ),
     awful.key({}, "XF86AudioRaiseVolume", function() godlike.audio.raise() end ),
     awful.key({}, "XF86AudioLowerVolume", function() godlike.audio.lower() end ),
     ---
-    awful.key({}, "XF86AudioNext",        function() godlike.audio.next()  end ),
-    awful.key({}, "XF86AudioPrev",        function() godlike.audio.prev()  end ),
-    awful.key({}, "XF86AudioPlay",        function() godlike.audio.play()  end ),
-    awful.key({}, "XF86AudioStop",        function() godlike.audio.stop()  end ),
+    awful.key({}, "XF86AudioNext",        function() godlike.audio.next() end ),
+    awful.key({}, "XF86AudioPrev",        function() godlike.audio.prev() end ),
+    awful.key({}, "XF86AudioPlay",        function() godlike.audio.play() end ),
+    awful.key({}, "XF86AudioStop",        function() godlike.audio.stop() end ),
     ---
-    awful.key({ modkey }, "Right",        function() godlike.audio.next()  end ),
-    awful.key({ modkey }, "Left",         function() godlike.audio.prev()  end ),
-    awful.key({ modkey }, "Down",         function() godlike.audio.play()  end ),
-    awful.key({ modkey }, "Up",           function() godlike.audio.stop()  end ),
+    awful.key({ modkey }, "Right",        function() godlike.audio.next() end ),
+    awful.key({ modkey }, "Left",         function() godlike.audio.prev() end ),
+    awful.key({ modkey }, "Down",         function() godlike.audio.play() end ),
+    awful.key({ modkey }, "Up",           function() godlike.audio.stop() end ),
 
     -- Brightness
-    awful.key({}, "XF86MonBrightnessUp",  function() sexec("xbacklight -inc 10 -time 100 -steps 10")  end ),
-    awful.key({}, "XF86MonBrightnessDown",function() sexec("xbacklight -dec 10 -time 100 -steps 10")  end ),
-    awful.key({}, "XF86Display",          function() sexec("xbacklight -set 1")  end ),
+    awful.key({}, "XF86MonBrightnessUp",  function() sexec("xbacklight -inc 10 -time 100 -steps 10") end ),
+    awful.key({}, "XF86MonBrightnessDown",function() sexec("xbacklight -dec 10 -time 100 -steps 10") end ),
+    awful.key({}, "XF86Display",          function() sexec("xbacklight -set 1") end ),
     -- Special Keys
     awful.key({}, "XF86Sleep",            function() sexec("systemctl suspend") end ),
     awful.key({}, "XF86ScreenSaver",      lockSession ),
@@ -103,20 +103,20 @@ godlike.globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "space",   function() awful.layout.inc(godlike.layouts,  1) end),
     awful.key({ modkey, "Shift"   }, "space",   function() awful.layout.inc(godlike.layouts, -1) end),
 
-    awful.key({ modkey,           }, "j",       function() awful.client.swap.byidx(  1)    end),
-    awful.key({ modkey,           }, "k",       function() awful.client.swap.byidx( -1)    end),
+    awful.key({ modkey,           }, "j",       function() awful.client.swap.byidx(  1) end),
+    awful.key({ modkey,           }, "k",       function() awful.client.swap.byidx( -1) end),
     awful.key({ modkey, "Shift"   }, "l",       function() awful.screen.focus_relative( 1) end),
     awful.key({ modkey, "Shift"   }, "h",       function() awful.screen.focus_relative(-1) end),
     awful.key({ modkey,           }, "q",       function() awful.screen.focus(1) end),
     awful.key({ modkey,           }, "w",       function() awful.screen.focus(2) end),
     awful.key({ modkey, "Shift"   }, "^",       function() awful.screen.focus_relative(1) end),
 
-    awful.key({ modkey,           }, "l",       function() awful.tag.incmwfact( 0.05)    end),
-    awful.key({ modkey,           }, "h",       function() awful.tag.incmwfact(-0.05)    end),
-    awful.key({ modkey, "Shift"   }, "h",       function() awful.tag.incnmaster( 1)      end),
-    awful.key({ modkey, "Shift"   }, "l",       function() awful.tag.incnmaster(-1)      end),
-    awful.key({ modkey, "Control" }, "h",       function() awful.tag.incncol( 1)         end),
-    awful.key({ modkey, "Control" }, "l",       function() awful.tag.incncol(-1)         end),
+    awful.key({ modkey,           }, "l",       function() awful.tag.incmwfact( 0.05) end),
+    awful.key({ modkey,           }, "h",       function() awful.tag.incmwfact(-0.05) end),
+    awful.key({ modkey, "Shift"   }, "h",       function() awful.tag.incnmaster( 1) end),
+    awful.key({ modkey, "Shift"   }, "l",       function() awful.tag.incnmaster(-1) end),
+    awful.key({ modkey, "Control" }, "h",       function() awful.tag.incncol( 1) end),
+    awful.key({ modkey, "Control" }, "l",       function() awful.tag.incncol(-1) end),
 
     awful.key({ modkey, "Control" }, "n",       awful.client.restore),
     awful.key({ modkey,           }, "b",       function() lm.activate() end),
