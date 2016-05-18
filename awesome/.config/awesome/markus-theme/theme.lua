@@ -8,19 +8,19 @@ theme.wallpaper = theme.theme_dir .. "/background.png"
 theme.font          = "Aller 11"
 
 theme.red           = "#cb575d"
-theme.yellow        = "#d8a200"
-theme.green         = "#679816"
+theme.yellow        = "#e6ac00"
+theme.green         = "#79b31a"
 theme.blue          = "#3c6da6"
 
 theme.bg_normal     = "#2f343f"
 theme.bg_focus      = theme.blue
 theme.bg_urgent     = theme.red
-theme.bg_minimize   = theme.green
+theme.bg_minimize   = "#2f343f"
 
 theme.fg_normal     = "#e0e4ea"
 theme.fg_focus      = "#ffffff"
 theme.fg_urgent     = "#ffffff"
-theme.fg_minimize   = "#ffffff"
+theme.fg_minimize   = theme.green
 
 theme.border_width  = 2
 theme.border_normal = "#2f343f"
