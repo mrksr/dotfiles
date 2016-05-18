@@ -33,7 +33,7 @@ naughty.config.defaults = {
     screen = 1,
     ontop = true,
     margin = "5",
-    border_width = "1",
+    border_width = "4",
     position = "top_right",
     icon_size = 64
 }
