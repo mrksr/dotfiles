@@ -59,7 +59,7 @@ function formatters.net(_, data)
     local function direction(interface, dir)
         local low = {
             ["up"] = 64 * 1024, -- in kb
-            ["down"] = 256 * 1024
+            ["down"] = 64 * 1024
         }
 
         local traffic = tonumber(data["{" .. interface .. " " .. dir .. "_b}"])
