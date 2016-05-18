@@ -54,9 +54,9 @@ rofi.columns:                        2
 rofi.font:                           Aller 11
 rofi.color-enabled: true
 rofi.color-window: #2f343f, #2f343f, #2f343f
-rofi.color-normal: #2f343f, #e0e4ea, #434a59, #3c6da6, #ffffff
-rofi.color-active: #2f343f, #cb575d, #434a59, #3c6da6, #ff6d75
-rofi.color-urgent: #3c6da6, #ffffff, #3c6da6, #8092e7, #ffffff
+rofi.color-normal: #2f343f, #e0e4ea, #393f4d, #2a4b73, #ffffff
+rofi.color-active: #2f343f, #cb575d, #393f4d, #2a4b73, #ff6d75
+rofi.color-urgent: #2a4b73, #ffffff, #2a4b73, #8092e7, #ffffff
 rofi.fuzzy:                          true
 
 ! Base16-Tomorrow
