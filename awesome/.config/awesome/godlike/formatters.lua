@@ -39,27 +39,34 @@ function formatters.net(_, data)
         return unit
     end
 
-    local function colorize(str, unit)
+    local function colorize(str, traffic, direction)
         local colors = {
-            {0, "", ""},
-            {64 * 1024, format("<span color='%s'>", beautiful.green), "</span>"},
-            {2048 * 1024, format("<span color='%s'>", beautiful.red), "</span>"}
+            ["up"] = {
+                {0, "", ""},
+                {64 * 1024, format("<span color='%s'>", beautiful.green), "</span>"},
+                {128 * 1024, format("<span color='%s'>", beautiful.red), "</span>"}
+            },
+            ["down"] = {
+                {0, "", ""},
+                {256 * 1024, format("<span color='%s'>", beautiful.green), "</span>"},
+                {2048 * 1024, format("<span color='%s'>", beautiful.red), "</span>"}
+            }
         }
 
         local c = 1
-        for ix, th in ipairs(colors) do
-            if unit >= th[1] then
+        for ix, th in ipairs(colors[direction]) do
+            if traffic >= th[1] then
                 c = ix
             end
         end
 
-        return format("%s%s%s", colors[c][2], str, colors[c][3])
+        return format("%s%s%s", colors[direction][c][2], str, colors[direction][c][3])
     end
 
     local function direction(interface, dir)
         local low = {
             ["up"] = 64 * 1024, -- in kb
-            ["down"] = 64 * 1024
+            ["down"] = 256 * 1024
         }
 
         local traffic = tonumber(data["{" .. interface .. " " .. dir .. "_b}"])
@@ -70,7 +77,7 @@ function formatters.net(_, data)
             out = format("%s%s", data["{" .. interface .. " " .. dir .. "_" .. unit .. "}"], unit)
         end
 
-        return colorize(out, traffic)
+        return colorize(out, traffic, dir)
     end
 
     local active = activeInterface()
