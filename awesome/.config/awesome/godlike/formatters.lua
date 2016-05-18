@@ -43,7 +43,7 @@ function formatters.net(_, data)
         local colors = {
             {0, "", ""},
             {64 * 1024, format("<span color='%s'>", beautiful.green), "</span>"},
-            {128 * 1024, format("<span color='%s'>", beautiful.red), "</span>"}
+            {2048 * 1024, format("<span color='%s'>", beautiful.red), "</span>"}
         }
 
         local c = 1
@@ -58,8 +58,8 @@ function formatters.net(_, data)
 
     local function direction(interface, dir)
         local low = {
-            ["up"] = 32 * 1024, -- in kb
-            ["down"] = 64 * 1024
+            ["up"] = 64 * 1024, -- in kb
+            ["down"] = 256 * 1024
         }
 
         local traffic = tonumber(data["{" .. interface .. " " .. dir .. "_b}"])
