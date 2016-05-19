@@ -361,6 +361,7 @@ let g:EasyClipShareYanksFile = "easyclip"
 let g:EasyClipShareYanksDirectory = s:localdir
 
 nnoremap Y :EasyClipBeforeYank<cr>yy:EasyClipOnYanksChanged<cr>
+nnoremap gm m
 
 """""""""""""""""""
 "  expand-region  "
