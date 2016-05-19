@@ -47,16 +47,16 @@ urxvt.keysym.M-u:                  perl:url-select:select_next
 urxvt.keysym.M-plus:               perl:font-size:increase
 urxvt.keysym.M-minus:              perl:font-size:decrease
 
-rofi.opacity:                        100
-rofi.width:                          50
-rofi.lines:                          15
-rofi.columns:                        2
-rofi.font:                           Aller 11
+rofi.opacity:                      100
+rofi.width:                        25
+rofi.lines:                        4
+rofi.columns:                      2
+rofi.font:                         Aller 11
 rofi.color-enabled: true
-rofi.color-window: #454545, #262626, #262626
-rofi.color-normal: #454545, #dfdfdf, #505050, #666666, #f2f2f2
-rofi.color-active: #454545, #f07746, #505050, #666666, #f07746
-rofi.color-urgent: #546acf, #f2f2f2, #546acf, #8092e7, #f2f2f2
+rofi.color-window: #2f343f, #2f343f, #2f343f
+rofi.color-normal: #2f343f, #e0e4ea, #393f4d, #2a4b73, #ffffff
+rofi.color-active: #2f343f, #cb575d, #393f4d, #2a4b73, #ff6d75
+rofi.color-urgent: #2a4b73, #ffffff, #2a4b73, #8092e7, #ffffff
 rofi.fuzzy:                          true
 
 ! Base16-Tomorrow

@@ -10,7 +10,7 @@ if has("win32")
 endif
 
 if has("win32")
-    let s:localdir="$HOME/vim_local/"
+    let s:localdir=expand("$HOME/vim_local/")
 else
     let s:localdir="~/.vim_local/"
     set dir=/tmp//,~/tmp//,.
@@ -69,7 +69,6 @@ Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimproc.vim', { 'do' : 'make' }
 Plug 'soramugi/auto-ctags.vim'
 Plug 'svermeulen/vim-easyclip'
-Plug 'terryma/vim-expand-region'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
@@ -273,7 +272,10 @@ try
     \ })
 catch
 endtry
-let g:unite_source_rec_async_command = 'ag --follow --nocolor --nogroup --hidden -g ""'
+let g:unite_source_rec_async_command = [
+    \ 'ag', '--follow', '--nocolor', '--nogroup',
+    \  '--hidden', '-g', ''
+    \]
 
 nnoremap <silent><F3> :<C-u>Unite history/yank<CR>
 nnoremap <silent>ä :<C-u>Unite file_rec/async:!<CR>
@@ -329,7 +331,6 @@ let g:startify_custom_header = [
       \ '    \ \ / / | ´_ ` _ \',
       \ '     \ V /| | | | | | |_',
       \ '      \_/ |_|_| |_| |_(_)',
-      \ '',
       \ '']
 
 let g:startify_custom_indices = map(range(1,100), 'string(v:val)')
@@ -347,12 +348,6 @@ let g:auto_ctags_directory_list = ['.git', '.hg', '.svn']
 let g:auto_ctags_tags_name = 'tags'
 let g:auto_ctags_tags_args = '--tag-relative --recurse --sort=yes --fields+=l'
 
-"""""""""
-"  csv  "
-"""""""""
-let g:csv_nomap_h = 1
-let g:csv_nomap_l = 1
-
 """"""""""""""
 "  EasyClip  "
 """"""""""""""
@@ -362,16 +357,6 @@ let g:EasyClipShareYanksDirectory = s:localdir
 
 nnoremap Y :EasyClipBeforeYank<cr>yy:EasyClipOnYanksChanged<cr>
 nnoremap gm m
-
-"""""""""""""""""""
-"  expand-region  "
-"""""""""""""""""""
-map K <Plug>(expand_region_expand)
-" map J <Plug>(expand_region_shrink)
-imap <A-j> <Plug>(expand_region_expand)
-imap <A-k> <Plug>(expand_region_shrink)
-vmap <A-j> <Plug>(expand_region_expand)
-vmap <A-k> <Plug>(expand_region_shrink)
 
 """"""""""""""
 "  sayonara  "
@@ -430,10 +415,6 @@ nnoremap <Esc>7 7gt
 nnoremap <Esc>8 8gt
 nnoremap <Esc>9 9gt
 
-" Use Perl Regexes
-" nnoremap / /\v
-" vnoremap / /\v
-
 " Custom leader maps
 nnoremap <silent><leader><leader> :nohl<CR>
 " Spell Checking
@@ -460,9 +441,6 @@ nnoremap Ü "+Y
 vnoremap ü "+y
 vnoremap Ü "+p
 inoremap üü <C-r>*
-
-" Replace without destroying the default register
-vnoremap + "_dP
 
 " Code Completion
 inoremap <S-Space> <C-x><C-o><C-p>
@@ -510,7 +488,7 @@ cmap w!! w !sudo tee %
 set mouse=a
 
 " command history size
-set history=1000
+set history=10000
 
 " Buffers
 set autoread
@@ -583,7 +561,6 @@ augroup END
 " Conceal
 if has("conceal")
     set conceallevel=2
-    "set concealcursor=vin
     hi! link Conceal Normal
     let g:tex_conceal="abgm"
     let g:tex_flavor="latex"

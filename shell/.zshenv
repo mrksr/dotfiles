@@ -12,7 +12,7 @@ hash -d mac=~/repos/uni/16ma/16ma.code/
 hash -d mat=~/repos/uni/16ma/16ma.tex/thesis
 
 # variables
-export PATH=$HOME/bin:$HOME/.local/bin:$HOME/.cabal/bin:$PATH
+export PATH=$HOME/.bin:$HOME/.local/bin:$HOME/.cabal/bin:$PATH
 export EDITOR=vim
 export BROWSER=firefox
 

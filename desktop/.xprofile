@@ -24,4 +24,4 @@ xinput set-prop "SynPS/2 Synaptics TouchPad" "Device Enabled" 0
 ##############
 start-pulseaudio-x11 &
 redshift -l 48.25:11.65 -t 6300:4800 &
-blueman-applet &
+~/.bin/gajim_auto_reconnect.sh &
