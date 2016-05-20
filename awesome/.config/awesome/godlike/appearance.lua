@@ -35,7 +35,8 @@ naughty.config.defaults = {
     margin = "5",
     border_width = "4",
     position = "top_right",
-    icon_size = 64
+    icon_size = 80,
+    width = 400,
 }
 
 naughty.config.spacing = 2
