@@ -22,7 +22,7 @@ awful.rules.rules = {
       properties = { tag = godlike.tags[4] } },
     { rule = { class = "Gajim" },
       properties = { tag = godlike.tags[4] } },
-    { rule = { class = "Gitter" },
+    { rule = { name = "Gitter" },
       properties = { tag = godlike.tags[4] } },
     { rule = { class = "Skype" },
       properties = { tag = godlike.tags[4] },
