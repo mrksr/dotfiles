@@ -2,12 +2,19 @@
 
 # see https://github.com/guyzmo/notmuch-abook/
 # first update notmuch-abook
-for file in $(notmuch search --output=files tag:new) ; do
-    cat $file | $HOME/.notmuch-abook update
-done
+if [[ -e $HOME/.vim/bundle/notmuch-abook/pythonx/notmuch_abook.py ]]; then
+    for file in $(notmuch search --output=files tag:new) ; do
+        < $file python2 $HOME/.vim/bundle/notmuch-abook/pythonx/notmuch_abook.py update
+    done
+fi
 
 # ignore spam stuff
 notmuch tag -unread -inbox -- tag:spam
+
+# Show notification if possible
+if [[ -x $HOME/.bin/notmuch_notify.sh ]]; then
+    $HOME/.bin/notmuch_notify.sh
+fi
 
 # remove new tags
 notmuch tag -new -- tag:new
