@@ -7,4 +7,5 @@ fi
 ####################
 #  Window Manager  #
 ####################
+compton -b
 exec "$@"
