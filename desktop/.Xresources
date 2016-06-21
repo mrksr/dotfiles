@@ -47,7 +47,7 @@ urxvt.keysym.M-u:                  perl:url-select:select_next
 urxvt.keysym.M-plus:               perl:font-size:increase
 urxvt.keysym.M-minus:              perl:font-size:decrease
 
-rofi.opacity:                      85
+rofi.opacity:                      90
 rofi.width:                        25
 rofi.lines:                        5
 rofi.columns:                      1

@@ -14,4 +14,4 @@ scroll_on_keystroke=true
 scroll_on_output=false
 
 [colors]
-background=rgba(0,0,0,0.975)
+background=rgba(0,0,0,0.95)
