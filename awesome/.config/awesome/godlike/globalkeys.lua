@@ -35,7 +35,7 @@ end
 
 local function lockSession()
   -- sexec("light-locker-command -l || dm-tool lock")
-  sexec("slimlock")
+  sexec("i3lock-fancy || i3lock || slimlock")
 end
 
 local launcher = format(
