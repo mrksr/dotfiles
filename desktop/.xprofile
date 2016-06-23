@@ -1,19 +1,10 @@
 #!/bin/sh
 
-#############
-#  Keyring  #
-#############
-dbus-update-activation-environment --systemd DISPLAY
-eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
-export GPG_AGENT_INFO SSH_AUTH_SOCK
-
 ##############
 #  Settings  #
 ##############
-xrdb -merge ~/.Xresources
 xsetroot -cursor_name left_ptr
 setxkbmap -layout de -variant nodeadkeys
-xmodmap ~/.Xmodmap
 # No beeping
 xset -b
 # Disable Touchpad
@@ -22,6 +13,5 @@ xinput set-prop "SynPS/2 Synaptics TouchPad" "Device Enabled" 0
 ##############
 #  Programs  #
 ##############
-dex -a &
 redshift -l 48.25:11.65 -t 6300:4800 &
 ~/.bin/gajim_auto_reconnect.sh &
