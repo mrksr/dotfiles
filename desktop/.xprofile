@@ -3,6 +3,8 @@
 ##############
 #  Settings  #
 ##############
+xrdb -merge ~/.Xresources
+xmodmap ~/.Xmodmap
 xsetroot -cursor_name left_ptr
 setxkbmap -layout de -variant nodeadkeys
 # No beeping
@@ -15,3 +17,4 @@ xinput set-prop "SynPS/2 Synaptics TouchPad" "Device Enabled" 0
 ##############
 redshift -l 48.25:11.65 -t 6300:4800 &
 ~/.bin/gajim_auto_reconnect.sh &
+compton -b
