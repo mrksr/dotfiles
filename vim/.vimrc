@@ -57,7 +57,6 @@ Plug 'DoxygenToolkit.vim'
 Plug 'edkolev/tmuxline.vim'
 Plug 'edsono/vim-matchit'
 Plug 'honza/vim-snippets'
-Plug 'jceb/vim-orgmode'
 Plug 'junegunn/vim-easy-align'
 Plug 'justinmk/vim-sneak'
 Plug 'mhinz/vim-sayonara'
@@ -121,7 +120,7 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set background=dark
 if has("gui_running")
-    colorscheme base16-tomorrow
+    colorscheme base16-tomorrow-night
 
     set vb t_vb=
     set background=dark
@@ -129,10 +128,10 @@ if has("gui_running")
 else
     if &t_Co != 256
         let base16colorspace=16
-        colorscheme base16-tomorrow
+        colorscheme base16-tomorrow-night
     else
         let base16colorspace=256
-        colorscheme base16-tomorrow
+        colorscheme base16-tomorrow-night
     endif
 endif
 
