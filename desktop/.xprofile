@@ -15,3 +15,8 @@ xinput set-prop "SynPS/2 Synaptics TouchPad" "Device Enabled" 0
 ##############
 redshift -l 48.25:11.65 -t 6300:4800 &
 ~/.bin/gajim_auto_reconnect.sh &
+
+#############
+#  Autorun  #
+#############
+dex -a &

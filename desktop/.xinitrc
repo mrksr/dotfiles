@@ -28,5 +28,4 @@ dex -a &
 ####################
 #  Window Manager  #
 ####################
-compton -b
 exec "$@"
