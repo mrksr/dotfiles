@@ -5,29 +5,30 @@ local theme = {}
 theme.theme_dir = awful.util.getdir("config") .. "/markus-theme"
 theme.wallpaper = theme.theme_dir .. "/background.png"
 
-theme.font          = "Aller 11"
+theme.font           = "Aller 11"
 
-theme.red           = "#cb575d"
-theme.yellow        = "#e6ac00"
-theme.green         = "#79b31a"
-theme.blue          = "#5294e2"
+theme.red            = "#cb575d"
+theme.yellow         = "#e6ac00"
+theme.green          = "#79b31a"
+theme.blue           = "#5294e2"
 
-theme.bg_normal     = "#2f343f"
-theme.bg_focus      = "#2a4b73"
-theme.bg_urgent     = "#994246"
-theme.bg_minimize   = "#2f343f"
+theme.bg_normal      = "#2f343f"
+theme.bg_focus       = "#2a4b73"
+theme.bg_urgent      = "#994246"
+theme.bg_minimize    = "#2f343f"
 
-theme.fg_normal     = "#e0e4ea"
-theme.fg_focus      = "#ffffff"
-theme.fg_urgent     = "#ffffff"
-theme.fg_minimize   = theme.green
+theme.fg_normal      = "#e0e4ea"
+theme.fg_focus       = "#ffffff"
+theme.fg_urgent      = "#ffffff"
+theme.fg_minimize    = theme.green
 
-theme.border_width  = 4
-theme.border_normal = "#2f343f"
-theme.border_focus  = "#2a4b73"
-theme.border_marked = theme.red
+theme.border_width   = 4
+theme.border_normal  = "#2f343f"
+theme.border_focus   = "#2a4b73"
+theme.border_marked  = theme.red
 
-theme.wibox_height  = 18
+theme.wibox_height   = 18
+theme.wibox_position = "bottom"
 
 -- There are other variable sets
 -- overriding the default one when
