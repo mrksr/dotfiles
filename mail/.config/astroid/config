@@ -1,7 +1,7 @@
 {
     "astroid": {
         "config": {
-            "version": "5"
+            "version": "6"
         },
         "notmuch_config": "\/home\/markus\/.notmuch-config",
         "debug": {
@@ -83,7 +83,8 @@
     },
     "crypto": {
         "gpg": {
-            "path": "gpg2"
+            "path": "gpg2",
+            "always_trust": "true"
         }
     },
     "saved_searches": {
@@ -110,7 +111,8 @@
             "save_drafts_to": "\/home\/markus\/Mail\/zfix-markus\/Drafts\/cur\/",
             "signature_file": "",
             "signature_default_on": "true",
-            "signature_attach": "false"
+            "signature_attach": "false",
+            "always_gpg_sign": "false"
         },
         "intum": {
             "name": "Markus Kaiser",
@@ -124,7 +126,8 @@
             "save_drafts_to": "\/home\/markus\/Mail\/intum\/Drafts\/cur\/",
             "signature_file": "",
             "signature_default_on": "true",
-            "signature_attach": "false"
+            "signature_attach": "false",
+            "always_gpg_sign": "false"
         },
         "tum": {
             "name": "Markus Kaiser",
@@ -138,7 +141,8 @@
             "save_drafts_to": "\/home\/markus\/Mail\/tum\/Drafts\/cur\/",
             "signature_file": "",
             "signature_default_on": "true",
-            "signature_attach": "false"
+            "signature_attach": "false",
+            "always_gpg_sign": "false"
         },
         "kth": {
             "name": "Markus Kaiser",
@@ -152,7 +156,8 @@
             "save_drafts_to": "\/home\/markus\/Mail\/kth\/Drafts\/cur\/",
             "signature_file": "",
             "signature_default_on": "true",
-            "signature_attach": "false"
+            "signature_attach": "false",
+            "always_gpg_sign": "false"
         },
         "pub": {
             "name": "Markus Kaiser",
@@ -166,7 +171,8 @@
             "save_drafts_to": "\/home\/markus\/Mail\/zfix-pub\/Drafts\/cur\/",
             "signature_file": "",
             "signature_default_on": "true",
-            "signature_attach": "false"
+            "signature_attach": "false",
+            "always_gpg_sign": "false"
         },
         "tutor": {
             "name": "Markus Kaiser",
@@ -180,7 +186,8 @@
             "save_drafts_to": "\/home\/markus\/Mail\/zfix-tutor\/Drafts\/cur\/",
             "signature_file": "",
             "signature_default_on": "true",
-            "signature_attach": "false"
+            "signature_attach": "false",
+            "always_gpg_sign": "false"
         }
     }
 }
