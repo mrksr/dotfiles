@@ -101,13 +101,14 @@ if s:fancyPlugins
 endif
 
 " Colorschemes
+Plug 'AlessandroYorba/Sierra'
+Plug 'chriskempson/base16-vim'
 Plug 'ciaranm/inkpot'
-Plug 'Lokaltog/vim-distinguished'
 Plug 'matthewtodd/vim-twilight'
+Plug 'morhetz/gruvbox'
 Plug 'nanotech/jellybeans.vim'
 Plug 'sickill/vim-sunburst'
 Plug 'vim-scripts/synic.vim'
-Plug 'chriskempson/base16-vim'
 call plug#end()
 
 if s:freshInstall
@@ -120,6 +121,10 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set background=dark
 if has("gui_running")
+    " let g:sierra_Midnight = 1
+    " colorscheme sierra
+    " let g:gruvbox_contrast_dark = 'hard'
+    " colorscheme gruvbox
     colorscheme base16-tomorrow-night
 
     set vb t_vb=
