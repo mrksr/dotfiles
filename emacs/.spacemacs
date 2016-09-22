@@ -1,4 +1,3 @@
-;; -*- mode: emacs-lisp -*-
 
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration.
@@ -115,8 +114,15 @@ values."
   (load-theme 'base16-tomorrow-night) ; Switch to proper theme
   (global-linum-mode) ; Show line numbers by default
 
-  (global-set-key "ö" 'helm-mini)
-  (global-set-key "ä" 'projectile-find-file)
+  (define-key evil-normal-state-map (kbd "<escape>") 'evil-search-highlight-persist-remove-all)
+
+  (define-key evil-normal-state-map (kbd "ö") 'helm-mini)
+  (define-key evil-normal-state-map (kbd "ä") 'projectile-find-file)
+
+  (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
+  (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
+  (define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
+  (define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
   )
 
 (custom-set-variables
