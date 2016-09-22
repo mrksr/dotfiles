@@ -31,7 +31,6 @@ values."
       auto-completion-private-snippets-directory "~/.spacemacs.d/snippets/"
       auto-completion-enable-help-tooltip 'manual
       :disabled-for org erc)
-     bibtex
      better-defaults
      (c-c++
       :variables
@@ -40,7 +39,6 @@ values."
      command-log
      emacs-lisp
      (evil-snipe :variables evil-snipe-enable-alternate-f-and-t-behaviors t)
-     fasd
      git
      github
      latex
@@ -51,10 +49,8 @@ values."
      shell
      spell-checking
      syntax-checking
-     systemd
      typography
      version-control
-     yaml-mode
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -252,19 +248,14 @@ values."
    ))
 
 (defun dotspacemacs/user-init ()
-  "Initialization function for user code.
-It is called immediately after `dotspacemacs/init'.  You are free to put almost any
-user code here.  The exception is org related code, which should be placed in
-`dotspacemacs/user-config'."
   )
 
 (defun dotspacemacs/user-config ()
-  "Configuration function for user code.
-This function is called at the very end of Spacemacs initialization after
-layers configuration. You are free to put any user code."
-
   (load-theme 'base16-tomorrow-night) ; Switch to proper theme
   (global-linum-mode) ; Show line numbers by default
+
+  (global-set-key "ö" 'helm-mini)
+  (global-set-key "ä" 'projectile-find-file)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
