@@ -6,6 +6,9 @@
         "notmuch_config": "\/home\/markus\/.notmuch-config",
         "debug": {
             "dryrun_sending": "false"
+        },
+        "hints": {
+            "level": "0"
         }
     },
     "thread_index": {
@@ -53,7 +56,10 @@
             "quote_line": "Forwarding %1's message of %2:",
             "disposition": "inline"
         },
-        "sent_tags": "sent,inbox"
+        "sent_tags": "sent,inbox",
+        "message_id_fqdn": "",
+        "message_id_user": "",
+        "user_agent": "default"
     },
     "poll": {
         "interval": "60"
@@ -79,7 +85,8 @@
         },
         "gravatar": {
             "enable": "true"
-        }
+        },
+        "mark_unread_delay": "0.5"
     },
     "crypto": {
         "gpg": {
