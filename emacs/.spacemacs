@@ -14,7 +14,6 @@ values."
       auto-completion-enable-sort-by-usage t
       auto-completion-return-key-behavior 'complete
       auto-completion-tab-key-behavior 'cycle
-      auto-completion-private-snippets-directory "~/.spacemacs.d/snippets/"
       auto-completion-enable-help-tooltip t
       :disabled-for org erc)
      better-defaults
