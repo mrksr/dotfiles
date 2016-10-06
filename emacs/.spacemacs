@@ -1,8 +1,4 @@
-
 (defun dotspacemacs/layers ()
-  "Configuration Layers declaration.
-You should not put any user code in this function besides modifying the variable
-values."
   (setq-default
    dotspacemacs-distribution 'spacemacs
    dotspacemacs-configuration-layer-path '()
@@ -46,11 +42,6 @@ values."
    dotspacemacs-delete-orphan-packages t))
 
 (defun dotspacemacs/init ()
-  "Initialization function.
-This function is called at the very startup of Spacemacs initialization
-before layers configuration.
-You should not put any user code in there besides modifying the variable
-values."
   (setq-default
    dotspacemacs-elpa-https t
    dotspacemacs-elpa-timeout 5
