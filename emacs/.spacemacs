@@ -11,10 +11,10 @@ values."
      (auto-completion
       :variables
       auto-completion-enable-snippets-in-popup t
-      auto-completion-return-key-behavior nil
+      auto-completion-return-key-behavior 'complete
       auto-completion-tab-key-behavior 'cycle
       auto-completion-private-snippets-directory "~/.spacemacs.d/snippets/"
-      auto-completion-enable-help-tooltip 'manual
+      auto-completion-enable-help-tooltip t
       :disabled-for org erc)
      better-defaults
      (c-c++
@@ -126,6 +126,8 @@ values."
 
   (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
   (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
+
+  (define-key evil-insert-state-map (kbd "C-j" 'hippie-expand))
 
   (advice-add 'TeX-master-file :before #'TeX-set-master-file)
   (add-to-list 'TeX-view-program-selection '(output-pdf "Zathura"))
