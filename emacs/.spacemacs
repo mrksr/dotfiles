@@ -139,6 +139,27 @@
   )
 
 
+(defun TeX-find-master-file ()
+  "Finds the master file for TeX/LaTeX project by searching for '{file-name}.latexmain' in the good directories"
+
+  (let (foundFiles (currPath (expand-file-name "./")) foundFile)
+    (while (and (not foundFiles) (not (equal currPath "/")))
+      (setq foundFiles (directory-files currPath t ".*\.latexmain"))
+      (setq currPath (expand-file-name (concat currPath "../"))))
+    (and
+     (setq foundFile (car foundFiles))
+     (setq foundFile (file-name-sans-extension foundFile)); removing .latexmain extension
+     (file-exists-p foundFile)
+     foundFile))
+  )
+
+
+(defun TeX-set-master-file (&optional ignore1 ignore2 ignore3)
+  "Finds the master file by means of TeX-find-master-file and sets TeX-master to its value"
+  (setq TeX-master (or (TeX-find-master-file) TeX-master))
+  )
+
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -159,24 +180,3 @@
  '(default ((((class color) (min-colors 257)) (:foreground "#F8F8F2" :background "#272822")) (((class color) (min-colors 89)) (:foreground "#F5F5F5" :background "#1B1E1C"))))
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
-
-
-(defun TeX-find-master-file ()
-  "Finds the master file for TeX/LaTeX project by searching for '{file-name}.latexmain' in the good directories"
-
-  (let (foundFiles (currPath (expand-file-name "./")) foundFile)
-    (while (and (not foundFiles) (not (equal currPath "/")))
-      (setq foundFiles (directory-files currPath t ".*\.latexmain"))
-      (setq currPath (expand-file-name (concat currPath "../"))))
-    (and
-     (setq foundFile (car foundFiles))
-     (setq foundFile (file-name-sans-extension foundFile)); removing .latexmain extension
-     (file-exists-p foundFile)
-     foundFile))
-  )
-
-
-(defun TeX-set-master-file (&optional ignore1 ignore2 ignore3)
-  "Finds the master file by means of TeX-find-master-file and sets TeX-master to its value"
-  (setq TeX-master (or (TeX-find-master-file) TeX-master))
-  )
