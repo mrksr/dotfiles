@@ -52,10 +52,10 @@
    dotspacemacs-startup-banner 'official
    dotspacemacs-startup-lists '(recents projects)
    dotspacemacs-startup-recent-list-size 5
-   dotspacemacs-themes '(monokai
+   dotspacemacs-themes '(zenburn
                          base16-tomorrow-night
                          leuven
-                         zenburn)
+                         monokai)
 
    dotspacemacs-colorize-cursor-according-to-state t
    dotspacemacs-default-font '("DeJaVu Sans Mono"
