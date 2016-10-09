@@ -41,6 +41,7 @@
    dotspacemacs-excluded-packages '()
    dotspacemacs-delete-orphan-packages t))
 
+
 (defun dotspacemacs/init ()
   (setq-default
    dotspacemacs-elpa-https t
@@ -98,8 +99,10 @@
    dotspacemacs-whitespace-cleanup 'changed
    ))
 
+
 (defun dotspacemacs/user-init ()
   )
+
 
 (defun dotspacemacs/user-config ()
   (load-theme 'base16-tomorrow-night) ; Switch to proper theme
@@ -130,6 +133,7 @@
     (make-directory (concat spacemacs-cache-directory "undo")))
   )
 
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -151,6 +155,7 @@
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
 
+
 (defun TeX-find-master-file ()
   "Finds the master file for TeX/LaTeX project by searching for '{file-name}.latexmain' in the good directories"
 
@@ -164,6 +169,7 @@
      (file-exists-p foundFile)
      foundFile))
   )
+
 
 (defun TeX-set-master-file (&optional ignore1 ignore2 ignore3)
   "Finds the master file by means of TeX-find-master-file and sets TeX-master to its value"
