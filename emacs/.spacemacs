@@ -155,12 +155,17 @@
     )
 
 
-  ; Auto undo?
-  (setq undo-tree-auto-save-history t
-        undo-tree-history-directory-alist
-        `(("." . ,(concat spacemacs-cache-directory "undo"))))
-  (unless (file-exists-p (concat spacemacs-cache-directory "undo"))
-    (make-directory (concat spacemacs-cache-directory "undo")))
+  (progn
+    ;; Auto undo
+    (setq undo-tree-auto-save-history t
+          undo-tree-history-directory-alist
+          `(("." . ,(concat spacemacs-cache-directory "undo"))))
+    (unless (file-exists-p (concat spacemacs-cache-directory "undo"))
+      (make-directory (concat spacemacs-cache-directory "undo")))
+
+    (add-hook 'find-file-hook 'undo-tree-load-history-hook)
+    (add-hook 'find-file-hook 'global-undo-tree-mode-check-buffers)
+    )
   )
 
 
