@@ -29,8 +29,14 @@
      python
      ranger
      shell
-     spell-checking
-     syntax-checking
+     (spell-checking
+      :variables
+      spell-checking-enable-by-default nil
+      )
+     (syntax-checking
+      :variables
+      syntax-checking-enable-by-default nil
+      )
      typography
      (version-control
       :variables
@@ -52,8 +58,8 @@
    dotspacemacs-startup-banner 0
    dotspacemacs-startup-lists '(projects recents)
    dotspacemacs-startup-recent-list-size 5
-   dotspacemacs-themes '(zenburn
-                         base16-tomorrow-night
+   dotspacemacs-themes '(base16-tomorrow-night
+                         zenburn
                          leuven
                          monokai)
 
@@ -127,6 +133,9 @@
   (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
 
   (define-key evil-insert-state-map (kbd "C-j" 'hippie-expand))
+
+  (remove-hook 'prog-mode-hook #'smartparens-mode)
+  (spacemacs/toggle-smartparens-globally-off)
 
   (advice-add 'TeX-master-file :before #'TeX-set-master-file)
   (add-to-list 'TeX-view-program-selection '(output-pdf "Zathura"))
