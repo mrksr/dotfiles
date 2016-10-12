@@ -111,14 +111,19 @@
 
 
 (defun dotspacemacs/user-config ()
-  (load-theme 'base16-tomorrow-night) ; Switch to proper theme
-  (global-linum-mode) ; Show line numbers by default
+  ; Show line numbers by default
+  (global-linum-mode)
 
-  ;;; scroll one line at a time (less "jumpy" than defaults)
+  ; Scroll one line at a time (less "jumpy" than defaults)
   (setq mouse-wheel-scroll-amount '(4 ((shift) . 1)))
   (setq mouse-wheel-progressive-speed nil)
   (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 
+  ; Disable smartparens
+  (remove-hook 'prog-mode-hook #'smartparens-mode)
+  (spacemacs/toggle-smartparens-globally-off)
+
+  ; Keybindings
   (define-key evil-normal-state-map (kbd "<escape>") 'evil-search-highlight-persist-remove-all)
 
   (define-key evil-normal-state-map (kbd "ö") 'helm-mini)
@@ -134,12 +139,11 @@
 
   (define-key evil-insert-state-map (kbd "C-j") 'hippie-expand)
 
-  (remove-hook 'prog-mode-hook #'smartparens-mode)
-  (spacemacs/toggle-smartparens-globally-off)
-
+  ; TeX master file
   (advice-add 'TeX-master-file :before #'TeX-set-master-file)
   (add-to-list 'TeX-view-program-selection '(output-pdf "Zathura"))
 
+  ; Auto undo?
   (setq undo-tree-auto-save-history t
         undo-tree-history-directory-alist
         `(("." . ,(concat spacemacs-cache-directory "undo"))))
