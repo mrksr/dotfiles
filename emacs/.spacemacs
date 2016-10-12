@@ -41,7 +41,7 @@
      (version-control
       :variables
       version-control-global-margin t
-      version-control-diff-tool 'git-gutter)
+      version-control-diff-tool 'diff-hl)
      )
    dotspacemacs-additional-packages '(base16-theme)
    dotspacemacs-excluded-packages '()
@@ -124,6 +124,8 @@
     ;; Disable smartparens
     (remove-hook 'prog-mode-hook #'smartparens-mode)
     (spacemacs/toggle-smartparens-globally-off)
+
+    (setq diff-hl-side 'left)
     )
 
   (progn
