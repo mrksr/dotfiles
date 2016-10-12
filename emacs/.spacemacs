@@ -132,7 +132,7 @@
   (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
   (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
 
-  (define-key evil-insert-state-map (kbd "C-j" 'hippie-expand))
+  (define-key evil-insert-state-map (kbd "C-j") 'hippie-expand)
 
   (remove-hook 'prog-mode-hook #'smartparens-mode)
   (spacemacs/toggle-smartparens-globally-off)
