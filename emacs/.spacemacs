@@ -41,7 +41,7 @@
      (version-control
       :variables
       version-control-global-margin t
-      version-control-diff-tool 'diff-hl)
+      version-control-diff-tool 'git-gutter)
      )
    dotspacemacs-additional-packages '(base16-theme)
    dotspacemacs-excluded-packages '()
@@ -111,37 +111,47 @@
 
 
 (defun dotspacemacs/user-config ()
-  ; Show line numbers by default
-  (global-linum-mode)
+  (progn
+    ;; Behaviour
+    ;; Show line numbers by default
+    (global-linum-mode)
 
-  ; Scroll one line at a time (less "jumpy" than defaults)
-  (setq mouse-wheel-scroll-amount '(4 ((shift) . 1)))
-  (setq mouse-wheel-progressive-speed nil)
-  (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
+    ;; Scroll one line at a time (less "jumpy" than defaults)
+    (setq mouse-wheel-scroll-amount '(4 ((shift) . 1)))
+    (setq mouse-wheel-progressive-speed nil)
+    (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 
-  ; Disable smartparens
-  (remove-hook 'prog-mode-hook #'smartparens-mode)
-  (spacemacs/toggle-smartparens-globally-off)
+    ;; Disable smartparens
+    (remove-hook 'prog-mode-hook #'smartparens-mode)
+    (spacemacs/toggle-smartparens-globally-off)
+    )
 
-  ; Keybindings
-  (define-key evil-normal-state-map (kbd "<escape>") 'evil-search-highlight-persist-remove-all)
+  (progn
+    ;; Keybindings
+    (define-key evil-normal-state-map (kbd "<escape>") 'evil-search-highlight-persist-remove-all)
 
-  (define-key evil-normal-state-map (kbd "ö") 'helm-mini)
-  (define-key evil-normal-state-map (kbd "ä") 'projectile-find-file)
+    (define-key evil-normal-state-map (kbd "ö") 'helm-mini)
+    (define-key evil-normal-state-map (kbd "ä") 'projectile-find-file)
 
-  (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
-  (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
-  (define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
-  (define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
+    (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
+    (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
+    (define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
+    (define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
 
-  (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
-  (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
+    (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
+    (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
 
-  (define-key evil-insert-state-map (kbd "C-j") 'hippie-expand)
+    (define-key evil-insert-state-map (kbd "C-l") 'hippie-expand)
+    )
 
-  ; TeX master file
-  (advice-add 'TeX-master-file :before #'TeX-set-master-file)
-  (add-to-list 'TeX-view-program-selection '(output-pdf "Zathura"))
+  (progn
+    ;; Layers
+
+    ;; TeX master file
+    (advice-add 'TeX-master-file :before #'TeX-set-master-file)
+    ;; (add-to-list 'TeX-view-program-selection '(output-pdf "Zathura"))
+    )
+
 
   ; Auto undo?
   (setq undo-tree-auto-save-history t
