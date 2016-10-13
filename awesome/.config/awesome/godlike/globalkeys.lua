@@ -34,8 +34,8 @@ local function touchpadToggle()
 end
 
 local function lockSession()
-  -- sexec("light-locker-command -l || dm-tool lock")
-  sexec("i3lock-fancy || i3lock || slimlock")
+    -- sexec("light-locker-command -l || dm-tool lock")
+    sexec("i3lock-fancy -f Aller -s \"scrot -z\" || i3lock || slimlock")
 end
 
 local launcher = format(
