@@ -127,13 +127,14 @@ godlike.globalkeys = awful.util.table.join(
 
     -- The actual cool stuff
     awful.key({ modkey,           }, "c",       function() exec(godlike.terminal) end),
-    awful.key({ modkey,           }, "x",       function() godlike.screens[mouse.screen].promptbox:run() end),
+    awful.key({ modkey,           }, "x",       function() exec(godlike.terminal) end),
     awful.key({ modkey            }, "s",       function ()
                                                     local wibox = godlike.screens[mouse.screen].wibox
                                                     wibox.visible = not wibox.visible
                                                 end),
     awful.key({ modkey,           }, "v",       function() exec("pavucontrol") end),
     awful.key({ modkey,           }, "f",       function() exec("gvim") end),
+    awful.key({ modkey,           }, "g",       function() exec("emacs") end),
     awful.key({                   }, "F11",     function() sexec("rofi -show window") end),
     awful.key({                   }, "F12",     function() sexec(launcher) end)
 )
