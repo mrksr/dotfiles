@@ -42,7 +42,8 @@
      (version-control
       :variables
       version-control-global-margin t
-      version-control-diff-tool 'diff-hl)
+      version-control-diff-tool 'diff-hl
+      vc-follow-symlinks t)
      )
    dotspacemacs-additional-packages '(base16-theme)
    dotspacemacs-excluded-packages '()
@@ -100,7 +101,7 @@
    dotspacemacs-line-numbers t
    dotspacemacs-smartparens-strict-mode nil
    dotspacemacs-highlight-delimiters 'all
-   dotspacemacs-persistent-server nil
+   dotspacemacs-persistent-server t
    dotspacemacs-search-tools '("ag" "pt" "ack" "grep")
    dotspacemacs-default-package-repository nil
    dotspacemacs-whitespace-cleanup 'changed
