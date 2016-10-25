@@ -29,6 +29,7 @@
      org
      python
      ranger
+     semantic
      shell
      (spell-checking
       :variables
