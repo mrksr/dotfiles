@@ -25,7 +25,11 @@
       :variables
       evil-snipe-enable-alternate-f-and-t-behaviors t)
      git
-     latex
+     (latex
+      :variables
+      latex-enable-auto-fill t
+      latex-enable-folding q
+      )
      lua
      markdown
      org
@@ -122,7 +126,9 @@
   (progn
     ;; Behaviour
     ;; Show line numbers by default
-    (global-linum-mode)
+    (global-linum-mode t)
+    ;; Wrap at word boundaries
+    (global-visual-line-mode t)
 
     ;; Scroll one line at a time (less "jumpy" than defaults)
     (setq mouse-wheel-scroll-amount '(4 ((shift) . 1)))
@@ -173,7 +179,9 @@
     ;; Layers
     ;; TeX master file
     (advice-add 'TeX-master-file :before #'TeX-set-master-file)
-    ;; (add-to-list 'TeX-view-program-selection '(output-pdf "Zathura"))
+    (with-eval-after-load "tex"
+      (add-to-list 'TeX-view-program-selection '(output-pdf "Zathura"))
+      )
     )
 
 
