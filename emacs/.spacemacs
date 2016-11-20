@@ -23,7 +23,9 @@
      emacs-lisp
      (evil-snipe
       :variables
-      evil-snipe-enable-alternate-f-and-t-behaviors t)
+      evil-snipe-enable-alternate-f-and-t-behaviors t
+      )
+     fasd
      git
      (latex
       :variables
@@ -33,13 +35,17 @@
      lua
      markdown
      org
-     python
+     (python
+      :variables
+      python-sort-imports-on-save t
+      )
      (ranger
       :variables
       ranger-override-dired t
       )
      semantic
      shell
+     shell-scripts
      (spell-checking
       :variables
       spell-checking-enable-by-default nil
@@ -255,7 +261,7 @@
  '(magit-diff-use-overlays nil)
  '(package-selected-packages
    (quote
-    (ujelly-theme twilight-anti-bright-theme base16-railscast-theme pcache auto-complete git-gutter systemd org-ref key-chord ivy helm-bibtex parsebib dockerfile-mode docker json-mode tablist docker-tramp json-snatcher json-reformat biblio biblio-core stickyfunc-enhance srefactor hide-comnt anaconda-mode auctex anzu async dash lua-mode yasnippet zenburn-theme org gitignore-mode magit-popup yapfify uuidgen py-isort org-projectile org-download mwim live-py-mode link-hint github-search flyspell-correct-helm flyspell-correct eyebrowse evil-visual-mark-mode evil-unimpaired evil-ediff eshell-z dumb-jump column-enforce-mode f with-editor undo-tree s py-yapf bracketed-paste iedit smartparens flycheck projectile helm helm-core markdown-mode magit git-commit hydra monokai-theme xterm-color ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe use-package typo toc-org spacemacs-theme spaceline solarized-theme smooth-scrolling smeargle shell-pop restart-emacs ranger rainbow-delimiters quelpa pyvenv pytest pyenv-mode popwin pip-requirements persp-mode pcre2el paradox page-break-lines orgit org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets open-junk-file neotree multi-term move-text mmm-mode markdown-toc magit-gitflow magit-gh-pulls macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode hy-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-gitignore helm-flyspell helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gist gh-md flycheck-pos-tip flx-ido fill-column-indicator fasd fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-snipe evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-jumper evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu eshell-prompt-extras esh-help elisp-slime-nav disaster diff-hl define-word cython-mode company-statistics company-quickhelp company-c-headers company-auctex company-anaconda command-log-mode cmake-mode clean-aindent-mode clang-format buffer-move base16-theme auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile auctex-latexmk aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
+    (insert-shebang fish-mode grizzl company-shell spinner highlight company ujelly-theme twilight-anti-bright-theme base16-railscast-theme pcache auto-complete git-gutter systemd org-ref key-chord ivy helm-bibtex parsebib dockerfile-mode docker json-mode tablist docker-tramp json-snatcher json-reformat biblio biblio-core stickyfunc-enhance srefactor hide-comnt anaconda-mode auctex anzu async dash lua-mode yasnippet zenburn-theme org gitignore-mode magit-popup yapfify uuidgen py-isort org-projectile org-download mwim live-py-mode link-hint github-search flyspell-correct-helm flyspell-correct eyebrowse evil-visual-mark-mode evil-unimpaired evil-ediff eshell-z dumb-jump column-enforce-mode f with-editor undo-tree s py-yapf bracketed-paste iedit smartparens flycheck projectile helm helm-core markdown-mode magit git-commit hydra monokai-theme xterm-color ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe use-package typo toc-org spacemacs-theme spaceline solarized-theme smooth-scrolling smeargle shell-pop restart-emacs ranger rainbow-delimiters quelpa pyvenv pytest pyenv-mode popwin pip-requirements persp-mode pcre2el paradox page-break-lines orgit org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets open-junk-file neotree multi-term move-text mmm-mode markdown-toc magit-gitflow magit-gh-pulls macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode hy-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-gitignore helm-flyspell helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gist gh-md flycheck-pos-tip flx-ido fill-column-indicator fasd fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-snipe evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-jumper evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu eshell-prompt-extras esh-help elisp-slime-nav disaster diff-hl define-word cython-mode company-statistics company-quickhelp company-c-headers company-auctex company-anaconda command-log-mode cmake-mode clean-aindent-mode clang-format buffer-move base16-theme auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile auctex-latexmk aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
  '(pos-tip-background-color "#A6E22E")
  '(pos-tip-foreground-color "#272822")
  '(vc-annotate-background nil)
