@@ -140,6 +140,9 @@
     ;; Wrap at word boundaries
     (global-visual-line-mode t)
 
+    ;; Always substitute globally
+    (setq-default evil-ex-substitute-global t)
+
     ;; Scroll one line at a time (less "jumpy" than defaults)
     (setq mouse-wheel-scroll-amount '(4 ((shift) . 1)))
     (setq mouse-wheel-progressive-speed nil)
@@ -176,6 +179,13 @@
     (define-key evil-normal-state-map (kbd "C-+") 'spacemacs/scale-up-font)
     (define-key evil-normal-state-map (kbd "C--") 'spacemacs/scale-down-font)
     (define-key evil-normal-state-map (kbd "C-0") 'spacemacs/reset-font-size)
+
+    ;; Paste in visual mode does not override default register
+    (defun evil-paste-after-from-0 ()
+      (interactive)
+      (let ((evil-this-register ?0))
+        (call-interactively 'evil-paste-after)))
+    (define-key evil-visual-state-map "p" 'evil-paste-after-from-0)
     )
 
   (progn
