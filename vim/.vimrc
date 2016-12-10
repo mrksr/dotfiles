@@ -420,6 +420,7 @@ nnoremap <Esc>9 9gt
 
 " Custom leader maps
 nnoremap <silent><leader><leader> :nohl<CR>
+nnoremap <silent><leader>fs :w<cr>
 " Spell Checking
 nnoremap <silent><leader>ss :setlocal spell!<cr>
 nnoremap <silent><leader>sn ]s
