@@ -34,6 +34,7 @@
       )
      lua
      markdown
+     nginx
      org
      (python
       :variables
@@ -60,6 +61,7 @@
       version-control-diff-tool 'diff-hl
       vc-follow-symlinks t
       )
+     yaml
      )
    dotspacemacs-additional-packages '(base16-theme)
    dotspacemacs-excluded-packages '()
