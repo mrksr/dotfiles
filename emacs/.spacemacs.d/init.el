@@ -36,10 +36,7 @@
      markdown
      nginx
      org
-     (python
-      :variables
-      python-sort-imports-on-save t
-      )
+     python
      (ranger
       :variables
       ranger-override-dired t
@@ -84,12 +81,20 @@
                          ujelly
                          base16-default-dark
                          zenburn
-                         monokai)
+                         monokai
+                         )
+
    dotspacemacs-colorize-cursor-according-to-state t
-   dotspacemacs-default-font '("DeJaVu Sans Mono"
-                               :size 15
-                               :weight normal
-                               :powerline-scale 1.2
+   dotspacemacs-default-font '(("DeJaVu Sans Mono"
+                                :size 15
+                                :weight normal
+                                :powerline-scale 1.2
+                                )
+                               ("Consolas"
+                                :size 16
+                                :weight normal
+                                :powerline-scale 1.2
+                                )
                                )
    dotspacemacs-leader-key "SPC"
    dotspacemacs-emacs-leader-key "M-m"
@@ -139,6 +144,8 @@
     (global-linum-mode t)
     ;; Wrap at word boundaries
     (global-visual-line-mode t)
+    ;; Always enable matchit
+    (global-evil-matchit-mode t)
 
     ;; Always substitute globally
     (setq-default evil-ex-substitute-global t)
@@ -186,6 +193,11 @@
       (let ((evil-this-register ?0))
         (call-interactively 'evil-paste-after)))
     (define-key evil-visual-state-map "p" 'evil-paste-after-from-0)
+    )
+
+  (progn
+    ;; Spacemacs leader additions
+    (spacemacs/set-leader-keys "ps" 'helm-multi-swoop-projectile)
     )
 
   (progn
