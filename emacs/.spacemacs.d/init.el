@@ -30,7 +30,7 @@
      (latex
       :variables
       latex-enable-auto-fill t
-      latex-enable-folding q
+      latex-enable-folding t
       )
      lua
      markdown
@@ -61,7 +61,7 @@
      yaml
      )
    dotspacemacs-additional-packages '(base16-theme)
-   dotspacemacs-excluded-packages '()
+   dotspacemacs-excluded-packages '(smartparents)
    dotspacemacs-delete-orphan-packages t))
 
 
@@ -181,11 +181,11 @@
     (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
     (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
 
-    (define-key evil-insert-state-map (kbd "C-l") 'hippie-expand)
-
     (define-key evil-normal-state-map (kbd "C-+") 'spacemacs/scale-up-font)
     (define-key evil-normal-state-map (kbd "C--") 'spacemacs/scale-down-font)
     (define-key evil-normal-state-map (kbd "C-0") 'spacemacs/reset-font-size)
+
+    (define-key evil-insert-state-map (kbd "C-l") 'hippie-expand)
 
     ;; Paste in visual mode does not override default register
     (defun evil-paste-after-from-0 ()
@@ -202,6 +202,13 @@
 
   (progn
     ;; Layers
+
+    ;; TeX indent
+    (with-eval-after-load 'tex
+      (setq tex-indent-basic 4)
+      (setq LaTeX-indent-level 4)
+      )
+
     ;; TeX master file
     (advice-add 'TeX-master-file :before #'TeX-set-master-file)
     (with-eval-after-load 'tex
