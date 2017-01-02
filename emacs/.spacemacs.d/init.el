@@ -36,6 +36,7 @@
      markdown
      nginx
      org
+     php
      python
      (ranger
       :variables
@@ -185,7 +186,8 @@
     (define-key evil-normal-state-map (kbd "C--") 'spacemacs/scale-down-font)
     (define-key evil-normal-state-map (kbd "C-0") 'spacemacs/reset-font-size)
 
-    (define-key evil-insert-state-map (kbd "C-l") 'hippie-expand)
+    (define-key evil-insert-state-map (kbd "C-f") 'hippie-expand)
+    (define-key company-active-map (kbd "C-f") 'hippie-expand)
 
     ;; Paste in visual mode does not override default register
     (defun evil-paste-after-from-0 ()
