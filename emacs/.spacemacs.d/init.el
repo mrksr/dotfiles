@@ -195,6 +195,14 @@
       (let ((evil-this-register ?0))
         (call-interactively 'evil-paste-after)))
     (define-key evil-visual-state-map "p" 'evil-paste-after-from-0)
+
+    ;; C-w should always delete word
+    (with-eval-after-load 'company
+      (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
+      )
+    (with-eval-after-load 'helm
+      (define-key helm-map (kbd "C-w") 'evil-delete-backward-word)
+      )
     )
 
   (progn
@@ -215,13 +223,6 @@
     (advice-add 'TeX-master-file :before #'TeX-set-master-file)
     (with-eval-after-load 'tex
       (add-to-list 'TeX-view-program-selection '(output-pdf "Zathura"))
-      )
-
-    (with-eval-after-load 'company
-      (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
-      )
-    (with-eval-after-load 'helm
-      (define-key helm-map (kbd "C-w") 'evil-delete-backward-word)
       )
     )
 
