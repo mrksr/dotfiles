@@ -9,7 +9,7 @@ end
 
 function formatters.net(_, data)
     local function activeInterface()
-        local interfaces = {"wlp3s0", "enp0s25", "enp3s0"}
+        local interfaces = {"wlp3s0", "enp0s25", "enp3s0", "enp0s3"}
 
         local max = {0, -1}
         for ix, name in pairs(interfaces) do
