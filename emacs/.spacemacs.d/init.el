@@ -87,7 +87,7 @@
 
    dotspacemacs-colorize-cursor-according-to-state t
    dotspacemacs-default-font '(("DeJaVu Sans Mono"
-                                :size 15
+                                :size 24
                                 :weight normal
                                 :powerline-scale 1.2
                                 )
