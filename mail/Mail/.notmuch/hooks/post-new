@@ -1,15 +1,36 @@
 #!/usr/bin/env bash
 
+# flag everything in spam folders as spam
+for f in */; do
+    if [[ -d "$f" ]]; then
+        notmuch tag +spam -- tag:new and folder:${f}Spam
+    fi
+done
+# ignore spam stuff
+notmuch tag -unread -inbox -- tag:new and tag:spam
+
+# Archive my mails
+notmuch tag -inbox -- tag:new and \( \
+    from:markus@zfix.org \
+    or from: markus.kaiser@in.tum.de \
+    or from: markus.kaiser@tum.de \
+    or from: mkaiser@kth.se \
+    \)
+
+# Archive mails I have already seen somewhere else
+notmuch tag -inbox -- tag:new and not tag:unread and not tag:flagged
+
+# Specific tags
+notmuch tag +rl -- tag:new and to:rl-list@googlegroups.com
+notmuch tag +gpy -- tag:new and to:gpy-users@lists.shef.ac.uk
+
 # see https://github.com/guyzmo/notmuch-abook/
-# first update notmuch-abook
+# update notmuch-abook
 if [[ -e $HOME/.vim/bundle/notmuch-abook/pythonx/notmuch_abook.py ]]; then
-    for file in $(notmuch search --output=files tag:new) ; do
+    for file in $(notmuch search --output=files -- tag:new and not tag:spam) ; do
         < $file python2 $HOME/.vim/bundle/notmuch-abook/pythonx/notmuch_abook.py update
     done
 fi
-
-# ignore spam stuff
-notmuch tag -unread -inbox -- tag:spam
 
 # Show notification if possible
 if [[ -x $HOME/.bin/notmuch_notify.sh ]]; then

@@ -16,6 +16,6 @@ export PATH=$HOME/.bin:$HOME/.local/bin:$HOME/.cabal/bin:$PATH
 export EDITOR=vim
 export BROWSER=firefox
 
-if [[ -e .zshenv_local ]]; then
-    source .zshenv_local
+if [[ -e $HOME/.zshenv_local ]]; then
+    source $HOME/.zshenv_local
 fi

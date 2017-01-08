@@ -79,10 +79,10 @@ open-background() {
 }
 alias pdf="open-pdf"
 open-pdf() {
-    local PREFIX=$(eval echo "${1:-.}")
+    local PREFIX=${2:-.}
     local FILE="$(cd $PREFIX;
         find . -name '*.pdf' \
-        | fzf -x )";
+        | fzf -x --select-1 -q "$1" )";
     if [[ -n "$FILE" ]]; then
         open "$PREFIX/$FILE" > /dev/null
         echo "$PREFIX/$FILE"

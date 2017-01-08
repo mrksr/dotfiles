@@ -126,11 +126,18 @@ for si = 1, screen.count() do
     layout_top:set_middle(s.tasklist)
     layout_top:set_right(layout_right)
 
-    if not s.wibox or s.wibox == "top" then
-        s.wibox = awful.wibox({ position = "top", screen = si, height = beautiful.wibox_height })
-    elseif s.wibox == "bottom" then
-        s.wibox = awful.wibox({ position = "bottom", screen = si, height = beautiful.wibox_height })
+    local wibox_position = "top"
+    if s.wibox then
+        wibox_position = s.wibox
+    elseif beautiful.wibox_position then
+        wibox_position = beautiful.wibox_position
     end
+
+    s.wibox = awful.wibox({
+        position = wibox_position,
+        screen = si,
+        height = beautiful.wibox_height
+    })
     s.wibox:set_widget(layout_top)
 end
 
