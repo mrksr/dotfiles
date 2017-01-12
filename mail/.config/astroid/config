@@ -183,20 +183,5 @@
             "signature_attach": "false",
             "always_gpg_sign": "false"
         },
-        "tutor": {
-            "name": "Markus Kaiser",
-            "email": "tutor@zfix.org",
-            "gpgkey": "",
-            "sendmail": "msmtp --read-envelope-from -t",
-            "default": "false",
-            "save_sent": "true",
-            "save_sent_to": "\/home\/markus\/Mail\/zfix-tutor\/Sent\/cur\/",
-            "additional_sent_tags": "",
-            "save_drafts_to": "\/home\/markus\/Mail\/zfix-tutor\/Drafts\/cur\/",
-            "signature_file": "",
-            "signature_default_on": "true",
-            "signature_attach": "false",
-            "always_gpg_sign": "false"
-        }
     }
 }
