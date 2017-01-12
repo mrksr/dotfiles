@@ -182,6 +182,6 @@
             "signature_default_on": "true",
             "signature_attach": "false",
             "always_gpg_sign": "false"
-        },
+        }
     }
 }
