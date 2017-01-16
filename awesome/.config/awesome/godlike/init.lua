@@ -7,8 +7,12 @@ awful.rules = require("awful.rules")
 require("awful.autofocus")
 local wibox = require("wibox")
 local beautiful = require("beautiful")
-local naughty = require("naughty")
 local menubar = require("menubar")
+
+-- Avoid "stealing" notifications from xfce4-notifyd
+local _dbus = dbus; dbus = nil
+local naughty = require("naughty")
+dbus = _dbus
 
 godlike = godlike or {}
 

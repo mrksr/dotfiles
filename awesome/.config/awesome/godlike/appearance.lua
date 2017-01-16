@@ -3,7 +3,10 @@
 local gears     = require("gears")
 local awful     = require("awful")
 local beautiful = require("beautiful")
-local naughty   = require("naughty")
+
+local _dbus = dbus; dbus = nil
+local naughty = require("naughty")
+dbus = _dbus
 
 beautiful.init(awful.util.getdir("config") .. "/markus-theme/theme.lua")
 

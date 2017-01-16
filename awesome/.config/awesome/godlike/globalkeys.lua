@@ -4,7 +4,6 @@
 
 local awful     = require("awful")
 local menubar   = require("menubar")
-local naughty   = require("naughty")
 local beautiful = require("beautiful")
 local lm        = require("godlike.layoutmode")
 local sharetags = require("sharetags")
