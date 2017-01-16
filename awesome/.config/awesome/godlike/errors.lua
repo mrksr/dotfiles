@@ -1,7 +1,10 @@
 -- error handling at the start of awesome
 
 local awful = require("awful")
+
+local _dbus = dbus; dbus = nil
 local naughty = require("naughty")
+dbus = _dbus
 
 if awesome.startup_errors then
     naughty.notify({ preset = naughty.config.presets.critical,

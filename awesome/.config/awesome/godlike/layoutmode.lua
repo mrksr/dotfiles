@@ -1,5 +1,8 @@
 local awful = require("awful")
+
+local _dbus = dbus; dbus = nil
 local naughty = require("naughty")
+dbus = _dbus
 
 local layoutmode = {}
 
