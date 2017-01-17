@@ -31,6 +31,10 @@
       :variables
       latex-enable-auto-fill t
       latex-enable-folding t
+      tex-indent-basic 4
+      LaTeX-indent-level 4
+      LaTeX-item-indent 4
+      TeX-brace-indent-level 4
       )
      lua
      markdown
@@ -217,15 +221,8 @@
   (progn
     ;; Layers
 
-    ;; TeX indent
     (with-eval-after-load 'tex
-      (setq tex-indent-basic 4)
-      (setq LaTeX-indent-level 4)
-      )
-
-    ;; TeX master file
-    (advice-add 'TeX-master-file :before #'TeX-set-master-file)
-    (with-eval-after-load 'tex
+      (advice-add 'TeX-master-file :before #'TeX-set-master-file)
       (add-to-list 'TeX-view-program-selection '(output-pdf "Zathura"))
       )
     )
