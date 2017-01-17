@@ -187,19 +187,23 @@
     (define-key evil-normal-state-map (kbd "C-0") 'spacemacs/reset-font-size)
 
     (define-key evil-insert-state-map (kbd "C-f") 'hippie-expand)
-    (define-key company-active-map (kbd "C-f") 'hippie-expand)
+    (with-eval-after-load 'company
+      (define-key company-active-map (kbd "C-f") 'hippie-expand)
+      )
 
     ;; Paste in visual mode does not override default register
     (defun evil-paste-after-from-0 ()
       (interactive)
       (let ((evil-this-register ?0))
-        (call-interactively 'evil-paste-after)))
+        (call-interactively 'evil-paste-after))
+      )
     (define-key evil-visual-state-map "p" 'evil-paste-after-from-0)
 
     ;; C-w should always delete word
     (with-eval-after-load 'company
       (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
       )
+
     (with-eval-after-load 'helm
       (define-key helm-map (kbd "C-w") 'evil-delete-backward-word)
       )
