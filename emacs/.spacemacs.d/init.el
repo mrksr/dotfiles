@@ -224,6 +224,7 @@
     (with-eval-after-load 'tex
       (advice-add 'TeX-master-file :before #'TeX-set-master-file)
       (add-to-list 'TeX-view-program-selection '(output-pdf "Zathura"))
+      (add-hook 'LaTeX-mode-hook (lambda () local-unset-key "\""))
       )
     )
 
