@@ -33,7 +33,8 @@
       latex-enable-folding t
       tex-indent-basic 4
       LaTeX-indent-level 4
-      LaTeX-item-indent 4
+      LaTeX-indent-tabular 4
+      LaTeX-item-indent 0
       TeX-brace-indent-level 4
       )
      lua
@@ -220,7 +221,11 @@
     (with-eval-after-load 'tex
       (advice-add 'TeX-master-file :before #'TeX-set-master-file)
       (add-to-list 'TeX-view-program-selection '(output-pdf "Zathura"))
-      (add-hook 'LaTeX-mode-hook (lambda () local-unset-key "\""))
+      (setq LaTeX-indent-environment-list
+            (append '(("align") ("align*"))
+                    LaTeX-indent-environment-list
+                    ))
+      (add-hook 'LaTeX-mode-hook '(lambda () (local-unset-key "\"")))
       )
     )
 
