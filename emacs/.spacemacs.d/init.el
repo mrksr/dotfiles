@@ -66,7 +66,7 @@
      yaml
      )
    dotspacemacs-additional-packages '(base16-theme)
-   dotspacemacs-excluded-packages '(smartparents)
+   dotspacemacs-excluded-packages '(smartparens)
    dotspacemacs-delete-orphan-packages t))
 
 
@@ -159,10 +159,6 @@
     (setq mouse-wheel-scroll-amount '(4 ((shift) . 1)))
     (setq mouse-wheel-progressive-speed nil)
     (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
-
-    ;; Disable smartparens
-    (remove-hook 'prog-mode-hook #'smartparens-mode)
-    (spacemacs/toggle-smartparens-globally-off)
 
     ;; Show gitgutter on left hand side
     (setq diff-hl-side 'left)
