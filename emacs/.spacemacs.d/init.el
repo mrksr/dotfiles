@@ -229,6 +229,11 @@
                     ))
       (add-hook 'LaTeX-mode-hook '(lambda () (local-unset-key "\"")))
       )
+    (with-eval-after-load 'reftex
+      (defun reftex-format-cref (label def-fmt ref-style)
+        (format "~\\cref{%s}" label))
+      (setq reftex-format-ref-function 'reftex-format-cref)
+      )
     )
 
   (progn
