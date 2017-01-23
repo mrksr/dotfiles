@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: align environment
+# key: align
+# --
+\begin{align}
+    $1
+\end{align}
+$0

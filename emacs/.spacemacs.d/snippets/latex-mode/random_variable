@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: random variable
+# key: rv
+# --
+\rv{$1}$0
