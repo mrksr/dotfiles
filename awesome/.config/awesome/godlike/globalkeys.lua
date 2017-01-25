@@ -128,7 +128,7 @@ godlike.globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "c",       function() exec(godlike.terminal) end),
     awful.key({ modkey,           }, "x",       function() exec(godlike.terminal) end),
     awful.key({ modkey            }, "s",       function ()
-                                                    local wibox = godlike.screens[mouse.screen].wibox
+                                                    local wibox = godlike.screens[mouse.screen.index].wibox
                                                     wibox.visible = not wibox.visible
                                                 end),
     awful.key({ modkey,           }, "v",       function() exec("pavucontrol") end),
