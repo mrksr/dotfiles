@@ -33,7 +33,8 @@
       latex-enable-folding t
       tex-indent-basic 4
       LaTeX-indent-level 4
-      LaTeX-item-indent 4
+      LaTeX-indent-tabular 4
+      LaTeX-item-indent 0
       TeX-brace-indent-level 4
       )
      lua
@@ -66,7 +67,7 @@
      yaml
      )
    dotspacemacs-additional-packages '(base16-theme)
-   dotspacemacs-excluded-packages '(smartparents)
+   dotspacemacs-excluded-packages '(smartparens)
    dotspacemacs-delete-orphan-packages t))
 
 
@@ -160,10 +161,6 @@
     (setq mouse-wheel-progressive-speed nil)
     (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 
-    ;; Disable smartparens
-    (remove-hook 'prog-mode-hook #'smartparens-mode)
-    (spacemacs/toggle-smartparens-globally-off)
-
     ;; Show gitgutter on left hand side
     (setq diff-hl-side 'left)
 
@@ -185,6 +182,8 @@
 
     (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
     (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
+    (define-key evil-visual-state-map (kbd "j") 'evil-next-visual-line)
+    (define-key evil-visual-state-map (kbd "k") 'evil-previous-visual-line)
 
     (define-key evil-normal-state-map (kbd "C-+") 'spacemacs/scale-up-font)
     (define-key evil-normal-state-map (kbd "C--") 'spacemacs/scale-down-font)
@@ -224,7 +223,16 @@
     (with-eval-after-load 'tex
       (advice-add 'TeX-master-file :before #'TeX-set-master-file)
       (add-to-list 'TeX-view-program-selection '(output-pdf "Zathura"))
-      (add-hook 'LaTeX-mode-hook (lambda () local-unset-key "\""))
+      (setq LaTeX-indent-environment-list
+            (append '(("align") ("align*"))
+                    LaTeX-indent-environment-list
+                    ))
+      (add-hook 'LaTeX-mode-hook '(lambda () (local-unset-key "\"")))
+      )
+    (with-eval-after-load 'reftex
+      (defun reftex-format-cref (label def-fmt ref-style)
+        (format "~\\cref{%s}" label))
+      (setq reftex-format-ref-function 'reftex-format-cref)
       )
     )
 

@@ -1,9 +1,9 @@
 [options]
-font=Code2000 11
-font=Liberation Mono 11
-font=Bitstream Vera Sans Mono 11
-font=DeJaVu Sans Mono 11
-font=Droid Sans Mono 11
+font=Code2000 12
+font=Liberation Mono 12
+font=Bitstream Vera Sans Mono 12
+font=DeJaVu Sans Mono 12
+font=Droid Sans Mono 12
 
 urgent_on_bell=true
 clickable_url=true

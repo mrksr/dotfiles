@@ -6,7 +6,7 @@ Create Both
 SyncState *
 
 Group auto
-    Channels zfix-markus zfix-pub zfix-tutor zfix-game intum tum kth
+    Channels zfix-markus zfix-pub intum tum kth
 
 ############
 #  Markus  #
@@ -48,48 +48,6 @@ MaildirStore zfix-pub-local
 Channel zfix-pub
     Master :zfix-pub-remote:
     Slave :zfix-pub-local:
-    Patterns *
-
-###########
-#  Tutor  #
-###########
-IMAPStore zfix-tutor-remote
-    Host imap.zfix.org
-    User tutor@zfix.org
-    PassCmd "secret-tool lookup service imap user tutor server zfix.org"
-    SSLType STARTTLS
-    SSLVersions TLSv1.2
-    CertificateFile /etc/ssl/certs/ca-certificates.crt
-
-MaildirStore zfix-tutor-local
-    Path ~/Mail/zfix-tutor/
-    Inbox ~/Mail/zfix-tutor/INBOX
-    Trash Trash
-
-Channel zfix-tutor
-    Master :zfix-tutor-remote:
-    Slave :zfix-tutor-local:
-    Patterns *
-
-##########
-#  Game  #
-##########
-IMAPStore zfix-game-remote
-    Host imap.zfix.org
-    User game@zfix.org
-    PassCmd "secret-tool lookup service imap user game server zfix.org"
-    SSLType STARTTLS
-    SSLVersions TLSv1.2
-    CertificateFile /etc/ssl/certs/ca-certificates.crt
-
-MaildirStore zfix-game-local
-    Path ~/Mail/zfix-game/
-    Inbox ~/Mail/zfix-game/INBOX
-    Trash Trash
-
-Channel zfix-game
-    Master :zfix-game-remote:
-    Slave :zfix-game-local:
     Patterns *
 
 ###########

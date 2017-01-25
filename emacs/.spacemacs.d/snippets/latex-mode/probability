@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: probability
+# key: prob
+# --
+\Prob{$1}$0
