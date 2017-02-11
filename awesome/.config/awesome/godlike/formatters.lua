@@ -22,7 +22,11 @@ function formatters.net(_, data)
             end
         end
 
-        return interfaces[max[1]]
+        if max[1] < 0 then
+            return "?"
+        else
+            return interfaces[max[1]]
+        end
     end
 
     local function activeUnit(traffic)

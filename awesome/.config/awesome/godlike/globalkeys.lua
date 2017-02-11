@@ -34,7 +34,7 @@ end
 
 local function lockSession()
     -- sexec("light-locker-command -l || dm-tool lock")
-    sexec("i3lock-fancy -f Aller -- scrot -z || i3lock || slimlock")
+    sexec("i3lock-fancy -p -f Aller -- scrot -z || i3lock || slimlock")
 end
 
 local launcher = format(
@@ -66,7 +66,7 @@ godlike.globalkeys = awful.util.table.join(
     -- Brightness
     awful.key({}, "XF86MonBrightnessUp",  function() sexec("xbacklight -inc 10 -time 100 -steps 10") end),
     awful.key({}, "XF86MonBrightnessDown",function() sexec("xbacklight -dec 10 -time 100 -steps 10") end),
-    awful.key({}, "XF86Display",          function() sexec("xbacklight -set 1") end),
+    awful.key({}, "XF86Display",          function() sexec("xbacklight -set 5") end),
     -- Special Keys
     awful.key({}, "XF86Sleep",            function() sexec("systemctl suspend") end),
     awful.key({}, "XF86ScreenSaver",      lockSession ),

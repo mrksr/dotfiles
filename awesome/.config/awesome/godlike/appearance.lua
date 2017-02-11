@@ -42,4 +42,4 @@ naughty.config.defaults = {
     width = 400,
 }
 
-naughty.config.spacing = 2
+naughty.config.spacing = 4

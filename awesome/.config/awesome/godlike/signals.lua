@@ -68,6 +68,21 @@ for s = 1, screen.count() do screen[s]:connect_signal("arrange", function ()
     end)
 end
 
+------------------------------
+--  No gaps for max layout  --
+------------------------------
+for s = 1, screen.count() do screen[s]:connect_signal("arrange", function ()
+    local layout = awful.layout.getname(awful.layout.get(s))
+    for _, tag in pairs(screen[s].selected_tags) do
+        if layout == "max" then
+            tag.gap = 0
+        else
+            tag.gap = beautiful.useless_gap or 0
+        end
+    end
+    end)
+end
+
 -------------------------------------------------
 --  Don't get (so) confused by sticky windows  --
 -------------------------------------------------
