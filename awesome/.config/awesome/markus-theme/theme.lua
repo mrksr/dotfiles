@@ -3,7 +3,7 @@ local awful = require("awful")
 
 local theme = {}
 theme.theme_dir = awful.util.getdir("config") .. "/markus-theme"
-theme.wallpaper = theme.theme_dir .. "/background.png"
+theme.wallpaper = theme.theme_dir .. "/bird.jpg"
 
 theme.font           = "Aller 11"
 theme.useless_gap    = 4
@@ -14,10 +14,10 @@ theme.yellow         = "#e6ac00"
 theme.green          = "#79b31a"
 theme.blue           = "#5294e2"
 
-theme.bg_normal      = "#2f343f"
-theme.bg_focus       = "#2a4b73"
-theme.bg_urgent      = "#994246"
-theme.bg_minimize    = "#2f343f"
+theme.bg_normal      = "#2f343fAA"
+theme.bg_focus       = "#2a4b73AA"
+theme.bg_urgent      = "#994246AA"
+theme.bg_minimize    = "#2f343fAA"
 
 theme.fg_normal      = "#e0e4ea"
 theme.fg_focus       = "#ffffff"
@@ -29,7 +29,7 @@ theme.border_normal  = "#2f343f"
 theme.border_focus   = "#2a4b73"
 theme.border_marked  = theme.red
 
-theme.wibox_height  = 28
+theme.wibox_height  = 32
 theme.wibox_position = "bottom"
 
 -- There are other variable sets
