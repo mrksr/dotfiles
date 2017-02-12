@@ -6,6 +6,7 @@ local modkey = godlike.modkey
 godlike.clientkeys = awful.util.table.join(
     awful.key({ modkey,           }, "d",      function (c) c:kill()                         end),
     awful.key({ modkey,           }, "e",      function (c) c.fullscreen = not c.fullscreen  end),
+    awful.key({ modkey, "Shift"   }, "e",      function (c) c.maximized = not c.maximized  end),
     awful.key({ modkey,           }, "r",      function (c) c.ontop = not c.ontop            end),
     awful.key({ modkey,           }, "t",      awful.client.floating.toggle                     ),
     awful.key({ modkey,           }, "a",      function (c) c.sticky = not c.sticky          end),
