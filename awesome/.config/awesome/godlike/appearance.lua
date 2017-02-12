@@ -12,7 +12,8 @@ beautiful.init(awful.util.getdir("config") .. "/markus-theme/theme.lua")
 
 if beautiful.wallpaper then
     for s = 1, screen.count() do
-        gears.wallpaper.centered(beautiful.wallpaper, s, "#000000")
+        -- gears.wallpaper.centered(beautiful.wallpaper, s, "#000000")
+        gears.wallpaper.fit(beautiful.wallpaper, s, "#000000")
     end
 end
 
