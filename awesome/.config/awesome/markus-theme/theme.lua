@@ -6,7 +6,7 @@ theme.theme_dir = awful.util.getdir("config") .. "/markus-theme"
 theme.wallpaper = theme.theme_dir .. "/bird.jpg"
 
 theme.font           = "Aller 11"
-theme.useless_gap    = 4
+theme.useless_gap    = 2
 theme.gap_single_client = false
 
 theme.red            = "#cb575d"

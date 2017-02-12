@@ -68,6 +68,44 @@ for s = 1, screen.count() do screen[s]:connect_signal("arrange", function ()
     end)
 end
 
+-------------------------------------
+--  Hide invisible clients in max  --
+-------------------------------------
+for s = 1, screen.count() do screen[s]:connect_signal("arrange", function ()
+    local clients = awful.client.visible(s)
+    local layout = awful.layout.getname(awful.layout.get(s))
+
+    local focused = client.focus
+    local top_of_stack = awful.client.visible(s, true)[1]
+
+    local focused_is_not_tiled = focused and (
+        focused.maximized or
+        focused.floating or
+        focused.above
+        )
+    local top_of_stack_is_not_tiled = top_of_stack and (
+        top_of_stack.maximized or
+        top_of_stack.floating or
+        top_of_stack.above
+        )
+
+    for _, c in pairs(clients) do
+        local is_of_interest = (c == focused) or (c == top_of_stack)
+        local is_not_tiled = (c.maximized or c.floating or c.above)
+        if layout == "max" and (
+                not focused_is_not_tiled and
+                not top_of_stack_is_not_tiled and
+                not is_of_interest and
+                not is_not_tiled
+                ) then
+            c.opacity = 0
+        else
+            c.opacity = 1
+        end
+    end
+end)
+end
+
 ------------------------------
 --  No gaps for max layout  --
 ------------------------------
@@ -91,7 +129,7 @@ for s = 1, screen.count() do
         tag:connect_signal("property::selected", function(tag)
             local focus = client.focus
             if focus and focus.sticky then
-                local first = awful.client.visible(s)[1]
+                local first = awful.client.visible(s, true)[1]
                 for _, c in pairs(awful.client.visible(s)) do
                     if not c.sticky and awful.client.focus.filter(c) then
                         client.focus = c
