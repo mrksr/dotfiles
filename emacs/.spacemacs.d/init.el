@@ -41,7 +41,6 @@
      markdown
      nginx
      org
-     php
      python
      (ranger
       :variables
