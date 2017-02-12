@@ -48,12 +48,12 @@ urxvt.keysym.M-u:                  perl:url-select:select_next
 urxvt.keysym.M-plus:               perl:font-size:increase
 urxvt.keysym.M-minus:              perl:font-size:decrease
 
-rofi.opacity:       95
+rofi.opacity:       90
 rofi.width:         25
 rofi.lines:         5
 rofi.columns:       1
 rofi.eh:            2
-rofi.font:          Aller 15
+rofi.font:          Aller 18
 rofi.color-enabled: true
 rofi.color-window:  #2f343f, #2f343f, #2f343f
 rofi.color-normal:  #2f343f, #e0e4ea, #393f4d, #2a4b73, #ffffff
