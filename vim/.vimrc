@@ -59,7 +59,6 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'honza/vim-snippets'
 Plug 'junegunn/vim-easy-align'
 Plug 'justinmk/vim-sneak'
-Plug 'meitham/vim-spacemacs'
 Plug 'mhinz/vim-sayonara'
 Plug 'mhinz/vim-signify'
 Plug 'mhinz/vim-startify'
@@ -421,6 +420,7 @@ nnoremap <Esc>9 9gt
 
 " Custom leader maps
 nnoremap <silent><leader><leader> :nohl<CR>
+nnoremap <silent><leader>fs :w<cr>
 " Spell Checking
 nnoremap <silent><leader>ss :setlocal spell!<cr>
 nnoremap <silent><leader>sn ]s
