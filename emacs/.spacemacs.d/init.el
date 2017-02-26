@@ -53,6 +53,7 @@
      shell-scripts
      (spell-checking
       :variables
+      spell-checking-enable-auto-dictionary t
       spell-checking-enable-by-default nil
       )
      (syntax-checking
