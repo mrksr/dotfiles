@@ -52,10 +52,10 @@ Plug 'sheerun/vim-polyglot'
 
 " Plugins
 Plug 'argtextobj.vim'
+Plug 'benjifisher/matchit.zip'
 Plug 'coderifous/textobj-word-column.vim'
 Plug 'DoxygenToolkit.vim'
 Plug 'edkolev/tmuxline.vim'
-Plug 'benjifisher/matchit.zip'
 Plug 'honza/vim-snippets'
 Plug 'junegunn/vim-easy-align'
 Plug 'justinmk/vim-sneak'

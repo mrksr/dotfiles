@@ -6,7 +6,7 @@ Create Both
 SyncState *
 
 Group auto
-    Channels zfix-markus zfix-pub intum tum kth
+    Channels zfix-markus zfix-pub intum kth
 
 ############
 #  Markus  #
@@ -69,27 +69,6 @@ MaildirStore intum-local
 Channel intum
     Master :intum-remote:
     Slave :intum-local:
-    Patterns *
-
-###########
-#  mytum  #
-###########
-IMAPStore tum-remote
-    Host mail.mytum.de
-    User ga56baf@mytum.de
-    PassCmd "secret-tool lookup service imap user markus.kaiser server tum.de"
-    SSLType STARTTLS
-    SSLVersions TLSv1.2
-    CertificateFile /etc/ssl/certs/ca-certificates.crt
-
-MaildirStore tum-local
-    Path ~/Mail/tum/
-    Inbox ~/Mail/tum/INBOX
-    Trash Trash
-
-Channel tum
-    Master :tum-remote:
-    Slave :tum-local:
     Patterns *
 
 #########

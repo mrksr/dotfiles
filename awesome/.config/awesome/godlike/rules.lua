@@ -15,8 +15,14 @@ awful.rules.rules = {
                      raise = true,
                      keys = godlike.clientkeys,
                      buttons = godlike.clientbuttons } },
+
     { rule = { class = "pinentry" },
       properties = { floating = true } },
+    { rule = { class = "Gcr-prompter" },
+      properties = { floating = true },
+      callback = function (c)
+        awful.placement.centered(c, nil)
+      end },
 
     { rule = { class = "Pidgin" },
       properties = { tag = godlike.tags[4] } },
