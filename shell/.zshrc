@@ -91,9 +91,11 @@ open-pdf() {
 
 alias texdoco="online-texdoc"
 online-texdoc() {
-    TEMPFILE=$(mktemp -t "online_texdoc.${1}.XXXXX")
-    wget http://texdoc.net/pkg/${1} -O "$TEMPFILE"
-    open-background "$TEMPFILE"
+    DOC_FILE="${TMPDIR:-/tmp}/online_texdoc.${1}.pdf"
+    if [[ ! -f "$DOC_FILE" ]]; then
+        wget http://texdoc.net/pkg/${1} -O "$DOC_FILE"
+    fi
+    open-background "$DOC_FILE"
 }
 
 alias mail="mbsync-update"
