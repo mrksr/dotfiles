@@ -11,21 +11,22 @@ ZSH=$HOME/.oh-my-zsh
 # Hack to use the theme in $HOME
 ZSH_THEME="../../"
 plugins=( \
-    # archlinux \
-    # cp \
-    # debian \
+    autojump \
+    colored-man-pages \
+    docker \
+    docker-compose \
     extract \
-    #last-working-dir \
-    mercurial \
     git \
+    gitignore \
+    mercurial \
+    mosh \
+    pass \
+    pip \
     python \
-    # sbt \
-    # scala \
     screen \
     tmux \
     vi-mode \
     wakeonlan \
-    autojump \
 )
 
 ####################
