@@ -42,9 +42,13 @@ source $ZSH/oh-my-zsh.sh
 ################
 #  Own config  #
 ################
+# Faster switching of vi modes
+KEYTIMEOUT=1
+# All the history...
 HISTSIZE=1000000
 SAVEHIST=1000000
 setopt HIST_IGNORE_SPACE
+# ...and all the globs
 setopt extendedglob
 
 ########################
