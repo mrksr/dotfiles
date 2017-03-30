@@ -168,7 +168,11 @@
     (setq diff-hl-side 'left)
 
     ;; Default to Unix encoding
-    (setq default-buffer-file-coding-system 'utf-8-unix)
+    ;; Why are there so many options for this?
+    (setq-default buffer-file-coding-system 'utf-8-unix)
+    (setq-default default-buffer-file-coding-system 'utf-8-unix)
+    (set-default-coding-systems 'utf-8-unix)
+    (prefer-coding-system 'utf-8-unix)
     )
 
   (progn
@@ -191,6 +195,9 @@
     (define-key evil-normal-state-map (kbd "C-+") 'spacemacs/scale-up-font)
     (define-key evil-normal-state-map (kbd "C--") 'spacemacs/scale-down-font)
     (define-key evil-normal-state-map (kbd "C-0") 'spacemacs/reset-font-size)
+
+    (define-key evil-insert-state-map (kbd "C-<SPC>") 'company-complete)
+    (define-key evil-insert-state-map (kbd "S-<SPC>") 'company-complete)
 
     (define-key evil-insert-state-map (kbd "C-f") 'hippie-expand)
     (with-eval-after-load 'company
