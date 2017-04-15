@@ -9,6 +9,12 @@ godlike.clientkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "e",      function (c) c.maximized = not c.maximized  end),
     awful.key({ modkey,           }, "r",      function (c) c.ontop = not c.ontop            end),
     awful.key({ modkey,           }, "t",      awful.client.floating.toggle                     ),
+    awful.key({ modkey, "Shift"   }, "t",
+      function (c)
+        local maximized = c.maximized_horizontal
+        c.maximized_horizontal = not maximized
+        c.maximized_vertical   = not maximized
+    end),
     awful.key({ modkey,           }, "a",      function (c) c.sticky = not c.sticky          end),
     awful.key({ modkey,           }, "Return", function (c) c:swap(awful.client.getmaster()) end),
     awful.key({ modkey, "Shift"   }, "q",      function (c)
@@ -22,12 +28,7 @@ godlike.clientkeys = awful.util.table.join(
                                                     c:raise()
                                                 end),
     awful.key({ modkey, "Shift"   }, "r",      function (c) c:redraw()                       end),
-    awful.key({ modkey, "Shift"   }, "n",      function (c) c.minimized = not c.minimized    end),
-    awful.key({ modkey, "Shift"   }, "m",
-        function (c)
-            c.maximized_horizontal = not c.maximized_horizontal
-            c.maximized_vertical   = not c.maximized_vertical
-        end)
+    awful.key({ modkey, "Shift"   }, "n",      function (c) c.minimized = not c.minimized    end)
 )
 
 godlike.clientbuttons = awful.util.table.join(
