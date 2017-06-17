@@ -15,9 +15,10 @@ const MAPPINGS = {
     'scroll_half_page_up': 'X',
     'scroll_left': '<c-h>',
     'scroll_right': '<c-l>',
-    'tab_close': 'd',
+    'tab_close_and_focus_next': ['d', 'custom.mode.normal'],
+    'tab_close_and_focus_previous': ['D', 'custom.mode.normal'],
     'tab_restore': 'u',
-    'tab_select_most_recent': 'gl  v',
+    'tab_select_most_recent': 'gl  v  <c-^>',
     'tab_select_next': 'K  gt  ,  L',
     'tab_select_previous': 'J  gT  m  H',
     'go_home': '',
@@ -36,14 +37,11 @@ const QMARKS = {
     'g': 'http://www.zeit.de/index',
     'h': 'http://www.heise.de/',
     'i': 'https://github.com/mrksr',
-    'l': 'http://theo.zfix.org/',
     'o': 'http://stackoverflow.com/',
     'p': 'http://forum.mods.de/bb/index.php',
-    'q': 'http://questionablecontent.net/',
     'r': 'http://www.reddit.com/',
     's': 'http://spikedmath.com/',
     't': 'http://sc2casts.com/top?month',
-    'v': 'http://thedoghousediaries.com/',
     'w': 'https://news.ycombinator.com/news',
     'x': 'https://xkcd.com/',
     'y': 'https://www.youtube.com/feed/subscriptions',
@@ -51,20 +49,7 @@ const QMARKS = {
 }
 
 const FIREFOX_PREFS = {
-    // 'accessibility.blockautorefresh': true,
-    // 'browser.ctrlTab.previews': true,
-    // 'browser.fixup.alternate.enabled': false,
-    // 'browser.search.suggest.enabled': false,
-    // 'browser.startup.page': 3,
-    // 'browser.tabs.animate': false,
-    // 'browser.tabs.closeWindowWithLastTab': false,
-    // 'browser.tabs.warnOnClose': false,
-    // 'browser.urlbar.formatting.enabled': false,
-    // 'devtools.chrome.enabled': true,
-    // 'devtools.command-button-paintflashing.enabled': true,
-    // 'devtools.command-button-measure.enabled': true,
-    // 'devtools.selfxss.count': 0,
-    // 'privacy.donottrackheader.enabled': true,
+    'privacy.donottrackheader.enabled': true,
 }
 
 
@@ -72,6 +57,32 @@ const FIREFOX_PREFS = {
 const {commands} = vimfx.modes.normal
 
 const CUSTOM_COMMANDS = [
+    [
+        {
+            name: 'tab_close_and_focus_next',
+            description: 'Close tab and focus next.',
+            category: 'tabs',
+        },
+        ({vim}) => {
+            let {gBrowser} = vim.window
+            let nextTabIndex = gBrowser.tabContainer.selectedIndex
+            gBrowser.removeCurrentTab()
+            gBrowser.selectTabAtIndex(nextTabIndex)
+        }
+    ],
+    [
+        {
+            name: 'tab_close_and_focus_previous',
+            description: 'Close tab and focus previous.',
+            category: 'tabs',
+        },
+        ({vim}) => {
+            let {gBrowser} = vim.window
+            let previousTabIndex = gBrowser.tabContainer.selectedIndex - 1
+            gBrowser.removeCurrentTab()
+            gBrowser.selectTabAtIndex(previousTabIndex)
+        }
+    ],
 ]
 
 // APPLY THE ABOVE
