@@ -1,9 +1,5 @@
 // IMPORTS
-const {classes: Cc, interfaces: Ci, utils: Cu} = Components
-const nsIStyleSheetService = Cc['@mozilla.org/content/style-sheet-service;1']
-    .getService(Ci.nsIStyleSheetService)
-const globalMessageManager = Cc['@mozilla.org/globalmessagemanager;1']
-    .getService(Ci.nsIMessageListenerManager)
+const {utils: Cu} = Components
 const {Preferences} = Cu.import('resource://gre/modules/Preferences.jsm', {})
 
 
