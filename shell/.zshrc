@@ -67,7 +67,13 @@ alias apt-filesearch="apt-find search"
 alias dmesg="dmesg -L auto"
 alias fzf="fzf -x"
 
-alias ls="ls --color=tty --group-directories-first -h"
+if command -v exa > /dev/null; then
+    alias ls="exa --group-directories-first"
+    alias ll="ls --long --group --header --git"
+    alias l="ll --all"
+else
+    alias ls="ls --color=tty --group-directories-first -h"
+fi
 alias lsd="ls -lhd */"
 
 alias vga="xrandr --output DP2 --right-of eDP1 --auto"
