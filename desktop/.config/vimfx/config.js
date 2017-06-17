@@ -96,13 +96,13 @@ Object.entries(VIMFX_PREFS).forEach(([pref, valueOrFunction]) => {
 Object.entries(QMARKS).forEach(([key, uri]) => {
     vimfx.addCommand({
         name: `qmark_go${key}`,
-        description: `QMark go${key}`,
+        description: `QMark go${key} -> ${uri}`,
     }, ({vim}) => {
         vim.window.gBrowser.loadURI(uri)
     })
     vimfx.addCommand({
         name: `qmark_gn${key}`,
-        description: `QMark gn${key}`,
+        description: `QMark gn${key} -> ${uri}`,
     }, ({vim}) => {
         vim.window.gBrowser.loadOneTab(uri, null, null, null, false)
     })
