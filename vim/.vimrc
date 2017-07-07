@@ -87,8 +87,8 @@ endif
 if s:fancyPlugins
     " Plugins specific to nvim or vim
     if has("nvim")
-        Plug 'floobits/floobits-neovim'
-        Plug 'neomake/neomake'
+        " Plug 'floobits/floobits-neovim'
+        Plug 'w0rp/ale'
         Plug 'Shougo/deoplete.nvim'
         Plug 'zchee/deoplete-jedi'
     else
