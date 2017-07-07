@@ -54,10 +54,10 @@ rofi.columns:       1
 rofi.eh:            2
 rofi.font:          Aller 18
 rofi.color-enabled: true
-rofi.color-window:  #2f343f, #2f343f, #2f343f
-rofi.color-normal:  #2f343f, #e0e4ea, #393f4d, #2a4b73, #ffffff
-rofi.color-active:  #2f343f, #cb575d, #393f4d, #2a4b73, #ff6d75
-rofi.color-urgent:  #2a4b73, #ffffff, #2a4b73, #8092e7, #ffffff
+rofi.color-window:  argb:dd2f343f, argb:dd2f343f, argb:dd2f343f
+rofi.color-normal:  argb:dd2f343f, #e0e4ea, argb:dd393f4d, argb:dd2a4b73, #ffffff
+rofi.color-active:  argb:dd2f343f, #cb575d, argb:dd393f4d, argb:dd2a4b73, #ff6d75
+rofi.color-urgent:  argb:dd2a4b73, #ffffff, argb:dd2a4b73, argb:dd8092e7, #ffffff
 rofi.matching:      fuzzy
 
 ! Base16-Tomorrow
