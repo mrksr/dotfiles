@@ -25,12 +25,15 @@ const MAPPINGS = {
 }
 
 const VIMFX_PREFS = {
+    'prevent_autofocus': true,
     'hints.chars': '12345',
     'prev_patterns': v => `vorherige zurück früher  ${v}`,
     'next_patterns': v => `nächste weiter später  ${v}`,
 }
 
 const QMARKS = {
+    'a': 'about:addons',
+    'q': 'about:downloads',
     'd': 'http://www.phdcomics.com/comics.php',
     'e': 'https://www.lawblog.de/',
     'f': 'https://blog.fefe.de/',
