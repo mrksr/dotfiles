@@ -37,6 +37,7 @@
       LaTeX-item-indent 0
       TeX-brace-indent-level 4
       )
+     ivy
      (lua
       :variables
       lua-indent-level 4
@@ -77,7 +78,7 @@
 (defun dotspacemacs/init ()
   (setq-default
    dotspacemacs-elpa-https t
-   dotspacemacs-elpa-timeout 5
+   dotspacemacs-elpa-timeout 10
    dotspacemacs-check-for-update t
    dotspacemacs-editing-style 'vim
    dotspacemacs-verbose-loading nil

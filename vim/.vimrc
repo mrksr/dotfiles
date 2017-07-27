@@ -147,11 +147,7 @@ if has("gui_running")
 endif
 
 if has("persistent_undo")
-    if has("win32")
-        set undodir=C:\Windows\Temp//
-    else
-        set undodir=~/.vim_local/undodir
-    endif
+    set undodir=~/.vim_local/undodir
     set undofile
 endif
 set noswapfile
