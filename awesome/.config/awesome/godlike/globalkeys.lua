@@ -27,8 +27,9 @@ function view_non_empty(step, s)
 end
 
 local function touchpadToggle()
-    local check = 'xinput list-props "SynPS/2 Synaptics TouchPad" | grep -ce "Device Enabled.*0$"'
-    local toggle = 'xinput set-prop "SynPS/2 Synaptics TouchPad" "Device Enabled" $(' .. check .. ')'
+    local device ='"$(xinput --list --name-only | grep -i Synaptics | head -n 1)"'
+    local check = 'xinput list-props ' .. device .. ' | grep -ce "Device Enabled.*0$"'
+    local toggle = 'xinput set-prop ' .. device .. ' "Device Enabled" $(' .. check .. ')'
     sexec(toggle)
 end
 

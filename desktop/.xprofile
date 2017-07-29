@@ -8,7 +8,7 @@ setxkbmap -layout de -variant nodeadkeys
 # No beeping
 xset -b
 # Disable Touchpad
-xinput set-prop "SynPS/2 Synaptics TouchPad" "Device Enabled" 0
+xinput set-prop "$(xinput --list --name-only | grep -i Synaptics | head -n 1)" "Device Enabled" 0
 
 ##############
 #  Programs  #
