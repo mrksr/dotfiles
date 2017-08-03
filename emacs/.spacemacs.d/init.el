@@ -29,7 +29,8 @@
      git
      (latex
       :variables
-      latex-enable-auto-fill t
+      latex-build-command "LatexMk"
+      latex-enable-auto-fill nil
       latex-enable-folding t
       tex-indent-basic 4
       LaTeX-indent-level 4
@@ -201,6 +202,7 @@
     (define-key evil-insert-state-map (kbd "S-<SPC>") 'company-complete)
 
     (define-key evil-insert-state-map (kbd "C-f") 'hippie-expand)
+    (define-key evil-visual-state-map (kbd "C-f") 'yas-insert-snippet)
     (with-eval-after-load 'company
       (define-key company-active-map (kbd "C-f") 'hippie-expand)
       )

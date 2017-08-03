@@ -3,4 +3,4 @@
 # key: em
 # key: emph
 # --
-\KL{$1}{$2}$0
+\emph{`yas-selected-text`$1}$0
