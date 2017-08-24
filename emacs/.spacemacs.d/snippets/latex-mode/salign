@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: split-align environment
+# key: salign
+# --
+\begin{align}
+\begin{split}
+    $1
+\end{split}
+\end{align}
+$0
