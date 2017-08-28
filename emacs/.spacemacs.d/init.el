@@ -86,27 +86,31 @@
    dotspacemacs-startup-banner 0
    dotspacemacs-startup-lists '(projects recents)
    dotspacemacs-startup-recent-list-size 5
-   dotspacemacs-themes '(sanityinc-tomorrow-night
-                         junio
-                         twilight-anti-bright
-                         ujelly
-                         base16-default-dark
-                         zenburn
-                         monokai
-                         )
+   dotspacemacs-themes
+   '(
+     sanityinc-tomorrow-night
+     junio
+     twilight-anti-bright
+     ujelly
+     base16-default-dark
+     zenburn
+     monokai
+     )
 
    dotspacemacs-colorize-cursor-according-to-state t
-   dotspacemacs-default-font '(("Droid Sans Mono"
-                                :size 16
-                                :weight normal
-                                :powerline-scale 1.2
-                                )
-                               ("Consolas"
-                                :size 16
-                                :weight normal
-                                :powerline-scale 1.2
-                                )
-                               )
+   dotspacemacs-default-font
+   '(
+     ("Droid Sans Mono"
+      :size 16
+      :weight normal
+      :powerline-scale 1.2
+      )
+     ("Consolas"
+      :size 16
+      :weight normal
+      :powerline-scale 1.2
+      )
+     )
    dotspacemacs-leader-key "SPC"
    dotspacemacs-emacs-leader-key "M-m"
    dotspacemacs-major-mode-leader-key ","
@@ -232,7 +236,6 @@
 
   (progn
     ;; Layers
-
     (with-eval-after-load 'tex
       (advice-add 'TeX-master-file :before #'TeX-set-master-file)
       (add-to-list 'TeX-view-program-selection '(output-pdf "Zathura"))
@@ -278,7 +281,6 @@
 
 (defun TeX-find-master-file ()
   "Finds the master file for TeX/LaTeX project by searching for '{file-name}.latexmain' in the good directories"
-
   (let (foundFiles (currPath (expand-file-name "./")) foundFile)
     (while (and (not foundFiles) (not (equal currPath "/")))
       (setq foundFiles (directory-files currPath t ".*\.latexmain"))
