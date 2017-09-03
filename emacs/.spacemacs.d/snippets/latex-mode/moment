@@ -2,4 +2,4 @@
 # name: probabilisitc moment
 # key: moment
 # --
-\Moment{$1}{$2}$0
+\Moment$1{$2}{$3}$0
