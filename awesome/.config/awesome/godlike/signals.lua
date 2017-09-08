@@ -29,13 +29,13 @@ end)
 ----------------------------
 --  Above while floating  --
 ----------------------------
-client.connect_signal("property::floating", function(c)
-    if awful.client.floating.get(c) then
-        c.above = true
-    else
-        c.above = false
-    end
-end)
+-- client.connect_signal("property::floating", function(c)
+--     if awful.client.floating.get(c) then
+--         c.above = true
+--     else
+--         c.above = false
+--     end
+-- end)
 
 client.connect_signal("property::sticky", function(c)
     if c.sticky then
