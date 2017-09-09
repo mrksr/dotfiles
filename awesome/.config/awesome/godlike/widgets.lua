@@ -48,13 +48,13 @@ widgets.clock = wibox.widget.textbox()
 vicious.register(
     widgets.clock,
     vicious.widgets.date,
-    format("%s %s", "%a %d. %b", formatters.colored("%H:%M", beautiful.yellow)),
+    format("%s %s", "%a %e. %b", formatters.colored("%H:%M", beautiful.yellow)),
     5
 )
 vicious.register(
     widgets.brightness,
     brightness,
-    format("%s $3%%", formatters.colored("☀", beautiful.yellow)),
+    format("%s $3%%", formatters.colored("", beautiful.yellow)),
     1,
     "intel_backlight"
 )
@@ -88,14 +88,14 @@ vicious.register(
 vicious.register(
     widgets.wifi,
     vicious.widgets.wifi,
-    format("${ssid} %s ${linp}%%", formatters.colored("⚡", beautiful.yellow)),
+    format("${ssid} %s ${linp}%%", formatters.colored("", beautiful.yellow)),
     5,
     "wlp3s0"
 )
 vicious.register(
     widgets.volume,
     vicious.widgets.volume,
-    format("%s $1%%", formatters.colored("♬", beautiful.yellow)),
+    format("%s $1%%", formatters.colored("", beautiful.yellow)),
     1,
     "Master"
 )

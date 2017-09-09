@@ -18,15 +18,15 @@ godlike.layouts = godlike.layouts or
 }
 
 godlike.tagnames = {
-    'Stuff',
-    'Net',
-    'Term',
-    'IM',
-    'Mail',
-    'Guybrush',
-    'J',
-    'Golgo',
-    'MMXIII'
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    ''
 }
 
 local default_layouts = {

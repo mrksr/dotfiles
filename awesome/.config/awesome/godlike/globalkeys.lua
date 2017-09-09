@@ -38,14 +38,7 @@ local function lockSession()
     sexec("i3lock-fancy -p -f Aller -- scrot -z || i3lock || slimlock")
 end
 
-local launcher = format(
-    'yeganesh -x -- -i -fn "%s" -nb "%s" -nf "%s" -sb "%s" -sf "%s" | /bin/sh',
-    beautiful.font,
-    beautiful.bg_normal,
-    beautiful.fg_normal,
-    beautiful.bg_urgent,
-    beautiful.fg_urgent
-)
+local launcher = 'rofi -show drun'
 
 godlike.globalkeys = awful.util.table.join(
     -- Multimedia
