@@ -90,9 +90,10 @@ mywibox.construct_wibar = function(s)
       layout = wibox.layout.align.horizontal,
       {
         layout = wibox.layout.fixed.horizontal,
-        s.layoutbox,
+        -- s.layoutbox,
         s.taglist,
-        mywidgets.space
+        mywidgets.space,
+        -- mywidgets.separator,
       },
       s.tasklist,
       {

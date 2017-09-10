@@ -46,6 +46,7 @@ theme.taglist_squares_sel = false
 theme.taglist_squares_unsel = false
 theme.taglist_squares_sel_empty = false
 theme.taglist_squares_unsel_empty = false
+theme.taglist_spacing = 2
 
 theme.tasklist_floating_icon = theme.theme_dir .. "/tasklist/floatingw.png"
 
