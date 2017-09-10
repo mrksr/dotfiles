@@ -5,7 +5,7 @@ local theme = {}
 theme.theme_dir = awful.util.getdir("config") .. "/markus-theme"
 theme.wallpaper = theme.theme_dir .. "/bird.jpg"
 
-theme.font           = "Aller 11"
+theme.font           = "Aller 12"
 theme.useless_gap    = 2
 theme.gap_single_client = false
 
@@ -29,7 +29,7 @@ theme.border_normal  = "#2f343f"
 theme.border_focus   = "#2a4b73"
 theme.border_marked  = theme.red
 
-theme.wibox_height   = 20
+theme.wibox_height   = 24
 theme.wibox_position = "bottom"
 
 -- There are other variable sets
