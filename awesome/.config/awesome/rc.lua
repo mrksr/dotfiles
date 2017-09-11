@@ -142,7 +142,8 @@ end
 
 local function lockSession()
   -- awful.spawn("light-locker-command -l || dm-tool lock")
-  awful.spawn("i3lock-fancy -p -f Aller -- scrot -z || i3lock || slimlock")
+  -- awful.spawn("i3lock-fancy -p -f Aller -- scrot -z || i3lock || slimlock")
+  awful.spawn("i3lock-fancy -p -f Aller -- scrot -z")
 end
 
 local launcher = 'rofi -show drun'
