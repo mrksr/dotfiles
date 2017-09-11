@@ -11,7 +11,7 @@ local widgets = {}
 
 -- Separators
 widgets.separator = wibox.widget {
-  markup = formatters.colored("  λ  ", beautiful.blue),
+  markup = formatters.colored(" λ ", beautiful.blue),
   widget = wibox.widget.textbox
 }
 widgets.space = wibox.widget {

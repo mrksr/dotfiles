@@ -15,8 +15,8 @@ function sharetags.move(tag, to_screen)
   if tag.screen and to_screen ~= tag.screen then
     tag.screen = to_screen
     -- switch for all clients on tag
-    for _ , client in ipairs(t:clients()) do
-      if not c.sticky then
+    for _ , client in ipairs(tag:clients()) do
+      if not client.sticky then
         client.screen = to_screen
         client:tags({ tag })
       else
@@ -28,6 +28,7 @@ end
 
 function sharetags.view_only(tag)
   local swap_tag = awful.tag.selected()
+  local was_tag_selected = tag.selected == true
   local tag_original_screen = tag.screen
   local focused_screen = awful.screen.focused()
 
@@ -35,7 +36,7 @@ function sharetags.view_only(tag)
     sharetags.move(tag, focused_screen)
   end
 
-  if swap_tag and tag.selected == true then
+  if swap_tag and was_tag_selected then
     sharetags.move(swap_tag, tag_original_screen)
     awful.tag.viewonly(swap_tag)
   end
