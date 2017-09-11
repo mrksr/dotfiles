@@ -56,46 +56,46 @@ mywibox.layoutboxbuttons = gears.table.join(
         awful.button({}, 5, function() awful.layout.inc(-1) end )
     )
 
-mywibox.construct_wibar = function(s)
-    if not s.layoutbox then
-        s.layoutbox = awful.widget.layoutbox(s)
-        s.layoutbox:buttons(mywibox.layoutboxbuttons)
+mywibox.construct_wibar = function(screen)
+    if not screen.layoutbox then
+        screen.layoutbox = awful.widget.layoutbox(screen)
+        screen.layoutbox:buttons(mywibox.layoutboxbuttons)
     end
 
-    s.taglist = s.taglist or awful.widget.taglist(
-      s,
+    screen.taglist = screen.taglist or awful.widget.taglist(
+      screen,
       awful.widget.taglist.filter.noempty,
       mywibox.taglist_buttons
     )
 
-    s.tasklist = s.tasklist or awful.widget.tasklist(
-      s,
+    screen.tasklist = screen.tasklist or awful.widget.tasklist(
+      screen,
       awful.widget.tasklist.filter.currenttags,
       mywibox.tasklist_buttons
     )
 
     local wibox_position = "top"
-    if s.wibox then
-      wibox_position = s.wibox
+    if screen.wibox then
+      wibox_position = screen.wibox
     elseif beautiful.wibox_position then
       wibox_position = beautiful.wibox_position
     end
 
-    s.wibox = awful.wibox({
+    screen.wibox = awful.wibox({
         position = wibox_position,
-        screen = s,
+        screen = screen,
         height = beautiful.wibox_height
     })
-    s.wibox:setup {
+    screen.wibox:setup {
       layout = wibox.layout.align.horizontal,
       {
         layout = wibox.layout.fixed.horizontal,
-        -- s.layoutbox,
-        s.taglist,
+        -- screen.layoutbox,
+        screen.taglist,
         mywidgets.space,
         -- mywidgets.separator,
       },
-      s.tasklist,
+      screen.tasklist,
       {
         layout = wibox.layout.fixed.horizontal,
         mywidgets.mail_markus,
