@@ -457,6 +457,8 @@ awful.rules.rules = {
       properties = { tag = tag_names[2] } },
     { rule = { class = "Google-chrome-stable" },
       properties = { tag = tag_names[2] } },
+    { rule = { class = "Google-chrome" },
+      properties = { tag = tag_names[2] } },
 
     { rule = { class = "Spotify" },
       properties = { tag = tag_names[9] } },
