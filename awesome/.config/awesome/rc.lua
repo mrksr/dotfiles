@@ -137,13 +137,13 @@ local function touchpadToggle()
   local device ='"$(xinput --list --name-only | grep -i Synaptics | head -n 1)"'
   local check = 'xinput list-props ' .. device .. ' | grep -ce "Device Enabled.*0$"'
   local toggle = 'xinput set-prop ' .. device .. ' "Device Enabled" $(' .. check .. ')'
-  awful.spawn(toggle)
+  awful.spawn.with_shell(toggle)
 end
 
 local function lockSession()
-  -- awful.spawn("light-locker-command -l || dm-tool lock")
-  -- awful.spawn("i3lock-fancy -p -f Aller -- scrot -z || i3lock || slimlock")
-  awful.spawn("i3lock-fancy -p -f Aller -- scrot -z")
+  -- awful.spawn.with_shell("light-locker-command -l || dm-tool lock")
+  -- awful.spawn.with_shell("i3lock-fancy -p -f Aller -- scrot -z || i3lock || slimlock")
+  awful.spawn.with_shell("i3lock-fancy -g -p -f Aller -- maim -u -m 1")
 end
 
 local launcher = 'rofi -show drun'
@@ -198,7 +198,7 @@ globalkeys = gears.table.join(
     awful.key({}, "XF86Tools",            touchpadToggle),
     awful.key({ modkey }, "u",            touchpadToggle),
     ---
-    awful.key({}, "Print",                function() awful.spawn("scrot -mz -e 'mv $f /tmp'") end),
+    awful.key({}, "Print",                function() awful.spawn.with_shell("maim -u /tmp/$(date +%y-%m-%d-%H%M%S)_screen.png") end),
 
     -- Navigation and Focus
     awful.key({ modkey,           }, "Tab",    function() view_non_empty(1, awful.screen.focused()) end),
