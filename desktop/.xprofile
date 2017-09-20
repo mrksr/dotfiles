@@ -15,6 +15,7 @@ xinput set-prop "$(xinput --list --name-only | grep -i Synaptics | head -n 1)" "
 ##############
 redshift -l 48.25:11.65 -t 6300:4800 &
 ~/.bin/gajim_auto_reconnect.sh &
+unclutter &
 
 #############
 #  Autorun  #
