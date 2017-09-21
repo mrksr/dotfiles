@@ -1,18 +1,29 @@
 local ipairs = ipairs
 local awful = require("awful")
+local capi = {
+  screen = screen
+}
 
 local sharetags = { }
 
 function sharetags.create_tags(names, layout)
-  awful.tag(names, 1, layout)
-  sharetags.tags = screen[1].tags
+  local primary = capi.screen.primary
+
+  awful.tag(names, primary, layout)
+  sharetags.tags = primary.tags
   return sharetags.tags
+end
+
+function sharetags.reset_tags(tags)
+  for _, tag in ipairs(tags) do
+    sharetags.move(tag, capi.screen.primary)
+  end
 end
 
 function sharetags.move(tag, to_screen)
   if not tag or not to_screen then return end
 
-  if tag.screen and to_screen ~= tag.screen then
+  if not tag.screen or to_screen ~= tag.screen then
     tag.screen = to_screen
     -- switch for all clients on tag
     for _ , client in ipairs(tag:clients()) do
