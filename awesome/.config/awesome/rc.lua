@@ -86,13 +86,13 @@ awful.layout.layouts = {
 local tag_names = {
   '',
   '',
-  '',
+  '',
   '',
   '',
   '',
   '',
   '',
-  ''
+  ''
 }
 sharetags.create_tags(tag_names, awful.layout.layouts[1])
 awful.screen.connect_for_each_screen(function(s)

@@ -15,7 +15,7 @@ widgets.separator = wibox.widget {
   widget = wibox.widget.textbox
 }
 widgets.space = wibox.widget {
-  markup = "   ",
+  markup = "    ",
   widget = wibox.widget.textbox
 }
 widgets.small_space = wibox.widget {
@@ -24,20 +24,20 @@ widgets.small_space = wibox.widget {
 }
 
 -- Boxes
-widgets.mail_markus = wibox.widget {widget = wibox.widget.textbox}
-widgets.mail_tutor = wibox.widget {widget = wibox.widget.textbox}
-widgets.mail_kth = wibox.widget {widget = wibox.widget.textbox}
-widgets.mail_intum = wibox.widget {widget = wibox.widget.textbox}
-widgets.mail_tum = wibox.widget {widget = wibox.widget.textbox}
-widgets.volume = wibox.widget {widget = wibox.widget.textbox}
-widgets.nowplaying = wibox.widget {widget = wibox.widget.textbox}
-widgets.traffic = wibox.widget {widget = wibox.widget.textbox}
-widgets.wifi = wibox.widget {widget = wibox.widget.textbox}
-widgets.battery0 = wibox.widget {widget = wibox.widget.textbox}
-widgets.battery1 = wibox.widget {widget = wibox.widget.textbox}
-widgets.thermal = wibox.widget {widget = wibox.widget.textbox}
-widgets.brightness = wibox.widget {widget = wibox.widget.textbox}
-widgets.clock = wibox.widget {widget = wibox.widget.textbox}
+widgets.mail_markus = wibox.widget.textbox()
+widgets.mail_tutor = wibox.widget.textbox()
+widgets.mail_kth = wibox.widget.textbox()
+widgets.mail_intum = wibox.widget.textbox()
+widgets.mail_tum = wibox.widget.textbox()
+widgets.volume = wibox.widget.textbox()
+widgets.nowplaying = wibox.widget.textbox()
+widgets.traffic = wibox.widget.textbox()
+widgets.wifi = wibox.widget.textbox()
+widgets.battery0 = wibox.widget.textbox()
+widgets.battery1 = wibox.widget.textbox()
+widgets.thermal = wibox.widget.textbox()
+widgets.brightness = wibox.widget.textbox()
+widgets.clock = wibox.widget.textbox()
 
 -- Widgets
 vicious.register(
@@ -49,21 +49,21 @@ vicious.register(
 vicious.register(
     widgets.brightness,
     brightness,
-    format("%s $3%%", formatters.colored("", beautiful.yellow)),
+    format("%s $3%%", formatters.colored("", beautiful.red)),
     1,
     "intel_backlight"
 )
 vicious.register(
     widgets.thermal,
     vicious.widgets.thermal,
-    format("%s $1%s", formatters.colored("", beautiful.yellow), formatters.colored("°C", beautiful.yellow)),
+    format("%s $1%s", formatters.colored("", beautiful.blue), formatters.colored("<b>°C</b>", beautiful.blue)),
     1,
     "thermal_zone0"
 )
 vicious.register(
     widgets.battery0,
     vicious.widgets.bat,
-    formatters.battery(formatters.colored("", beautiful.yellow)),
+    formatters.battery(formatters.colored("", beautiful.green)),
     1,
     "BAT0"
 )
@@ -81,18 +81,18 @@ vicious.register(
     1
 )
 vicious.register(
-    widgets.wifi,
-    vicious.widgets.wifi,
-    format("%s ${ssid}", formatters.colored("", beautiful.yellow)),
-    5,
-    "wlp3s0"
+  widgets.volume,
+  vicious.widgets.volume,
+  format("%s $1%%", formatters.colored("", beautiful.yellow)),
+  1,
+  "Master"
 )
 vicious.register(
-    widgets.volume,
-    vicious.widgets.volume,
-    format("%s $1%%", formatters.colored("", beautiful.yellow)),
-    1,
-    "Master"
+    widgets.wifi,
+    vicious.widgets.wifi,
+    format("%s ${ssid}", formatters.colored("", beautiful.red)),
+    5,
+    "wlp3s0"
 )
 -- vicious.register(widgets.nowplaying, nowplaying, "$1", 5)
 

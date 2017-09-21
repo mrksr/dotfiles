@@ -56,6 +56,28 @@ mywibox.layoutboxbuttons = gears.table.join(
         awful.button({}, 5, function() awful.layout.inc(-1) end )
     )
 
+mywibox.add_colorbar = function(widget, color)
+  if beautiful.wibox_colorbar_height <= 0 then
+    return widget
+  else
+    if beautiful.wibox_position == "top" then
+      return {
+        layout = wibox.container.margin,
+        top = beautiful.wibox_colorbar_height,
+        color = color,
+        widget
+      }
+    else
+      return {
+        layout = wibox.container.margin,
+        bottom = beautiful.wibox_colorbar_height,
+        color = color,
+        widget
+      }
+    end
+  end
+end
+
 mywibox.construct_wibar = function(screen)
     if not screen.layoutbox then
         screen.layoutbox = awful.widget.layoutbox(screen)
@@ -65,13 +87,31 @@ mywibox.construct_wibar = function(screen)
     screen.taglist = screen.taglist or awful.widget.taglist(
       screen,
       awful.widget.taglist.filter.noempty,
-      mywibox.taglist_buttons
+      mywibox.taglist_buttons,
+      {
+        spacing = 3,
+        fg_focus = beautiful.blue,
+        fg_urgent = beautiful.red,
+        fg_volatile = beautiful.green,
+        bg_occupied = "#00000000",
+        bg_focus = "#00000000",
+        bg_urgent = "#00000000",
+      }
     )
 
     screen.tasklist = screen.tasklist or awful.widget.tasklist(
       screen,
       awful.widget.tasklist.filter.currenttags,
-      mywibox.tasklist_buttons
+      mywibox.tasklist_buttons,
+      {
+        spacing = 3,
+        font_focus = "Aller Bold 12",
+        font_urgent = "Aller Bold 12",
+        bg_normal = "#00000000",
+        bg_focus = "#00000000",
+        bg_urgent = "#00000000",
+        bg_minimize = "#00000000",
+      }
     )
 
     local wibox_position = "top"
@@ -90,35 +130,36 @@ mywibox.construct_wibar = function(screen)
       layout = wibox.layout.align.horizontal,
       {
         layout = wibox.layout.fixed.horizontal,
-        screen.layoutbox,
-        screen.taglist,
         mywidgets.small_space,
+        mywibox.add_colorbar(screen.layoutbox, beautiful.green),
+        mywidgets.space,
+        mywibox.add_colorbar(screen.taglist, beautiful.blue),
+        mywidgets.space,
       },
+      -- mywibox.add_colorbar(screen.tasklist, beautiful.bg_focus),
       screen.tasklist,
       {
         layout = wibox.layout.fixed.horizontal,
-        mywidgets.mail_markus,
-        mywidgets.mail_tutor,
-        mywidgets.mail_kth,
-        mywidgets.mail_intum,
-        mywidgets.mail_tum,
-        -- mywidgets.space,
-        -- mywidgets.nowplaying,
+        mywibox.add_colorbar(mywidgets.mail_markus, beautiful.green),
+        mywibox.add_colorbar(mywidgets.mail_tutor, beautiful.green),
+        mywibox.add_colorbar(mywidgets.mail_kth, beautiful.green),
+        mywibox.add_colorbar(mywidgets.mail_intum, beautiful.green),
+        mywibox.add_colorbar(mywidgets.mail_tum, beautiful.green),
         mywidgets.space,
-        mywidgets.traffic,
+        mywibox.add_colorbar(mywidgets.traffic, beautiful.blue),
         mywidgets.space,
-        mywidgets.wifi,
+        mywibox.add_colorbar(mywidgets.wifi, beautiful.red),
         mywidgets.space,
-        mywidgets.volume,
+        mywibox.add_colorbar(mywidgets.volume, beautiful.yellow),
         mywidgets.space,
-        mywidgets.battery0,
-        mywidgets.battery1,
+        mywibox.add_colorbar(mywidgets.battery0, beautiful.green),
+        mywibox.add_colorbar(mywidgets.battery1, beautiful.green),
         mywidgets.space,
-        mywidgets.thermal,
+        mywibox.add_colorbar(mywidgets.thermal, beautiful.blue),
         mywidgets.space,
-        mywidgets.brightness,
+        mywibox.add_colorbar(mywidgets.brightness, beautiful.red),
         mywidgets.space,
-        mywidgets.clock,
+        mywibox.add_colorbar(mywidgets.clock, beautiful.yellow),
         mywidgets.small_space,
         wibox.widget.systray(),
       },

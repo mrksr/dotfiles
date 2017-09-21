@@ -3,10 +3,10 @@ local awful = require("awful")
 
 local theme = {}
 theme.theme_dir = awful.util.getdir("config") .. "/markus-theme"
-theme.wallpaper = theme.theme_dir .. "/bird.jpg"
+theme.wallpaper = theme.theme_dir .. "/forest.jpg"
 
-theme.font           = "Aller 12"
-theme.useless_gap    = 2
+theme.font              = "Aller 12"
+theme.useless_gap       = 2
 theme.gap_single_client = false
 
 theme.red            = "#cb575d"
@@ -14,23 +14,24 @@ theme.yellow         = "#e6ac00"
 theme.green          = "#79b31a"
 theme.blue           = "#5294e2"
 
-theme.bg_normal      = "#2f343fDD"
-theme.bg_focus       = "#2a4b73DD"
-theme.bg_urgent      = "#994246DD"
-theme.bg_minimize    = "#2f343fDD"
+theme.bg_normal      = "#2f343fCC"
+theme.bg_focus       = theme.bg_normal
+theme.bg_urgent      = theme.bg_normal
+theme.bg_minimize    = theme.bg_normal
 
 theme.fg_normal      = "#e0e4ea"
-theme.fg_focus       = "#ffffff"
-theme.fg_urgent      = "#ffffff"
+theme.fg_focus       = theme.blue
+theme.fg_urgent      = theme.red
 theme.fg_minimize    = theme.green
 
-theme.border_width   = 4
+theme.border_width   = 3
 theme.border_normal  = "#2f343f"
-theme.border_focus   = "#2a4b73"
+theme.border_focus   = theme.blue --"#2a4b73"
 theme.border_marked  = theme.red
 
-theme.wibox_height   = 24
-theme.wibox_position = "bottom"
+theme.wibox_height          = 24
+theme.wibox_position        = "bottom"
+theme.wibox_colorbar_height = 3
 
 -- There are other variable sets
 -- overriding the default one when
