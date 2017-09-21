@@ -75,25 +75,24 @@ mywibox.construct_wibar = function(screen)
     )
 
     local wibox_position = "top"
-    if screen.wibox then
-      wibox_position = screen.wibox
+    if screen.wibar then
+      wibox_position = screen.wibar
     elseif beautiful.wibox_position then
       wibox_position = beautiful.wibox_position
     end
 
-    screen.wibox = awful.wibox({
+    screen.wibar = awful.wibar({
         position = wibox_position,
         screen = screen,
         height = beautiful.wibox_height
     })
-    screen.wibox:setup {
+    screen.wibar:setup({
       layout = wibox.layout.align.horizontal,
       {
         layout = wibox.layout.fixed.horizontal,
         screen.layoutbox,
         screen.taglist,
-        mywidgets.space,
-        -- mywidgets.separator,
+        mywidgets.small_space,
       },
       screen.tasklist,
       {
@@ -103,27 +102,27 @@ mywibox.construct_wibar = function(screen)
         mywidgets.mail_kth,
         mywidgets.mail_intum,
         mywidgets.mail_tum,
-        -- mywidgets.separator,
+        -- mywidgets.space,
         -- mywidgets.nowplaying,
-        mywidgets.separator,
+        mywidgets.space,
         mywidgets.traffic,
-        mywidgets.separator,
+        mywidgets.space,
         mywidgets.wifi,
-        mywidgets.separator,
+        mywidgets.space,
         mywidgets.volume,
-        mywidgets.separator,
+        mywidgets.space,
         mywidgets.battery0,
         mywidgets.battery1,
-        mywidgets.separator,
-        mywidgets.thermal,
-        mywidgets.separator,
-        mywidgets.brightness,
-        mywidgets.separator,
-        mywidgets.clock,
         mywidgets.space,
+        mywidgets.thermal,
+        mywidgets.space,
+        mywidgets.brightness,
+        mywidgets.space,
+        mywidgets.clock,
+        mywidgets.small_space,
         wibox.widget.systray(),
       },
-    }
+    })
 end
 
 return mywibox

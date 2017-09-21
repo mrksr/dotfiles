@@ -15,6 +15,10 @@ widgets.separator = wibox.widget {
   widget = wibox.widget.textbox
 }
 widgets.space = wibox.widget {
+  markup = "   ",
+  widget = wibox.widget.textbox
+}
+widgets.small_space = wibox.widget {
   markup = " ",
   widget = wibox.widget.textbox
 }
