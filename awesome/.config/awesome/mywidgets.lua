@@ -39,7 +39,7 @@ widgets.clock = wibox.widget {widget = wibox.widget.textbox}
 vicious.register(
     widgets.clock,
     vicious.widgets.date,
-    format("%s %s", "%a %e. %b", formatters.colored("%H:%M", beautiful.yellow)),
+    format("%s %s %s", formatters.colored("", beautiful.yellow), "%a %e. %b", formatters.colored("%H:%M", beautiful.yellow)),
     5
 )
 vicious.register(
@@ -52,21 +52,21 @@ vicious.register(
 vicious.register(
     widgets.thermal,
     vicious.widgets.thermal,
-    format("$1%s", formatters.colored("°C", beautiful.yellow)),
+    format("%s $1%s", formatters.colored("", beautiful.yellow), formatters.colored("°C", beautiful.yellow)),
     1,
     "thermal_zone0"
 )
 vicious.register(
     widgets.battery0,
     vicious.widgets.bat,
-    formatters.battery,
+    formatters.battery(formatters.colored("", beautiful.yellow)),
     1,
     "BAT0"
 )
 vicious.register(
     widgets.battery1,
     vicious.widgets.bat,
-    formatters.battery,
+    formatters.battery(" "),
     1,
     "BAT1"
 )
@@ -79,7 +79,7 @@ vicious.register(
 vicious.register(
     widgets.wifi,
     vicious.widgets.wifi,
-    format("${ssid} %s ${linp}%%", formatters.colored("", beautiful.yellow)),
+    format("%s ${ssid}", formatters.colored("", beautiful.yellow)),
     5,
     "wlp3s0"
 )

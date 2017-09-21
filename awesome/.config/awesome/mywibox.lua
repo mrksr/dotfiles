@@ -113,7 +113,6 @@ mywibox.construct_wibar = function(screen)
         mywidgets.volume,
         mywidgets.separator,
         mywidgets.battery0,
-        mywidgets.separator,
         mywidgets.battery1,
         mywidgets.separator,
         mywidgets.thermal,
