@@ -257,8 +257,8 @@ globalkeys = gears.table.join(
     awful.key({ modkey,           }, "c",       function() awful.spawn(terminal) end),
     awful.key({ modkey,           }, "x",       function() awful.spawn(terminal) end),
     awful.key({ modkey            }, "s",       function ()
-                                                    local wibox = awful.screen.focused().wibox
-                                                    wibox.visible = not wibox.visible
+                                                    local wibar = awful.screen.focused().wibar
+                                                    wibar.visible = not wibar.visible
                                                 end),
     awful.key({ modkey,           }, "v",       function() awful.spawn("pavucontrol") end),
     awful.key({ modkey,           }, "f",       function() awful.spawn("gvim") end),
