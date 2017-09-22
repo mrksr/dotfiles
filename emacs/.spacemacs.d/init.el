@@ -29,7 +29,8 @@
      git
      (latex
       :variables
-      latex-enable-auto-fill t
+      latex-build-command "LatexMk"
+      latex-enable-auto-fill nil
       latex-enable-folding t
       tex-indent-basic 4
       LaTeX-indent-level 4
@@ -85,27 +86,31 @@
    dotspacemacs-startup-banner 0
    dotspacemacs-startup-lists '(projects recents)
    dotspacemacs-startup-recent-list-size 5
-   dotspacemacs-themes '(sanityinc-tomorrow-night
-                         junio
-                         twilight-anti-bright
-                         ujelly
-                         base16-default-dark
-                         zenburn
-                         monokai
-                         )
+   dotspacemacs-themes
+   '(
+     sanityinc-tomorrow-night
+     junio
+     twilight-anti-bright
+     ujelly
+     base16-default-dark
+     zenburn
+     monokai
+     )
 
    dotspacemacs-colorize-cursor-according-to-state t
-   dotspacemacs-default-font '(("Droid Sans Mono"
-                                :size 24
-                                :weight normal
-                                :powerline-scale 1.2
-                                )
-                               ("Consolas"
-                                :size 16
-                                :weight normal
-                                :powerline-scale 1.2
-                                )
-                               )
+   dotspacemacs-default-font
+   '(
+     ("Droid Sans Mono"
+      :size 24
+      :weight normal
+      :powerline-scale 1.2
+      )
+     ("Consolas"
+      :size 16
+      :weight normal
+      :powerline-scale 1.2
+      )
+     )
    dotspacemacs-leader-key "SPC"
    dotspacemacs-emacs-leader-key "M-m"
    dotspacemacs-major-mode-leader-key ","
@@ -174,6 +179,10 @@
     (setq-default default-buffer-file-coding-system 'utf-8-unix)
     (set-default-coding-systems 'utf-8-unix)
     (prefer-coding-system 'utf-8-unix)
+
+    ;; Toggleable things
+    (setq-default spaceline-minor-modes-p nil)
+    (indent-guide-global-mode)
     )
 
   (progn
@@ -201,6 +210,7 @@
     (define-key evil-insert-state-map (kbd "S-<SPC>") 'company-complete)
 
     (define-key evil-insert-state-map (kbd "C-f") 'hippie-expand)
+    (define-key evil-visual-state-map (kbd "C-f") 'yas-insert-snippet)
     (with-eval-after-load 'company
       (define-key company-active-map (kbd "C-f") 'hippie-expand)
       )
@@ -230,7 +240,6 @@
 
   (progn
     ;; Layers
-
     (with-eval-after-load 'tex
       (advice-add 'TeX-master-file :before #'TeX-set-master-file)
       (add-to-list 'TeX-view-program-selection '(output-pdf "Zathura"))
@@ -276,7 +285,6 @@
 
 (defun TeX-find-master-file ()
   "Finds the master file for TeX/LaTeX project by searching for '{file-name}.latexmain' in the good directories"
-
   (let (foundFiles (currPath (expand-file-name "./")) foundFile)
     (while (and (not foundFiles) (not (equal currPath "/")))
       (setq foundFiles (directory-files currPath t ".*\.latexmain"))

@@ -71,6 +71,8 @@ if command -v exa > /dev/null; then
     alias ls="exa --group-directories-first"
     alias ll="ls --long --group --header --git"
     alias l="ll --all"
+
+    alias tree="exa --long --tree"
 else
     alias ls="ls --color=tty --group-directories-first -h"
 fi

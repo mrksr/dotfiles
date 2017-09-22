@@ -1,0 +1,204 @@
+[bar/default]
+width = 100%
+height = 30
+offset-x = 0
+offset-y = 0
+bottom = true
+
+background = #88000000
+foreground = #EEE
+
+underline-size = 2
+underline-color = #eee
+
+spacing = 0
+padding = 0
+module-margin = 0
+
+font-0 = Aller:size=12;0
+font-1 = FontAwesome:size=12;0
+font-2 = siji:pixelsize=12;0
+
+modules-left = wm xwindow
+modules-center =
+modules-right = network battery battery2 backlight volume date
+
+tray-position = right
+tray-padding = 3
+
+; override-redirect = true
+wm-restack = i3
+
+
+[module/wm]
+type = internal/i3
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+
+format = <label-state> <label-mode>
+
+label-focused = %icon%
+label-focused-background = #66333333
+label-focused-underline= #ddd
+label-focused-padding = 4
+
+label-unfocused = %icon%
+label-unfocused-padding = 4
+
+label-urgent = %icon%
+label-urgent-padding = 4
+
+label-visible = %icon%
+label-visible-padding = 4
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:120:...%
+label-padding = 4
+
+[module/date]
+type = internal/date
+
+; Seconds to sleep between updates
+interval = 5
+
+; See "man date" for details on how to format the date string
+; NOTE: if you want to use syntax tags here you need to use %%{...}
+date = %a %d. %b
+date-alt = %Y-%m-%d
+
+; Optional time format
+time = %H:%M
+time-alt = %H:%M:%S
+
+label = %date% %time%
+format =   <label>
+;format-background = #ddffffff
+format-background = #88000000
+;format-foreground = #333
+format-padding = 3
+
+[module/battery2]
+type = internal/battery
+full-at = 77
+
+battery = BAT1
+adapter = AC
+
+poll-interval = 5
+
+time-format = %H:%M
+format-charging = <animation-charging>  <label-charging>
+format-discharging = <ramp-capacity>  <label-discharging>
+format-full = <ramp-capacity>  <label-full>
+label-charging = %percentage% - %time%
+label-discharging = %percentage% - %time%
+label-full = %percentage%
+format-charging-padding = 3
+format-discharging-padding = 3
+format-full-padding = 3
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750
+
+[module/battery]
+type = internal/battery
+full-at = 98
+
+battery = BAT0
+adapter = AC
+
+poll-interval = 5
+
+time-format = %H:%M
+format-charging = <animation-charging>  <label-charging>
+format-discharging = <ramp-capacity>  <label-discharging>
+format-full = <ramp-capacity>  <label-full>
+label-charging = %percentage% - %time%
+label-discharging = %percentage% - %time%
+label-full = %percentage%
+format-charging-padding = 3
+format-discharging-padding = 3
+format-full-padding = 3
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750
+
+[module/backlight]
+type = internal/xbacklight
+
+format = <ramp> <label>
+label = %percentage%
+format-padding = 3
+
+ramp-0 = 🌕
+ramp-1 = 🌔
+ramp-2 = 🌓
+ramp-3 = 🌒
+ramp-4 = 🌑
+
+[module/volume]
+type = internal/volume
+
+format-volume = <ramp-volume>  <label-volume>
+format-muted = <label-muted>
+label-volume = %percentage%
+label-muted =   muted
+label-muted-foreground = #aaa
+format-volume-padding = 3
+format-muted-padding = 3
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-headphones-0 = 
+
+[module/network]
+type = internal/network
+interface = wlp3s0
+
+interval = 3.0
+;ping-interval = 3
+
+udspeed-minwidth = 6
+accumulate-stats = true
+
+format-connected = <ramp-signal> <label-connected>
+format-disconnected = <label-disconnected>
+format-packetloss = <label-packetloss>
+format-padding = 3
+
+label-connected = %essid%  %downspeed% %upspeed%
+label-disconnected = 
+label-packetloss = %essid% 
+
+; Only applies if <ramp-signal> is used
+ramp-signal-0 = 
