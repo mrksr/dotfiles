@@ -41,59 +41,59 @@ widgets.clock = wibox.widget.textbox()
 
 -- Widgets
 vicious.register(
-    widgets.clock,
-    vicious.widgets.date,
-    format("%s %s %s", formatters.colored("", beautiful.yellow), "%a %e. %b", formatters.colored("%H:%M", beautiful.yellow)),
-    5
+  widgets.clock,
+  vicious.widgets.date,
+  format("%s %s %s", formatters.colored("", beautiful.yellow), "%a %e. %b", formatters.colored("%H:%M", beautiful.yellow)),
+  5
 )
 vicious.register(
-    widgets.brightness,
-    brightness,
-    format("%s $3%%", formatters.colored("", beautiful.red)),
-    1,
-    "intel_backlight"
+  widgets.brightness,
+  brightness,
+  format("%s $3%%", formatters.colored("", beautiful.red)),
+  1,
+  "intel_backlight"
 )
 vicious.register(
-    widgets.thermal,
-    vicious.widgets.thermal,
-    format("%s $1%s", formatters.colored("", beautiful.blue), formatters.colored("<b>°C</b>", beautiful.blue)),
-    5,
-    "thermal_zone0"
+  widgets.thermal,
+  vicious.widgets.thermal,
+  format("%s $1%s", formatters.colored("", beautiful.blue), formatters.colored("<b>°C</b>", beautiful.blue)),
+  5,
+  "thermal_zone0"
 )
 vicious.register(
-    widgets.battery0,
-    vicious.widgets.bat,
-    formatters.battery(formatters.colored("", beautiful.green)),
-    2,
-    "BAT0"
+  widgets.battery0,
+  vicious.widgets.bat,
+  formatters.battery(formatters.colored("", beautiful.green)),
+  2,
+  "BAT0"
 )
 vicious.register(
-    widgets.battery1,
-    vicious.widgets.bat,
-    formatters.battery(" "),
-    2,
-    "BAT1"
+  widgets.battery1,
+  vicious.widgets.bat,
+  formatters.battery(" "),
+  2,
+  "BAT1"
 )
 vicious.register(
-    widgets.traffic,
-    vicious.widgets.net,
-    formatters.net,
-    2
+  widgets.traffic,
+  vicious.widgets.net,
+  formatters.net,
+  2
 )
 vicious.register(
-    widgets.volume,
-    vicious.widgets.volume,
-    formatters.volume,
-    -- format("%s $1%% $2", formatters.colored("", beautiful.yellow)),
-    1,
-    "Master"
+  widgets.volume,
+  vicious.widgets.volume,
+  formatters.volume,
+  -- format("%s $1%% $2", formatters.colored("", beautiful.yellow)),
+  1,
+  "Master"
 )
 vicious.register(
-    widgets.wifi,
-    vicious.widgets.wifi,
-    format("%s ${ssid}", formatters.colored("", beautiful.red)),
-    5,
-    "wlp3s0"
+  widgets.wifi,
+  vicious.widgets.wifi,
+  format("%s ${ssid}", formatters.colored("", beautiful.red)),
+  5,
+  "wlp3s0"
 )
 -- vicious.register(widgets.nowplaying, nowplaying, "$1", 5)
 

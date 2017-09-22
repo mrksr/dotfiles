@@ -50,11 +50,11 @@ mywibox.tasklist_buttons = gears.table.join(
 end))
 
 mywibox.layoutboxbuttons = gears.table.join(
-        awful.button({}, 1, function() awful.layout.inc( 1) end ),
-        awful.button({}, 3, function() awful.layout.inc(-1) end ),
-        awful.button({}, 4, function() awful.layout.inc( 1) end ),
-        awful.button({}, 5, function() awful.layout.inc(-1) end )
-    )
+  awful.button({}, 1, function() awful.layout.inc( 1) end ),
+  awful.button({}, 3, function() awful.layout.inc(-1) end ),
+  awful.button({}, 4, function() awful.layout.inc( 1) end ),
+  awful.button({}, 5, function() awful.layout.inc(-1) end )
+)
 
 mywibox.add_colorbar = function(widget, color)
   if beautiful.wibox_colorbar_height <= 0 then
@@ -79,54 +79,54 @@ mywibox.add_colorbar = function(widget, color)
 end
 
 mywibox.construct_wibar = function(screen)
-    if not screen.layoutbox then
-        screen.layoutbox = awful.widget.layoutbox(screen)
-        screen.layoutbox:buttons(mywibox.layoutboxbuttons)
-    end
+  if not screen.layoutbox then
+    screen.layoutbox = awful.widget.layoutbox(screen)
+    screen.layoutbox:buttons(mywibox.layoutboxbuttons)
+  end
 
-    screen.taglist = screen.taglist or awful.widget.taglist(
-      screen,
-      awful.widget.taglist.filter.noempty,
-      mywibox.taglist_buttons,
-      {
-        spacing = 3,
-        fg_focus = beautiful.blue,
-        fg_urgent = beautiful.red,
-        fg_volatile = beautiful.green,
-        bg_occupied = "#00000000",
-        bg_focus = "#00000000",
-        bg_urgent = "#00000000",
-      }
-    )
+  screen.taglist = screen.taglist or awful.widget.taglist(
+    screen,
+    awful.widget.taglist.filter.noempty,
+    mywibox.taglist_buttons,
+    {
+      spacing = 3,
+      fg_focus = beautiful.blue,
+      fg_urgent = beautiful.red,
+      fg_volatile = beautiful.green,
+      bg_occupied = "#00000000",
+      bg_focus = "#00000000",
+      bg_urgent = "#00000000",
+    }
+                                                         )
 
-    screen.tasklist = screen.tasklist or awful.widget.tasklist(
-      screen,
-      awful.widget.tasklist.filter.currenttags,
-      mywibox.tasklist_buttons,
-      {
-        spacing = 3,
-        font_focus = "Aller Bold 12",
-        font_urgent = "Aller Bold 12",
-        bg_normal = "#00000000",
-        bg_focus = "#00000000",
-        bg_urgent = "#00000000",
-        bg_minimize = "#00000000",
-      }
-    )
+  screen.tasklist = screen.tasklist or awful.widget.tasklist(
+    screen,
+    awful.widget.tasklist.filter.currenttags,
+    mywibox.tasklist_buttons,
+    {
+      spacing = 3,
+      font_focus = "Aller Bold 12",
+      font_urgent = "Aller Bold 12",
+      bg_normal = "#00000000",
+      bg_focus = "#00000000",
+      bg_urgent = "#00000000",
+      bg_minimize = "#00000000",
+    }
+                                                            )
 
-    local wibox_position = "top"
-    if screen.wibar then
-      wibox_position = screen.wibar
-    elseif beautiful.wibox_position then
-      wibox_position = beautiful.wibox_position
-    end
+  local wibox_position = "top"
+  if screen.wibar then
+    wibox_position = screen.wibar
+  elseif beautiful.wibox_position then
+    wibox_position = beautiful.wibox_position
+  end
 
-    screen.wibar = awful.wibar({
-        position = wibox_position,
-        screen = screen,
-        height = beautiful.wibox_height
-    })
-    screen.wibar:setup({
+  screen.wibar = awful.wibar({
+      position = wibox_position,
+      screen = screen,
+      height = beautiful.wibox_height
+  })
+  screen.wibar:setup({
       layout = wibox.layout.align.horizontal,
       {
         layout = wibox.layout.fixed.horizontal,
@@ -163,7 +163,7 @@ mywibox.construct_wibar = function(screen)
         mywidgets.small_space,
         wibox.widget.systray(),
       },
-    })
+  })
 end
 
 return mywibox
