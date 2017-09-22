@@ -136,4 +136,16 @@ function formatters.mail(name)
     return fmt
 end
 
+function formatters.volume(_, data)
+  local function is_muted()
+    return data[2] == "♩"
+  end
+
+  if is_muted() then
+    return format("%s %s", formatters.colored("", beautiful.yellow), formatters.colored("", beautiful.red))
+  else
+    return format("%s %s%%", formatters.colored("", beautiful.yellow), data[1])
+  end
+end
+
 return formatters

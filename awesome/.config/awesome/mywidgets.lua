@@ -57,35 +57,36 @@ vicious.register(
     widgets.thermal,
     vicious.widgets.thermal,
     format("%s $1%s", formatters.colored("", beautiful.blue), formatters.colored("<b>°C</b>", beautiful.blue)),
-    1,
+    5,
     "thermal_zone0"
 )
 vicious.register(
     widgets.battery0,
     vicious.widgets.bat,
     formatters.battery(formatters.colored("", beautiful.green)),
-    1,
+    2,
     "BAT0"
 )
 vicious.register(
     widgets.battery1,
     vicious.widgets.bat,
     formatters.battery(" "),
-    1,
+    2,
     "BAT1"
 )
 vicious.register(
     widgets.traffic,
     vicious.widgets.net,
     formatters.net,
-    1
+    2
 )
 vicious.register(
-  widgets.volume,
-  vicious.widgets.volume,
-  format("%s $1%%", formatters.colored("", beautiful.yellow)),
-  1,
-  "Master"
+    widgets.volume,
+    vicious.widgets.volume,
+    formatters.volume,
+    -- format("%s $1%% $2", formatters.colored("", beautiful.yellow)),
+    1,
+    "Master"
 )
 vicious.register(
     widgets.wifi,
