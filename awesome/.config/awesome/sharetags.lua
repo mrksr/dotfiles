@@ -32,7 +32,7 @@ function sharetags.sort_tags(screen)
   local tags_copy = {unpack(screen.tags)}
   table.sort(tags_copy, function(a, b) return a.shared_index < b.shared_index end)
 
-  for ix, tag in ipars(tags_copy) do
+  for ix, tag in ipairs(tags_copy) do
     tag.index = ix
   end
 end
