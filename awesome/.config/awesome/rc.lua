@@ -242,7 +242,6 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Control" }, "l",       function() awful.tag.incncol(-1) end),
 
     awful.key({ modkey, "Control" }, "n",       awful.client.restore),
-    awful.key({ modkey,           }, "b",       function() lm.activate() end),
 
     -- Awesome control
     awful.key({ modkey, "Shift"   }, "r",       awesome.restart),
