@@ -160,20 +160,24 @@ local audio = {
   micmute = function() awful.spawn("amixer set Capture toggle") end,
   raise = function() awful.spawn("amixer sset Master 8%+") end,
   lower = function() awful.spawn("amixer sset Master 8%-") end,
-  report = function()
+  report = function(sleep)
+    local prefix = ""
+    if sleep then
+      prefix = string.format("sleep %s;", sleep)
+    end
     local is_muted = "[[ $(amixer get Master | awk -F'[][]' '/%/ { print $4 }' | head -n 1) == 'off' ]]"
     local volume_percent = "$(amixer get Master | awk -F'[][]' '/%/ { print $2 }' | head -n 1)"
-    local volnoti = "if command -v volnoti-show > /dev/null; then; if " .. is_muted .. "; then volnoti-show -m; else volnoti-show " .. volume_percent .. "; fi; fi"
+    local volnoti = prefix .. "if command -v volnoti-show > /dev/null; then; if " .. is_muted .. "; then volnoti-show -m; else volnoti-show " .. volume_percent .. "; fi; fi"
     awful.spawn.with_shell(volnoti)
   end,
 }
 
 globalkeys = gears.table.join(
   -- Multimedia
-  awful.key({}, "XF86AudioMute",        function() audio.mute(); audio.report(); end),
+  awful.key({}, "XF86AudioMute",        function() audio.mute(); audio.report(0.1); end),
   awful.key({}, "XF86AudioMicMute",     audio.micmute),
-  awful.key({}, "XF86AudioRaiseVolume", function() audio.raise(); audio.report(); end),
-  awful.key({}, "XF86AudioLowerVolume", function() audio.lower(); audio.report(); end),
+  awful.key({}, "XF86AudioRaiseVolume", function() audio.raise(); audio.report(0.1); end),
+  awful.key({}, "XF86AudioLowerVolume", function() audio.lower(); audio.report(0.1); end),
   ---
   awful.key({}, "XF86AudioNext",        audio.next),
   awful.key({}, "XF86AudioPrev",        audio.prev),
