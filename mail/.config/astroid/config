@@ -1,7 +1,7 @@
 {
     "astroid": {
         "config": {
-            "version": "7"
+            "version": "9"
         },
         "notmuch_config": "\/home\/markus\/.notmuch-config",
         "debug": {
@@ -126,7 +126,9 @@
             "signature_file": "",
             "signature_default_on": "true",
             "signature_attach": "false",
-            "always_gpg_sign": "false"
+            "always_gpg_sign": "false",
+            "signature_separate": "false",
+            "select_query": ""
         },
         "intum": {
             "name": "Markus Kaiser",
@@ -141,7 +143,9 @@
             "signature_file": "",
             "signature_default_on": "true",
             "signature_attach": "false",
-            "always_gpg_sign": "false"
+            "always_gpg_sign": "false",
+            "signature_separate": "false",
+            "select_query": ""
         },
         "tum": {
             "name": "Markus Kaiser",
@@ -156,7 +160,9 @@
             "signature_file": "",
             "signature_default_on": "true",
             "signature_attach": "false",
-            "always_gpg_sign": "false"
+            "always_gpg_sign": "false",
+            "signature_separate": "false",
+            "select_query": ""
         },
         "kth": {
             "name": "Markus Kaiser",
@@ -171,7 +177,9 @@
             "signature_file": "",
             "signature_default_on": "true",
             "signature_attach": "false",
-            "always_gpg_sign": "false"
+            "always_gpg_sign": "false",
+            "signature_separate": "false",
+            "select_query": ""
         },
         "pub": {
             "name": "Markus Kaiser",
@@ -186,7 +194,9 @@
             "signature_file": "",
             "signature_default_on": "true",
             "signature_attach": "false",
-            "always_gpg_sign": "false"
+            "always_gpg_sign": "false",
+            "signature_separate": "false",
+            "select_query": ""
         }
     }
 }
