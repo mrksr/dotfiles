@@ -9,24 +9,24 @@ theme.font              = "Aller 12"
 theme.useless_gap       = 2
 theme.gap_single_client = false
 
-theme.red            = "#cb575d"
-theme.yellow         = "#e6ac00"
-theme.green          = "#79b31a"
-theme.blue           = "#5294e2"
+theme.red            = "#f2777a"
+theme.yellow         = "#ffcc66"
+theme.green          = "#99cc99"
+theme.blue           = "#6699cc"
 
-theme.bg_normal      = "#2f343fCC"
+theme.bg_normal      = "#203040CC"
 theme.bg_focus       = theme.bg_normal
 theme.bg_urgent      = theme.bg_normal
 theme.bg_minimize    = theme.bg_normal
 
-theme.fg_normal      = "#e0e4ea"
+theme.fg_normal      = "#e8e6df"
 theme.fg_focus       = theme.blue
 theme.fg_urgent      = theme.red
 theme.fg_minimize    = theme.green
 
 theme.border_width   = 3
-theme.border_normal  = "#2f343f"
-theme.border_focus   = theme.blue --"#2a4b73"
+theme.border_normal  = "#515151"
+theme.border_focus   = theme.blue
 theme.border_marked  = theme.red
 
 theme.wibox_height          = 24

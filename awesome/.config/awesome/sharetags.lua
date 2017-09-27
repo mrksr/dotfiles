@@ -61,19 +61,19 @@ function sharetags.move(tag, to_screen)
 end
 
 function sharetags.view_only(tag)
-  local swap_tag = awful.tag.selected()
-  local was_tag_selected = tag.selected == true
-  local tag_original_screen = tag.screen
+  -- local swap_tag = awful.tag.selected()
+  -- local was_tag_selected = tag.selected == true
+  -- local tag_original_screen = tag.screen
   local focused_screen = awful.screen.focused()
 
   if tag.screen ~= focused_screen then
     sharetags.move(tag, focused_screen)
   end
 
-  if swap_tag and was_tag_selected then
-    sharetags.move(swap_tag, tag_original_screen)
-    awful.tag.viewonly(swap_tag)
-  end
+  -- if swap_tag and was_tag_selected then
+  --   sharetags.move(swap_tag, tag_original_screen)
+  --   awful.tag.viewonly(swap_tag)
+  -- end
 
   awful.tag.viewonly(tag)
 end

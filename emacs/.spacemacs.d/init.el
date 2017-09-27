@@ -88,6 +88,7 @@
    dotspacemacs-startup-recent-list-size 5
    dotspacemacs-themes
    '(
+     base16-eighties
      sanityinc-tomorrow-night
      junio
      twilight-anti-bright
