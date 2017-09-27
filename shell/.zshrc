@@ -37,7 +37,7 @@ source $ZSH/oh-my-zsh.sh
 #################
 #  Colorscheme  #
 #################
-. $HOME/.base16-tomorrow.dark.sh
+. $HOME/.base16-eighties.dark.sh
 
 ################
 #  Own config  #

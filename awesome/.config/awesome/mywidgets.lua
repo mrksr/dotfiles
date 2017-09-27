@@ -85,14 +85,13 @@ vicious.register(
   widgets.volume,
   vicious.widgets.volume,
   formatters.volume,
-  -- format("%s $1%% $2", formatters.colored("", beautiful.yellow)),
   1,
   "Master"
 )
 vicious.register(
   widgets.wifi,
   vicious.widgets.wifi,
-  format("%s ${ssid}", formatters.colored("", beautiful.red)),
+  format("%s ${ssid} - ${linp}%%", formatters.colored("", beautiful.red)),
   5,
   "wlp3s0"
 )

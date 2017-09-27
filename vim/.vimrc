@@ -123,7 +123,8 @@ if has("gui_running")
     " colorscheme sierra
     " let g:gruvbox_contrast_dark = 'hard'
     " colorscheme gruvbox
-    colorscheme base16-tomorrow-night
+    let base16colorspace=256
+    colorscheme base16-eighties
 
     set vb t_vb=
     set background=dark
@@ -131,10 +132,10 @@ if has("gui_running")
 else
     if &t_Co != 256
         let base16colorspace=16
-        colorscheme base16-tomorrow-night
+        colorscheme base16-eighties
     else
         let base16colorspace=256
-        colorscheme base16-tomorrow-night
+        colorscheme base16-eighties
     endif
 endif
 
