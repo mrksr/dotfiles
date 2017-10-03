@@ -51,6 +51,7 @@
       :variables
       ranger-override-dired t
       )
+     rust
      semantic
      shell-scripts
      (spell-checking
@@ -88,14 +89,9 @@
    dotspacemacs-startup-recent-list-size 5
    dotspacemacs-themes
    '(
-     base16-eighties
+     sanityinc-tomorrow-eighties
      sanityinc-tomorrow-night
-     junio
-     twilight-anti-bright
-     ujelly
      base16-default-dark
-     zenburn
-     monokai
      )
 
    dotspacemacs-colorize-cursor-according-to-state t
