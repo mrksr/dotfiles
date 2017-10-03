@@ -23,6 +23,7 @@ MaildirStore zfix-markus-local
     Path ~/Mail/zfix-markus/
     Inbox ~/Mail/zfix-markus/INBOX
     Trash Trash
+    SubFolders Legacy
 
 Channel zfix-markus
     Master :zfix-markus-remote:
@@ -44,6 +45,7 @@ MaildirStore zfix-pub-local
     Path ~/Mail/zfix-pub/
     Inbox ~/Mail/zfix-pub/INBOX
     Trash Trash
+    SubFolders Legacy
 
 Channel zfix-pub
     Master :zfix-pub-remote:
@@ -65,6 +67,7 @@ MaildirStore intum-local
     Path ~/Mail/intum/
     Inbox ~/Mail/intum/INBOX
     Trash Trash
+    SubFolders Legacy
 
 Channel intum
     Master :intum-remote:
@@ -86,6 +89,7 @@ MaildirStore kth-local
     Path ~/Mail/kth/
     Inbox ~/Mail/kth/INBOX
     Trash Trash
+    SubFolders Legacy
 
 Channel kth
     Master :kth-remote:
