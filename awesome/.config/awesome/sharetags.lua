@@ -75,7 +75,7 @@ function sharetags.view_only(tag)
   --   awful.tag.viewonly(swap_tag)
   -- end
 
-  awful.tag.viewonly(tag)
+  tag:view_only()
 end
 
 return sharetags
