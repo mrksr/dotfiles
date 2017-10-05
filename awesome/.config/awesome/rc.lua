@@ -95,6 +95,7 @@ local tag_names = {
   ''
 }
 sharetags.create_tags(tag_names, awful.layout.layouts[1])
+sharetags.view_only(sharetags.tags[1])
 awful.screen.connect_for_each_screen(function(s)
     s:connect_signal("removed", function() sharetags.reset_tags(s.tags) end)
 end)
@@ -266,7 +267,7 @@ globalkeys = gears.table.join(
   end),
   awful.key({ modkey,           }, "v",       function() awful.spawn("pavucontrol") end),
   awful.key({ modkey,           }, "f",       function() awful.spawn("gvim") end),
-  awful.key({ modkey, "Shift"   }, "f",       function() awful.spawn("emacsclient -nca ''") end),
+  awful.key({ modkey, "Shift"   }, "f",       function() awful.spawn("emacs") end),
   awful.key({                   }, "F11",     function() awful.spawn("rofi -show window") end),
   awful.key({                   }, "F12",     function() awful.spawn(launcher) end)
 )
@@ -519,7 +520,7 @@ awful.screen.connect_for_each_screen(function(s)
                        local layout = awful.layout.getname(awful.layout.get(s))
 
                        for _, c in pairs(clients) do
-                         if awful.client.floating.get(c) then
+                         if c.floating then
                            c.border_width = beautiful.border_width
                          elseif #clients == 1 or layout == "max" then
                            c.border_width = 0
