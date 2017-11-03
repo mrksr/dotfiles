@@ -150,7 +150,7 @@ local function lockSession()
   awful.spawn.with_shell("i3lock-fancy -g -p -f Aller -- maim -u -m 1")
 end
 
-local launcher = 'rofi -show drun'
+local launcher = 'rofi -show-icons -show drun'
 
 local audio = {
   play = function() awful.spawn("playerctl play-pause") end,
