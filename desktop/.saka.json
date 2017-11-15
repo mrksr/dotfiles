@@ -102,30 +102,8 @@
             }
           ]
         ],
-        "scrollLeft": [
-          [
-            {
-              "code": "KeyH",
-              "key": "h",
-              "shiftKey": false,
-              "ctrlKey": true,
-              "altKey": false,
-              "metaKey": false
-            }
-          ]
-        ],
-        "scrollRight": [
-          [
-            {
-              "code": "KeyL",
-              "key": "l",
-              "shiftKey": false,
-              "ctrlKey": true,
-              "altKey": false,
-              "metaKey": false
-            }
-          ]
-        ],
+        "scrollLeft": [],
+        "scrollRight": [],
         "scrollPageDown": [],
         "scrollPageUp": [],
         "scrollHalfPageDown": [],
