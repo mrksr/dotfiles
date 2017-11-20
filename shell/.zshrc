@@ -64,7 +64,7 @@ alias apt-remove="apt-get remove"
 alias apt-list="dpkg --list-selections"
 alias apt-filesearch="apt-find search"
 
-alias dmesg="dmesg -L auto"
+alias dmesg="dmesg --color=auto"
 alias fzf="fzf -x"
 
 if command -v exa > /dev/null; then
