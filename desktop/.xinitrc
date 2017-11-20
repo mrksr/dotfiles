@@ -24,10 +24,6 @@ if [ -f ~/.Xresources ]; then
   xrdb -merge ~/.Xresources
 fi
 
-if [ -f ~/.Xmodmap ]; then
-  xmodmap ~/.Xmodmap
-fi
-
 if [ -f ~/.xprofile ]; then
   . ~/.xprofile
 fi
@@ -35,6 +31,8 @@ fi
 if [ -f ~/.xsession ]; then
   . ~/.xsession
 fi
+
+#NOTE: xmodmap moved to ~/.xsession
 
 ####################
 #  Window Manager  #
