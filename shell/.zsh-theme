@@ -1,24 +1,26 @@
 function terminal_color() {
     colors=(blue red yellow cyan green magenta)
-    case "$(hostname)" in
-        markus-w510 )
-            index=1
-            ;;
-        markus-t450s )
-            index=1
-            ;;
-        zfix )
-            index=2
-            ;;
-        markus-pc )
-            index=3
-            ;;
-        * )
-            index=$(echo $(whoami)$(hostname) | sha256sum | awk '{print substr($1,0,5)}' | perl -pe "\$_=hex;\$_=\$_%(${#colors[@]}-1)+1")
-            ;;
-    esac
+
     if [ "$(whoami)" = "root" ]; then
         index=${#colors[@]}
+    else
+        case "$(hostname)" in
+            markus-w510 )
+                index=1
+                ;;
+            markus-t450s )
+                index=1
+                ;;
+            zfix )
+                index=2
+                ;;
+            markus-pc )
+                index=3
+                ;;
+            * )
+                index=$(echo $(whoami)$(hostname) | md5sum | awk '{print substr($1,0,5)}' | perl -pe "\$_=hex;\$_=\$_%(${#colors[@]}-1)+1")
+                ;;
+        esac
     fi
     echo $colors[$index]
 }
@@ -28,15 +30,14 @@ MODE_INDICATOR="%{$fg_bold[blue]%}<<%{$reset_color%}"
 
 setopt prompt_subst
 autoload -Uz vcs_info
-vcs_info_precmd()
-{
+vcs_info_precmd() {
     vcs_info
 }
 [[ -z $precmd_functions ]] && precmd_functions=()
 precmd_functions=($precmd_functions vcs_info_precmd)
 
 zstyle ':vcs_info:*' use-simple false
-zstyle ':vcs_info:*' get-revision true
+zstyle ':vcs_info:*' get-revision false
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' stagedstr "!"
 zstyle ':vcs_info:*' unstagedstr "?"
@@ -52,9 +53,10 @@ zstyle ':vcs_info:*' formats \
 "
 zstyle ':vcs_info:*' actionformats \
 "\
- \
 %{$fg[blue]%}%s%{$reset_color%}\
-%{$fg_bold[red]%}%u%c%a%{$reset_color%}\
+ \
+%{$fg_bold[yellow]%}%b%{$reset_color%}\
+%{$fg_bold[red]%}%u%c %a%{$reset_color%}\
  \
 "
 
