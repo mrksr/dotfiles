@@ -277,6 +277,13 @@
            (get-buffer-process (current-buffer))
            nil "_"))))
     )
+
+  (progn
+    ;; Enable mouse support in terminal
+    (unless window-system
+      (global-set-key (kbd "<mouse-4>") 'scroll-down-line)
+      (global-set-key (kbd "<mouse-5>") 'scroll-up-line))
+    )
   )
 
 
