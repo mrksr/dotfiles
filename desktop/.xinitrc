@@ -13,9 +13,9 @@ fi
 #############
 #  Keyring  #
 #############
-dbus-update-activation-environment --systemd DISPLAY
-eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
-export GPG_AGENT_INFO SSH_AUTH_SOCK
+# dbus-update-activation-environment --systemd DISPLAY
+# eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
+# export GPG_AGENT_INFO SSH_AUTH_SOCK
 
 #################
 #  other files  #
