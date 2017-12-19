@@ -1,100 +1,105 @@
 #!/bin/sh
-# Base16 Tomorrow - Shell color setup script
-# Chris Kempson (http://chriskempson.com)
+# base16-shell (https://github.com/chriskempson/base16-shell)
+# Base16 Shell template by Chris Kempson (http://chriskempson.com)
+# Tomorrow scheme by Chris Kempson (http://chriskempson.com)
 
-if [ "${TERM%%-*}" = 'linux' ]; then
-    # This script doesn't support linux console (use 'vconsole' template instead)
-    return 2>/dev/null || exit 0
-fi
-
-color00="1d/1f/21" # Base 00 - Black
-color01="cc/66/66" # Base 08 - Red
-color02="b5/bd/68" # Base 0B - Green
-color03="f0/c6/74" # Base 0A - Yellow
-color04="81/a2/be" # Base 0D - Blue
-color05="b2/94/bb" # Base 0E - Magenta
-color06="8a/be/b7" # Base 0C - Cyan
-color07="c5/c8/c6" # Base 05 - White
-color08="96/98/96" # Base 03 - Bright Black
+color00="ff/ff/ff" # Base 00 - Black
+color01="c8/28/29" # Base 08 - Red
+color02="71/8c/00" # Base 0B - Green
+color03="ea/b7/00" # Base 0A - Yellow
+color04="42/71/ae" # Base 0D - Blue
+color05="89/59/a8" # Base 0E - Magenta
+color06="3e/99/9f" # Base 0C - Cyan
+color07="4d/4d/4c" # Base 05 - White
+color08="8e/90/8c" # Base 03 - Bright Black
 color09=$color01 # Base 08 - Bright Red
 color10=$color02 # Base 0B - Bright Green
 color11=$color03 # Base 0A - Bright Yellow
 color12=$color04 # Base 0D - Bright Blue
 color13=$color05 # Base 0E - Bright Magenta
 color14=$color06 # Base 0C - Bright Cyan
-color15="ff/ff/ff" # Base 07 - Bright White
-color16="de/93/5f" # Base 09
+color15="1d/1f/21" # Base 07 - Bright White
+color16="f5/87/1f" # Base 09
 color17="a3/68/5a" # Base 0F
-color18="28/2a/2e" # Base 01
-color19="37/3b/41" # Base 02
-color20="b4/b7/b4" # Base 04
-color21="e0/e0/e0" # Base 06
-color_foreground="c5/c8/c6" # Base 05
-color_background="1d/1f/21" # Base 00
-color_cursor="c5/c8/c6" # Base 05
+color18="e0/e0/e0" # Base 01
+color19="d6/d6/d6" # Base 02
+color20="96/98/96" # Base 04
+color21="28/2a/2e" # Base 06
+color_foreground="4d/4d/4c" # Base 05
+color_background="ff/ff/ff" # Base 00
 
 if [ -n "$TMUX" ]; then
-  # tell tmux to pass the escape sequences through
+  # Tell tmux to pass the escape sequences through
   # (Source: http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1324)
-  printf_template="\033Ptmux;\033\033]4;%d;rgb:%s\007\033\\"
-  printf_template_var="\033Ptmux;\033\033]%d;rgb:%s\007\033\\"
-  printf_template_custom="\033Ptmux;\033\033]%s%s\007\033\\"
+  put_template() { printf '\033Ptmux;\033\033]4;%d;rgb:%s\033\033\\\033\\' $@; }
+  put_template_var() { printf '\033Ptmux;\033\033]%d;rgb:%s\033\033\\\033\\' $@; }
+  put_template_custom() { printf '\033Ptmux;\033\033]%s%s\033\033\\\033\\' $@; }
 elif [ "${TERM%%-*}" = "screen" ]; then
   # GNU screen (screen, screen-256color, screen-256color-bce)
-  printf_template="\033P\033]4;%d;rgb:%s\007\033\\"
-  printf_template_var="\033P\033]%d;rgb:%s\007\033\\"
-  printf_template_custom="\033P\033]%s%s\007\033\\"
+  put_template() { printf '\033P\033]4;%d;rgb:%s\033\\' $@; }
+  put_template_var() { printf '\033P\033]%d;rgb:%s\033\\' $@; }
+  put_template_custom() { printf '\033P\033]%s%s\033\\' $@; }
+elif [ "${TERM%%-*}" = "linux" ]; then
+  put_template() { [ $1 -lt 16 ] && printf "\e]P%x%s" $1 $(echo $2 | sed 's/\///g'); }
+  put_template_var() { true; }
+  put_template_custom() { true; }
 else
-  printf_template="\033]4;%d;rgb:%s\033\\"
-  printf_template_var="\033]%d;rgb:%s\033\\"
-  printf_template_custom="\033]%s%s\033\\"
+  put_template() { printf '\033]4;%d;rgb:%s\033\\' $@; }
+  put_template_var() { printf '\033]%d;rgb:%s\033\\' $@; }
+  put_template_custom() { printf '\033]%s%s\033\\' $@; }
 fi
 
 # 16 color space
-printf $printf_template 0  $color00
-printf $printf_template 1  $color01
-printf $printf_template 2  $color02
-printf $printf_template 3  $color03
-printf $printf_template 4  $color04
-printf $printf_template 5  $color05
-printf $printf_template 6  $color06
-printf $printf_template 7  $color07
-printf $printf_template 8  $color08
-printf $printf_template 9  $color09
-printf $printf_template 10 $color10
-printf $printf_template 11 $color11
-printf $printf_template 12 $color12
-printf $printf_template 13 $color13
-printf $printf_template 14 $color14
-printf $printf_template 15 $color15
+put_template 0  $color00
+put_template 1  $color01
+put_template 2  $color02
+put_template 3  $color03
+put_template 4  $color04
+put_template 5  $color05
+put_template 6  $color06
+put_template 7  $color07
+put_template 8  $color08
+put_template 9  $color09
+put_template 10 $color10
+put_template 11 $color11
+put_template 12 $color12
+put_template 13 $color13
+put_template 14 $color14
+put_template 15 $color15
 
 # 256 color space
-printf $printf_template 16 $color16
-printf $printf_template 17 $color17
-printf $printf_template 18 $color18
-printf $printf_template 19 $color19
-printf $printf_template 20 $color20
-printf $printf_template 21 $color21
+put_template 16 $color16
+put_template 17 $color17
+put_template 18 $color18
+put_template 19 $color19
+put_template 20 $color20
+put_template 21 $color21
 
 # foreground / background / cursor color
 if [ -n "$ITERM_SESSION_ID" ]; then
   # iTerm2 proprietary escape codes
-  printf $printf_template_custom Pg c5c8c6 # forground
-  printf $printf_template_custom Ph 1d1f21 # background
-  printf $printf_template_custom Pi c5c8c6 # bold color
-  printf $printf_template_custom Pj 373b41 # selection color
-  printf $printf_template_custom Pk c5c8c6 # selected text color
-  printf $printf_template_custom Pl c5c8c6 # cursor
-  printf $printf_template_custom Pm 1d1f21 # cursor text
+  put_template_custom Pg 4d4d4c # foreground
+  put_template_custom Ph ffffff # background
+  put_template_custom Pi 4d4d4c # bold color
+  put_template_custom Pj d6d6d6 # selection color
+  put_template_custom Pk 4d4d4c # selected text color
+  put_template_custom Pl 4d4d4c # cursor
+  put_template_custom Pm ffffff # cursor text
 else
-  printf $printf_template_var 10 $color_foreground
-  printf $printf_template_var 11 $color_background
-  printf $printf_template_var 12 $color_cursor
+  put_template_var 10 $color_foreground
+  if [ "$BASE16_SHELL_SET_BACKGROUND" != false ]; then
+    put_template_var 11 $color_background
+    if [ "${TERM%%-*}" = "rxvt" ]; then
+      put_template_var 708 $color_background # internal border (rxvt)
+    fi
+  fi
+  put_template_custom 12 ";7" # cursor (reverse video)
 fi
 
 # clean up
-unset printf_template
-unset printf_template_var
+unset -f put_template
+unset -f put_template_var
+unset -f put_template_custom
 unset color00
 unset color01
 unset color02
@@ -119,4 +124,3 @@ unset color20
 unset color21
 unset color_foreground
 unset color_background
-unset color_cursor
