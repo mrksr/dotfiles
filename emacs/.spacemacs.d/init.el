@@ -45,6 +45,7 @@
       )
      markdown
      nginx
+     notmuch
      org
      python
      (ranger
