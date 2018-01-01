@@ -1,7 +1,7 @@
 {
     "astroid": {
         "config": {
-            "version": "9"
+            "version": "10"
         },
         "notmuch_config": "\/home\/markus\/.notmuch-config",
         "debug": {
@@ -46,6 +46,7 @@
         "save_draft_on_force_quit": "true",
         "attachment_words": "attach",
         "attachment_directory": "~",
+        "markdown_processor": "marked",
         "gvim": {
             "cmd": "gvim",
             "args": "-f -c 'set ft=mail' '+set fileencoding=utf-8' '+set ff=unix' '+set enc=utf-8'"
@@ -128,7 +129,8 @@
             "signature_attach": "false",
             "always_gpg_sign": "false",
             "signature_separate": "false",
-            "select_query": ""
+            "select_query": "",
+            "signature_file_markdown": ""
         },
         "intum": {
             "name": "Markus Kaiser",
@@ -145,7 +147,8 @@
             "signature_attach": "false",
             "always_gpg_sign": "false",
             "signature_separate": "false",
-            "select_query": ""
+            "select_query": "",
+            "signature_file_markdown": ""
         },
         "tum": {
             "name": "Markus Kaiser",
@@ -162,7 +165,8 @@
             "signature_attach": "false",
             "always_gpg_sign": "false",
             "signature_separate": "false",
-            "select_query": ""
+            "select_query": "",
+            "signature_file_markdown": ""
         },
         "kth": {
             "name": "Markus Kaiser",
@@ -179,7 +183,8 @@
             "signature_attach": "false",
             "always_gpg_sign": "false",
             "signature_separate": "false",
-            "select_query": ""
+            "select_query": "",
+            "signature_file_markdown": ""
         },
         "pub": {
             "name": "Markus Kaiser",
@@ -196,7 +201,8 @@
             "signature_attach": "false",
             "always_gpg_sign": "false",
             "signature_separate": "false",
-            "select_query": ""
+            "select_query": "",
+            "signature_file_markdown": ""
         }
     }
 }
