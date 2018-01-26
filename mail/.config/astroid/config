@@ -14,7 +14,6 @@
     "thread_index": {
         "page_jump_rows": "6",
         "sort_order": "newest",
-        "thread_load_step": "250",
         "cell": {
             "font_description": "default",
             "line_spacing": "2",
@@ -24,13 +23,16 @@
             "subject_color": "#807d74",
             "subject_color_selected": "#000000",
             "background_color_selected": "",
+            "background_color_marked": "#fff584",
+            "background_color_marked_selected": "#bcb559",
             "tags_length": "80",
             "tags_upper_color": "#e5e5e5",
             "tags_lower_color": "#333333",
             "tags_alpha": "0.5",
             "hidden_tags": "attachment,flagged,unread,new,astroidhack",
             "tags_color": "#31587a"
-        }
+        },
+        "thread_load_step": "250"
     },
     "general": {
         "time": {
