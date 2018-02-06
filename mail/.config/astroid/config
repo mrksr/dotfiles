@@ -67,10 +67,12 @@
         "message_id_fqdn": "",
         "message_id_user": "",
         "user_agent": "default",
-        "send_delay": "2"
+        "send_delay": "2",
+        "format_flowed": "true"
     },
     "poll": {
-        "interval": "60"
+        "interval": "60",
+        "always_full_refresh": "false"
     },
     "attachment": {
         "external_open_cmd": "xdg-open"
