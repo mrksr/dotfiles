@@ -147,8 +147,10 @@
 
 
 (defun dotspacemacs/user-init ()
+    ;; Do not use an interactive shell to find environment
+    ;; This breaks on WSL due to "exec zsh"
+    (setq exec-path-from-shell-arguments nil)
   )
-
 
 (defun dotspacemacs/user-config ()
   (progn
