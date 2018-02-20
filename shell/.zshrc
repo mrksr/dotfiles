@@ -11,11 +11,11 @@ ZSH=$HOME/.oh-my-zsh
 # Hack to use the theme in $HOME
 ZSH_THEME="../../"
 plugins=( \
-    autojump \
     colored-man-pages \
     docker \
     docker-compose \
     extract \
+    fasd \
     git \
     gitignore \
     mercurial \
