@@ -168,8 +168,8 @@
     (setq mouse-wheel-progressive-speed nil)
     (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 
-    ;; Show gitgutter on left hand side
-    (setq diff-hl-side 'left)
+    ;; Gitgutter side
+    (setq diff-hl-side 'right)
 
     ;; Default to Unix encoding
     ;; Why are there so many options for this?
@@ -181,6 +181,9 @@
     ;; Toggleable things
     (setq-default spaceline-minor-modes-p nil)
     (indent-guide-global-mode)
+
+    ;; Fix yasnippets with regions
+    (setq yas-wrap-around-region nil)
     )
 
   (progn

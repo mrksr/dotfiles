@@ -2,4 +2,4 @@
 # name: use package
 # key: pac
 # --
-\usepackage{$1}$0
+\usepackage{`(yas-selected-text)`$1}$0

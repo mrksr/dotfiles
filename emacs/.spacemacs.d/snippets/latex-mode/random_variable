@@ -2,4 +2,4 @@
 # name: random variable
 # key: rv
 # --
-\rv{$1}$0
+\rv{`(yas-selected-text)`$1}$0

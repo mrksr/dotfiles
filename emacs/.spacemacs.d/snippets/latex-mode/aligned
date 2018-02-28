@@ -2,5 +2,5 @@
 # name: aligned environment
 # key: aligned
 # --
-\begin{aligned} $1 \end{aligned}
+\begin{aligned} `(yas-selected-text)`$1 \end{aligned}
 $0

@@ -2,4 +2,4 @@
 # name: left/right braces
 # key: lr{
 # --
-\left\\\{ $1 \right\\\}$0
+\left\\\{ `(yas-selected-text)`$1 \right\\\}$0

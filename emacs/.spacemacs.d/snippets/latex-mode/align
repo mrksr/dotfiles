@@ -3,6 +3,5 @@
 # key: align
 # --
 \begin{align}
-    $1
-\end{align}
-$0
+    `(yas-selected-text)`$1
+\end{align}$0

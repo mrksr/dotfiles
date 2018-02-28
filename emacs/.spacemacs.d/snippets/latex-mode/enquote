@@ -2,4 +2,4 @@
 # name: enquote
 # key: enq
 # --
-\enquote{$1}$0
+\enquote{`(yas-selected-text)`$1}$0

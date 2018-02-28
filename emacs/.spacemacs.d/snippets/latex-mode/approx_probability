@@ -2,4 +2,4 @@
 # name: approximative probability
 # key: aprob
 # --
-\aProb{$1}$0
+\aProb{`(yas-selected-text)`$1}$0

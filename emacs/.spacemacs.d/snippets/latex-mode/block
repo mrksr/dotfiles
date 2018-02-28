@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# key: block
+# name : \begin{*block} ... \end{*block}
+# --
+\begin{${1:$$(yas/choose-value '("block" "exampleblock" "alertblock"))}}{${2:Block Title}}
+    $0
+\end{$1}

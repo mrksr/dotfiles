@@ -2,4 +2,4 @@
 # name: left brace
 # key: l{
 # --
-\left\{ $1 \right.$0
+\left\{ `(yas-selected-text)`$1 \right.$0
