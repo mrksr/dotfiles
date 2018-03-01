@@ -2,4 +2,4 @@
 # name: probability
 # key: prob
 # --
-\Prob{`(yas-selected-text)`$1}$0
+\Prob*{`(yas-selected-text)`$1}$0
