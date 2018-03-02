@@ -8,7 +8,7 @@ hash -d idp=~/repos/uni/14ss/powerdiagrams
 hash -d idpt=~/repos/uni/14ss/powerdiagrams.tex
 
 # variables
-export PATH=$HOME/.bin:$HOME/.local/bin:$HOME/.cabal/bin:$PATH
+export PATH=$HOME/.bin:$HOME/.local/bin:$HOME/.cabal/bin:$HOME/.cargo/bin:$PATH
 export EDITOR=vim
 export BROWSER=firefox
 
