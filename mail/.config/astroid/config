@@ -11,6 +11,10 @@
             "level": "0"
         }
     },
+    "terminal": {
+        "height": "10",
+        "font_description": "default"
+    },
     "thread_index": {
         "page_jump_rows": "6",
         "sort_order": "newest",
@@ -68,6 +72,7 @@
         "message_id_user": "",
         "user_agent": "default",
         "send_delay": "2",
+        "close_on_success": "false",
         "format_flowed": "true"
     },
     "poll": {
