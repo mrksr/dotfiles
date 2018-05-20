@@ -42,9 +42,6 @@ endif
 
 call plug#begin(s:bundlePath)
 " Languages
-Plug 'avakhov/vim-yaml'
-Plug 'beyondmarc/glsl.vim'
-Plug 'beyondmarc/opengl.vim'
 Plug 'hynek/vim-python-pep8-indent'
 Plug 'lervag/vimtex'
 Plug 'sheerun/vim-polyglot'
@@ -52,11 +49,8 @@ Plug 'sheerun/vim-polyglot'
 " Plugins
 Plug 'vim-scripts/argtextobj.vim'
 Plug 'benjifisher/matchit.zip'
-Plug 'coderifous/textobj-word-column.vim'
 Plug 'edkolev/tmuxline.vim'
 Plug 'honza/vim-snippets'
-Plug 'junegunn/vim-easy-align'
-Plug 'justinmk/vim-sneak'
 Plug 'mhinz/vim-sayonara'
 Plug 'mhinz/vim-signify'
 Plug 'mhinz/vim-startify'
@@ -64,13 +58,10 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'Shougo/unite-outline'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimproc.vim', { 'do' : 'make' }
-Plug 'soramugi/auto-ctags.vim'
 Plug 'svermeulen/vim-easyclip'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'tsukkee/unite-tag'
 Plug 'vim-airline/vim-airline'
@@ -94,23 +85,17 @@ if s:fancyPlugins
     else
         Plug 'scrooloose/syntastic'
         Plug 'Valloric/YouCompleteMe'
-        " Plug 'bbchung/clighter'
     endif
 endif
 
 " Colorschemes
-Plug 'AlessandroYorba/Sierra'
 Plug 'chriskempson/base16-vim'
-Plug 'ciaranm/inkpot'
-Plug 'matthewtodd/vim-twilight'
-Plug 'morhetz/gruvbox'
-Plug 'nanotech/jellybeans.vim'
 Plug 'sickill/vim-sunburst'
 Plug 'vim-scripts/synic.vim'
 call plug#end()
 
 if s:freshInstall
-    echo "Installing Plugins"
+    echo "Installing Plugins..."
     PlugInstall
 endif
 
@@ -119,10 +104,6 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set background=dark
 if has("gui_running")
-    " let g:sierra_Midnight = 1
-    " colorscheme sierra
-    " let g:gruvbox_contrast_dark = 'hard'
-    " colorscheme gruvbox
     let base16colorspace=256
     colorscheme base16-eighties
 
@@ -244,7 +225,6 @@ nmap <leader>k <plug>(signify-prev-hunk)
 """""""""""""""
 "  UltiSnips  "
 """""""""""""""
-"let g:UltiSnipsDontReverseSearchPath="1"
 let g:UltiSnipsEditSplit="vertical"
 
 " Avoid Clashes with YCM
@@ -272,8 +252,7 @@ try
 catch
 endtry
 let g:unite_source_rec_async_command = [
-    \ 'ag', '--follow', '--nocolor', '--nogroup',
-    \  '--hidden', '-g', ''
+    \ 'rg', '--files'
     \]
 
 nnoremap <silent><F3> :<C-u>Unite history/yank<CR>
@@ -281,6 +260,9 @@ nnoremap <silent>ä :<C-u>Unite file_rec/async:!<CR>
 nnoremap <silent>Ä :<C-u>Unite outline<CR>
 nnoremap <silent>ö :<C-u>Unite buffer<CR>
 nnoremap <silent>Ö :<C-u>Unite tag<CR>
+
+nnoremap <silent><leader>bb :<C-u>Unite buffer<CR>
+nnoremap <silent><leader>pf :<C-u>Unite file_rec/async:!<CR>
 
 " Custom mappings for the unite buffer
 autocmd FileType unite call s:unite_settings()
@@ -291,21 +273,9 @@ function! s:unite_settings()
 endfunction
 
 """"""""""""""
-"  clighter  "
-""""""""""""""
-let g:ClighterOccurrences = 0
-let g:clighter_cursor_hl_default = 0
-
-""""""""""""""
 "  Markdown  "
 """"""""""""""
 au BufEnter *.md :se ft=markdown
-
-""""""""""""""""
-"  easy-align  "
-""""""""""""""""
-vmap <Enter> <Plug>(EasyAlign)
-nmap <Leader>a <Plug>(EasyAlign)
 
 """"""""""""""
 "  startify  "
@@ -338,14 +308,6 @@ let g:startify_session_persistence = 1
 let g:startify_session_delete_buffers = 1
 let g:startify_change_to_vcs_root = 1
 let g:startify_files_number = 8
-
-""""""""""""""""
-"  auto-ctags  "
-""""""""""""""""
-let g:auto_ctags=1
-let g:auto_ctags_directory_list = ['.git', '.hg', '.svn']
-let g:auto_ctags_tags_name = 'tags'
-let g:auto_ctags_tags_args = '--tag-relative --recurse --sort=yes --fields+=l'
 
 """"""""""""""
 "  EasyClip  "
