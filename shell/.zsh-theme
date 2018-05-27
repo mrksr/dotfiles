@@ -55,8 +55,7 @@ zstyle ':vcs_info:*' actionformats \
  \
 "
 
-PROMPT=\
-"\
+PROMPT="\
 %{$fg_bold[\
 $(terminal_color)\
 ]%}%n@%m%{$reset_color%}\
@@ -66,8 +65,7 @@ $(terminal_color)\
 λ%{$reset_color%} \
 "
 
-RPROMPT=\
-"\
+RPROMPT="\
 \$(vi_mode_prompt_info)\
  %{$fg_bold[red]%}%?%{$reset_color%}\
  %{$fg_bold[yellow]%}[%*]%{$reset_color%}\
