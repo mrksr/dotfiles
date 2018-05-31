@@ -153,6 +153,11 @@ if command -v fzf > /dev/null; then
     fi
 fi
 
+if command -v pygmentize > /dev/null; then
+    export LESSOPEN="| $(which pygmentize) %s"
+    export LESS=" -R "
+fi
+
 ##################
 #  Local .zshrc  #
 ##################
