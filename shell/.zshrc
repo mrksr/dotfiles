@@ -154,7 +154,7 @@ if command -v fzf > /dev/null; then
 fi
 
 if command -v pygmentize > /dev/null; then
-    export LESSOPEN="| $(which pygmentize) %s"
+    export LESSOPEN="|| $(which pygmentize) -g %s"
     export LESS=" -R "
 fi
 
