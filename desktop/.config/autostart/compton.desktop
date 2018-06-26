@@ -7,3 +7,4 @@ Comment=Compositor for X11
 Categories=Utility;
 Exec=compton --xrender-sync-fence
 Icon=compton
+OnlyShowIn=GNOME;awesome
