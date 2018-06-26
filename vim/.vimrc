@@ -54,7 +54,6 @@ Plug 'honza/vim-snippets'
 Plug 'mhinz/vim-sayonara'
 Plug 'mhinz/vim-signify'
 Plug 'mhinz/vim-startify'
-Plug 'nathanaelkane/vim-indent-guides'
 Plug 'Shougo/unite-outline'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimproc.vim', { 'do' : 'make' }
@@ -322,12 +321,6 @@ nnoremap Y :EasyClipBeforeYank<cr>yy:EasyClipOnYanksChanged<cr>
 "  sayonara  "
 """"""""""""""
 com! -bang BD Sayonara<bang>
-
-"""""""""""""""""""""""
-"  vim-indent-guides  "
-"""""""""""""""""""""""
-let g:indent_guides_color_change_percent = 3
-let g:indent_guides_enable_on_vim_startup = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  Mappings                              {{{1"
