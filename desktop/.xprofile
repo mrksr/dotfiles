@@ -14,11 +14,11 @@ xinput set-prop "$(xinput --list --name-only | grep -i Synaptics | head -n 1)" "
 #  Programs  #
 ##############
 redshift -l geoclue2 -t 6300:4500 &
-~/.bin/gajim_auto_reconnect.sh &
+# ~/.bin/gajim_auto_reconnect.sh &
 unclutter &
-volnoti &
 
-#############
-#  Autorun  #
-#############
-dex -a &
+if [[ $DESKTOP_SESSION != *plasma* ]]; then
+    # non-plasma configa
+    volnoti &
+    dex -a -e gnome &
+fi
