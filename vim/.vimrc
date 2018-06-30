@@ -47,10 +47,10 @@ Plug 'lervag/vimtex'
 Plug 'sheerun/vim-polyglot'
 
 " Plugins
-Plug 'vim-scripts/argtextobj.vim'
 Plug 'benjifisher/matchit.zip'
 Plug 'edkolev/tmuxline.vim'
 Plug 'honza/vim-snippets'
+Plug 'machakann/vim-sandwich'
 Plug 'mhinz/vim-sayonara'
 Plug 'mhinz/vim-signify'
 Plug 'mhinz/vim-startify'
@@ -61,10 +61,10 @@ Plug 'svermeulen/vim-easyclip'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
 Plug 'tsukkee/unite-tag'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-scripts/argtextobj.vim'
 Plug 'wellle/targets.vim'
 
 " Plugins using externals
