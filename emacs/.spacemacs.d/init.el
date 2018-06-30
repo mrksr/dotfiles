@@ -43,9 +43,13 @@
       :variables
       lua-indent-level 4
       )
+     lsp
      markdown
      nginx
-     python
+     (python
+      :variables
+      python-backend 'lsp
+     )
      (ranger
       :variables
       ranger-override-dired t
@@ -134,7 +138,8 @@
    dotspacemacs-inactive-transparency 90
    dotspacemacs-mode-line-unicode-symbols nil
    dotspacemacs-smooth-scrolling t
-   dotspacemacs-line-numbers t
+   dotspacemacs-global-line-numbers nil
+   dotspacemacs-line-numbers nil
    dotspacemacs-smartparens-strict-mode nil
    dotspacemacs-highlight-delimiters 'all
    dotspacemacs-persistent-server t
