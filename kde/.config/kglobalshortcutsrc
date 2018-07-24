@@ -4,7 +4,7 @@ switch-to-activity-9406a8ff-79d5-4e0b-9ceb-a2be0666bf7a=none,none,
 
 [KDE Keyboard Layout Switcher]
 Switch to Next Keyboard Layout=Ctrl+Alt+K,none,Switch to Next Keyboard Layout
-_k_friendly_name=System Settings
+_k_friendly_name=KDE Daemon
 
 [alacritty.desktop]
 New=none,none,New Terminal
@@ -35,7 +35,7 @@ _k_friendly_name=KDE Daemon
 display=Display\tMeta+P,Display\tMeta+P,Switch Display
 
 [khotkeys]
-_k_friendly_name=KDE Daemon
+_k_friendly_name=System Settings
 {373a18ca-afb0-4122-aeda-974382f17886}=Print,none,Start Screenshot Tool
 {5dd14927-e81d-4bcb-b21c-bf349caf36f6}=Meta+Print,none,Take Active Window Screenshot
 {61f7c761-4f03-4532-9159-43b1a40b7eb1}=Meta+Shift+Print,none,Take Rectangular Region Screenshot
@@ -86,7 +86,7 @@ FlipSwitchAll=none,none,Toggle Flip Switch (All desktops)
 FlipSwitchCurrent=none,none,Toggle Flip Switch (Current desktop)
 Increase Opacity=none,none,Increase Opacity of Active Window by 5 %
 Invert Screen Colors=none,none,Invert Screen Colors
-KWin Script: Sticky Window Snapping: enable/disable=Meta+Shift+S,none,KWin Script: Sticky Window Snapping: enable/disable
+KWin Script: Sticky Window Snapping: enable/disable=,none,KWin Script: Sticky Window Snapping: enable/disable
 KWin Script: Sticky Window Snapping: enable/disable temporarily=Ctrl+Shift+S,none,KWin Script: Sticky Window Snapping: enable/disable temporarily
 Kill Window=Ctrl+Alt+Esc,Ctrl+Alt+Esc,Kill Window
 MoveMouseToCenter=Meta+F6,Meta+F6,Move Mouse to Center
@@ -323,9 +323,9 @@ show-on-mouse-pos=none,none,Open Klipper at Mouse Position
 _k_friendly_name=Media Controller
 mediavolumedown=none,none,Media volume down
 mediavolumeup=none,none,Media volume up
-nextmedia=Media Next,Media Next,Media playback next
-playpausemedia=Media Play,Media Play,Play/Pause media playback
-previousmedia=Media Previous,Media Previous,Media playback previous
+nextmedia=Media Next\tMeta+Shift+D,Media Next,Media playback next
+playpausemedia=Media Play\tMeta+Shift+S,Media Play,Play/Pause media playback
+previousmedia=Media Previous\tMeta+Shift+A,Media Previous,Media playback previous
 stopmedia=Media Stop,Media Stop,Stop media playback
 
 [org_kde_powerdevil]
