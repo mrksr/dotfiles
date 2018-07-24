@@ -2,11 +2,13 @@
 update_info=filepicker.upd:filepicker-remove-old-previews-entry,fonts_global.upd:Fonts_Global,fonts_global_toolbar.upd:Fonts_Global_Toolbar
 
 [ColorEffects:Disabled]
+ChangeSelectionColor=
 Color=56,56,56
 ColorAmount=0
 ColorEffect=0
 ContrastAmount=0.65
 ContrastEffect=1
+Enable=
 IntensityAmount=0.1
 IntensityEffect=2
 
@@ -113,15 +115,15 @@ ColorScheme=Breeze
 Name=Breeze
 TerminalApplication[$e]=alacritty
 XftAntialias=true
-XftHintStyle=hintfull
+XftHintStyle=
 XftSubPixel=rgb
 dbfile=/home/markus/.mozilla/firefox/8ry9k6hm.default/places.sqlite
-fixed=Hack,9,-1,5,50,0,0,0,0,0,Regular
-font=Noto Sans,10,-1,5,50,0,0,0,0,0,Regular
-menuFont=Noto Sans,10,-1,5,50,0,0,0,0,0,Regular
+fixed=DejaVu Sans Mono,11,-1,5,50,0,0,0,0,0,Book
+font=Noto Sans,11,-1,5,50,0,0,0,0,0,Regular
+menuFont=Noto Sans,11,-1,5,50,0,0,0,0,0,Regular
 shadeSortColumn=true
-smallestReadableFont=Noto Sans,10,-1,5,50,0,0,0,0,0,Regular
-toolBarFont=Noto Sans,10,-1,5,50,0,0,0,0,0,Regular
+smallestReadableFont=Noto Sans,11,-1,5,50,0,0,0,0,0,Regular
+toolBarFont=Noto Sans,11,-1,5,50,0,0,0,0,0,Regular
 widgetStyle=Breeze
 
 [Icons]
@@ -130,6 +132,8 @@ Theme=breeze
 [KDE]
 ColorScheme=Breeze
 LookAndFeelPackage=org.kde.breeze.desktop
+ShowIconsInMenuItems=true
+ShowIconsOnPushButtons=true
 contrast=4
 widgetStyle=breeze
 
@@ -152,10 +156,17 @@ Speedbar Width=205
 View Style=Simple
 listViewIconSize=0
 
+[KShortcutsDialog Settings]
+Dialog Size=600,480
+
+[Toolbar style]
+ToolButtonStyle=TextBesideIcon
+ToolButtonStyleOtherToolbars=TextBesideIcon
+
 [WM]
 activeBackground=71,80,87
 activeBlend=252,252,252
-activeFont=Noto Sans,10,-1,5,50,0,0,0,0,0,Regular
+activeFont=Noto Sans,11,-1,5,50,0,0,0,0,0,Regular
 activeForeground=252,252,252
 inactiveBackground=239,240,241
 inactiveBlend=75,71,67

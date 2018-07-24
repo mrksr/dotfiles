@@ -4,7 +4,7 @@ Backend=OpenGL
 Enabled=true
 GLCore=true
 GLPreferBufferSwap=a
-GLTextureFilter=2
+GLTextureFilter=1
 HiddenPreviews=5
 OpenGLIsUnsafe=false
 WindowsBlockCompositing=true
@@ -82,18 +82,22 @@ CommandWindowWheel=Scroll
 
 [Plugins]
 NoBorderFirefoxWhenMaximizedEnabled=false
+activatelattelaunchermenuEnabled=false
 coverswitchEnabled=true
-cubeslideEnabled=false
+cubeslideEnabled[$d]
 desktopchangeosdEnabled=false
+dimscreenEnabled=true
 dynamicVirtualDesktopsEnabled=false
 enforcedecoEnabled=true
 flipswitchEnabled=true
 highlightwindowEnabled=true
 kwin-script-tilingEnabled=false
-kwin4_effect_fadedesktopEnabled=false
+kwin4_effect_fadedesktopEnabled[$d]
 minimizeallEnabled=false
 resizeEnabled=true
-slideEnabled=true
+slideEnabled[$d]
+slidebackEnabled=true
+sticky-window-snappingEnabled=true
 synchronizeskipswitcherEnabled=false
 videowallEnabled=false
 windowgeometryEnabled=false
@@ -115,7 +119,7 @@ DesktopLayout=org.kde.breeze.desktop
 DesktopListLayout=org.kde.breeze.desktop
 DesktopMode=1
 HighlightWindows=true
-LayoutName=thumbnails
+LayoutName=org.kde.breeze.desktop
 MinimizedMode=0
 MultiScreenMode=0
 ShowDesktopMode=0
@@ -136,8 +140,8 @@ SwitchingMode=0
 
 [Windows]
 ActiveMouseScreen=true
-AutoRaise=false
-AutoRaiseInterval=750
+AutoRaise=true
+AutoRaiseInterval=500
 AutogroupInForeground=true
 AutogroupSimilarWindows=false
 BorderSnapZone=10
@@ -159,7 +163,7 @@ InactiveTabsSkipTaskbar=false
 MaximizeButtonLeftClickCommand=Maximize
 MaximizeButtonMiddleClickCommand=Maximize (vertical only)
 MaximizeButtonRightClickCommand=Maximize (horizontal only)
-NextFocusPrefersMouse=false
+NextFocusPrefersMouse=true
 Placement=Smart
 RollOverDesktops=true
 SeparateScreenFocus=false
@@ -175,4 +179,4 @@ ButtonsOnLeft=MS
 ButtonsOnRight=HIAX
 CloseOnDoubleClickOnMenu=false
 library=org.kde.kwin.aurorae
-theme=__aurorae__svg__Breezemite
+theme=__aurorae__svg__BreezemiteForman1
