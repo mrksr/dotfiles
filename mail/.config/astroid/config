@@ -11,6 +11,10 @@
             "level": "0"
         }
     },
+    "terminal": {
+        "height": "10",
+        "font_description": "default"
+    },
     "thread_index": {
         "page_jump_rows": "6",
         "sort_order": "newest",
@@ -68,8 +72,8 @@
         "message_id_user": "",
         "user_agent": "default",
         "send_delay": "2",
-        "format_flowed": "true",
-        "close_on_success": "false"
+        "close_on_success": "false",
+        "format_flowed": "true"
     },
     "poll": {
         "interval": "60",
@@ -104,7 +108,8 @@
     "crypto": {
         "gpg": {
             "path": "gpg2",
-            "always_trust": "true"
+            "always_trust": "true",
+            "enabled": "true"
         }
     },
     "saved_searches": {
@@ -112,10 +117,6 @@
         "save_history": "true",
         "history_lines_to_show": "15",
         "history_lines": "1000"
-    },
-    "terminal": {
-        "height": "10",
-        "font_description": "default"
     },
     "startup": {
         "queries": {
