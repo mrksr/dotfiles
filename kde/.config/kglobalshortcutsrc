@@ -27,7 +27,7 @@ _k_friendly_name=Accessibility
 Disable Touchpad=Touchpad Off,Touchpad Off,Disable Touchpad
 Enable Touchpad=Touchpad On,Touchpad On,Enable Touchpad
 Toggle Touchpad=Touchpad Toggle\tTools,Touchpad Toggle,Toggle Touchpad
-_k_friendly_name=System Settings
+_k_friendly_name=KDE Daemon
 
 [kded5]
 Show System Activity=Ctrl+Esc,Ctrl+Esc,Show System Activity
@@ -35,7 +35,7 @@ _k_friendly_name=KDE Daemon
 display=Display\tMeta+P,Display\tMeta+P,Switch Display
 
 [khotkeys]
-_k_friendly_name=System Settings
+_k_friendly_name=KDE Daemon
 {373a18ca-afb0-4122-aeda-974382f17886}=Print,none,Start Screenshot Tool
 {5dd14927-e81d-4bcb-b21c-bf349caf36f6}=Meta+Print,none,Take Active Window Screenshot
 {61f7c761-4f03-4532-9159-43b1a40b7eb1}=Meta+Shift+Print,none,Take Rectangular Region Screenshot
@@ -74,22 +74,22 @@ Lock Session=Ctrl+Alt+L\tMeta+L,Ctrl+Alt+L\tScreensaver,Lock Session
 Log Out=Ctrl+Alt+Del,none,Log Out
 Log Out Without Confirmation=Ctrl+Alt+Shift+Del,none,Log Out Without Confirmation
 Reboot Without Confirmation=Ctrl+Alt+Shift+PgUp,none,Reboot Without Confirmation
-_k_friendly_name=System Settings
+_k_friendly_name=ksmserver
 
 [kwin]
 Activate Window Demanding Attention=Ctrl+Alt+A\tMeta+V,Ctrl+Alt+A,Activate Window Demanding Attention
 Decrease Opacity=none,none,Decrease Opacity of Active Window by 5 %
 Expose=Ctrl+F9,Ctrl+F9,Toggle Present Windows (Current desktop)
-ExposeAll=Ctrl+F10\tLaunch (C),Ctrl+F10\tLaunch (C),Toggle Present Windows (All desktops)
+ExposeAll=Ctrl+F10\tF11,Ctrl+F10\tLaunch (C),Toggle Present Windows (All desktops)
 ExposeClass=Ctrl+F7,Ctrl+F7,Toggle Present Windows (Window class)
 FlipSwitchAll=none,none,Toggle Flip Switch (All desktops)
 FlipSwitchCurrent=none,none,Toggle Flip Switch (Current desktop)
 Increase Opacity=none,none,Increase Opacity of Active Window by 5 %
-Invert Screen Colors=none,none,Invert Screen Colors
+Invert Screen Colors=none,none,Invert Screen Colours
 KWin Script: Sticky Window Snapping: enable/disable=,none,KWin Script: Sticky Window Snapping: enable/disable
 KWin Script: Sticky Window Snapping: enable/disable temporarily=Ctrl+Shift+S,none,KWin Script: Sticky Window Snapping: enable/disable temporarily
 Kill Window=Ctrl+Alt+Esc,Ctrl+Alt+Esc,Kill Window
-MoveMouseToCenter=Meta+F6,Meta+F6,Move Mouse to Center
+MoveMouseToCenter=Meta+F6,Meta+F6,Move Mouse to Centre
 MoveMouseToFocus=Meta+F5,Meta+F5,Move Mouse to Focus
 MoveZoomDown=none,none,Move Zoomed Area Downwards
 MoveZoomLeft=none,none,Move Zoomed Area to Left
@@ -180,10 +180,10 @@ Window Fullscreen=none,none,Make Window Fullscreen
 Window Grow Horizontal=none,none,Pack Grow Window Horizontally
 Window Grow Vertical=none,none,Pack Grow Window Vertically
 Window Lower=none,none,Lower Window
-Window Maximize=Meta+PgUp\tMeta+E,Meta+PgUp,Maximize Window
-Window Maximize Horizontal=none,none,Maximize Window Horizontally
-Window Maximize Vertical=none,none,Maximize Window Vertically
-Window Minimize=Meta+PgDown,Meta+PgDown,Minimize Window
+Window Maximize=Meta+PgUp\tMeta+E,Meta+PgUp,Maximise Window
+Window Maximize Horizontal=none,none,Maximise Window Horizontally
+Window Maximize Vertical=none,none,Maximise Window Vertically
+Window Minimize=Meta+PgDown,Meta+PgDown,Minimise Window
 Window Move=none,none,Move Window
 Window No Border=none,none,Hide Window Border
 Window On All Desktops=none,none,Keep Window on All Desktops
@@ -340,7 +340,7 @@ Toggle Keyboard Backlight=Keyboard Light On/Off,Keyboard Light On/Off,Toggle Key
 _k_friendly_name=Power Management
 
 [plasmashell]
-_k_friendly_name=Activity switching
+_k_friendly_name=Plasma
 activate task manager entry 1=none,Meta+1,Activate Task Manager Entry 1
 activate task manager entry 10=none,Meta+0,Activate Task Manager Entry 10
 activate task manager entry 2=none,Meta+2,Activate Task Manager Entry 2
