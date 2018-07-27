@@ -158,6 +158,12 @@ if command -v pygmentize > /dev/null; then
     export LESS=" -R "
 fi
 
+if command -v aria2c > /dev/null; then
+    alias youtube-dl="youtube-dl \
+        --external-downloader ariac \
+        --external-downloader-args '-c -j 5 -x 5 -s 5 -k 2M' \
+        "
+fi
 
 if [[ $XDG_CURRENT_DESKTOP = "KDE" ]]; then
     # Window transparency for KDE
