@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: set
+# key: set
+# --
+\Set*{`(yas-selected-text)`$1}$0
