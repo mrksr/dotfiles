@@ -21,7 +21,6 @@
       c-c++-default-mode-for-headers 'c++-mode
       )
      docker
-     emacs-lisp
      (evil-snipe
       :variables
       evil-snipe-enable-alternate-f-and-t-behaviors t
@@ -38,7 +37,9 @@
       LaTeX-item-indent 0
       TeX-brace-indent-level 4
       )
-     ivy
+     helm
+     kotlin
+     lsp
      (lua
       :variables
       lua-indent-level 4
@@ -50,10 +51,6 @@
       :variables
       python-backend 'lsp
      )
-     (ranger
-      :variables
-      ranger-override-dired t
-      )
      rust
      semantic
      shell-scripts
