@@ -11,6 +11,10 @@ New=none,none,New Terminal
 _k_friendly_name=Launch Alacritty
 _launch=Meta+C\tMeta+X,none,Launch Alacritty
 
+[albert.desktop]
+_k_friendly_name=Launch Albert
+_launch=F12,none,Launch Albert
+
 [emacs.desktop]
 _k_friendly_name=Launch Emacs
 _launch=Meta+Shift+F,none,Launch Emacs
@@ -39,7 +43,8 @@ _k_friendly_name=KDE Daemon
 {373a18ca-afb0-4122-aeda-974382f17886}=Print,none,Start Screenshot Tool
 {5dd14927-e81d-4bcb-b21c-bf349caf36f6}=Meta+Print,none,Take Active Window Screenshot
 {61f7c761-4f03-4532-9159-43b1a40b7eb1}=Meta+Shift+Print,none,Take Rectangular Region Screenshot
-{95d250c1-65b0-4065-bcb2-9633f530cf8d}=F12,none,Rofi
+{7fdda267-6c42-4219-9028-2317f391fa28}=Ctrl+Alt+T,none,Launch Konsole
+{95d250c1-65b0-4065-bcb2-9633f530cf8d}=F10,none,Rofi
 {d03619b6-9b3c-48cc-9d9c-a2aadb485550}=,none,Search
 {f2c9698b-840f-4d20-a134-bd4ac46a7432}=Shift+Print,none,Take Full Screen Screenshot
 
