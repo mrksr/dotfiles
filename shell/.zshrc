@@ -53,6 +53,7 @@ SAVEHIST=1000000
 setopt HIST_IGNORE_SPACE
 # ...and all the globs
 setopt extendedglob
+setopt null_glob
 
 ########################
 #  Alias and Commands  #
