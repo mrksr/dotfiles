@@ -11,11 +11,15 @@ ZSH=$HOME/.oh-my-zsh
 # Hack to use the theme in $HOME
 ZSH_THEME="../../"
 plugins=( \
+    # Load vi-mode first to avoid hotkey-breakage...
+    vi-mode \
+    # ...otherwise order should not matter
     colored-man-pages \
     docker \
     docker-compose \
     extract \
     fasd \
+    fzf \
     git \
     gitignore \
     mercurial \
@@ -25,7 +29,6 @@ plugins=( \
     python \
     screen \
     tmux \
-    vi-mode \
     wakeonlan \
 )
 
@@ -65,7 +68,6 @@ alias apt-list="dpkg --list-selections"
 alias apt-filesearch="apt-find search"
 
 alias dmesg="dmesg --color=auto"
-alias fzf="fzf -x"
 
 if command -v exa > /dev/null; then
     alias ls="exa --group-directories-first"
@@ -145,12 +147,6 @@ precmd_functions=($precmd_functions bell_before_command)
 if command -v fortune > /dev/null; then
     fortune -s;
     echo;
-fi
-
-if command -v fzf > /dev/null; then
-    if [[ -e .fzf.zsh ]]; then
-        source .fzf.zsh
-    fi
 fi
 
 if command -v pygmentize > /dev/null; then
