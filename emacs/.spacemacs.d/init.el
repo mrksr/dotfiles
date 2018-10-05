@@ -90,6 +90,7 @@
    dotspacemacs-startup-recent-list-size 5
    dotspacemacs-themes
    '(
+     sanityinc-tomorrow-bright
      sanityinc-tomorrow-eighties
      sanityinc-tomorrow-night
      base16-default-dark
