@@ -150,9 +150,8 @@ if command -v fortune > /dev/null; then
     echo;
 fi
 
-if command -v pygmentize > /dev/null; then
-    export LESSOPEN="|| $(which pygmentize) -g %s"
-    export LESS=" -R "
+if command -v bat > /dev/null; then
+    alias cat="bat"
 fi
 
 if command -v aria2c > /dev/null; then
