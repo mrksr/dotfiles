@@ -73,7 +73,10 @@
       )
      yaml
      )
-   dotspacemacs-additional-packages '(base16-theme)
+   dotspacemacs-additional-packages
+   '(
+     doom-themes
+     )
    dotspacemacs-excluded-packages '(smartparens)
    dotspacemacs-delete-orphan-packages t))
 
@@ -90,10 +93,13 @@
    dotspacemacs-startup-recent-list-size 5
    dotspacemacs-themes
    '(
+     doom-opera
+     doom-peacock
+     doom-spacegrey
+     doom-tomorrow-night
      sanityinc-tomorrow-bright
      sanityinc-tomorrow-eighties
      sanityinc-tomorrow-night
-     base16-default-dark
      )
 
    dotspacemacs-colorize-cursor-according-to-state t
