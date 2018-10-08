@@ -12,6 +12,9 @@ export PATH=$HOME/.bin:$HOME/.local/bin:$HOME/.cargo/bin:/usr/bin/vendor_perl:$P
 export EDITOR=vim
 export BROWSER=firefox
 
+# local stuff
+export LD_LIBRARY_PATH=$HOME/.local/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
+
 if [[ -e $HOME/.zshenv_local ]]; then
     source $HOME/.zshenv_local
 fi
