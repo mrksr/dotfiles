@@ -1,3 +1,6 @@
+[$Version]
+update_info=kwin.upd:replace-scalein-with-scale
+
 [Compositing]
 AnimationSpeed=3
 Backend=OpenGL
@@ -89,14 +92,14 @@ desktopchangeosdEnabled=false
 dimscreenEnabled=true
 dynamicVirtualDesktopsEnabled=false
 enforcedecoEnabled=true
-flipswitchEnabled=true
+flipswitchEnabled[$d]
 highlightwindowEnabled=true
 kwin-script-tilingEnabled=false
 kwin4_effect_fadedesktopEnabled[$d]
 minimizeallEnabled=false
 resizeEnabled=true
 slideEnabled[$d]
-slidebackEnabled=true
+slidebackEnabled[$d]
 sticky-window-snappingEnabled=true
 synchronizeskipswitcherEnabled=false
 videowallEnabled=false

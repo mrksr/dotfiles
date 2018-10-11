@@ -13,7 +13,7 @@ _launch=Meta+C\tMeta+X,none,Launch Alacritty
 
 [albert.desktop]
 _k_friendly_name=Launch Albert
-_launch=F12,none,Launch Albert
+_launch=none,none,Launch Albert
 
 [emacs.desktop]
 _k_friendly_name=Launch Emacs
@@ -306,6 +306,7 @@ new instance for entry 5=,Meta+Ctrl+5,New Instance for Entry 5
 new instance for entry 6=,Meta+Ctrl+6,New Instance for Entry 6
 new instance for entry 7=,Meta+Ctrl+7,New Instance for Entry 7
 new instance for entry 8=,Meta+Ctrl+8,New Instance for Entry 8
+new instance for entry 9=,Meta+Ctrl+9,New Instance for Entry 9
 new instance for task manager entry 1=,Meta+Ctrl+1,New Instance for Task Manager Entry 1
 new instance for task manager entry 10=Meta+Ctrl+0,Meta+Ctrl+0,New Instance for Task Manager Entry 10
 new instance for task manager entry 2=,Meta+Ctrl+2,New Instance for Task Manager Entry 2
