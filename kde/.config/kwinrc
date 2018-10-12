@@ -40,7 +40,7 @@ BorderActivateCylinder=9
 BorderActivateSphere=9
 
 [Effect-DesktopGrid]
-BorderActivate=1
+BorderActivate=9
 LayoutMode=1
 
 [Effect-FlipSwitch]
@@ -49,7 +49,7 @@ TabBoxAlternative=false
 
 [Effect-PresentWindows]
 BorderActivate=9
-BorderActivateAll=7
+BorderActivateAll=9
 BorderActivateClass=9
 
 [Effect-kwin4_effect_translucency]
@@ -122,7 +122,7 @@ DesktopLayout=org.kde.breeze.desktop
 DesktopListLayout=org.kde.breeze.desktop
 DesktopMode=1
 HighlightWindows=true
-LayoutName=org.kde.breeze.desktop
+LayoutName=big_icons
 MinimizedMode=0
 MultiScreenMode=0
 ShowDesktopMode=0
@@ -144,14 +144,14 @@ SwitchingMode=0
 [Windows]
 ActiveMouseScreen=true
 AutoRaise=true
-AutoRaiseInterval=500
+AutoRaiseInterval=1000
 AutogroupInForeground=true
 AutogroupSimilarWindows=false
 BorderSnapZone=10
 BorderlessMaximizedWindows=true
 CenterSnapZone=0
 ClickRaise=true
-DelayFocusInterval=300
+DelayFocusInterval=1000
 ElectricBorderCooldown=350
 ElectricBorderCornerRatio=0.25
 ElectricBorderDelay=150

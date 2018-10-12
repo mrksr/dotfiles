@@ -17,4 +17,5 @@ memoryUsage=0
 mouseSensitivity=2
 screenTrackerInterval=2500
 showInfoWindow=true
+unifiedGlobalShortcuts=true
 version=2
