@@ -82,6 +82,7 @@ if s:freshInstall
     PlugInstall
 endif
 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                Environment                             {{{1"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -117,6 +118,7 @@ if has("persistent_undo")
 endif
 set noswapfile
 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  Plugins                               {{{1"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -129,12 +131,14 @@ filetype on
 filetype indent on
 filetype plugin on
 
+
 """"""""""""""
 "  polyglot  "
 """"""""""""""
 let g:polyglot_disabled = [
     \ "latex"
     \]
+
 
 """""""""""""
 "  Airline  "
@@ -145,6 +149,7 @@ let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#tab_min_count = 2
 let g:airline#extensions#tabline#show_tab_type = 0
 let g:airline_theme='base16'
+
 
 """""""""""
 "  Latex  "
@@ -162,6 +167,7 @@ let g:vimtex_quickfix_ignored_warnings = [
 nnoremap <localleader>lt :<c-u>Unite vimtex_toc<cr>
 nnoremap <localleader>ly :<c-u>Unite vimtex_labels<cr>
 
+
 """""""""""""
 "  Signify  "
 """""""""""""
@@ -171,6 +177,7 @@ let g:signify_update_on_focusgained = 1
 nnoremap <leader>h :SignifyToggleHighlight<CR>
 nmap <leader>j <plug>(signify-next-hunk)
 nmap <leader>k <plug>(signify-prev-hunk)
+
 
 """""""""""""""
 "  UltiSnips  "
@@ -182,15 +189,18 @@ let g:UltiSnipsExpandTrigger="<c-f>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
+
 """"""""""""""
 "  tmuxline  "
 """"""""""""""
 let g:tmuxline_powerline_separators = 0
 
+
 """"""""""""""
 "  Markdown  "
 """"""""""""""
 au BufEnter *.md :se ft=markdown
+
 
 """"""""""""""
 "  startify  "
@@ -224,6 +234,7 @@ let g:startify_session_delete_buffers = 1
 let g:startify_change_to_vcs_root = 1
 let g:startify_files_number = 8
 
+
 """"""""""""""
 "  EasyClip  "
 """"""""""""""
@@ -233,10 +244,12 @@ let g:EasyClipShareYanksDirectory = s:localdir
 
 nnoremap Y :EasyClipBeforeYank<cr>yy:EasyClipOnYanksChanged<cr>
 
+
 """"""""""""""
 "  sayonara  "
 """"""""""""""
 com! -bang BD Sayonara<bang>
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  Mappings                              {{{1"
@@ -283,6 +296,8 @@ nnoremap <Esc>6 6gt
 nnoremap <Esc>7 7gt
 nnoremap <Esc>8 8gt
 nnoremap <Esc>9 9gt
+
+
 
 " Custom leader maps
 " We use spacemacs-style chords
@@ -340,6 +355,7 @@ if has('nvim')
     nnoremap <C-l> <C-\><C-n><C-W>l
 endif
 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  Commands                              {{{1"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -354,6 +370,7 @@ com! -bang QA qa<bang>
 
 " write again with root permissions
 cmap w!! w !sudo tee %
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 Interface                              {{{1"
@@ -453,6 +470,7 @@ set sessionoptions-=resize
 set sessionoptions-=winpos
 set sessionoptions-=winsize
 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                    IDE                                 {{{1"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -474,6 +492,7 @@ augroup END
 inoremap # X#
 set cinkeys-=0#
 set indentkeys-=0#
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                Local .vimrc                            {{{1"
