@@ -254,6 +254,9 @@ com! -bang BD Sayonara<bang>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  Mappings                              {{{1"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""
+"  Basic  "
+"""""""""""
 " Splits
 nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
@@ -297,37 +300,6 @@ nnoremap <Esc>7 7gt
 nnoremap <Esc>8 8gt
 nnoremap <Esc>9 9gt
 
-
-
-" Custom leader maps
-" We use spacemacs-style chords
-" Search
-nnoremap <silent><leader><leader> :nohl<CR>
-nnoremap <silent><leader>sc :nohl<CR>
-" Spell Checking
-nnoremap <silent><leader>ss :setlocal spell!<cr>
-nnoremap <silent><leader>sn ]s
-nnoremap <silent><leader>sp [s
-nnoremap <silent><leader>sa zg
-nnoremap <silent><leader>s? z=
-nnoremap <silent><leader>sf 1z=
-nnoremap <silent><leader>sF 1z=
-" File
-nnoremap <silent><leader>fs :w<cr>
-" Remove trailing whitespace
-nnoremap <silent><leader>fw :%s/\s\+$//<CR>:let @/=''<CR>
-vnoremap <silent><leader>fw :'<,'>s/\s\+$//<CR>:let @/=''<CR>
-" Remove blank lines
-nnoremap <silent><leader>fL :g/^$/d<CR>:let @/=''<CR>
-vnoremap <silent><leader>fL :g/^$/d<CR>:let @/=''<CR>
-" Collapse lines
-nnoremap <silent><leader>fl Goj<Esc>:g/^$/.,/./-j<CR>Gdd:let @/=''<CR>
-vnoremap <silent><leader>fl :g/^$/.,/./-j<CR>:let @/=''<CR>
-
-" Folds
-nnoremap <leader>f za
-nnoremap <leader>F zMzvzz
-
 " Paste and Yank to System Register
 nnoremap ü "+p
 nnoremap Ü "+Y
@@ -354,6 +326,42 @@ if has('nvim')
     nnoremap <C-h> <C-\><C-n><C-W>h
     nnoremap <C-l> <C-\><C-n><C-W>l
 endif
+
+
+"""""""""""""""""
+"  Leader maps  "
+"""""""""""""""""
+" We use spacemacs-style chords
+" Search
+nnoremap <silent><leader><leader> :nohl<CR>
+nnoremap <silent><leader>sc :nohl<CR>
+
+" Spell Checking
+nnoremap <silent><leader>ss :setlocal spell!<cr>
+nnoremap <silent><leader>sn ]s
+nnoremap <silent><leader>sp [s
+nnoremap <silent><leader>sa zg
+nnoremap <silent><leader>s? z=
+nnoremap <silent><leader>sf 1z=
+nnoremap <silent><leader>sF 1z=
+
+" Files
+nnoremap <silent><leader>fs :w<cr>
+" Remove trailing whitespace
+nnoremap <silent><leader>fw :%s/\s\+$//<CR>:let @/=''<CR>
+vnoremap <silent><leader>fw :'<,'>s/\s\+$//<CR>:let @/=''<CR>
+" Remove blank lines
+nnoremap <silent><leader>fL :g/^$/d<CR>:let @/=''<CR>
+vnoremap <silent><leader>fL :g/^$/d<CR>:let @/=''<CR>
+" Collapse lines
+nnoremap <silent><leader>fl Goj<Esc>:g/^$/.,/./-j<CR>Gdd:let @/=''<CR>
+vnoremap <silent><leader>fl :g/^$/.,/./-j<CR>:let @/=''<CR>
+
+" Folds
+nnoremap <leader>fa za
+nnoremap <leader>fr zr
+nnoremap <leader>fR zR
+nnoremap <leader>fc zMzvzz
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
