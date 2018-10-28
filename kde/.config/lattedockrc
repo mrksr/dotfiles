@@ -2,8 +2,12 @@
 LaunchCounts=2 services_chromium.desktop,3 services_org.kde.kontact.desktop,2 services_systemsettings.desktop,1 services_firefox.desktop,1 services_org.kde.konsole.desktop,3 services_astroid.desktop,1 services_kwalletconfig5.desktop,3 services_org.kde.kmail2.desktop,1 services_google-chrome.desktop,5 services_qtpass.desktop,1 services_spotify.desktop
 pluginWhiteList=services,desktopsessions,PowerDevil,shell,bookmarks,baloosearch,locations
 
+[PlasmaTransientsConfig]
+PreloadWeight=34
+
 [ScreenConnectors]
 10=eDP1
+11=HDMI1
 
 [UniversalSettings]
 canDisableBorders=false

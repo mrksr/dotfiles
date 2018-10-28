@@ -159,6 +159,9 @@ listViewIconSize=0
 [KShortcutsDialog Settings]
 Dialog Size=600,480
 
+[PreviewSettings]
+MaximumRemoteSize=0
+
 [Toolbar style]
 ToolButtonStyle=TextBesideIcon
 ToolButtonStyleOtherToolbars=TextBesideIcon
