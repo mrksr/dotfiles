@@ -24,8 +24,6 @@ else
 endif
 
 if has('nvim')
-    runtime! python_setup.vim
-
     let s:plugPath = '~/.config/nvim/autoload/plug.vim'
     let s:bundlePath = '~/.config/nvim/bundle/'
 else
@@ -57,6 +55,7 @@ Plug 'mhinz/vim-startify'
 Plug 'Shougo/unite-outline'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimproc.vim', { 'do' : 'make' }
+Plug 'SirVer/ultisnips'
 Plug 'svermeulen/vim-easyclip'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
@@ -67,24 +66,9 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/argtextobj.vim'
 Plug 'wellle/targets.vim'
 
-" Plugins using externals
-" Prevent startup error messages
-if has("python")
-    Plug 'guyzmo/notmuch-abook'
-    Plug 'SirVer/ultisnips'
-endif
-
 if s:fancyPlugins
-    " Plugins specific to nvim or vim
-    if has("nvim")
-        " Plug 'floobits/floobits-neovim'
-        Plug 'w0rp/ale'
-        Plug 'Shougo/deoplete.nvim'
-        Plug 'zchee/deoplete-jedi'
-    else
-        Plug 'scrooloose/syntastic'
-        Plug 'Valloric/YouCompleteMe'
-    endif
+    " Plug 'floobits/floobits-neovim'
+    Plug 'w0rp/ale'
 endif
 
 " Colorschemes
@@ -175,41 +159,8 @@ let g:vimtex_quickfix_ignored_warnings = [
     \ 'specifier changed to',
     \ ]
 
-if !exists('g:ycm_semantic_triggers')
-    let g:ycm_semantic_triggers = {}
-endif
-let g:ycm_semantic_triggers.tex = [
-    \ 're!\\[A-Za-z]*cite[A-Za-z]*(\[[^]]*\]){0,2}{[^}]*',
-    \ 're!\\[A-Za-z]*ref({[^}]*|range{([^,{}]*(}{)?))',
-    \ 're!\\hyperref\[[^]]*',
-    \ 're!\\includegraphics\*?(\[[^]]*\]){0,2}{[^}]*',
-    \ 're!\\(include(only)?|input){[^}]*',
-    \ 're!\\\a*(gls|Gls|GLS)(pl)?\a*(\s*\[[^]]*\]){0,2}\s*\{[^}]*',
-    \ 're!\\includepdf(\s*\[[^]]*\])?\s*\{[^}]*',
-    \ 're!\\includestandalone(\s*\[[^]]*\])?\s*\{[^}]*',
-    \ ]
 nnoremap <localleader>lt :<c-u>Unite vimtex_toc<cr>
 nnoremap <localleader>ly :<c-u>Unite vimtex_labels<cr>
-
-"""""""""""""""
-"  Syntastic  "
-"""""""""""""""
-let g:syntastic_mode_map = { 'mode': 'active',
-                           \ 'active_filetypes': [],
-                           \ 'passive_filetypes': ['tex', 'scala'] }
-let g:syntastic_tex_checkers = ['chktex']
-let g:syntastic_cpp_compiler_options = ' -std=c++11'
-let g:syntastic_error_symbol = '!'
-let g:syntastic_warning_symbol = '?'
-
-"""""""""""""""""""
-"  YouCompleteMe  "
-"""""""""""""""""""
-let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_extra_conf.py'
-let g:ycm_confirm_extra_conf = 0
-let g:ycm_collect_identifiers_from_tags_files = 1
-
-nnoremap <leader>g :YcmCompleter GoToImprecise<CR>
 
 """""""""""""
 "  Signify  "
@@ -227,7 +178,7 @@ nmap <leader>k <plug>(signify-prev-hunk)
 let g:UltiSnipsEditSplit="vertical"
 
 " Avoid Clashes with YCM
-let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsExpandTrigger="<c-f>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
@@ -235,41 +186,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 "  tmuxline  "
 """"""""""""""
 let g:tmuxline_powerline_separators = 0
-
-"""""""""""
-"  Unite  "
-"""""""""""
-let g:unite_source_history_yank_enable = 1
-try
-    call unite#filters#matcher_default#use(['matcher_fuzzy'])
-    call unite#filters#sorter_default#use(['sorter_rank'])
-    call unite#custom#profile('default', 'context', {
-    \   'start_insert': 1,
-    \   'winheight': 10,
-    \   'direction': 'botright',
-    \ })
-catch
-endtry
-let g:unite_source_rec_async_command = [
-    \ 'rg', '--files'
-    \]
-
-nnoremap <silent><F3> :<C-u>Unite history/yank<CR>
-nnoremap <silent>ä :<C-u>Unite file_rec/async:!<CR>
-nnoremap <silent>Ä :<C-u>Unite outline<CR>
-nnoremap <silent>ö :<C-u>Unite buffer<CR>
-nnoremap <silent>Ö :<C-u>Unite tag<CR>
-
-nnoremap <silent><leader>bb :<C-u>Unite buffer<CR>
-nnoremap <silent><leader>pf :<C-u>Unite file_rec/async:!<CR>
-
-" Custom mappings for the unite buffer
-autocmd FileType unite call s:unite_settings()
-function! s:unite_settings()
-    " Enable navigation with control-j and control-k in insert mode
-    imap <buffer> <C-j> <Plug>(unite_select_next_line)
-    imap <buffer> <C-k> <Plug>(unite_select_previous_line)
-endfunction
 
 """"""""""""""
 "  Markdown  "
@@ -369,25 +285,33 @@ nnoremap <Esc>8 8gt
 nnoremap <Esc>9 9gt
 
 " Custom leader maps
+" We use spacemacs-style chords
+" Search
 nnoremap <silent><leader><leader> :nohl<CR>
-nnoremap <silent><leader>fs :w<cr>
+nnoremap <silent><leader>sc :nohl<CR>
 " Spell Checking
 nnoremap <silent><leader>ss :setlocal spell!<cr>
 nnoremap <silent><leader>sn ]s
 nnoremap <silent><leader>sp [s
 nnoremap <silent><leader>sa zg
 nnoremap <silent><leader>s? z=
-nnoremap <silent><leader>sc z=
 nnoremap <silent><leader>sf 1z=
+nnoremap <silent><leader>sF 1z=
+" File
+nnoremap <silent><leader>fs :w<cr>
 " Remove trailing whitespace
-nnoremap <silent><leader>i :%s/\s\+$//<CR>:let @/=''<CR>
-vnoremap <silent><leader>i :'<,'>s/\s\+$//<CR>:let @/=''<CR>
+nnoremap <silent><leader>fw :%s/\s\+$//<CR>:let @/=''<CR>
+vnoremap <silent><leader>fw :'<,'>s/\s\+$//<CR>:let @/=''<CR>
 " Remove blank lines
-nnoremap <silent><leader>p :g/^$/d<CR>:let @/=''<CR>
-vnoremap <silent><leader>p :g/^$/d<CR>:let @/=''<CR>
+nnoremap <silent><leader>fL :g/^$/d<CR>:let @/=''<CR>
+vnoremap <silent><leader>fL :g/^$/d<CR>:let @/=''<CR>
 " Collapse lines
-nnoremap <silent><leader>o Goj<Esc>:g/^$/.,/./-j<CR>Gdd:let @/=''<CR>
-vnoremap <silent><leader>o :g/^$/.,/./-j<CR>:let @/=''<CR>
+nnoremap <silent><leader>fl Goj<Esc>:g/^$/.,/./-j<CR>Gdd:let @/=''<CR>
+vnoremap <silent><leader>fl :g/^$/.,/./-j<CR>:let @/=''<CR>
+
+" Folds
+nnoremap <leader>f za
+nnoremap <leader>F zMzvzz
 
 " Paste and Yank to System Register
 nnoremap ü "+p
@@ -396,13 +320,9 @@ vnoremap ü "+y
 vnoremap Ü "+p
 inoremap üü <C-r>*
 
-" Code Completion
-inoremap <S-Space> <C-x><C-o><C-p>
-inoremap <C-Space> <C-x><C-o><C-p>
-
-" Folds
-nnoremap <leader>f za
-nnoremap <leader>F zMzvzz
+" " Code Completion
+" inoremap <S-Space> <C-x><C-o><C-p>
+" inoremap <C-Space> <C-x><C-o><C-p>
 
 " Macro execution
 nnoremap Q @
@@ -537,8 +457,6 @@ set sessionoptions-=winsize
 "                                    IDE                                 {{{1"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set path+=include/**
-" To create systags run
-" ctags -R -f $LOCALDIR/systags --c-kinds=+p --fields=+iaS --extra=+q /usr/include /usr/local/include
 set tags+=.git/tags;,.hg/tags;,.svn/tags;
 let &tags.="," . s:localdir . "systags"
 let g:load_doxygen_syntax=1
@@ -561,6 +479,6 @@ set indentkeys-=0#
 "                                Local .vimrc                            {{{1"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 try
-    exec ":so " . s:localdir . "vimrc_local"
+    exec ":so " . s:localdir . "vimrc"
 catch
 endtry
