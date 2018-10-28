@@ -27,6 +27,7 @@
       evil-snipe-enable-alternate-f-and-t-behaviors t
       )
      git
+     html
      (latex
       :variables
       latex-build-command "LatexMk"
@@ -40,18 +41,13 @@
       )
      helm
      kotlin
-     lsp
      (lua
       :variables
       lua-indent-level 4
       )
-     lsp
      markdown
      nginx
-     (python
-      :variables
-      python-backend 'lsp
-     )
+     python
      rust
      semantic
      shell-scripts
