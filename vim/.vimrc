@@ -16,19 +16,20 @@ else
     set dir=/tmp//,~/tmp//,.
 endif
 
-let s:fancyFile = s:localdir . "with_fancy"
+if has('nvim')
+    let s:plugPath = '~/.config/nvim/autoload/plug.vim'
+    let s:bundlePath = '~/.config/nvim/bundle/'
+    let s:fancyFile = s:localdir . "with_fancy*"
+else
+    let s:plugPath = '~/.vim/autoload/plug.vim'
+    let s:bundlePath = '~/.vim/bundle/'
+    let s:fancyFile = s:localdir . "with_fancy"
+endif
+
 if empty(glob(s:fancyFile))
     let s:fancyPlugins = 0
 else
     let s:fancyPlugins = 1
-endif
-
-if has('nvim')
-    let s:plugPath = '~/.config/nvim/autoload/plug.vim'
-    let s:bundlePath = '~/.config/nvim/bundle/'
-else
-    let s:plugPath = '~/.vim/autoload/plug.vim'
-    let s:bundlePath = '~/.vim/bundle/'
 endif
 
 let s:freshInstall = 0
@@ -297,12 +298,13 @@ nnoremap <silent>Ö :<C-u>Denite tag<CR>
 """"""""""""""""
 "  completion  "
 """"""""""""""""
-let g:deoplete#enable_at_startup = 1
-autocmd BufEnter * call ncm2#enable_for_buffer()
+if s:fancyPlugins
+    autocmd BufEnter * call ncm2#enable_for_buffer()
 
-" Use <TAB> to select the popup menu:
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+    " Use <TAB> to select the popup menu:
+    inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+    inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+endif
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
