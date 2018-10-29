@@ -52,23 +52,39 @@ Plug 'machakann/vim-sandwich'
 Plug 'mhinz/vim-sayonara'
 Plug 'mhinz/vim-signify'
 Plug 'mhinz/vim-startify'
-Plug 'Shougo/unite-outline'
-Plug 'Shougo/unite.vim'
+Plug 'Shougo/neomru.vim'
 Plug 'Shougo/vimproc.vim', { 'do' : 'make' }
 Plug 'SirVer/ultisnips'
 Plug 'svermeulen/vim-easyclip'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-repeat'
-Plug 'tsukkee/unite-tag'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/argtextobj.vim'
 Plug 'wellle/targets.vim'
 
+if has('nvim')
+    Plug 'Shougo/denite.nvim', { 'do' : ':UpdateRemotePlugins' }
+else
+    Plug 'Shougo/denite.nvim'
+endif
 if s:fancyPlugins
     " Plug 'floobits/floobits-neovim'
     Plug 'w0rp/ale'
+
+    Plug 'ncm2/ncm2'
+    Plug 'roxma/nvim-yarp'
+
+    Plug 'ncm2/ncm2-bufword'
+    Plug 'ncm2/ncm2-path'
+    Plug 'ncm2/ncm2-tmux'
+    Plug 'ncm2/ncm2-ultisnips'
+    Plug 'ncm2/ncm2-vim-lsp'
+
+    Plug 'prabirshrestha/async.vim'
+    Plug 'prabirshrestha/vim-lsp'
+    Plug 'ryanolsonx/vim-lsp-python'
 endif
 
 " Colorschemes
@@ -164,8 +180,8 @@ let g:vimtex_quickfix_ignored_warnings = [
     \ 'specifier changed to',
     \ ]
 
-nnoremap <localleader>lt :<c-u>Unite vimtex_toc<cr>
-nnoremap <localleader>ly :<c-u>Unite vimtex_labels<cr>
+nnoremap <localleader>lt :<c-u>Denite unite:vimtex_toc<cr>
+nnoremap <localleader>ly :<c-u>Denite unite:vimtex_labels<cr>
 
 
 """""""""""""
@@ -249,6 +265,40 @@ nnoremap Y :EasyClipBeforeYank<cr>yy:EasyClipOnYanksChanged<cr>
 "  sayonara  "
 """"""""""""""
 com! -bang BD Sayonara<bang>
+
+
+""""""""""""
+"  Denite  "
+""""""""""""
+" Change mappings.
+call denite#custom#map(
+      \ 'insert',
+      \ '<C-j>',
+      \ '<denite:move_to_next_line>',
+      \ 'noremap'
+      \)
+call denite#custom#map(
+      \ 'insert',
+      \ '<C-k>',
+      \ '<denite:move_to_previous_line>',
+      \ 'noremap'
+      \)
+
+nnoremap <silent>ä :<C-u>Denite file/rec<CR>
+nnoremap <silent>Ä :<C-u>Denite outline<CR>
+nnoremap <silent>ö :<C-u>Denite buffer<CR>
+nnoremap <silent>Ö :<C-u>Denite tag<CR>
+
+
+""""""""""""""""
+"  completion  "
+""""""""""""""""
+let g:deoplete#enable_at_startup = 1
+autocmd BufEnter * call ncm2#enable_for_buffer()
+
+" Use <TAB> to select the popup menu:
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -363,6 +413,27 @@ nnoremap <leader>fr zr
 nnoremap <leader>fR zR
 nnoremap <leader>fc zMzvzz
 
+" Denite
+nnoremap <silent><leader>ff :<C-u>Denite file/rec<CR>
+nnoremap <silent><leader>pf :<C-u>DeniteProjectDir file/rec<CR>
+nnoremap <silent><leader>bf :<C-u>DeniteBufferDir file/rec<CR>
+
+nnoremap <silent><leader>pp :<C-u>Denite directory_mru<CR>
+nnoremap <silent><leader>pl :<C-u>Denite directory_rec<CR>
+nnoremap <silent><leader>ps :<C-u>DeniteProjectDir grep:. -no-empty -auto-preview<CR>
+
+nnoremap <silent><leader>bb :<C-u>Denite buffer<CR>
+nnoremap <silent><leader>br :<C-u>Denite file_mru<CR>
+
+nnoremap <silent><leader>ss :<C-u>Denite line -auto-preview<CR>
+nnoremap <silent><leader>sj :<C-u>Denite outline<CR>
+nnoremap <silent><leader>sr :<C-u>Denite -resume -refresh<CR>
+
+" Deoplete
+nnoremap <silent><leader>ch :LspHover<CR>
+nnoremap <silent><leader>cd :LspDefinition<CR>
+nnoremap <silent><leader>cr :LspRename<CR>
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  Commands                              {{{1"
@@ -398,8 +469,9 @@ set ruler
 " Commands
 set wildmenu
 set wildmode=longest:full,full
-set completeopt=menuone,longest
+set completeopt=menuone,noinsert,noselect
 set cmdheight=1
+set shortmess+=c
 
 " Navigation
 set backspace=eol,start,indent
