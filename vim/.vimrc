@@ -102,10 +102,14 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                Environment                             {{{1"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if has("nvim")
+    set termguicolors
+endif
+
 set background=dark
 if has("gui_running")
     let base16colorspace=256
-    colorscheme base16-eighties
+    colorscheme base16-material
 
     set vb t_vb=
     set background=dark
@@ -113,10 +117,10 @@ if has("gui_running")
 else
     if &t_Co != 256
         let base16colorspace=16
-        colorscheme base16-eighties
+        colorscheme base16-material
     else
         let base16colorspace=256
-        colorscheme base16-eighties
+        colorscheme base16-material
     endif
 endif
 
@@ -382,6 +386,8 @@ endif
 "  Leader maps  "
 """""""""""""""""
 " We use spacemacs-style chords
+nnoremap <silent><leader>qq ZZ
+
 " Search
 nnoremap <silent><leader><leader> :nohl<CR>
 nnoremap <silent><leader>sc :nohl<CR>
@@ -396,6 +402,7 @@ nnoremap <silent><leader>sf 1z=
 nnoremap <silent><leader>sF 1z=
 
 " Files
+nnoremap <silent><leader>fed :e $MYVIMRC<cr>
 nnoremap <silent><leader>fs :w<cr>
 " Remove trailing whitespace
 nnoremap <silent><leader>fw :%s/\s\+$//<CR>:let @/=''<CR>
@@ -533,8 +540,6 @@ augroup END
 if has("conceal")
     set conceallevel=2
     hi! link Conceal Normal
-    let g:tex_conceal="abgm"
-    let g:tex_flavor="latex"
 endif
 
 " Sessions
@@ -551,24 +556,12 @@ set sessionoptions-=winpos
 set sessionoptions-=winsize
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                    IDE                                 {{{1"
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set path+=include/**
-set tags+=.git/tags;,.hg/tags;,.svn/tags;
-let &tags.="," . s:localdir . "systags"
-let g:load_doxygen_syntax=1
-
-augroup commentstrings
-    autocmd FileType cmake setlocal commentstring=#%s
-augroup END
-
 augroup todostrings
     autocmd Syntax * call matchadd('Todo', '\v\W\zs(BUG|TODO|FIXME)(\(.{-}\))?:?', -1)
     autocmd Syntax * call matchadd('Todo', '\v\W\zs(NOTE)(\(.{-}\))?:?', -2)
 augroup END
 
-" Remove special case '#'
+" Remove special case '#' in C code
 inoremap # X#
 set cinkeys-=0#
 set indentkeys-=0#
