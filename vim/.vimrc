@@ -49,11 +49,11 @@ Plug 'sheerun/vim-polyglot'
 Plug 'benjifisher/matchit.zip'
 Plug 'edkolev/tmuxline.vim'
 Plug 'honza/vim-snippets'
+Plug 'junegunn/fzf.vim'
 Plug 'machakann/vim-sandwich'
 Plug 'mhinz/vim-sayonara'
 Plug 'mhinz/vim-signify'
 Plug 'mhinz/vim-startify'
-Plug 'Shougo/neomru.vim'
 Plug 'Shougo/vimproc.vim', { 'do' : 'make' }
 Plug 'SirVer/ultisnips'
 Plug 'svermeulen/vim-easyclip'
@@ -65,11 +65,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/argtextobj.vim'
 Plug 'wellle/targets.vim'
 
-if has('nvim')
-    Plug 'Shougo/denite.nvim', { 'do' : ':UpdateRemotePlugins' }
-else
-    Plug 'Shougo/denite.nvim'
-endif
 if s:fancyPlugins
     " Plug 'floobits/floobits-neovim'
     Plug 'w0rp/ale'
@@ -184,9 +179,6 @@ let g:vimtex_quickfix_ignored_warnings = [
     \ 'Overfull',
     \ 'specifier changed to',
     \ ]
-
-nnoremap <localleader>lt :<c-u>Denite unite:vimtex_toc<cr>
-nnoremap <localleader>ly :<c-u>Denite unite:vimtex_labels<cr>
 
 augroup ncm2_latex_setup
     autocmd!
@@ -330,29 +322,6 @@ nnoremap Y :EasyClipBeforeYank<cr>yy:EasyClipOnYanksChanged<cr>
 com! -bang BD Sayonara<bang>
 
 
-""""""""""""
-"  Denite  "
-""""""""""""
-" Change mappings.
-call denite#custom#map(
-      \ 'insert',
-      \ '<C-j>',
-      \ '<denite:move_to_next_line>',
-      \ 'noremap'
-      \)
-call denite#custom#map(
-      \ 'insert',
-      \ '<C-k>',
-      \ '<denite:move_to_previous_line>',
-      \ 'noremap'
-      \)
-
-nnoremap <silent>ä :<C-u>Denite file/rec<CR>
-nnoremap <silent>Ä :<C-u>Denite outline<CR>
-nnoremap <silent>ö :<C-u>Denite buffer<CR>
-nnoremap <silent>Ö :<C-u>Denite tag<CR>
-
-
 """"""""""""""""
 "  completion  "
 """"""""""""""""
@@ -363,6 +332,16 @@ if s:fancyPlugins
     inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
     inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 endif
+
+
+"""""""""
+"  fzf  "
+"""""""""
+command! FasdCD call fzf#run({
+\  'source': 'fasd -Rdl',
+\  'sink': 'cd',
+\  'down': '40%',
+\ })
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -480,21 +459,19 @@ nnoremap <leader>fr zr
 nnoremap <leader>fR zR
 nnoremap <leader>fc zMzvzz
 
-" Denite
-nnoremap <silent><leader>ff :<C-u>Denite file/rec<CR>
-nnoremap <silent><leader>pf :<C-u>DeniteProjectDir file/rec<CR>
-nnoremap <silent><leader>bf :<C-u>DeniteBufferDir file/rec<CR>
+" Search
+nnoremap <silent><leader>ff :<C-u>Files<CR>
+nnoremap <silent><leader>pf :<C-u>GFiles<CR>
 
-nnoremap <silent><leader>pp :<C-u>Denite directory_mru<CR>
-nnoremap <silent><leader>pl :<C-u>Denite directory_rec<CR>
-nnoremap <silent><leader>ps :<C-u>DeniteProjectDir grep:. -no-empty -auto-preview<CR>
+nnoremap <silent><leader>pp :<C-u>FasdCD<CR>
+nnoremap <silent><leader>ps :<C-u>Rg<CR>
 
-nnoremap <silent><leader>bb :<C-u>Denite buffer<CR>
-nnoremap <silent><leader>br :<C-u>Denite file_mru<CR>
+nnoremap <silent><leader>bb :<C-u>Buffers<CR>
+nnoremap <silent><leader>br :<C-u>History<CR>
+nnoremap <silent><leader>bs :<C-u>Lines<CR>
 
-nnoremap <silent><leader>ss :<C-u>Denite line -auto-preview<CR>
-nnoremap <silent><leader>sj :<C-u>Denite outline<CR>
-nnoremap <silent><leader>sr :<C-u>Denite -resume -refresh<CR>
+nnoremap <silent><leader>ss :<C-u>BLines<CR>
+nnoremap <silent><leader>sj :<C-u>Tags<CR>
 
 " Deoplete
 nnoremap <silent><leader>ch :LspHover<CR>
