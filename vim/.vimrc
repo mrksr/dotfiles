@@ -106,7 +106,7 @@ endif
 set background=dark
 if has("gui_running")
     let base16colorspace=256
-    colorscheme base16-material
+    colorscheme base16-railscasts
 
     set vb t_vb=
     set background=dark
@@ -114,10 +114,10 @@ if has("gui_running")
 else
     if &t_Co != 256
         let base16colorspace=16
-        colorscheme base16-material
+        colorscheme base16-railscasts
     else
         let base16colorspace=256
-        colorscheme base16-material
+        colorscheme base16-railscasts
     endif
 endif
 
