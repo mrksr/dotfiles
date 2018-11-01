@@ -64,6 +64,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/argtextobj.vim'
 Plug 'wellle/targets.vim'
+Plug 'zenbro/mirror.vim'
 
 if s:fancyPlugins
     " Plug 'floobits/floobits-neovim'
