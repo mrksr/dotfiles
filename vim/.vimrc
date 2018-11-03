@@ -50,6 +50,7 @@ Plug 'benjifisher/matchit.zip'
 Plug 'edkolev/tmuxline.vim'
 Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf.vim'
+Plug 'Konfekt/FastFold'
 Plug 'machakann/vim-sandwich'
 Plug 'mhinz/vim-sayonara'
 Plug 'mhinz/vim-signify'
@@ -171,7 +172,6 @@ let g:airline_theme='base16'
 """""""""""
 "  Latex  "
 """""""""""
-let g:vimtex_complete_close_braces = 1
 let g:vimtex_fold_enabled = 1
 let g:vimtex_quickfix_open_on_warning = 0
 let g:vimtex_view_method = 'zathura'
@@ -181,63 +181,65 @@ let g:vimtex_quickfix_ignored_warnings = [
     \ 'specifier changed to',
     \ ]
 
-augroup ncm2_latex_setup
-    autocmd!
-    autocmd BufEnter * call ncm2#enable_for_buffer()
-    autocmd Filetype tex call ncm2#register_source({
-                \ 'name' : 'vimtex-cmds',
-                \ 'priority': 8,
-                \ 'complete_length': -1,
-                \ 'scope': ['tex'],
-                \ 'matcher': {'name': 'prefix', 'key': 'word'},
-                \ 'word_pattern': '\w+',
-                \ 'complete_pattern': g:vimtex#re#ncm2#cmds,
-                \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
-                \ })
-    autocmd Filetype tex call ncm2#register_source({
-                \ 'name' : 'vimtex-labels',
-                \ 'priority': 8,
-                \ 'complete_length': -1,
-                \ 'scope': ['tex'],
-                \ 'matcher': {'name': 'combine',
-                \             'matchers': [
-                \               {'name': 'substr', 'key': 'word'},
-                \               {'name': 'substr', 'key': 'menu'},
-                \             ]},
-                \ 'word_pattern': '\w+',
-                \ 'complete_pattern': g:vimtex#re#ncm2#labels,
-                \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
-                \ })
-    autocmd Filetype tex call ncm2#register_source({
-                \ 'name' : 'vimtex-files',
-                \ 'priority': 8,
-                \ 'complete_length': -1,
-                \ 'scope': ['tex'],
-                \ 'matcher': {'name': 'combine',
-                \             'matchers': [
-                \               {'name': 'abbrfuzzy', 'key': 'word'},
-                \               {'name': 'abbrfuzzy', 'key': 'abbr'},
-                \             ]},
-                \ 'word_pattern': '\w+',
-                \ 'complete_pattern': g:vimtex#re#ncm2#files,
-                \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
-                \ })
-    autocmd Filetype tex call ncm2#register_source({
-                \ 'name' : 'bibtex',
-                \ 'priority': 8,
-                \ 'complete_length': -1,
-                \ 'scope': ['tex'],
-                \ 'matcher': {'name': 'combine',
-                \             'matchers': [
-                \               {'name': 'prefix', 'key': 'word'},
-                \               {'name': 'abbrfuzzy', 'key': 'abbr'},
-                \               {'name': 'abbrfuzzy', 'key': 'menu'},
-                \             ]},
-                \ 'word_pattern': '\w+',
-                \ 'complete_pattern': g:vimtex#re#ncm2#bibtex,
-                \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
-                \ })
-augroup END
+if s:fancyPlugins
+    augroup ncm2_latex_setup
+        autocmd!
+        autocmd BufEnter * call ncm2#enable_for_buffer()
+        " autocmd Filetype tex call ncm2#register_source({
+        "             \ 'name' : 'vimtex-cmds',
+        "             \ 'priority': 8,
+        "             \ 'complete_length': -1,
+        "             \ 'scope': ['tex'],
+        "             \ 'matcher': {'name': 'prefix', 'key': 'word'},
+        "             \ 'word_pattern': '\w+',
+        "             \ 'complete_pattern': g:vimtex#re#ncm2#cmds,
+        "             \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+        "             \ })
+        autocmd Filetype tex call ncm2#register_source({
+                    \ 'name' : 'vimtex-labels',
+                    \ 'priority': 8,
+                    \ 'complete_length': -1,
+                    \ 'scope': ['tex'],
+                    \ 'matcher': {'name': 'combine',
+                    \             'matchers': [
+                    \               {'name': 'substr', 'key': 'word'},
+                    \               {'name': 'substr', 'key': 'menu'},
+                    \             ]},
+                    \ 'word_pattern': '\w+',
+                    \ 'complete_pattern': g:vimtex#re#ncm2#labels,
+                    \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+                    \ })
+        autocmd Filetype tex call ncm2#register_source({
+                    \ 'name' : 'vimtex-files',
+                    \ 'priority': 8,
+                    \ 'complete_length': -1,
+                    \ 'scope': ['tex'],
+                    \ 'matcher': {'name': 'combine',
+                    \             'matchers': [
+                    \               {'name': 'abbrfuzzy', 'key': 'word'},
+                    \               {'name': 'abbrfuzzy', 'key': 'abbr'},
+                    \             ]},
+                    \ 'word_pattern': '\w+',
+                    \ 'complete_pattern': g:vimtex#re#ncm2#files,
+                    \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+                    \ })
+        autocmd Filetype tex call ncm2#register_source({
+                    \ 'name' : 'bibtex',
+                    \ 'priority': 8,
+                    \ 'complete_length': -1,
+                    \ 'scope': ['tex'],
+                    \ 'matcher': {'name': 'combine',
+                    \             'matchers': [
+                    \               {'name': 'prefix', 'key': 'word'},
+                    \               {'name': 'abbrfuzzy', 'key': 'abbr'},
+                    \               {'name': 'abbrfuzzy', 'key': 'menu'},
+                    \             ]},
+                    \ 'word_pattern': '\w+',
+                    \ 'complete_pattern': g:vimtex#re#ncm2#bibtex,
+                    \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+                    \ })
+    augroup END
+endif
 
 
 """""""""""""
@@ -565,20 +567,13 @@ set display=lastline
 set nojoinspaces
 
 " Folds
-set foldmethod=syntax
 set foldlevel=1
 set foldnestmax=2
 set nofoldenable
 augroup folds
-    autocmd FileType tex setl foldlevel=0 foldnestmax=1 foldenable
+    autocmd FileType tex setl foldlevel=0 foldnestmax=1
     autocmd BufRead,BufNewFile *.c,*.cpp,*.cc setl foldlevel=0 foldnestmax=1
 augroup END
-
-" Conceal
-if has("conceal")
-    set conceallevel=2
-    hi! link Conceal Normal
-endif
 
 " Sessions
 set sessionoptions+=buffers
