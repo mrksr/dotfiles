@@ -140,7 +140,7 @@ endsnippet
 
 snippet align "Simple align environment" b
 \begin{align}
-	${0}
+	${1:${VISUAL:}}
 \end{align}
 endsnippet
 
@@ -148,6 +148,14 @@ snippet split "Split environment" b
 \begin{split}
 	${1:${VISUAL:}}
 \end{split}
+endsnippet
+
+snippet salign "Align-with-split environment" b
+\begin{align}
+\begin{split}
+	${1:${VISUAL:}}
+\end{split}
+\end{align}
 endsnippet
 
 snippet func "Function Definition" b
@@ -192,7 +200,27 @@ snippet "\brv\b" "random variable" r
 endsnippet
 
 snippet prob "Probability" w
-\Prob{$2}
+\Prob{$1}
+endsnippet
+
+snippet aprob "Approximate Probability" w
+\aProb{$1}
+endsnippet
+
+snippet variat "Variational Distribution" w
+\Variat{$1}
+endsnippet
+
+snippet fun "Function application"
+\Fun${1:*}{${2:\exp}{${3:${VISUAL:content}}}
+endsnippet
+
+snippet moment "Probabilistic moment"
+\Moment${1:*}{${2:\E}{${3:${VISUAL:content}}}
+endsnippet
+
+snippet kl "KL divergence"
+\KL{${1:q}{${2:p}}
 endsnippet
 
 #############
@@ -255,10 +283,10 @@ endsnippet
 
 snippet alg "Algorithm" b
 \begin{algorithm}[${1:htbp}]
-    \caption{${2:Great Algorithm!}}
-    \begin{algorithmic}[1]
+	\caption{${2:Great Algorithm!}}
+	\begin{algorithmic}[1]
 		${0:Algorithm}
-    \end{algorithmic}
+	\end{algorithmic}
 \end{algorithm}
 endsnippet
 
