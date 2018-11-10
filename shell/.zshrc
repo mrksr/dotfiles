@@ -154,6 +154,10 @@ if command -v bat > /dev/null; then
     alias cat="bat"
 fi
 
+if command -v nvim > /dev/null; then
+    alias vim="nvim"
+fi
+
 if command -v aria2c > /dev/null; then
     alias youtube-dl="youtube-dl \
         --external-downloader aria2c \
