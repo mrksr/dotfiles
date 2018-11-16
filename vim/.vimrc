@@ -48,6 +48,7 @@ Plug 'sheerun/vim-polyglot'
 " Plugins
 Plug 'benjifisher/matchit.zip'
 Plug 'edkolev/tmuxline.vim'
+Plug 'fisadev/vim-isort'
 Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf.vim'
 Plug 'justinmk/vim-dirvish'
@@ -519,6 +520,9 @@ nnoremap <silent><leader>cr :LspRename<CR>
 
 " Session
 nnoremap <silent><leader>pw :ToggleWorkspace<CR>
+
+" Language specific
+nnoremap <silent><leader>fi :Isort<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
