@@ -435,13 +435,14 @@ nnoremap <silent><leader><leader> :nohl<CR>
 nnoremap <silent><leader>sc :nohl<CR>
 
 " Spell Checking
-nnoremap <silent><leader>ss :setlocal spell!<cr>
-nnoremap <silent><leader>sn ]s
-nnoremap <silent><leader>sp [s
-nnoremap <silent><leader>sa zg
-nnoremap <silent><leader>s? z=
-nnoremap <silent><leader>sf 1z=
-nnoremap <silent><leader>sF 1z=
+nnoremap <silent><leader>Ss :setlocal spell!<cr>
+nnoremap <silent><leader>Sn ]s
+nnoremap <silent><leader>Sp [s
+nnoremap <silent><leader>Sa zg
+nnoremap <silent><leader>Sc z=
+nnoremap <silent><leader>S? z=
+nnoremap <silent><leader>Sf 1z=
+nnoremap <silent><leader>SF 1z=
 
 " Files
 nnoremap <silent><leader>fed :e $MYVIMRC<cr>
