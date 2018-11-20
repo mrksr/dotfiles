@@ -211,7 +211,7 @@ snippet variat "Variational Distribution" w
 \Variat{$1}
 endsnippet
 
-snippet fun "Function application"
+snippet "\bfun\b" "Function application" r
 \Fun${1:*}{${2:\exp}}{${3:${VISUAL:content}}}
 endsnippet
 
@@ -221,6 +221,10 @@ endsnippet
 
 snippet kl "KL divergence"
 \KL{${1:q}}{${2:p}}
+endsnippet
+
+snippet "\bspix\b" "superscript pix" r
+{\pix{${1:${VISUAL:content}}}}
 endsnippet
 
 #############
