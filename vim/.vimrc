@@ -63,7 +63,6 @@ Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-repeat'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-scripts/argtextobj.vim'
 Plug 'wellle/targets.vim'
 Plug 'zenbro/mirror.vim'
 
@@ -329,6 +328,7 @@ com! -bang BD Sayonara<bang>
 "  completion  "
 """"""""""""""""
 if s:fancyPlugins
+    let g:ncm2#complete_delay = 300
     autocmd BufEnter * call ncm2#enable_for_buffer()
 
     " Use <TAB> to select the popup menu:
