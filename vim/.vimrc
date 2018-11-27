@@ -1,4 +1,4 @@
-" vim: fdm=marker fdl=0 fen
+" vim: fdm=marker fen
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  Bundles                               {{{1"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -59,6 +59,7 @@ Plug 'mhinz/vim-startify'
 Plug 'Shougo/vimproc.vim', { 'do' : 'make' }
 Plug 'SirVer/ultisnips'
 Plug 'svermeulen/vim-easyclip'
+Plug 'thaerkh/vim-workspace'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-repeat'
@@ -364,6 +365,14 @@ augroup dirvish_config
 augroup END
 
 
+"""""""""""""""
+"  workspace  "
+"""""""""""""""
+let g:workspace_session_name = '.session.vim'
+let g:workspace_autosave = 0
+let g:workspace_persist_undo_history = 0
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  Mappings                              {{{1"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -494,10 +503,13 @@ nnoremap <silent><leader>bs :<C-u>Lines<CR>
 nnoremap <silent><leader>ss :<C-u>BLines<CR>
 nnoremap <silent><leader>sj :<C-u>Tags<CR>
 
-" Deoplete
+" Completion
 nnoremap <silent><leader>ch :LspHover<CR>
 nnoremap <silent><leader>cd :LspDefinition<CR>
 nnoremap <silent><leader>cr :LspRename<CR>
+
+" Session
+nnoremap <silent><leader>pw :ToggleWorkspace<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
