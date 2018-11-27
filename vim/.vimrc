@@ -50,6 +50,7 @@ Plug 'benjifisher/matchit.zip'
 Plug 'edkolev/tmuxline.vim'
 Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf.vim'
+Plug 'justinmk/vim-dirvish'
 Plug 'Konfekt/FastFold'
 Plug 'machakann/vim-sandwich'
 Plug 'mhinz/vim-sayonara'
@@ -345,6 +346,22 @@ command! FasdCD call fzf#run({
 \  'sink': 'cd',
 \  'down': '40%',
 \ })
+
+
+"""""""""""""
+"  dirvish  "
+"""""""""""""
+augroup dirvish_config
+    autocmd!
+
+    " Backspace to go up a level
+    autocmd FileType dirvish nmap <silent><buffer> <BS> <Plug>(dirvish_up)
+    autocmd FileType dirvish xmap <silent><buffer> <BS> <Plug>(dirvish_up)
+
+    " gh to hide hidden files
+    autocmd FileType dirvish nnoremap <silent><buffer>
+                \ gh :silent keeppatterns g@\v/\.[^\/]+/?$@d _<cr>:setl cole=3<cr>
+augroup END
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
