@@ -104,6 +104,7 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has("nvim")
     set termguicolors
+    set title
 endif
 
 set background=dark
@@ -331,7 +332,7 @@ com! -bang BD Sayonara<bang>
 "  completion  "
 """"""""""""""""
 if s:fancyPlugins
-    let g:ncm2#complete_delay = 300
+    let g:ncm2#complete_delay = 500
     autocmd BufEnter * call ncm2#enable_for_buffer()
 
     " Use <TAB> to select the popup menu:
