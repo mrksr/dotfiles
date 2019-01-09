@@ -67,7 +67,6 @@ Plug 'tpope/vim-repeat'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'wellle/targets.vim'
-Plug 'yuttie/comfortable-motion.vim'
 Plug 'zenbro/mirror.vim'
 
 if s:fancyPlugins
