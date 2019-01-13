@@ -50,6 +50,7 @@ Plug 'benjifisher/matchit.zip'
 Plug 'edkolev/tmuxline.vim'
 Plug 'fisadev/vim-isort'
 Plug 'honza/vim-snippets'
+Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'justinmk/vim-dirvish'
 Plug 'Konfekt/FastFold'
