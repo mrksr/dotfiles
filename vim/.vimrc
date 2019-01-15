@@ -43,7 +43,7 @@ call plug#begin(s:bundlePath)
 " Languages
 Plug 'hynek/vim-python-pep8-indent'
 Plug 'lervag/vimtex'
-Plug 'sheerun/vim-polyglot'
+Plug 'moby/moby' , {'rtp': '/contrib/syntax/vim/'}
 
 " Plugins
 Plug 'benjifisher/matchit.zip'
