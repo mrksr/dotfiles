@@ -376,13 +376,6 @@ let g:workspace_autosave = 0
 let g:workspace_persist_undo_history = 0
 
 
-""""""""""""""""""""""""
-"  comfortable-motion  "
-""""""""""""""""""""""""
-noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(40)<CR>
-noremap <silent> <ScrollWheelUp> :call comfortable_motion#flick(-40)<CR>
-
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  Mappings                              {{{1"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
