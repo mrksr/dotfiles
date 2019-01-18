@@ -176,6 +176,9 @@ let g:airline_theme='base16'
 """""""""""
 "  Latex  "
 """""""""""
+let g:tex_fast = "Mpr"
+let g:tex_conceal = ""
+
 let g:vimtex_fold_enabled = 1
 let g:vimtex_quickfix_open_on_warning = 0
 let g:vimtex_view_method = 'zathura'
