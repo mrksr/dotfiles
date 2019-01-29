@@ -44,6 +44,7 @@ call plug#begin(s:bundlePath)
 Plug 'hynek/vim-python-pep8-indent'
 Plug 'lervag/vimtex'
 Plug 'moby/moby' , {'rtp': '/contrib/syntax/vim/'}
+Plug 'stephpy/vim-yaml'
 
 " Plugins
 Plug 'benjifisher/matchit.zip'
