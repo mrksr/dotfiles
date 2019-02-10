@@ -64,7 +64,6 @@ Plug 'mhinz/vim-startify'
 Plug 'Shougo/vimproc.vim', { 'do' : 'make' }
 Plug 'SirVer/ultisnips'
 Plug 'svermeulen/vim-easyclip'
-Plug 'thaerkh/vim-workspace'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-repeat'
@@ -378,14 +377,6 @@ augroup dirvish_config
     autocmd FileType dirvish nnoremap <silent><buffer>
                 \ gh :silent keeppatterns g@\v/\.[^\/]+/?$@d _<cr>:setl cole=3<cr>
 augroup END
-
-
-"""""""""""""""
-"  workspace  "
-"""""""""""""""
-let g:workspace_session_name = '.session.vim'
-let g:workspace_autosave = 0
-let g:workspace_persist_undo_history = 0
 
 
 """""""""""""""""""
