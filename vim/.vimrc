@@ -41,13 +41,15 @@ endif
 
 call plug#begin(s:bundlePath)
 " Languages
-Plug 'hynek/vim-python-pep8-indent'
 Plug 'lervag/vimtex'
 Plug 'moby/moby' , {'rtp': '/contrib/syntax/vim/'}
 Plug 'stephpy/vim-yaml'
+Plug 'tweekmonster/braceless.vim'
+Plug 'tweekmonster/impsort.vim'
 
 " Plugins
 Plug 'benjifisher/matchit.zip'
+Plug 'easymotion/vim-easymotion'
 Plug 'edkolev/tmuxline.vim'
 Plug 'fisadev/vim-isort'
 Plug 'honza/vim-snippets'
@@ -384,6 +386,18 @@ augroup END
 let g:workspace_session_name = '.session.vim'
 let g:workspace_autosave = 0
 let g:workspace_persist_undo_history = 0
+
+
+"""""""""""""""""""
+"  Braceless.vim  "
+"""""""""""""""""""
+augroup braceless_config
+    autocmd!
+
+    autocmd FileType python BracelessEnable +indent
+    autocmd FileType python BracelessEnable +fold
+    autocmd FileType python set foldmethod=indent
+augroup END
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
