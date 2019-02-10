@@ -91,8 +91,6 @@ endif
 
 " Colorschemes
 Plug 'chriskempson/base16-vim'
-Plug 'sickill/vim-sunburst'
-Plug 'vim-scripts/synic.vim'
 call plug#end()
 
 if s:freshInstall
