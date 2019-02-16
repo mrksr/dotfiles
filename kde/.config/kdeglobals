@@ -109,6 +109,7 @@ ForegroundVisited=127,140,141
 
 [DirSelect Dialog]
 DirSelectDialog Size=640,480
+History Items[$e]=file:///.snapshots/
 
 [General]
 ColorScheme=Breeze

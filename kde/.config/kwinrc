@@ -1,5 +1,5 @@
 [$Version]
-update_info=kwin.upd:replace-scalein-with-scale
+update_info=kwin.upd:replace-scalein-with-scale,kwin.upd:port-minimizeanimation-effect-to-js,kwin.upd:port-scale-effect-to-js,kwin.upd:port-dimscreen-effect-to-js
 
 [Compositing]
 AnimationSpeed=3
@@ -14,6 +14,15 @@ WindowsBlockCompositing=true
 XRenderSmoothScale=false
 
 [Desktops]
+Id_1=87697ef6-78ee-41d9-a4b6-7c7531c20e1a
+Id_2=5b7e4a90-cb36-49fc-943f-53ea36391ebb
+Id_3=0d9cd111-6ba2-4cbd-b2cf-a5274f17c022
+Id_4=ab8b6d15-fb30-4f16-a1a5-0d4c0baaecb0
+Id_5=9cd26d5e-aace-4d39-9c21-378074df1f24
+Id_6=a206adf2-8e96-4c1d-a798-5e773484bb24
+Id_7=cabfa552-b18c-4e93-af8e-ea9c9c8d2378
+Id_8=16dc0a02-5bf9-4c7f-aeec-f55804bc8d6c
+Id_9=d9809067-965d-4e30-8d65-45a55134f299
 Name_1=Stuff
 Name_2=Browse
 Name_3=Term
@@ -89,12 +98,13 @@ activatelattelaunchermenuEnabled=false
 coverswitchEnabled=true
 cubeslideEnabled[$d]
 desktopchangeosdEnabled=false
-dimscreenEnabled=true
+dimscreenEnabled[$d]
 dynamicVirtualDesktopsEnabled=false
 enforcedecoEnabled=true
 flipswitchEnabled[$d]
 highlightwindowEnabled=true
 kwin-script-tilingEnabled=false
+kwin4_effect_dimscreenEnabled=true
 kwin4_effect_fadedesktopEnabled[$d]
 minimizeallEnabled=false
 resizeEnabled=true
