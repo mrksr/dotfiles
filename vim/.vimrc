@@ -46,6 +46,7 @@ Plug 'moby/moby' , {'rtp': '/contrib/syntax/vim/'}
 Plug 'stephpy/vim-yaml'
 Plug 'tweekmonster/braceless.vim'
 Plug 'tweekmonster/impsort.vim'
+Plug 'Vimjas/vim-python-pep8-indent'
 
 " Plugins
 Plug 'benjifisher/matchit.zip'
@@ -385,7 +386,6 @@ augroup END
 augroup braceless_config
     autocmd!
 
-    autocmd FileType python BracelessEnable +indent
     autocmd FileType python BracelessEnable +fold
     autocmd FileType python set foldmethod=indent
 augroup END
