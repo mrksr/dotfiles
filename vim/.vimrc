@@ -505,7 +505,10 @@ vnoremap <silent><leader>fl :g/^$/.,/./-j<CR>:let @/=''<CR>
 nnoremap <leader>fa za
 nnoremap <leader>fr zr
 nnoremap <leader>fR zR
-nnoremap <leader>fc zMzvzz
+nnoremap <leader>fC zMzvzz
+nnoremap <leader>fc zm
+nnoremap <leader>fo zO
+nnoremap <leader>fO zo
 
 " Search
 nnoremap <silent><leader>ff :<C-u>Files<CR>
