@@ -77,18 +77,21 @@ if s:fancyPlugins
     " Plug 'floobits/floobits-neovim'
     Plug 'w0rp/ale'
 
-    Plug 'ncm2/ncm2'
-    Plug 'roxma/nvim-yarp'
+    function! InstallCoqDeps(info)
+        if a:info.status == 'installed' || a:info.force
+            call coc#util#install()
 
-    Plug 'ncm2/ncm2-bufword'
-    Plug 'ncm2/ncm2-path'
-    Plug 'ncm2/ncm2-tmux'
-    Plug 'ncm2/ncm2-ultisnips'
-    Plug 'ncm2/ncm2-vim-lsp'
-
-    Plug 'prabirshrestha/async.vim'
-    Plug 'prabirshrestha/vim-lsp'
-    Plug 'ryanolsonx/vim-lsp-python'
+            let extensions = [
+                        \ 'coc-pyls',
+                        \ 'coc-ultisnips',
+                        \ 'coc-vimtex',
+                        \ ]
+            for ext in extensions
+                call coc#add_extension(ext)
+            endfor
+        endif
+    endfunction
+    Plug 'neoclide/coc.nvim', {'tag': '*', 'do': function('InstallCoqDeps')}
 endif
 
 " Colorschemes
@@ -189,66 +192,6 @@ let g:vimtex_quickfix_ignored_warnings = [
     \ 'specifier changed to',
     \ ]
 
-if s:fancyPlugins
-    augroup ncm2_latex_setup
-        autocmd!
-        autocmd BufEnter * call ncm2#enable_for_buffer()
-        " autocmd Filetype tex call ncm2#register_source({
-        "             \ 'name' : 'vimtex-cmds',
-        "             \ 'priority': 8,
-        "             \ 'complete_length': -1,
-        "             \ 'scope': ['tex'],
-        "             \ 'matcher': {'name': 'prefix', 'key': 'word'},
-        "             \ 'word_pattern': '\w+',
-        "             \ 'complete_pattern': g:vimtex#re#ncm2#cmds,
-        "             \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
-        "             \ })
-        autocmd Filetype tex call ncm2#register_source({
-                    \ 'name' : 'vimtex-labels',
-                    \ 'priority': 8,
-                    \ 'complete_length': -1,
-                    \ 'scope': ['tex'],
-                    \ 'matcher': {'name': 'combine',
-                    \             'matchers': [
-                    \               {'name': 'substr', 'key': 'word'},
-                    \               {'name': 'substr', 'key': 'menu'},
-                    \             ]},
-                    \ 'word_pattern': '\w+',
-                    \ 'complete_pattern': g:vimtex#re#ncm2#labels,
-                    \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
-                    \ })
-        autocmd Filetype tex call ncm2#register_source({
-                    \ 'name' : 'vimtex-files',
-                    \ 'priority': 8,
-                    \ 'complete_length': -1,
-                    \ 'scope': ['tex'],
-                    \ 'matcher': {'name': 'combine',
-                    \             'matchers': [
-                    \               {'name': 'abbrfuzzy', 'key': 'word'},
-                    \               {'name': 'abbrfuzzy', 'key': 'abbr'},
-                    \             ]},
-                    \ 'word_pattern': '\w+',
-                    \ 'complete_pattern': g:vimtex#re#ncm2#files,
-                    \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
-                    \ })
-        autocmd Filetype tex call ncm2#register_source({
-                    \ 'name' : 'bibtex',
-                    \ 'priority': 8,
-                    \ 'complete_length': -1,
-                    \ 'scope': ['tex'],
-                    \ 'matcher': {'name': 'combine',
-                    \             'matchers': [
-                    \               {'name': 'prefix', 'key': 'word'},
-                    \               {'name': 'abbrfuzzy', 'key': 'abbr'},
-                    \               {'name': 'abbrfuzzy', 'key': 'menu'},
-                    \             ]},
-                    \ 'word_pattern': '\w+',
-                    \ 'complete_pattern': g:vimtex#re#ncm2#bibtex,
-                    \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
-                    \ })
-    augroup END
-endif
-
 
 """""""""""""
 "  Signify  "
@@ -265,11 +208,16 @@ nmap <leader>k <plug>(signify-prev-hunk)
 "  UltiSnips  "
 """""""""""""""
 let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsExpandTrigger='<c-f>'
 
-" Avoid Clashes with YCM
-let g:UltiSnipsExpandTrigger="<c-f>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+if s:fancyPlugins
+    " NOTE(mrksr): If Coc is installed, we use the included hotkeys
+    let g:UltiSnipsJumpForwardTrigger='<NUL>'
+    let g:UltiSnipsJumpBackwardTrigger='<NUL>'
+else
+    let g:UltiSnipsJumpForwardTrigger='<c-j>'
+    let g:UltiSnipsJumpBackwardTrigger='<c-k>'
+endif
 
 " Workaround slowdown in neovim
 if has('nvim')
@@ -345,12 +293,49 @@ com! -bang BD Sayonara<bang>
 "  completion  "
 """"""""""""""""
 if s:fancyPlugins
-    let g:ncm2#complete_delay = 500
-    autocmd BufEnter * call ncm2#enable_for_buffer()
+    set updatetime=300
+    set pumheight=5
 
-    " Use <TAB> to select the popup menu:
-    inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-    inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+    function! s:check_back_space() abort
+        let col = col('.') - 1
+        return !col || getline('.')[col - 1]  =~# '\s'
+    endfunction
+
+    function! s:show_documentation()
+        if &filetype == 'vim'
+            execute 'h '.expand('<cword>')
+        else
+            call CocAction('doHover')
+        endif
+    endfunction
+
+    inoremap <silent><expr> <TAB>
+                \ pumvisible() ? "\<C-n>" :
+                \ <SID>check_back_space() ? "\<TAB>" :
+                \ coc#refresh()
+    inoremap <silent><expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+    inoremap <silent><expr> <S-Space> coc#refresh()
+    inoremap <silent><expr> <C-Space> coc#refresh()
+
+    nnoremap <silent><leader>cd <Plug>(coc-definition)
+    nnoremap <silent><leader>ce <Plug>(coc-references)
+    nnoremap <silent><leader>cf <Plug>(coc-format-selected)
+    nnoremap <silent><leader>ci <Plug>(coc-implementation)
+    nnoremap <silent><leader>cn <Plug>(coc-rename)
+    nnoremap <silent><leader>cr :call <SID>show_documentation()<CR>
+    nnoremap <silent><leader>ct <Plug>(coc-type-definition)
+    nnoremap <silent><leader>cx <Plug>(coc-fix-current)
+
+    vnoremap <silent><leader>cf <Plug>(coc-format-selected)
+
+    augroup coc_config
+        autocmd!
+
+        " Update signature help on jump placeholder
+        autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+        autocmd CursorHoldI,CursorMovedI * call CocActionAsync('showSignatureHelp')
+    augroup end
 endif
 
 
@@ -459,10 +444,6 @@ vnoremap ü "+y
 vnoremap Ü "+p
 inoremap üü <C-r>*
 
-" " Code Completion
-" inoremap <S-Space> <C-x><C-o><C-p>
-" inoremap <C-Space> <C-x><C-o><C-p>
-
 " Macro execution
 nnoremap Q @
 
@@ -536,11 +517,6 @@ nnoremap <silent><leader>bs :<C-u>Lines<CR>
 nnoremap <silent><leader>ss :<C-u>BLines<CR>
 nnoremap <silent><leader>sj :<C-u>Tags<CR>
 
-" Completion
-nnoremap <silent><leader>ch :LspHover<CR>
-nnoremap <silent><leader>cd :LspDefinition<CR>
-nnoremap <silent><leader>cr :LspRename<CR>
-
 " Session
 nnoremap <silent><leader>pw :ToggleWorkspace<CR>
 
@@ -584,6 +560,7 @@ set wildmenu
 set wildmode=longest:full,full
 set completeopt=menuone,noinsert,noselect
 set cmdheight=1
+set noshowmode
 set shortmess+=c
 
 " Navigation
