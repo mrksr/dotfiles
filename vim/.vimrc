@@ -209,15 +209,11 @@ nmap <leader>k <plug>(signify-prev-hunk)
 """""""""""""""
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsExpandTrigger='<c-f>'
+let g:UltiSnipsJumpForwardTrigger='<c-j>'
+let g:UltiSnipsJumpBackwardTrigger='<c-k>'
 
-if s:fancyPlugins
-    " NOTE(mrksr): If Coc is installed, we use the included hotkeys
-    let g:UltiSnipsJumpForwardTrigger='<NUL>'
-    let g:UltiSnipsJumpBackwardTrigger='<NUL>'
-else
-    let g:UltiSnipsJumpForwardTrigger='<c-j>'
-    let g:UltiSnipsJumpBackwardTrigger='<c-k>'
-endif
+" Workaround for backward trigger
+inoremap <c-x><c-k> <c-x><c-k>
 
 " Workaround slowdown in neovim
 if has('nvim')
@@ -314,6 +310,7 @@ if s:fancyPlugins
                 \ <SID>check_back_space() ? "\<TAB>" :
                 \ coc#refresh()
     inoremap <silent><expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+    inoremap <silent><expr><CR> pumvisible() ? "\<C-y>" : "\<CR>"
 
     inoremap <silent><expr> <S-Space> coc#refresh()
     inoremap <silent><expr> <C-Space> coc#refresh()
