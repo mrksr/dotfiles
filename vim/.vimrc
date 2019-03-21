@@ -75,7 +75,6 @@ Plug 'zenbro/mirror.vim'
 
 if s:fancyPlugins
     " Plug 'floobits/floobits-neovim'
-    Plug 'w0rp/ale'
 
     function! InstallCoqDeps(info)
         if a:info.status == 'installed' || a:info.force
