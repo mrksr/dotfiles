@@ -205,7 +205,8 @@ endif
 """""""""""
 "  Latex  "
 """""""""""
-let g:tex_fast = "Mpr"
+let g:tex_fast = "Mp"
+let g:tex_no_error = 1
 let g:tex_conceal = ""
 
 let g:vimtex_fold_enabled = 1
