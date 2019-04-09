@@ -19,10 +19,14 @@ endif
 if has('nvim')
     let s:plugPath = '~/.config/nvim/autoload/plug.vim'
     let s:bundlePath = '~/.config/nvim/bundle/'
+
+    let s:nerdFile = s:localdir . "with_nerd*"
     let s:fancyFile = s:localdir . "with_fancy*"
 else
     let s:plugPath = '~/.vim/autoload/plug.vim'
     let s:bundlePath = '~/.vim/bundle/'
+
+    let s:nerdFile = s:localdir . "with_nerd"
     let s:fancyFile = s:localdir . "with_fancy"
 endif
 
@@ -30,6 +34,12 @@ if empty(glob(s:fancyFile))
     let s:fancyPlugins = 0
 else
     let s:fancyPlugins = 1
+endif
+
+if empty(glob(s:nerdFile))
+    let s:nerdFonts = 0
+else
+    let s:nerdFonts = 1
 endif
 
 let s:freshInstall = 0
@@ -170,11 +180,26 @@ let g:polyglot_disabled = [
 "  Airline  "
 """""""""""""
 set laststatus=2
+let g:airline_theme='base16'
+
+if s:nerdFonts
+    let g:airline_powerline_fonts = 1
+endif
+
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#tab_min_count = 2
 let g:airline#extensions#tabline#show_tab_type = 0
-let g:airline_theme='base16'
+
+
+""""""""""""""
+"  tmuxline  "
+""""""""""""""
+if s:nerdFonts
+    let g:tmuxline_powerline_separators = 1
+else
+    let g:tmuxline_powerline_separators = 0
+endif
 
 
 """""""""""
@@ -222,12 +247,6 @@ if has('nvim')
         au VimEnter * au! UltiSnips_AutoTrigger
     augroup END
 endif
-
-
-""""""""""""""
-"  tmuxline  "
-""""""""""""""
-let g:tmuxline_powerline_separators = 0
 
 
 """"""""""""""
