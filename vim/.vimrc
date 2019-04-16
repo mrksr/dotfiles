@@ -105,7 +105,12 @@ if s:fancyPlugins
 endif
 
 " Colorschemes
-Plug 'chriskempson/base16-vim'
+" NOTE(mrksr): See https://github.com/chriskempson/base16-vim/issues/197
+function FixupBase16(info)
+    let l:sedCommand = 'sed -i ''/Base16hi/\! s/a:\(attr\|guisp\)/l:\1/g'''
+    exec '!' . l:sedCommand . ' ' . s:bundlePath . 'base16-vim/colors/*.vim'
+endfunction
+Plug 'chriskempson/base16-vim', { 'do': function('FixupBase16') }
 call plug#end()
 
 if s:freshInstall
