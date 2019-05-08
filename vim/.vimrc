@@ -60,6 +60,7 @@ Plug 'Vimjas/vim-python-pep8-indent'
 
 " Plugins
 Plug 'benjifisher/matchit.zip'
+Plug 'christoomey/vim-conflicted'
 Plug 'easymotion/vim-easymotion'
 Plug 'edkolev/tmuxline.vim'
 Plug 'fisadev/vim-isort'
@@ -77,6 +78,7 @@ Plug 'SirVer/ultisnips'
 Plug 'svermeulen/vim-easyclip'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -105,7 +107,7 @@ endif
 
 " Colorschemes
 " NOTE(mrksr): See https://github.com/chriskempson/base16-vim/issues/197
-function FixupBase16(info)
+function! FixupBase16(info)
     let l:sedCommand = 'sed -i ''/Base16hi/\! s/a:\(attr\|guisp\)/l:\1/g'''
     exec '!' . l:sedCommand . ' ' . s:bundlePath . 'base16-vim/colors/*.vim'
 endfunction
