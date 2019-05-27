@@ -71,7 +71,6 @@ Plug 'justinmk/vim-dirvish'
 Plug 'Konfekt/FastFold'
 Plug 'machakann/vim-sandwich'
 Plug 'mhinz/vim-sayonara'
-Plug 'mhinz/vim-signify'
 Plug 'mhinz/vim-startify'
 Plug 'Shougo/vimproc.vim', { 'do' : 'make' }
 Plug 'SirVer/ultisnips'
@@ -93,6 +92,8 @@ if s:fancyPlugins
             call coc#util#install()
 
             let extensions = [
+                        \ 'coc-git',
+                        \ 'coc-lists',
                         \ 'coc-pyls',
                         \ 'coc-ultisnips',
                         \ 'coc-vimtex',
@@ -270,10 +271,10 @@ let g:startify_list_order = [
   \ 'sessions',
   \ ['   Bookmarks:'],
   \ 'bookmarks',
-  \ ['   LRU:'],
-  \ 'files',
   \ ['   LRU within this dir:'],
   \ 'dir',
+  \ ['   LRU overall:'],
+  \ 'files',
   \ ]
 
 let g:startify_bookmarks = ['~/.vimrc', '~/dotfiles']
