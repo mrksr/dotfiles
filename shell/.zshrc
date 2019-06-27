@@ -32,6 +32,11 @@ plugins=( \
     wakeonlan \
 )
 
+# Set ls-colors for highlighting if present
+if [[ -e .dircolors ]]; then
+    eval "$(dircolors .dircolors)"
+fi
+
 ####################
 #  Oh-My-ZSH load  #
 ####################
