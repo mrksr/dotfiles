@@ -197,6 +197,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#tab_min_count = 2
 let g:airline#extensions#tabline#show_tab_type = 0
+let g:airline#extensions#tabline#tab_nr_type = 1
 
 
 """"""""""""""
@@ -368,7 +369,7 @@ endif
 """""""""
 command! FasdCD call fzf#run({
 \  'source': 'fasd -Rdl',
-\  'sink': 'cd',
+\  'sink': 'tcd',
 \  'down': '40%',
 \ })
 
@@ -440,6 +441,8 @@ inoremap <silent><down> <C-o>gj
 " Tab Movement
 nnoremap <S-h> gT
 nnoremap <S-l> gt
+nnoremap <A-h> gT
+nnoremap <A-l> gt
 " In GVim
 nnoremap <A-1> 1gt
 nnoremap <A-2> 2gt
