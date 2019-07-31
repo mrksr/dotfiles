@@ -67,10 +67,12 @@ Plug 'fisadev/vim-isort'
 Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-peekaboo'
 Plug 'justinmk/vim-dirvish'
 Plug 'Konfekt/FastFold'
 Plug 'machakann/vim-sandwich'
 Plug 'mhinz/vim-sayonara'
+Plug 'mhinz/vim-signify'
 Plug 'mhinz/vim-startify'
 Plug 'Shougo/vimproc.vim', { 'do' : 'make' }
 Plug 'SirVer/ultisnips'
