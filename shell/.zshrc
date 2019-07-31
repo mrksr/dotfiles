@@ -31,6 +31,7 @@ plugins=( \
     tmux \
     wakeonlan \
 )
+DISABLE_MAGIC_FUNCTIONS=true
 
 # Set ls-colors for highlighting if present
 if [[ -e .dircolors ]]; then
