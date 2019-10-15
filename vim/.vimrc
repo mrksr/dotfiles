@@ -470,7 +470,7 @@ nnoremap ü "+p
 nnoremap Ü "+Y
 vnoremap ü "+y
 vnoremap Ü "+p
-inoremap üü <C-r>*
+inoremap üü <C-r>+
 
 " Macro execution
 nnoremap Q @
