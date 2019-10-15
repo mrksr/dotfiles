@@ -1,4 +1,5 @@
 [options]
+bootstrap_after = 'mrksr#after'
 buffer_index_type = 4
 colorscheme = 'base16-railscasts'
 colorscheme_bg = 'dark'
@@ -22,6 +23,14 @@ merged = 0
 name = 'autocomplete'
 auto-completion-return-key-behavior = 'complete'
 auto-completion-tab-key-behavior = 'smart'
+
+[[layers]]
+name = 'core#tabline'
+enable = false
+
+[[layers]]
+name = 'core#statusline'
+enable = false
 
 [[layers]]
 name = 'fzf'
