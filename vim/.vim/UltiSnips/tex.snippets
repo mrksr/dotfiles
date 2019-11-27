@@ -46,10 +46,9 @@ endsnippet
 #  Beamer  #
 ############
 snippet frame "Beamer frame" b
-\begin{frame}
-	\frametitle{${1:title}}
-
-	${2:content}
+\begin{frame}[label=${1:label}]{${2:title}}
+	\centering
+	${0:content}
 \end{frame}
 endsnippet
 
@@ -337,6 +336,18 @@ snippet block "Block environment" b
 \begin{block}{${1:name}}
 	${2:content}
 \end{block}
+endsnippet
+
+snippet webblock "Web Block environment" b
+\begin{webblock}
+	${0:content}
+\end{webblock}
+endsnippet
+
+snippet "ind(ustrial)?block" "Web Block environment" br
+\begin{industrialblock}
+	${0:content}
+\end{industrialblock}
 endsnippet
 
 ###################################
