@@ -38,6 +38,17 @@ let g:vimtex_quickfix_ignored_warnings = [
 "  Neomake  "
 """""""""""""
 let g:neomake_tex_enabled_makers = []
+let g:neomake_python_enabled_makers = ['python', 'pylint']
+
+"""""""""""""""
+"  Neoformat  "
+"""""""""""""""
+let g:neoformat_enabled_python = [
+      \ 'black', 'isort',
+      \ 'yapf', 'autopep8',
+      \ 'pydefv', 'docformatter',
+      \ 'pyment',
+      \ ]
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
