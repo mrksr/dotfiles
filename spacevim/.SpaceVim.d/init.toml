@@ -17,6 +17,14 @@ statusline_separator = 'arrow'
 name = 'chriskempson/base16-vim'
 merged = 0
 
+[[custom_plugins]]
+name = 'Konfekt/Fastfold'
+merged = 0
+
+[[custom_plugins]]
+name = 'tpope/vim-eunuch'
+merged = 0
+
 
 # Layers
 [[layers]]
@@ -61,6 +69,9 @@ name = 'lang#sh'
 
 [[layers]]
 name = 'lang#vim'
+
+[[layers]]
+name = 'lang#extra'
 
 [[layers]]
 name = 'tmux'

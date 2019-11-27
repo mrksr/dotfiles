@@ -1,5 +1,5 @@
 function! mrksr#after() abort
-  "
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                Environment                             {{{1"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -64,7 +64,7 @@ vnoremap Ü "+p
 inoremap üü <C-r>+
 
 " Macro execution
-nnoremap Q @
+nnoremap Q q
 
 " More convenient help browsing
 au FileType help nnoremap <buffer> <CR> <C-]>
