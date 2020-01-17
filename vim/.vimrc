@@ -63,7 +63,6 @@ Plug 'benjifisher/matchit.zip'
 Plug 'christoomey/vim-conflicted'
 Plug 'easymotion/vim-easymotion'
 Plug 'edkolev/tmuxline.vim'
-Plug 'fisadev/vim-isort'
 Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
@@ -87,6 +86,7 @@ Plug 'zenbro/mirror.vim'
 
 if s:fancyPlugins
     " Plug 'floobits/floobits-neovim'
+    Plug 'fisadev/vim-isort'
 
     function! InstallCoqDeps(info)
         if a:info.status == 'installed' || a:info.force
