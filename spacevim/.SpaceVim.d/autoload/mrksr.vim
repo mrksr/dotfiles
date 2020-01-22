@@ -45,10 +45,9 @@ let g:neomake_python_enabled_makers = ['python', 'pylint']
 """""""""""""""
 let g:neoformat_enabled_python = [
       \ 'black', 'isort',
-      \ 'yapf', 'autopep8',
-      \ 'pydefv', 'docformatter',
-      \ 'pyment',
       \ ]
+
+let g:neoformat_run_all_formatters = 1
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
