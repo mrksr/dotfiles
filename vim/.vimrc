@@ -51,6 +51,7 @@ endif
 
 call plug#begin(s:bundlePath)
 " Languages
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 Plug 'lervag/vimtex'
 Plug 'moby/moby' , {'rtp': '/contrib/syntax/vim/'}
 Plug 'stephpy/vim-yaml'
@@ -64,8 +65,6 @@ Plug 'christoomey/vim-conflicted'
 Plug 'easymotion/vim-easymotion'
 Plug 'edkolev/tmuxline.vim'
 Plug 'honza/vim-snippets'
-Plug 'junegunn/fzf', { 'do': './install --bin' }
-Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'justinmk/vim-dirvish'
 Plug 'Konfekt/FastFold'
@@ -85,26 +84,14 @@ Plug 'wellle/targets.vim'
 Plug 'zenbro/mirror.vim'
 
 if s:fancyPlugins
-    " Plug 'floobits/floobits-neovim'
-    Plug 'fisadev/vim-isort'
-
-    function! InstallCoqDeps(info)
-        if a:info.status == 'installed' || a:info.force
-            call coc#util#install()
-
-            let extensions = [
-                        \ 'coc-git',
-                        \ 'coc-lists',
-                        \ 'coc-pyls',
-                        \ 'coc-ultisnips',
-                        \ 'coc-vimtex',
-                        \ ]
-            for ext in extensions
-                call coc#add_extension(ext)
-            endfor
-        endif
-    endfunction
-    Plug 'neoclide/coc.nvim', {'tag': '*', 'do': function('InstallCoqDeps')}
+    Plug 'deoplete-plugins/deoplete-jedi'
+    Plug 'liuchengxu/vim-clap', { 'do': ':call clap#helper#download_binary()' }
+    Plug 'neomake/neomake'
+    Plug 'neovim/nvim-lsp'
+    Plug 'sbdchd/neoformat'
+    Plug 'Shougo/deoplete-lsp'
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'Shougo/echodoc.vim'
 endif
 
 " Colorschemes
@@ -314,65 +301,69 @@ nnoremap Y :EasyClipBeforeYank<cr>yy:EasyClipOnYanksChanged<cr>
 com! -bang BD Sayonara<bang>
 
 
-""""""""""""""""
-"  completion  "
-""""""""""""""""
+""""""""""
+"  clap  "
+""""""""""
+let g:clap_provider_fasd = {
+\  'source': 'fasd -Rdl',
+\  'sink': 'tcd',
+\ }
+
+
+"""""""""""""
+"  Neomake  "
+"""""""""""""
 if s:fancyPlugins
-    set updatetime=300
-    set pumheight=5
+    let g:neomake_tex_enabled_makers = []
+    let g:neomake_python_enabled_makers = ['python', 'pylint']
+    call neomake#configure#automake('rwn', 1000)
+    let g:neomake_echo_current_error = 0
+    let g:neomake_virtualtext_prefix = '            ❯ '
+endif
 
-    function! s:check_back_space() abort
-        let col = col('.') - 1
-        return !col || getline('.')[col - 1]  =~# '\s'
-    endfunction
+"""""""""""""""
+"  Neoformat  "
+"""""""""""""""
+let g:neoformat_enabled_python = [
+      \ 'black', 'isort',
+      \ ]
 
-    function! s:show_documentation()
-        if &filetype == 'vim'
-            execute 'h '.expand('<cword>')
-        else
-            call CocAction('doHover')
-        endif
-    endfunction
+let g:neoformat_run_all_formatters = 1
 
-    inoremap <silent><expr> <TAB>
-                \ pumvisible() ? "\<C-n>" :
-                \ <SID>check_back_space() ? "\<TAB>" :
-                \ coc#refresh()
-    inoremap <silent><expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-    inoremap <silent><expr><CR> pumvisible() ? "\<C-y>" : "\<CR>"
 
-    inoremap <silent><expr> <S-Space> coc#refresh()
-    inoremap <silent><expr> <C-Space> coc#refresh()
+"""""""""
+"  LSP  "
+"""""""""
+if s:fancyPlugins
+    lua require'nvim_lsp'.pyls_ms.setup{{settings={python={linting={enabled=false}}}}}
+    lua require'nvim_lsp'.vimls.setup{}
 
-    nnoremap <silent><leader>cd <Plug>(coc-definition)
-    nnoremap <silent><leader>ce <Plug>(coc-references)
-    nnoremap <silent><leader>cf <Plug>(coc-format-selected)
-    nnoremap <silent><leader>ci <Plug>(coc-implementation)
-    nnoremap <silent><leader>cn <Plug>(coc-rename)
-    nnoremap <silent><leader>cr :call <SID>show_documentation()<CR>
-    nnoremap <silent><leader>ct <Plug>(coc-type-definition)
-    nnoremap <silent><leader>cx <Plug>(coc-fix-current)
+    augroup LSPConfig
+        autocmd Filetype python setlocal omnifunc=v:lua.vim.lsp.omnifunc
+        autocmd Filetype vim setlocal omnifunc=v:lua.vim.lsp.omnifunc
+    augroup END
 
-    vnoremap <silent><leader>cf <Plug>(coc-format-selected)
+    nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
+    nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
 
-    augroup coc_config
-        autocmd!
-
-        " Update signature help on jump placeholder
-        autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-        autocmd CursorHoldI,CursorMovedI * call CocActionAsync('showSignatureHelp')
-    augroup end
+    inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+    inoremap <silent><expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+    inoremap <silent><expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 endif
 
 
-"""""""""
-"  fzf  "
-"""""""""
-command! FasdCD call fzf#run({
-\  'source': 'fasd -Rdl',
-\  'sink': 'tcd',
-\  'down': '40%',
-\ })
+"""""""""""""
+"  echodoc  "
+"""""""""""""
+let g:echodoc#enable_at_startup = 1
+let g:echodoc#type = 'floating'
+
+
+""""""""""""""
+"  Deoplete  "
+""""""""""""""
+let g:deoplete#enable_at_startup = 1
+set pumheight=7
 
 
 """""""""""""
@@ -400,18 +391,6 @@ augroup braceless_config
     autocmd FileType python BracelessEnable +fold
     autocmd FileType python set foldmethod=indent
 augroup END
-
-
-""""""""""
-"  Rust  "
-""""""""""
-if executable('rls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'rls',
-        \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
-        \ 'whitelist': ['rust'],
-        \ })
-endif
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -532,24 +511,25 @@ nnoremap <leader>fo zO
 nnoremap <leader>fO zo
 
 " Search
-nnoremap <silent><leader>ff :<C-u>Files<CR>
-nnoremap <silent><leader>pf :<C-u>GFiles<CR>
+nnoremap <silent><leader>ff :<C-u>Clap files<CR>
+nnoremap <silent><leader>pf :<C-u>Clap gfiles<CR>
 
-nnoremap <silent><leader>pp :<C-u>FasdCD<CR>
-nnoremap <silent><leader>ps :<C-u>Rg<CR>
+nnoremap <silent><leader>pp :<C-u>Clap fasd<CR>
+" nnoremap <silent><leader>ps :<C-u>Clap rg<CR> ??
 
-nnoremap <silent><leader>bb :<C-u>Buffers<CR>
-nnoremap <silent><leader>br :<C-u>History<CR>
-nnoremap <silent><leader>bs :<C-u>Lines<CR>
+nnoremap <silent><leader>bb :<C-u>Clap buffers<CR>
+nnoremap <silent><leader>br :<C-u>Clap history<CR>
+nnoremap <silent><leader>bs :<C-u>Clap lines<CR>
 
-nnoremap <silent><leader>ss :<C-u>BLines<CR>
-nnoremap <silent><leader>sj :<C-u>Tags<CR>
+nnoremap <silent><leader>ss :<C-u>Clap blines<CR>
+nnoremap <silent><leader>sj :<C-u>Clap tags<CR>
 
 " Session
 nnoremap <silent><leader>pw :ToggleWorkspace<CR>
 
 " Language specific
-nnoremap <silent><leader>fi :Isort<CR>
+nnoremap <silent><leader>fi :<C-u>Neoformat<CR>
+nnoremap <silent><leader>fm :<C-u>Neomake<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
