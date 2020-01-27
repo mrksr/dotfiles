@@ -51,6 +51,7 @@ endif
 
 call plug#begin(s:bundlePath)
 " Languages
+Plug 'cespare/vim-toml'
 Plug 'lervag/vimtex'
 Plug 'moby/moby' , {'rtp': '/contrib/syntax/vim/'}
 Plug 'stephpy/vim-yaml'
