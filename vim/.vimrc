@@ -338,6 +338,8 @@ if s:fancyPlugins
     lua require'nvim_lsp'.pyls_ms.setup{{settings={python={linting={enabled=false}}}}}
     lua require'nvim_lsp'.vimls.setup{}
 
+    lua vim.lsp.callbacks['textDocument/publishDiagnostics'] = nil
+
     augroup LSPConfig
         autocmd Filetype python setlocal omnifunc=v:lua.vim.lsp.omnifunc
         autocmd Filetype vim setlocal omnifunc=v:lua.vim.lsp.omnifunc
