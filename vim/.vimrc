@@ -51,7 +51,6 @@ endif
 
 call plug#begin(s:bundlePath)
 " Languages
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 Plug 'lervag/vimtex'
 Plug 'moby/moby' , {'rtp': '/contrib/syntax/vim/'}
 Plug 'stephpy/vim-yaml'
@@ -84,6 +83,10 @@ Plug 'wellle/targets.vim'
 Plug 'zenbro/mirror.vim'
 
 if s:fancyPlugins
+    " Languages
+    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+
+    " Plugins
     Plug 'deoplete-plugins/deoplete-jedi'
     Plug 'liuchengxu/vim-clap', { 'do': ':call clap#helper#download_binary()' }
     Plug 'neomake/neomake'
