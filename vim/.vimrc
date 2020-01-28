@@ -99,12 +99,7 @@ if s:fancyPlugins
 endif
 
 " Colorschemes
-" NOTE(mrksr): See https://github.com/chriskempson/base16-vim/issues/197
-function! FixupBase16(info)
-    let l:sedCommand = 'sed -i ''/Base16hi/\! s/a:\(attr\|guisp\)/l:\1/g'''
-    exec '!' . l:sedCommand . ' ' . s:bundlePath . 'base16-vim/colors/*.vim'
-endfunction
-Plug 'chriskempson/base16-vim', { 'do': function('FixupBase16') }
+Plug 'chriskempson/base16-vim'
 call plug#end()
 
 if s:freshInstall
@@ -116,30 +111,18 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                Environment                             {{{1"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if has("nvim")
+if has("termguicolors")
     set termguicolors
+endif
+if has("title")
     set title
 endif
 
 set background=dark
-if has("gui_running")
-    let base16colorspace=256
-    colorscheme base16-railscasts
+colorscheme base16-railscasts
 
-    set vb t_vb=
-    set background=dark
+if has("gui_running")
     set guioptions=agit
-else
-    if &t_Co != 256
-        let base16colorspace=16
-        colorscheme base16-railscasts
-    else
-        let base16colorspace=256
-        colorscheme base16-railscasts
-    endif
-endif
-
-if has("gui_running")
     if has("win32")
         set gfn=Consolas:h11:cANSI
     else
