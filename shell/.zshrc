@@ -46,7 +46,7 @@ source $ZSH/oh-my-zsh.sh
 #################
 #  Colorscheme  #
 #################
-. $HOME/.base16-eighties.dark.sh
+. $HOME/.base16-railscasts.sh
 
 ################
 #  Own config  #
