@@ -91,11 +91,21 @@ if s:fancyPlugins
     Plug 'deoplete-plugins/deoplete-jedi'
     Plug 'liuchengxu/vim-clap', { 'do': ':call clap#helper#download_binary()' }
     Plug 'neomake/neomake'
-    Plug 'neovim/nvim-lsp'
     Plug 'sbdchd/neoformat'
     Plug 'Shougo/deoplete-lsp'
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'Shougo/echodoc.vim'
+
+    function! InstallLsp(info)
+      if a:info.status != 'unchanged' || a:info.force
+          echo "Installing Lsp Services..."
+          LspInstall dockerls
+          LspInstall pyls_ms
+          LspInstall vimls
+          LspInstall yamlls
+      endif
+    endfunction
+    Plug 'neovim/nvim-lsp', { 'do': function('InstallLsp') }
 endif
 
 " Colorschemes
@@ -308,6 +318,7 @@ if s:fancyPlugins
     let g:neomake_virtualtext_prefix = '        ❯ '
 endif
 
+
 """""""""""""""
 "  Neoformat  "
 """""""""""""""
@@ -322,14 +333,20 @@ let g:neoformat_run_all_formatters = 1
 "  LSP  "
 """""""""
 if s:fancyPlugins
+    lua require'nvim_lsp'.dockerls.setup{}
     lua require'nvim_lsp'.pyls_ms.setup{{settings={python={linting={enabled=false}}}}}
+    lua require'nvim_lsp'.texlab.setup{{settings={latex={build={args={"-synctex=1"}}}}}}
     lua require'nvim_lsp'.vimls.setup{}
+    lua require'nvim_lsp'.yamlls.setup{}
 
     lua vim.lsp.callbacks['textDocument/publishDiagnostics'] = nil
 
     augroup LSPConfig
+        autocmd Filetype dockerfile setlocal omnifunc=v:lua.vim.lsp.omnifunc
         autocmd Filetype python setlocal omnifunc=v:lua.vim.lsp.omnifunc
+        autocmd Filetype tex setlocal omnifunc=v:lua.vim.lsp.omnifunc
         autocmd Filetype vim setlocal omnifunc=v:lua.vim.lsp.omnifunc
+        autocmd Filetype yaml setlocal omnifunc=v:lua.vim.lsp.omnifunc
     augroup END
 
     nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
