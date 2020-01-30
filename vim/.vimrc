@@ -80,6 +80,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'voldikss/vim-floaterm'
 Plug 'wellle/targets.vim'
 Plug 'zenbro/mirror.vim'
 
@@ -400,6 +401,13 @@ augroup braceless_config
     autocmd FileType python BracelessEnable +fold
     autocmd FileType python set foldmethod=indent
 augroup END
+
+
+""""""""""""""
+"  floaterm  "
+""""""""""""""
+let g:floaterm_position = 'center'
+let g:floaterm_keymap_toggle = '<F9>'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
