@@ -301,6 +301,9 @@ com! -bang BD Sayonara<bang>
 """"""""""
 "  clap  "
 """"""""""
+" Disable rooter to allow for more sensible project switches
+let g:clap_disable_run_rooter = v:true
+
 let g:clap_provider_fasd = {
 \  'source': 'fasd -Rdl',
 \  'sink': 'tcd',
@@ -521,14 +524,14 @@ nnoremap <silent><leader>ff :<C-u>Clap files<CR>
 nnoremap <silent><leader>pf :<C-u>Clap gfiles<CR>
 
 nnoremap <silent><leader>pp :<C-u>Clap fasd<CR>
-" nnoremap <silent><leader>ps :<C-u>Clap rg<CR> ??
+nnoremap <silent><leader>ps :<C-u>Clap grep<CR>
 
 nnoremap <silent><leader>bb :<C-u>Clap buffers<CR>
 nnoremap <silent><leader>br :<C-u>Clap history<CR>
 nnoremap <silent><leader>bs :<C-u>Clap lines<CR>
 
 nnoremap <silent><leader>ss :<C-u>Clap blines<CR>
-nnoremap <silent><leader>sj :<C-u>Clap tags<CR>
+nnoremap <silent><leader>sj :<C-u>Clap jumps<CR>
 
 " Session
 nnoremap <silent><leader>pw :ToggleWorkspace<CR>
