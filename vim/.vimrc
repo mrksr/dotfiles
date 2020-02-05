@@ -68,11 +68,14 @@ Plug 'honza/vim-snippets'
 Plug 'junegunn/vim-peekaboo'
 Plug 'justinmk/vim-dirvish'
 Plug 'Konfekt/FastFold'
+Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
 Plug 'machakann/vim-sandwich'
 Plug 'mhinz/vim-sayonara'
 Plug 'mhinz/vim-signify'
 Plug 'mhinz/vim-startify'
+Plug 'neomake/neomake'
 Plug 'ryanoasis/vim-devicons'
+Plug 'sbdchd/neoformat'
 Plug 'SirVer/ultisnips'
 Plug 'svermeulen/vim-easyclip'
 Plug 'tpope/vim-commentary'
@@ -91,9 +94,6 @@ if s:fancyPlugins
 
     " Plugins
     Plug 'deoplete-plugins/deoplete-jedi'
-    Plug 'liuchengxu/vim-clap', { 'do': ':call clap#helper#download_binary()' }
-    Plug 'neomake/neomake'
-    Plug 'sbdchd/neoformat'
     Plug 'Shougo/deoplete-lsp'
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'Shougo/echodoc.vim'
