@@ -76,6 +76,8 @@ Plug 'mhinz/vim-startify'
 Plug 'neomake/neomake'
 Plug 'ryanoasis/vim-devicons'
 Plug 'sbdchd/neoformat'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/echodoc.vim'
 Plug 'SirVer/ultisnips'
 Plug 'svermeulen/vim-easyclip'
 Plug 'tpope/vim-commentary'
@@ -95,8 +97,6 @@ if s:fancyPlugins
     " Plugins
     Plug 'deoplete-plugins/deoplete-jedi'
     Plug 'Shougo/deoplete-lsp'
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'Shougo/echodoc.vim'
 
     function! InstallLsp(info)
       if a:info.status != 'unchanged' || a:info.force
@@ -356,11 +356,10 @@ if s:fancyPlugins
 
     nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
     nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
-
-    inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-    inoremap <silent><expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-    inoremap <silent><expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 endif
+inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <silent><expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <silent><expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 
 
 """""""""""""
@@ -375,6 +374,14 @@ let g:echodoc#type = 'floating'
 """"""""""""""
 let g:deoplete#enable_at_startup = 1
 set pumheight=7
+
+if !s:fancyPlugins
+    " Configure some completion without LSP
+
+    call deoplete#custom#var('omni', 'input_patterns', {
+                \ 'tex': g:vimtex#re#deoplete
+                \})
+endif
 
 
 """""""""""""
