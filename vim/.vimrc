@@ -317,7 +317,7 @@ let g:clap_provider_fasd = {
 """""""""""""
 if s:fancyPlugins
     let g:neomake_tex_enabled_makers = []
-    let g:neomake_python_enabled_makers = ['python', 'pylint']
+    let g:neomake_python_enabled_makers = ['python', 'pylint', 'pydocstyle']
     call neomake#configure#automake('rwn', 1000)
     let g:neomake_echo_current_error = 0
     let g:neomake_virtualtext_prefix = '        ❯ '
