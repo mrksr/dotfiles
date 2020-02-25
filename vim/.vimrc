@@ -87,7 +87,6 @@ Plug 'tpope/vim-repeat'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'voldikss/vim-floaterm'
-Plug 'wellle/context.vim'
 Plug 'wellle/targets.vim'
 
 if s:fancyPlugins
