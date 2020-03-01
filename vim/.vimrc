@@ -76,7 +76,6 @@ Plug 'mhinz/vim-startify'
 Plug 'neomake/neomake'
 Plug 'ryanoasis/vim-devicons'
 Plug 'sbdchd/neoformat'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/echodoc.vim'
 Plug 'SirVer/ultisnips'
 Plug 'svermeulen/vim-easyclip'
@@ -94,6 +93,7 @@ if s:fancyPlugins
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 
     " Plugins
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'deoplete-plugins/deoplete-jedi'
     Plug 'Shougo/deoplete-lsp'
 
@@ -373,14 +373,6 @@ let g:echodoc#type = 'floating'
 """"""""""""""
 let g:deoplete#enable_at_startup = 1
 set pumheight=7
-
-if !s:fancyPlugins
-    " Configure some completion without LSP
-
-    call deoplete#custom#var('omni', 'input_patterns', {
-                \ 'tex': g:vimtex#re#deoplete
-                \})
-endif
 
 
 """""""""""""
