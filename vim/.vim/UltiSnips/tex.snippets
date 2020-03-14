@@ -229,31 +229,39 @@ endsnippet
 #############
 #  SIUnitX  #
 #############
-snippet SI "Number with unit" w
+snippet si "Number with unit" w
 \SI{${1:${VISUAL:number}}}{${2:unit}}
-endsnippet
-
-snippet si "SI-Unit" w
-\si{${1:${VISUAL:unit}}}
 endsnippet
 
 ############
 #  Floats  #
 ############
-snippet sfi "Subfigure" b
+snippet "sfi|subfi(gure)?" "Subfigure" rb
 \begin{subfigure}{${1:size}}
 ${0:${VISUAL:}}
-	\caption{${3:Great Figure!}}
-	\label{fig:${4:label:sublabel}}
+	\caption{
+		${3:Great Figure!}
+		\label{fig:${4:label:sublabel}}
+	}
+\end{subfigure}
+\hfill
+\begin{subfigure}{$1}
+$0
+	\caption{
+		$3
+		\label{fig:$4}
+	}
 \end{subfigure}
 endsnippet
 
 snippet "fi(gure)?" "Figure" rb
-\begin{figure}[${1:htbp}]
+\begin{figure}[${1:tp}]
 	\centering
 	${0}
-	\caption{${2:Great Figure!}}
-	\label{fig:${3:label}}
+	\caption{
+		${2:Great Figure!}
+		\label{fig:${3:label}}
+	}
 \end{figure}
 endsnippet
 
