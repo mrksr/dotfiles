@@ -93,9 +93,10 @@ if s:fancyPlugins
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 
     " Plugins
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'deoplete-plugins/deoplete-jedi'
+    Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
     Plug 'Shougo/deoplete-lsp'
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
     function! InstallLsp(info)
       if a:info.status != 'unchanged' || a:info.force
