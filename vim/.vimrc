@@ -627,7 +627,6 @@ set smarttab
 
 " Lines
 set autoindent
-set smartindent
 set wrap
 set linebreak
 set display=lastline
