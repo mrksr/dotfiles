@@ -1,15 +1,34 @@
 #################################
 #  Ensure Oh-My-ZSH is present  #
 #################################
-[[ -d "$HOME/.oh-my-zsh" ]] || git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
+if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
+    git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
+fi
+if [[ ! -d "$HOME/.oh-my-zsh/themes/powerlevel10k" ]]; then
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/.oh-my-zsh/themes/powerlevel10k
+fi
+
+#################
+#  Colorscheme  #
+#################
+source $HOME/.base16-railscasts.sh
+
+#########################
+#  p10k instant prompt  #
+#########################
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
 #################################
 #  Oh-My-ZSH pre-configuration  #
 #################################
 ZSH=$HOME/.oh-my-zsh
 
-# Hack to use the theme in $HOME
-ZSH_THEME="../../"
+ZSH_THEME="powerlevel10k/powerlevel10k"
+if [[ -f $HOME/.p10k.zsh ]]; then
+    source $HOME/.p10k.zsh
+fi;
 plugins=( \
     # Load vi-mode first to avoid hotkey-breakage...
     vi-mode \
@@ -31,7 +50,7 @@ plugins=( \
     tmux \
     wakeonlan \
 )
-DISABLE_MAGIC_FUNCTIONS=true
+# DISABLE_MAGIC_FUNCTIONS=true
 
 # Set ls-colors for highlighting if present
 if [[ -e .dircolors ]]; then
@@ -42,11 +61,6 @@ fi
 #  Oh-My-ZSH load  #
 ####################
 source $ZSH/oh-my-zsh.sh
-
-#################
-#  Colorscheme  #
-#################
-. $HOME/.base16-railscasts.sh
 
 ################
 #  Own config  #
@@ -64,16 +78,6 @@ setopt null_glob
 ########################
 #  Alias and Commands  #
 ########################
-alias apt-get="sudo apt-get"
-alias apt-search="apt-cache search"
-alias apt-find="apt-search"
-alias apt-install="apt-get install"
-alias apt-upgrade="apt-get upgrade"
-alias apt-update="apt-get update"
-alias apt-remove="apt-get remove"
-alias apt-list="dpkg --list-selections"
-alias apt-filesearch="apt-find search"
-
 alias dmesg="dmesg --color=auto"
 
 if command -v exa > /dev/null; then
@@ -86,9 +90,6 @@ else
     alias ls="ls --color=tty --group-directories-first -h"
 fi
 alias lsd="ls -lhd */"
-
-alias vga="xrandr --output DP2 --right-of eDP1 --auto"
-alias novga="xrandr --output DP2 --off"
 
 alias bl="set-backlight"
 set-backlight() {
@@ -151,11 +152,6 @@ precmd_functions=($precmd_functions bell_before_command)
 #############
 #  Startup  #
 #############
-if command -v fortune > /dev/null; then
-    fortune -s;
-    echo;
-fi
-
 if command -v bat > /dev/null; then
     alias cat="bat"
 fi
