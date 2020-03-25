@@ -8,27 +8,34 @@ if [[ ! -d "$HOME/.oh-my-zsh/themes/powerlevel10k" ]]; then
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/.oh-my-zsh/themes/powerlevel10k
 fi
 
+#####################
+#  Version Fallbck  #
+#####################
+autoload is-at-least
+if is-at-least "5.1" $ZSH_VERSION; then
+    ZSH_THEME="powerlevel10k/powerlevel10k"
+    if [[ -f $HOME/.p10k.zsh ]]; then
+        source $HOME/.p10k.zsh
+    fi;
+
+    if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+      source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+    fi
+else
+    # NOTE(mrksr): Fallback to own theme
+    ZSH_THEME="../../"
+fi
+
 #################
 #  Colorscheme  #
 #################
 source $HOME/.base16-railscasts.sh
-
-#########################
-#  p10k instant prompt  #
-#########################
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
 
 #################################
 #  Oh-My-ZSH pre-configuration  #
 #################################
 ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="powerlevel10k/powerlevel10k"
-if [[ -f $HOME/.p10k.zsh ]]; then
-    source $HOME/.p10k.zsh
-fi;
 plugins=( \
     # Load vi-mode first to avoid hotkey-breakage...
     vi-mode \
