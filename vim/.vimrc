@@ -244,14 +244,6 @@ let g:UltiSnipsJumpBackwardTrigger='<c-k>'
 " Workaround for backward trigger
 inoremap <c-x><c-k> <c-x><c-k>
 
-" Workaround slowdown in neovim
-if has('nvim')
-    augroup ultisnips_no_auto_expansion
-        au!
-        au VimEnter * au! UltiSnips_AutoTrigger
-    augroup END
-endif
-
 
 """"""""""""""
 "  Markdown  "
