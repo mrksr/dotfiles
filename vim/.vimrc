@@ -76,7 +76,6 @@ Plug 'mhinz/vim-startify'
 Plug 'neomake/neomake'
 Plug 'ryanoasis/vim-devicons'
 Plug 'sbdchd/neoformat'
-Plug 'Shougo/echodoc.vim'
 Plug 'SirVer/ultisnips'
 Plug 'svermeulen/vim-easyclip'
 Plug 'tpope/vim-commentary'
@@ -93,10 +92,8 @@ if s:fancyPlugins
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 
     " Plugins
-    Plug 'deoplete-plugins/deoplete-jedi'
+    Plug 'haorenW1025/completion-nvim'
     Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-    Plug 'Shougo/deoplete-lsp'
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
     " NOTE: Not sure how to install these automatically.
     " LspInstall dockerls
@@ -332,13 +329,34 @@ let g:neoformat_run_all_formatters = 1
 "  LSP  "
 """""""""
 if s:fancyPlugins
-    lua require'nvim_lsp'.dockerls.setup{}
-    lua require'nvim_lsp'.pyls_ms.setup{{settings={python={linting={enabled=false}}}}}
-    lua require'nvim_lsp'.texlab.setup{{settings={latex={build={args={"-synctex=1"}}}}}}
-    lua require'nvim_lsp'.vimls.setup{}
-    lua require'nvim_lsp'.yamlls.setup{}
+    :lua << EOF
+        local nvim_lsp = require'nvim_lsp'
+        local M = {}
 
-    lua vim.lsp.callbacks['textDocument/publishDiagnostics'] = nil
+        M.on_attach = function()
+            require'completion'.on_attach()
+        end
+
+        nvim_lsp.dockerls.setup{
+            on_attach=M.on_attach;
+        }
+        nvim_lsp.pyls_ms.setup{
+            on_attach=M.on_attach;
+            settings={python={linting={enabled=false}}};
+        }
+        nvim_lsp.texlab.setup{
+            on_attach=M.on_attach;
+            settings={latex={build={args={"-synctex=1"}}}};
+        }
+        nvim_lsp.vimls.setup{
+            on_attach=M.on_attach;
+        }
+        nvim_lsp.yamlls.setup{
+            on_attach=M.on_attach;
+        }
+
+        vim.lsp.callbacks['textDocument/publishDiagnostics'] = nil
+EOF
 
     augroup LSPConfig
         autocmd!
@@ -354,21 +372,25 @@ if s:fancyPlugins
 endif
 inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <silent><expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <silent><expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
+" inoremap <silent><expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 
 
-"""""""""""""
-"  echodoc  "
-"""""""""""""
-let g:echodoc#enable_at_startup = 1
-let g:echodoc#type = 'floating'
+""""""""""""""""
+"  Completion  "
+""""""""""""""""
+if s:fancyPlugins
+    let g:completion_enable_snippet = 'UltiSnips'
+    " call completion#enable_in_comment()
+    let g:complete_ts_highlight_at_point = 1
 
+    let g:completion_max_items = 7
+    set pumheight=7
 
-""""""""""""""
-"  Deoplete  "
-""""""""""""""
-let g:deoplete#enable_at_startup = 1
-set pumheight=7
+    " Use completion-nvim in every buffer
+    autocmd BufEnter * lua require'completion'.on_attach()
+
+    inoremap <silent><expr> <C-Space> completion#trigger_completion()
+endif
 
 
 """""""""""""
@@ -574,6 +596,7 @@ set wildmenu
 set wildmode=longest:full,full
 set completeopt=menuone,noinsert,noselect
 set noshowmode
+set shortmess+=c
 
 " Navigation
 set virtualedit=block
