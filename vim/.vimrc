@@ -148,6 +148,18 @@ if has("persistent_undo")
 endif
 set noswapfile
 
+" Indirect custom WSL clip implementation
+let s:clip = '/c/Windows/System32/clip.exe'
+if executable(s:clip)
+    augroup WSLYank
+        autocmd!
+        autocmd TextYankPost * if
+            \ v:event.operator ==# 'y' &&
+            \ (v:event.regname ==# '+' || v:event.regname ==# '*')
+            \ | call system(s:clip, getreg(v:event.regname)) | endif
+    augroup END
+endif
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  Plugins                               {{{1"
