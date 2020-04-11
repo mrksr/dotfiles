@@ -98,16 +98,12 @@ if s:fancyPlugins
     Plug 'Shougo/deoplete-lsp'
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
-    function! InstallLsp(info)
-      if a:info.status != 'unchanged' || a:info.force
-          echo "Installing Lsp Services..."
-          LspInstall dockerls
-          LspInstall pyls_ms
-          LspInstall vimls
-          LspInstall yamlls
-      endif
-    endfunction
-    Plug 'neovim/nvim-lsp', { 'do': function('InstallLsp') }
+    " NOTE: Not sure how to install these automatically.
+    " LspInstall dockerls
+    " LspInstall pyls_ms
+    " LspInstall vimls
+    " LspInstall yamlls
+    Plug 'neovim/nvim-lsp'
 endif
 
 " Colorschemes
