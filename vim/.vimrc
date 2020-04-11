@@ -573,32 +573,23 @@ set ruler
 set wildmenu
 set wildmode=longest:full,full
 set completeopt=menuone,noinsert,noselect
-set cmdheight=1
 set noshowmode
-set shortmess+=c
 
 " Navigation
-set backspace=eol,start,indent
-set whichwrap+=<,>,h,l,b,s
 set virtualedit=block
-set scrolloff=0
+set scrolloff=5
 
 " Search
-let @/=''
 set ignorecase
 set smartcase
 set gdefault
 set hlsearch
 set incsearch
 set lazyredraw
-set showmatch
-set matchtime=5
 
 " No sound on errors
-set noerrorbells
 set visualbell
 set t_vb=
-autocmd GUIEnter * set visualbell t_vb=
 set timeoutlen=500
 
 " Show tab-characters
@@ -606,7 +597,7 @@ set list
 set listchars=tab:»·,trail:·
 
 " Spell checking
-set spelllang=de,en,sv
+set spelllang=en,de
 set nospell
 
 " Tabs
@@ -617,7 +608,6 @@ set smarttab
 
 " Lines
 set autoindent
-set wrap
 set linebreak
 set display=lastline
 set nojoinspaces
@@ -645,7 +635,7 @@ set sessionoptions-=resize
 set sessionoptions-=winpos
 set sessionoptions-=winsize
 
-
+" Comment highlighting
 augroup todostrings
     autocmd!
     autocmd Syntax * call matchadd('Todo', '\v\W\zs(BUG|TODO|FIXME)(\(.{-}\))?:?', -1)
