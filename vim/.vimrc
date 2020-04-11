@@ -170,14 +170,6 @@ filetype indent on
 filetype plugin on
 
 
-""""""""""""""
-"  polyglot  "
-""""""""""""""
-let g:polyglot_disabled = [
-    \ "latex"
-    \]
-
-
 """""""""""""
 "  Airline  "
 """""""""""""
@@ -228,7 +220,7 @@ let g:vimtex_quickfix_ignored_warnings = [
 let g:signify_update_on_bufenter = 0
 let g:signify_update_on_focusgained = 1
 
-nnoremap <leader>h :SignifyToggleHighlight<CR>
+nnoremap <silent><leader>h :SignifyToggleHighlight<CR>
 nmap <leader>j <plug>(signify-next-hunk)
 nmap <leader>k <plug>(signify-prev-hunk)
 
@@ -248,36 +240,38 @@ inoremap <c-x><c-k> <c-x><c-k>
 """"""""""""""
 "  Markdown  "
 """"""""""""""
-au BufEnter *.md :se ft=markdown
+augroup Markdown
+    autocmd!
+    autocmd BufEnter *.md :set ft=markdown
+augroup END
 
 
 """"""""""""""
 "  startify  "
 """"""""""""""
 let g:startify_list_order = [
-  \ ['   Sessions:'],
-  \ 'sessions',
-  \ ['   Bookmarks:'],
-  \ 'bookmarks',
-  \ ['   LRU within this dir:'],
-  \ 'dir',
-  \ ['   LRU overall:'],
-  \ 'files',
-  \ ]
+    \ ['   Sessions:'],
+    \ 'sessions',
+    \ ['   Bookmarks:'],
+    \ 'bookmarks',
+    \ ['   LRU within this dir:'],
+    \ 'dir',
+    \ ['   LRU overall:'],
+    \ 'files',
+    \ ]
 
 let g:startify_bookmarks = ['~/.vimrc', '~/dotfiles']
 
 let g:startify_custom_header = [
-      \ '           _',
-      \ '          (_)',
-      \ '    __   ___ _ __ ___',
-      \ '    \ \ / / | ´_ ` _ \',
-      \ '     \ V /| | | | | | |_',
-      \ '      \_/ |_|_| |_| |_(_)',
-      \ '']
+    \ '                        _',
+    \ '                       (_)',
+    \ '  _ __   ___  _____   ___ _ __ ___',
+    \ ' | ''_ \ / _ \/ _ \ \ / / | ''_ ` _ \',
+    \ ' | | | |  __/ (_) \ V /| | | | | | |',
+    \ ' |_| |_|\___|\___/ \_/ |_|_| |_| |_|',
+    \ '']
 
-let g:startify_custom_indices = map(range(1,100), 'string(v:val)')
-
+let g:startify_custom_indices = '12345wertasdfgyxcvb'
 let g:startify_session_persistence = 1
 let g:startify_session_delete_buffers = 1
 let g:startify_change_to_vcs_root = 1
@@ -291,7 +285,7 @@ let g:EasyClipShareYanks = 1
 let g:EasyClipShareYanksFile = "easyclip"
 let g:EasyClipShareYanksDirectory = s:localdir
 
-nnoremap Y :EasyClipBeforeYank<cr>yy:EasyClipOnYanksChanged<cr>
+nnoremap <silent>Y :EasyClipBeforeYank<cr>yy:EasyClipOnYanksChanged<cr>
 
 
 """"""""""""""
@@ -307,9 +301,9 @@ com! -bang BD Sayonara<bang>
 let g:clap_disable_run_rooter = v:true
 
 let g:clap_provider_fasd = {
-\  'source': 'fasd -Rdl',
-\  'sink': 'tcd',
-\ }
+    \  'source': 'fasd -Rdl',
+    \  'sink': 'tcd',
+    \ }
 
 
 """""""""""""
@@ -328,8 +322,8 @@ endif
 "  Neoformat  "
 """""""""""""""
 let g:neoformat_enabled_python = [
-      \ 'black', 'isort',
-      \ ]
+    \ 'black', 'isort',
+    \ ]
 
 let g:neoformat_run_all_formatters = 1
 
@@ -347,6 +341,7 @@ if s:fancyPlugins
     lua vim.lsp.callbacks['textDocument/publishDiagnostics'] = nil
 
     augroup LSPConfig
+        autocmd!
         autocmd Filetype dockerfile setlocal omnifunc=v:lua.vim.lsp.omnifunc
         autocmd Filetype python setlocal omnifunc=v:lua.vim.lsp.omnifunc
         autocmd Filetype tex setlocal omnifunc=v:lua.vim.lsp.omnifunc
@@ -473,12 +468,14 @@ inoremap üü <C-r>+
 " Macro execution
 nnoremap Q @
 
-" More convenient help browsing
-au FileType help nnoremap <buffer> <CR> <C-]>
-au FileType help nnoremap <buffer> <BS> <C-T>
+augroup help_browsing
+    autocmd!
+    autocmd FileType help nnoremap <buffer> <CR> <C-]>
+    autocmd FileType help nnoremap <buffer> <BS> <C-T>
+augroup END
 
-" Nvim bindings
 if has('nvim')
+    " Terminal bindings
     tnoremap <Esc><Esc> <C-\><C-n>
     nnoremap <C-j> <C-\><C-n><C-W>j
     nnoremap <C-k> <C-\><C-n><C-W>k
@@ -490,7 +487,6 @@ endif
 """""""""""""""""
 "  Leader maps  "
 """""""""""""""""
-" We use spacemacs-style chords
 nnoremap <silent><leader>qq ZZ
 
 " Search
@@ -513,12 +509,6 @@ nnoremap <silent><leader>fs :w<cr>
 " Remove trailing whitespace
 nnoremap <silent><leader>fw :%s/\s\+$//<CR>:let @/=''<CR>
 vnoremap <silent><leader>fw :'<,'>s/\s\+$//<CR>:let @/=''<CR>
-" Remove blank lines
-nnoremap <silent><leader>fL :g/^$/d<CR>:let @/=''<CR>
-vnoremap <silent><leader>fL :g/^$/d<CR>:let @/=''<CR>
-" Collapse lines
-nnoremap <silent><leader>fl Goj<Esc>:g/^$/.,/./-j<CR>Gdd:let @/=''<CR>
-vnoremap <silent><leader>fl :g/^$/.,/./-j<CR>:let @/=''<CR>
 
 " Folds
 nnoremap <leader>fa za
@@ -543,10 +533,7 @@ nnoremap <silent><leader>bs :<C-u>Clap lines<CR>
 nnoremap <silent><leader>ss :<C-u>Clap blines<CR>
 nnoremap <silent><leader>sj :<C-u>Clap jumps<CR>
 
-" Session
-nnoremap <silent><leader>pw :ToggleWorkspace<CR>
-
-" Language specific
+" Programming
 nnoremap <silent><leader>fi :<C-u>Neoformat<CR>
 nnoremap <silent><leader>fm :<C-u>Neomake<CR>
 
@@ -640,6 +627,7 @@ set foldlevel=1
 set foldnestmax=2
 set nofoldenable
 augroup folds
+    autocmd!
     autocmd FileType tex setl foldlevel=0 foldnestmax=1
     autocmd BufRead,BufNewFile *.c,*.cpp,*.cc setl foldlevel=0 foldnestmax=1
 augroup END
@@ -659,6 +647,7 @@ set sessionoptions-=winsize
 
 
 augroup todostrings
+    autocmd!
     autocmd Syntax * call matchadd('Todo', '\v\W\zs(BUG|TODO|FIXME)(\(.{-}\))?:?', -1)
     autocmd Syntax * call matchadd('Todo', '\v\W\zs(NOTE)(\(.{-}\))?:?', -2)
 augroup END
