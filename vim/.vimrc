@@ -330,32 +330,43 @@ let g:neoformat_run_all_formatters = 1
 """""""""
 if s:fancyPlugins
     :lua << EOF
-        local nvim_lsp = require'nvim_lsp'
-        local M = {}
-
-        M.on_attach = function()
-            require'completion'.on_attach()
+        function prequire(...)
+            local status, lib = pcall(require, ...)
+            if status then
+                return lib
+            end
+            return nil
         end
+        local nvim_lsp = prequire('nvim_lsp')
+        local completion = prequire('completion')
 
-        nvim_lsp.dockerls.setup{
-            on_attach=M.on_attach;
-        }
-        nvim_lsp.pyls_ms.setup{
-            on_attach=M.on_attach;
-            settings={python={linting={enabled=false}}};
-        }
-        nvim_lsp.texlab.setup{
-            on_attach=M.on_attach;
-            settings={latex={build={args={"-synctex=1"}}}};
-        }
-        nvim_lsp.vimls.setup{
-            on_attach=M.on_attach;
-        }
-        nvim_lsp.yamlls.setup{
-            on_attach=M.on_attach;
-        }
+        if nvim_lsp and completion then
+            local M = {}
 
-        vim.lsp.callbacks['textDocument/publishDiagnostics'] = nil
+            M.on_attach = function()
+                require('completion').on_attach()
+            end
+
+            nvim_lsp.dockerls.setup{
+                on_attach=M.on_attach;
+            }
+            nvim_lsp.pyls_ms.setup{
+                on_attach=M.on_attach;
+                settings={python={linting={enabled=false}}};
+            }
+            nvim_lsp.texlab.setup{
+                on_attach=M.on_attach;
+                settings={latex={build={args={"-synctex=1"}}}};
+            }
+            nvim_lsp.vimls.setup{
+                on_attach=M.on_attach;
+            }
+            nvim_lsp.yamlls.setup{
+                on_attach=M.on_attach;
+            }
+
+            vim.lsp.callbacks['textDocument/publishDiagnostics'] = nil
+        end
 EOF
 
     augroup LSPConfig
@@ -379,15 +390,30 @@ inoremap <silent><expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 "  Completion  "
 """"""""""""""""
 if s:fancyPlugins
+    lua << EOF
+        function does_completion_exist()
+            local status, completion = pcall(require, 'completion')
+            if status then
+                return true
+            end
+            return false
+        end
+EOF
+    let s:completion_exists = v:lua.does_completion_exist()
+
     let g:completion_enable_snippet = 'UltiSnips'
-    " call completion#enable_in_comment()
     let g:complete_ts_highlight_at_point = 1
 
     let g:completion_max_items = 7
     set pumheight=7
 
     " Use completion-nvim in every buffer
-    autocmd BufEnter * lua require'completion'.on_attach()
+    augroup Completion
+        autocmd!
+        if s:completion_exists
+            autocmd BufEnter * lua require('completion').on_attach()
+        endif
+    augroup END
 
     inoremap <silent><expr> <C-Space> completion#trigger_completion()
 endif
