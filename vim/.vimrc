@@ -73,10 +73,7 @@ Plug 'machakann/vim-sandwich'
 Plug 'mhinz/vim-sayonara'
 Plug 'mhinz/vim-signify'
 Plug 'mhinz/vim-startify'
-Plug 'neomake/neomake'
 Plug 'ryanoasis/vim-devicons'
-Plug 'sbdchd/neoformat'
-Plug 'SirVer/ultisnips'
 Plug 'svermeulen/vim-easyclip'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
@@ -93,7 +90,11 @@ if s:fancyPlugins
 
     " Plugins
     Plug 'haorenW1025/completion-nvim'
+    Plug 'neomake/neomake'
     Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+    Plug 'sbdchd/neoformat'
+    Plug 'SirVer/ultisnips'
+    Plug 'vigoux/completion-treesitter'
 
     " NOTE: Not sure how to install these automatically.
     " LspInstall dockerls
