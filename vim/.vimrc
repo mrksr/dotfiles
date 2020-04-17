@@ -30,7 +30,7 @@ else
     let s:fancyFile = s:localdir . "with_fancy"
 endif
 
-if empty(glob(s:fancyFile))
+if empty(glob(s:fancyFile)) || exists('g:vscode')
     let s:fancyPlugins = 0
 else
     let s:fancyPlugins = 1
