@@ -56,7 +56,6 @@ Plug 'lervag/vimtex'
 Plug 'moby/moby' , {'rtp': '/contrib/syntax/vim/'}
 Plug 'stephpy/vim-yaml'
 Plug 'tweekmonster/braceless.vim'
-Plug 'tweekmonster/impsort.vim'
 Plug 'Vimjas/vim-python-pep8-indent'
 
 " Plugins
@@ -65,7 +64,6 @@ Plug 'christoomey/vim-conflicted'
 Plug 'easymotion/vim-easymotion'
 Plug 'edkolev/tmuxline.vim'
 Plug 'honza/vim-snippets'
-Plug 'junegunn/vim-peekaboo'
 Plug 'justinmk/vim-dirvish'
 Plug 'Konfekt/FastFold'
 Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
@@ -83,6 +81,11 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'voldikss/vim-floaterm'
 Plug 'wellle/targets.vim'
+
+if !exists('g:vscode')
+    " NOTE(mrksr): A guard for plugins that actively break things in vscode
+    Plug 'junegunn/vim-peekaboo'
+endif
 
 if s:fancyPlugins
     " Languages
@@ -568,24 +571,50 @@ nnoremap <leader>fc zm
 nnoremap <leader>fo zO
 nnoremap <leader>fO zo
 
-" Search
-nnoremap <silent><leader>ff :<C-u>Clap files<CR>
-nnoremap <silent><leader>pf :<C-u>Clap gfiles<CR>
+if exists('g:vscode')
+    " Project navigation
+    nnoremap <silent><leader>ff :<C-u>Find<CR>
+    nnoremap <silent><leader>pf :<C-u>Find<CR>
 
-nnoremap <silent><leader>pp :<C-u>Clap fasd<CR>
-nnoremap <silent><leader>ps :<C-u>Clap grep<CR>
+    " nnoremap <silent><leader>pp :<C-u>Clap fasd<CR>
+    nnoremap <silent><leader>ps :<C-u>call VSCodeNotify('workbench.action.findInFiles')<CR>
 
-nnoremap <silent><leader>bb :<C-u>Clap buffers<CR>
-nnoremap <silent><leader>br :<C-u>Clap history<CR>
-nnoremap <silent><leader>bs :<C-u>Clap lines<CR>
 
-nnoremap <silent><leader>ss :<C-u>Clap blines<CR>
-nnoremap <silent><leader>sj :<C-u>Clap jumps<CR>
+    nnoremap <silent><leader>bb :<C-u>Tabfind<CR>
+    " nnoremap <silent><leader>br :<C-u>Clap history<CR>
+    " nnoremap <silent><leader>bs :<C-u>Clap lines<CR>
 
-" Programming
-nnoremap <silent><leader>fi :<C-u>Neoformat<CR>
-nnoremap <silent><leader>fm :<C-u>Neomake<CR>
+    nnoremap <silent><leader>ss :<C-u>call VSCodeNotify('workbench.action.find')<CR>
+    nnoremap <silent><leader>sj :<C-u>call VSCodeNotify('workbench.action.gotoSymbol')<CR>
 
+    " Programming
+    nnoremap <silent><leader>fi :<C-u>call VSCodeNotify('editor.action.formatDocument')<CR>
+    " nnoremap <silent><leader>fm :<C-u>Neomake<CR>
+
+    " Commenting
+    xnoremap gc  <Plug>VSCodeCommentary
+    nnoremap gc  <Plug>VSCodeCommentary
+    onoremap gc  <Plug>VSCodeCommentary
+    nnoremap gcc <Plug>VSCodeCommentaryLine
+else
+    " Project navigation
+    nnoremap <silent><leader>ff :<C-u>Clap files<CR>
+    nnoremap <silent><leader>pf :<C-u>Clap gfiles<CR>
+
+    nnoremap <silent><leader>pp :<C-u>Clap fasd<CR>
+    nnoremap <silent><leader>ps :<C-u>Clap grep<CR>
+
+    nnoremap <silent><leader>bb :<C-u>Clap buffers<CR>
+    nnoremap <silent><leader>br :<C-u>Clap history<CR>
+    nnoremap <silent><leader>bs :<C-u>Clap lines<CR>
+
+    nnoremap <silent><leader>ss :<C-u>Clap blines<CR>
+    nnoremap <silent><leader>sj :<C-u>Clap jumps<CR>
+
+    " Programming
+    nnoremap <silent><leader>fi :<C-u>Neoformat<CR>
+    nnoremap <silent><leader>fm :<C-u>Neomake<CR>
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  Commands                              {{{1"
