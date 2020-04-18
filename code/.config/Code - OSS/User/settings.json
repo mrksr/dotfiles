@@ -1,0 +1,33 @@
+{
+    "window.zoomLevel": 0,
+    "workbench.colorTheme": "Base16 Dark Railscasts",
+    "workbench.iconTheme": "material-icon-theme",
+    "latex-workshop.latex.autoBuild.cleanAndRetry.enabled": false,
+    "latex-workshop.latex.autoBuild.run": "never",
+    "vscode-neovim.neovimPath": "/usr/bin/nvim",
+    "keyboard.dispatch": "keyCode",
+    "python.formatting.provider": "black",
+    "editor.fontFamily": "'FuraCode Nerd Font', 'Fira Code', 'FiraCode NF', 'monospace', monospace, Consolas, 'Droid Sans Mono', 'Droid Sans Fallback'",
+    "editor.find.addExtraSpaceOnTop": false,
+    "editor.fontLigatures": true,
+    "latex-workshop.intellisense.citation.label": "title",
+    "latex-workshop.latex.recipe.default": "lastUsed",
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "latexmk (latexmkrc)",
+            "tools": [
+                "latexmk_rconly"
+            ]
+        },
+        {
+            "name": "Make",
+            "tools": [
+                "make"
+            ],
+            "args": [
+                "-j"
+            ]
+        }
+    ],
+    "diffEditor.renderSideBySide": true
+}

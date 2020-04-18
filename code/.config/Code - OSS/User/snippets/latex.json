@@ -1,0 +1,156 @@
+{
+	// Place your snippets for latex here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"mat": {
+		"prefix": "ma",
+		"body": [
+			"\\mat{$0}",
+		],
+		"description": "Matrix notation"
+	},
+	"todo": {
+		"prefix": "todo",
+		"body": [
+			"\\todo{$0}",
+		],
+		"description": "Simple todo note"
+	},
+	"todo inline": {
+		"prefix": "todoi",
+		"body": [
+			"\\todo{$0}",
+		],
+		"description": "Inline todo note"
+	},
+	"align": {
+		"prefix": "align",
+		"body": [
+			"\\begin{align}",
+			"${0}",
+			"\\end{align}",
+		],
+		"description": "Align environment"
+	},
+	"split": {
+		"prefix": "split",
+		"body": [
+			"\\begin{split}",
+			"${0}",
+			"\\end{split}",
+		],
+		"description": "Split environment"
+	},
+	"salign": {
+		"prefix": "salign",
+		"body": [
+			"\\begin{align}",
+			"\\begin{split}",
+			"${0}",
+			"\\end{split}",
+			"\\end{align}",
+		],
+		"description": "Align-with-split environment"
+	},
+	"probability": {
+		"prefix": "prob",
+		"body": [
+			"\\Prob*{$0}",
+		],
+		"description": "Probability notation"
+	},
+	"variational": {
+		"prefix": "variat",
+		"body": [
+			"\\Variat*{$0}",
+		],
+		"description": "Variational probability notation"
+	},
+	"function": {
+		"prefix": "fun",
+		"body": [
+			"\\Fun${1:*}{${2:\\exp}}{${3:x}}",
+		],
+		"description": "Function application"
+	},
+	"moment": {
+		"prefix": "moment",
+		"body": [
+			"\\Moment${1:*}{${2:\\E}}{${3:x}}",
+		],
+		"description": "Probabilistic moment"
+	},
+	"KL": {
+		"prefix": "kl",
+		"body": [
+			"\\KL${1:*}{${2:q}}{${3:p}}",
+		],
+		"description": "KL divergence"
+	},
+	"spix": {
+		"prefix": "spix",
+		"body": [
+			"{\\pix{${1:k}}}",
+		],
+		"description": "Superscript p-index"
+	},
+	"si": {
+		"prefix": "si",
+		"body": [
+			"\\SI{${1:5}}{${2:\\meter}}",
+		],
+		"description": "Number with unit"
+	},
+	"chapter": {
+		"prefix": ["cha", "chap"],
+		"body": [
+			"\\chapter{$1}",
+			"\\label{cha:$2}",
+			"",
+		],
+		"description": "Chapter with label"
+	},
+	"section": {
+		"prefix": "sec",
+		"body": [
+			"\\section{$1}",
+			"\\label{sec:$2}",
+			"",
+		],
+		"description": "Section with label"
+	},
+	"subsection": {
+		"prefix": "sub",
+		"body": [
+			"\\subsection{$1}",
+			"\\label{sub:$2}",
+			"",
+		],
+		"description": "Sub-Section with label"
+	},
+	"subsubsection": {
+		"prefix": "subsub",
+		"body": [
+			"\\subsubsection{$1}",
+			"",
+		],
+		"description": "Sub-Sub-Section"
+	},
+	"paragraph": {
+		"prefix": "par",
+		"body": [
+			"\\paragrap{$1}",
+		],
+		"description": "Paragraph"
+	},
+}
