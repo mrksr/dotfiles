@@ -571,13 +571,35 @@ nnoremap <leader>fc zm
 nnoremap <leader>fo zO
 nnoremap <leader>fO zo
 
+" Project navigation
+nnoremap <silent><leader>ff :<C-u>Clap files<CR>
+nnoremap <silent><leader>pf :<C-u>Clap gfiles<CR>
+
+nnoremap <silent><leader>pp :<C-u>Clap fasd<CR>
+nnoremap <silent><leader>ps :<C-u>Clap grep<CR>
+
+nnoremap <silent><leader>bb :<C-u>Clap buffers<CR>
+nnoremap <silent><leader>br :<C-u>Clap history<CR>
+nnoremap <silent><leader>bs :<C-u>Clap lines<CR>
+
+nnoremap <silent><leader>ss :<C-u>Clap blines<CR>
+nnoremap <silent><leader>sj :<C-u>Clap jumps<CR>
+
+" Programming
+nnoremap <silent><leader>fi :<C-u>Neoformat<CR>
+nnoremap <silent><leader>fm :<C-u>Neomake<CR>
+
+" VSCode overrides
 if exists('g:vscode')
+    nnoremap <silent><leader>fs :<C-u>call VSCodeNotify('workbench.action.files.save')<CR>
+
     " Project navigation
     nnoremap <silent><leader>ff :<C-u>Find<CR>
     nnoremap <silent><leader>pf :<C-u>Find<CR>
 
     " nnoremap <silent><leader>pp :<C-u>Clap fasd<CR>
     nnoremap <silent><leader>ps :<C-u>call VSCodeNotify('workbench.action.findInFiles')<CR>
+    nnoremap <silent><leader>pj :<C-u>call VSCodeNotify('workbench.action.showAllSymbols')<CR>
 
 
     nnoremap <silent><leader>bb :<C-u>Tabfind<CR>
@@ -589,31 +611,18 @@ if exists('g:vscode')
 
     " Programming
     nnoremap <silent><leader>fi :<C-u>call VSCodeNotify('editor.action.formatDocument')<CR>
+    nnoremap <silent><leader>fx :<C-u>call VSCodeNotify('editor.action.quickFix')<CR>
+    nnoremap <silent><leader>fr :<C-u>call VSCodeNotify('editor.action.rename')<CR>
     " nnoremap <silent><leader>fm :<C-u>Neomake<CR>
+    nnoremap <silent>K :<C-u>call VSCodeNotify('editor.action.showHover')<CR>
+    nnoremap <silent>gd :<C-u>call VSCodeNotify('editor.action.peekDefinition')<CR>
+    nnoremap <silent>gD :<C-u>call VSCodeNotify('editor.action.revealDefinition')<CR>
 
     " Commenting
     xnoremap gc  <Plug>VSCodeCommentary
     nnoremap gc  <Plug>VSCodeCommentary
     onoremap gc  <Plug>VSCodeCommentary
     nnoremap gcc <Plug>VSCodeCommentaryLine
-else
-    " Project navigation
-    nnoremap <silent><leader>ff :<C-u>Clap files<CR>
-    nnoremap <silent><leader>pf :<C-u>Clap gfiles<CR>
-
-    nnoremap <silent><leader>pp :<C-u>Clap fasd<CR>
-    nnoremap <silent><leader>ps :<C-u>Clap grep<CR>
-
-    nnoremap <silent><leader>bb :<C-u>Clap buffers<CR>
-    nnoremap <silent><leader>br :<C-u>Clap history<CR>
-    nnoremap <silent><leader>bs :<C-u>Clap lines<CR>
-
-    nnoremap <silent><leader>ss :<C-u>Clap blines<CR>
-    nnoremap <silent><leader>sj :<C-u>Clap jumps<CR>
-
-    " Programming
-    nnoremap <silent><leader>fi :<C-u>Neoformat<CR>
-    nnoremap <silent><leader>fm :<C-u>Neomake<CR>
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
