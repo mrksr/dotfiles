@@ -1,0 +1,3 @@
+# NOTE(mrksr): Code seems to write config files relative to the setings.json
+# file.
+code/.config/Code
