@@ -29,5 +29,13 @@
             ]
         }
     ],
-    "diffEditor.renderSideBySide": true
+    "diffEditor.renderSideBySide": true,
+    "better-comments.highlightPlainText": true,
+    "editor.renderIndentGuides": false,
+    "editor.rulers": [
+        80,
+    ],
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "files.trimFinalNewlines": true
 }
