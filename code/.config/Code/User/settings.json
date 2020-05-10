@@ -53,8 +53,8 @@
     ],
     "files.insertFinalNewline": true,
     "files.trimTrailingWhitespace": true,
+    "files.trimFinalNewlines": true,
     "editor.detectIndentation": false,
-    "python.dataScience.askForKernelRestart": false,
     "editor.wordWrap": "wordWrapColumn",
     "latex-workshop.view.pdf.viewer": "tab",
 
