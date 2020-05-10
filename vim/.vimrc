@@ -591,6 +591,11 @@ nnoremap <silent><leader>fm :<C-u>Neomake<CR>
 
 " VSCode overrides
 if exists('g:vscode')
+    " Editing
+    nnoremap <silent>j :<C-u>call VSCodeCall('cursorMove', { 'to': 'down', 'by': 'wrappedLine', 'value': v:count ? v:count : 1 })<CR>
+    nnoremap <silent>k :<C-u>call VSCodeCall('cursorMove', { 'to': 'up', 'by': 'wrappedLine', 'value': v:count ? v:count : 1 })<CR>
+
+    " File Manipulation
     nnoremap <silent><leader>fs :<C-u>call VSCodeNotify('workbench.action.files.save')<CR>
 
     " Project navigation
@@ -620,7 +625,7 @@ if exists('g:vscode')
 
     " Commenting
     xnoremap gc  <Plug>VSCodeCommentary
-    nnoremap gc  <Plug>VSCodeCommentary
+    " nnoremap gc  <Plug>VSCodeCommentary
     onoremap gc  <Plug>VSCodeCommentary
     nnoremap gcc <Plug>VSCodeCommentaryLine
 endif

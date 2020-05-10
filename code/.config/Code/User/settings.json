@@ -1,9 +1,8 @@
 {
-    "window.zoomLevel": 0,
+    "window.zoomLevel": 1,
     "workbench.colorTheme": "Base16 Dark Railscasts",
     "workbench.iconTheme": "material-icon-theme",
     "latex-workshop.latex.autoBuild.cleanAndRetry.enabled": false,
-    "latex-workshop.latex.autoBuild.run": "never",
     "vscode-neovim.neovimPath": "/usr/bin/nvim",
     "keyboard.dispatch": "keyCode",
     "python.formatting.provider": "black",
@@ -29,13 +28,34 @@
             ]
         }
     ],
+    "latex-workshop.latex.tools": [
+        {
+            "name": "latexmk_rconly",
+            "command": "latexmk",
+            "args": [
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "make",
+            "command": "make",
+            "args": [
+                "%DOC%.pdf"
+            ],
+            "env": {}
+        }
+    ],
     "diffEditor.renderSideBySide": true,
     "better-comments.highlightPlainText": true,
-    "editor.renderIndentGuides": false,
     "editor.rulers": [
         80,
     ],
     "files.insertFinalNewline": true,
     "files.trimTrailingWhitespace": true,
-    "files.trimFinalNewlines": true
+    "editor.detectIndentation": false,
+    "python.dataScience.askForKernelRestart": false,
+    "editor.wordWrap": "wordWrapColumn",
+    "latex-workshop.view.pdf.viewer": "tab",
+
 }
