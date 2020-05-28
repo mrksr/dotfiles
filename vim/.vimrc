@@ -473,14 +473,14 @@ nnoremap <C-l> <C-W>l
 nnoremap ß <C-W>=
 
 " Move by wrapped line
-nnoremap j gj
-nnoremap k gk
-nnoremap gj j
-nnoremap gk k
-vnoremap j gj
-vnoremap k gk
-vnoremap gj j
-vnoremap gk k
+nnoremap <silent>j gj
+nnoremap <silent>k gk
+nnoremap <silent>gj j
+nnoremap <silent>gk k
+vnoremap <silent>j gj
+vnoremap <silent>k gk
+vnoremap <silent>gj j
+vnoremap <silent>gk k
 inoremap <silent><up> <C-o>gk
 inoremap <silent><down> <C-o>gj
 
