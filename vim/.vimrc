@@ -66,12 +66,12 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'honza/vim-snippets'
 Plug 'justinmk/vim-dirvish'
 Plug 'Konfekt/FastFold'
-Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
 Plug 'machakann/vim-sandwich'
 Plug 'mhinz/vim-sayonara'
 Plug 'mhinz/vim-signify'
 Plug 'mhinz/vim-startify'
 Plug 'ryanoasis/vim-devicons'
+Plug 'sbdchd/neoformat'
 Plug 'svermeulen/vim-easyclip'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
@@ -79,15 +79,16 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'voldikss/vim-floaterm'
-Plug 'wellle/targets.vim'
 
 if !exists('g:vscode')
     " NOTE(mrksr): A guard for plugins that actively break things in vscode
     Plug 'junegunn/vim-peekaboo'
+    Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
+    Plug 'voldikss/vim-floaterm'
+    Plug 'wellle/targets.vim'
 endif
 
-if s:fancyPlugins
+if s:fancyPlugins && !exists('g:vscode')
     " Languages
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 
@@ -95,7 +96,6 @@ if s:fancyPlugins
     Plug 'haorenW1025/completion-nvim'
     Plug 'neomake/neomake'
     Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-    Plug 'sbdchd/neoformat'
     Plug 'SirVer/ultisnips'
     Plug 'vigoux/completion-treesitter'
 
