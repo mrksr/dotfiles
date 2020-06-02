@@ -1,7 +1,7 @@
 {
     "window.zoomLevel": 1,
-    "workbench.colorTheme": "Base16 Dark Railscasts",
-    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "Base16 Dark Brewer",
+    "workbench.iconTheme": "vscode-icons",
     "latex-workshop.latex.autoBuild.cleanAndRetry.enabled": false,
     "vscode-neovim.neovimPath": "/usr/bin/nvim",
     "keyboard.dispatch": "keyCode",
@@ -50,6 +50,7 @@
     "better-comments.highlightPlainText": true,
     "editor.rulers": [
         80,
+        100,
     ],
     "files.insertFinalNewline": true,
     "files.trimTrailingWhitespace": true,
@@ -57,5 +58,15 @@
     "editor.detectIndentation": false,
     "editor.wordWrap": "wordWrapColumn",
     "latex-workshop.view.pdf.viewer": "tab",
-
+    "editor.wordWrapColumn": 100,
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "python.jediEnabled": false,
+    "files.watcherExclude": {
+        "**/.venv/**": true,
+        "**/data/**": true
+    },
+    "python.dataScience.askForKernelRestart": false,
 }

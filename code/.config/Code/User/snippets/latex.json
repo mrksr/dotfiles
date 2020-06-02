@@ -19,6 +19,27 @@
 		],
 		"description": "Matrix notation"
 	},
+	"inline math mat": {
+		"prefix": "ima",
+		"body": [
+			"\\$\\mat{$1}\\$$0",
+		],
+		"description": "Matrix notation in inline math"
+	},
+	"prob of mat": {
+		"prefix": "pma",
+		"body": [
+			"\\Prob*{\\mat{$1}}$0",
+		],
+		"description": "Matrix notation in probability"
+	},
+	"inline math prob of mat": {
+		"prefix": "ipma",
+		"body": [
+			"\\$\\Prob*{\\mat{$1}}\\$$0",
+		],
+		"description": "Matrix notation in inline math and probability"
+	},
 	"todo": {
 		"prefix": "todo",
 		"body": [
@@ -68,6 +89,13 @@
 			"\\Prob*{$1}$0",
 		],
 		"description": "Probability notation"
+	},
+	"probability in inline math": {
+		"prefix": "iprob",
+		"body": [
+			"\\$\\Prob*{$1}\\$$0",
+		],
+		"description": "Probability notation in inline math"
 	},
 	"variational": {
 		"prefix": "variat",
@@ -245,5 +273,12 @@
 			"\\end{problem}",
 		],
 		"description": "Problem block",
-	},
+    },
+    "fraction": {
+		"prefix": ["frac", "fraction"],
+		"body": [
+			"\\frac{$1}{$2}$0",
+		],
+		"description": "Fraction",
+    }
 }
