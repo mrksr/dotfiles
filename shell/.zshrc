@@ -4,8 +4,11 @@
 if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
     git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
 fi
-if [[ ! -d "$HOME/.oh-my-zsh/themes/powerlevel10k" ]]; then
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/.oh-my-zsh/themes/powerlevel10k
+if [[ ! -d "$HOME/.oh-my-zsh/custom/themes/powerlevel10k" ]]; then
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/.oh-my-zsh/custom/themes/powerlevel10k
+fi
+if [[ ! -d "$HOME/.oh-my-zsh/custom/plugins/fzf-tab" ]]; then
+    git clone https://github.com/Aloxaf/fzf-tab $HOME/.oh-my-zsh/custom/plugins/fzf-tab
 fi
 
 #####################
@@ -57,6 +60,9 @@ plugins=( \
     tmux \
     wakeonlan \
 )
+if command -v fzf > /dev/null; then
+    plugins+=(fzf-tab)
+fi
 # DISABLE_MAGIC_FUNCTIONS=true
 
 # Set ls-colors for highlighting if present
