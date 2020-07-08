@@ -59,9 +59,9 @@ Plug 'tweekmonster/braceless.vim'
 Plug 'Vimjas/vim-python-pep8-indent'
 
 " Plugins
+Plug 'asvetliakov/vim-easymotion'
 Plug 'benjifisher/matchit.zip'
 Plug 'christoomey/vim-conflicted'
-Plug 'easymotion/vim-easymotion'
 Plug 'edkolev/tmuxline.vim'
 Plug 'honza/vim-snippets'
 Plug 'justinmk/vim-dirvish'
@@ -96,8 +96,9 @@ if s:fancyPlugins && !exists('g:vscode')
     Plug 'haorenW1025/completion-nvim'
     Plug 'neomake/neomake'
     Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+    Plug 'nvim-treesitter/completion-treesitter'
+    Plug 'nvim-treesitter/nvim-treesitter'
     Plug 'SirVer/ultisnips'
-    Plug 'vigoux/completion-treesitter'
 
     " NOTE: Not sure how to install these automatically.
     " LspInstall dockerls
