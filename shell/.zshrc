@@ -11,6 +11,7 @@ if [[ ! -d "$HOME/.oh-my-zsh/custom/plugins/fzf-tab" ]]; then
     git clone https://github.com/Aloxaf/fzf-tab $HOME/.oh-my-zsh/custom/plugins/fzf-tab
 fi
 
+
 #####################
 #  Version Fallbck  #
 #####################
@@ -29,10 +30,12 @@ else
     ZSH_THEME="../../"
 fi
 
+
 #################
 #  Colorscheme  #
 #################
 source $HOME/.base16-railscasts.sh
+
 
 #################################
 #  Oh-My-ZSH pre-configuration  #
@@ -70,10 +73,12 @@ if [[ -e .dircolors ]]; then
     eval "$(dircolors .dircolors)"
 fi
 
+
 ####################
 #  Oh-My-ZSH load  #
 ####################
 source $ZSH/oh-my-zsh.sh
+
 
 ################
 #  Own config  #
@@ -87,6 +92,19 @@ setopt HIST_IGNORE_SPACE
 # ...and all the globs
 setopt extendedglob
 setopt null_glob
+
+# Use fzf-tab after second tab press
+fzf-tab-partial-and-complete() {
+    if [[ $LASTWIDGET = 'fzf-tab-partial-and-complete' ]]; then
+        fzf-tab-complete
+    else
+        zle complete-word
+    fi
+}
+
+zle -N fzf-tab-partial-and-complete
+bindkey '^I' fzf-tab-partial-and-complete
+
 
 ########################
 #  Alias and Commands  #
@@ -141,6 +159,7 @@ mbsync-update() {
     notmuch new
 }
 
+
 ##################
 #  zsh bindings  #
 ##################
@@ -161,6 +180,7 @@ bell_before_command() {
 }
 [[ -z $precmd_functions ]] && precmd_functions=()
 precmd_functions=($precmd_functions bell_before_command)
+
 
 #############
 #  Startup  #
@@ -191,6 +211,7 @@ if [[ $XDG_CURRENT_DESKTOP = "KDE" ]]; then
         done
     fi
 fi
+
 
 ##################
 #  Local .zshrc  #
