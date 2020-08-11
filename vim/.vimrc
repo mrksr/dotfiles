@@ -202,6 +202,7 @@ endif
 """""""""""
 "  Latex  "
 """""""""""
+let g:tex_flavor = 'latex'
 let g:tex_fast = "Mp"
 let g:tex_no_error = 1
 let g:tex_conceal = ""
