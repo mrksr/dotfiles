@@ -50,40 +50,42 @@ if empty(glob(s:plugPath))
 endif
 
 call plug#begin(s:bundlePath)
-" Languages
-Plug 'cespare/vim-toml'
-Plug 'lervag/vimtex'
-Plug 'moby/moby' , {'rtp': '/contrib/syntax/vim/'}
-Plug 'stephpy/vim-yaml'
-Plug 'tweekmonster/braceless.vim'
-Plug 'Vimjas/vim-python-pep8-indent'
-
 " Plugins
 Plug 'asvetliakov/vim-easymotion'
-Plug 'benjifisher/matchit.zip'
-Plug 'christoomey/vim-conflicted'
-Plug 'edkolev/tmuxline.vim'
-Plug 'honza/vim-snippets'
-Plug 'justinmk/vim-dirvish'
 Plug 'Konfekt/FastFold'
 Plug 'machakann/vim-sandwich'
-Plug 'mhinz/vim-sayonara'
-Plug 'mhinz/vim-signify'
-Plug 'mhinz/vim-startify'
-Plug 'ryanoasis/vim-devicons'
-Plug 'sbdchd/neoformat'
 Plug 'svermeulen/vim-easyclip'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 
 if !exists('g:vscode')
-    " NOTE(mrksr): A guard for plugins that actively break things in vscode
+    " NOTE(mrksr): A guard for plugins that actively are not needed or break
+    " things in vscode
+    " Languages
+    Plug 'cespare/vim-toml'
+    Plug 'lervag/vimtex'
+    Plug 'moby/moby' , {'rtp': '/contrib/syntax/vim/'}
+    Plug 'stephpy/vim-yaml'
+    Plug 'tweekmonster/braceless.vim'
+    Plug 'Vimjas/vim-python-pep8-indent'
+
+    " Plugins
+    Plug 'benjifisher/matchit.zip'
+    Plug 'christoomey/vim-conflicted'
+    Plug 'edkolev/tmuxline.vim'
+    Plug 'honza/vim-snippets'
     Plug 'junegunn/vim-peekaboo'
+    Plug 'justinmk/vim-dirvish'
     Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
+    Plug 'mhinz/vim-sayonara'
+    Plug 'mhinz/vim-signify'
+    Plug 'mhinz/vim-startify'
+    Plug 'ryanoasis/vim-devicons'
+    Plug 'sbdchd/neoformat'
+    Plug 'tpope/vim-fugitive'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
     Plug 'voldikss/vim-floaterm'
     Plug 'wellle/targets.vim'
 endif
