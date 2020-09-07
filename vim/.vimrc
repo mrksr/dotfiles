@@ -90,7 +90,7 @@ if !exists('g:vscode')
     Plug 'wellle/targets.vim'
 endif
 
-if s:fancyPlugins && !exists('g:vscode')
+if s:fancyPlugins
     " Languages
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 
