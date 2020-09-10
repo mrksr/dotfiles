@@ -106,6 +106,25 @@ zle -N fzf-tab-partial-and-complete
 bindkey '^I' fzf-tab-partial-and-complete
 
 
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    BUFFER="fg"
+    zle accept-line
+  else
+    zle push-input
+    zle clear-screen
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
+
+bell_before_command() {
+    echo -ne '\a'
+}
+[[ -z $precmd_functions ]] && precmd_functions=()
+precmd_functions=($precmd_functions bell_before_command)
+
+
 ########################
 #  Alias and Commands  #
 ########################
@@ -152,35 +171,6 @@ online-texdoc() {
     open-background "$DOC_FILE"
 }
 
-alias mail="mbsync-update"
-mbsync-update() {
-    SET="${1:-auto}"
-    mbsync $SET
-    notmuch new
-}
-
-
-##################
-#  zsh bindings  #
-##################
-fancy-ctrl-z () {
-  if [[ $#BUFFER -eq 0 ]]; then
-    BUFFER="fg"
-    zle accept-line
-  else
-    zle push-input
-    zle clear-screen
-  fi
-}
-zle -N fancy-ctrl-z
-bindkey '^Z' fancy-ctrl-z
-
-bell_before_command() {
-    echo -ne '\a'
-}
-[[ -z $precmd_functions ]] && precmd_functions=()
-precmd_functions=($precmd_functions bell_before_command)
-
 
 #############
 #  Startup  #
@@ -198,18 +188,6 @@ if command -v aria2c > /dev/null; then
         --external-downloader aria2c \
         --external-downloader-args '-c -j 5 -x 5 -s 5 -k 2M' \
         "
-fi
-
-if [[ $XDG_CURRENT_DESKTOP = "KDE" ]]; then
-    # Window transparency for KDE
-    if [[ $(ps --no-header -p $PPID -o comm) =~ alacritty ]]; then
-        for wid in $(xdotool search --pid $PPID); do
-            xprop \
-                -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c \
-                -set _KDE_NET_WM_BLUR_BEHIND_REGION 0 \
-                -id $wid;
-        done
-    fi
 fi
 
 
