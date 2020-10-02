@@ -21,6 +21,7 @@ if is-at-least "5.1" $ZSH_VERSION; then
     if [[ -f $HOME/.p10k.zsh ]]; then
         source $HOME/.p10k.zsh
     fi;
+    WITH_FANCY=1
 
     if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
       source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -63,8 +64,10 @@ plugins=( \
     tmux \
     wakeonlan \
 )
-if command -v fzf > /dev/null; then
-    plugins+=(fzf-tab)
+if [[ -n "$WITH_FANCY" ]]; then
+    if command -v fzf > /dev/null; then
+        plugins+=(fzf-tab)
+    fi
 fi
 # DISABLE_MAGIC_FUNCTIONS=true
 
@@ -93,27 +96,29 @@ setopt HIST_IGNORE_SPACE
 setopt extendedglob
 setopt null_glob
 
-# Use fzf-tab after second tab press
-fzf-tab-partial-and-complete() {
-    if [[ $LASTWIDGET = 'fzf-tab-partial-and-complete' ]]; then
-        fzf-tab-complete
-    else
-        zle complete-word
-    fi
-}
+if [[ -n "$WITH_FANCY" ]]; then
+    # Use fzf-tab after second tab press
+    fzf-tab-partial-and-complete() {
+        if [[ $LASTWIDGET = 'fzf-tab-partial-and-complete' ]]; then
+            fzf-tab-complete
+        else
+            zle complete-word
+        fi
+    }
 
-zle -N fzf-tab-partial-and-complete
-bindkey '^I' fzf-tab-partial-and-complete
+    zle -N fzf-tab-partial-and-complete
+    bindkey '^I' fzf-tab-partial-and-complete
+fi
 
 
 fancy-ctrl-z () {
-  if [[ $#BUFFER -eq 0 ]]; then
-    BUFFER="fg"
-    zle accept-line
-  else
-    zle push-input
-    zle clear-screen
-  fi
+    if [[ $#BUFFER -eq 0 ]]; then
+        BUFFER="fg"
+        zle accept-line
+    else
+        zle push-input
+        zle clear-screen
+    fi
 }
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
