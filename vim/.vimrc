@@ -345,7 +345,7 @@ if s:fancyPlugins
             end
             return nil
         end
-        local nvim_lsp = prequire('nvim_lsp')
+        local nvim_lsp = prequire('lspconfig')
         local completion = prequire('completion')
 
         if nvim_lsp and completion then
