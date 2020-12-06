@@ -186,6 +186,7 @@ fi
 
 if command -v nvim > /dev/null; then
     alias vim="nvim"
+    export MANPAGER="nvim -c 'set ft=man'"
 fi
 
 if command -v aria2c > /dev/null; then
