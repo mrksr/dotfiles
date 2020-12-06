@@ -615,7 +615,7 @@ if exists('g:vscode')
     " nnoremap <silent><leader>br :<C-u>Clap history<CR>
     " nnoremap <silent><leader>bs :<C-u>Clap lines<CR>
 
-    nnoremap <silent><leader>ss :<C-u>call VSCodeNotify('workbench.action.find')<CR>
+    nnoremap <silent><leader>ss :<C-u>call VSCodeNotify('fuzzySearch.activeTextEditor')<CR>
     nnoremap <silent><leader>sj :<C-u>call VSCodeNotify('workbench.action.gotoSymbol')<CR>
 
     " Programming
