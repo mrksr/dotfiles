@@ -97,7 +97,8 @@ zinit wait lucid for \
         zle -N fzf-tab-partial-and-complete
         bindkey '^I' fzf-tab-partial-and-complete
     " \
-    Aloxaf/fzf-tab
+    Aloxaf/fzf-tab \
+    MichaelAquilina/zsh-autoswitch-virtualenv
 
 
 # Own config
