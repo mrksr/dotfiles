@@ -1,91 +1,92 @@
-#################################
-#  Ensure Oh-My-ZSH is present  #
-#################################
-if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
-    git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
+### Added by Zinit's installer
+if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
+    print -P "%F{33}▓▒░ %F{220}Installing DHARMA Initiative Plugin Manager (zdharma/zinit)…%f"
+    command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
+    command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
+    print -P "%F{33}▓▒░ %F{34}Installation successful.%f" || \
+    print -P "%F{160}▓▒░ The clone has failed.%f"
 fi
-if [[ ! -d "$HOME/.oh-my-zsh/custom/themes/powerlevel10k" ]]; then
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/.oh-my-zsh/custom/themes/powerlevel10k
-fi
-if [[ ! -d "$HOME/.oh-my-zsh/custom/plugins/fzf-tab" ]]; then
-    git clone https://github.com/Aloxaf/fzf-tab $HOME/.oh-my-zsh/custom/plugins/fzf-tab
-fi
+source "$HOME/.zinit/bin/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+### End of Zinit's installer chunk
 
 
-######################
-#  Version Fallback  #
-######################
-autoload is-at-least
-if is-at-least "5.1" $ZSH_VERSION; then
-    ZSH_THEME="powerlevel10k/powerlevel10k"
-    if [[ -f $HOME/.p10k.zsh ]]; then
-        source $HOME/.p10k.zsh
-    fi;
-    WITH_FANCY=1
-
-    if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-      source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-    fi
-else
-    # NOTE(mrksr): Fallback to own theme
-    ZSH_THEME="../../"
+# P10k instant prompt
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 
-#################
-#  Colorscheme  #
-#################
-source $HOME/.base16-railscasts.sh
+# Colors
+zinit lucid for \
+    atload"base16_railscasts" \
+        chriskempson/base16-shell \
 
 
-#################################
-#  Oh-My-ZSH pre-configuration  #
-#################################
-ZSH=$HOME/.oh-my-zsh
-
-plugins=( \
-    # Load vi-mode first to avoid hotkey-breakage...
-    vi-mode \
-    # ...otherwise order should not matter
-    colored-man-pages \
-    docker \
-    docker-compose \
-    extract \
-    fasd \
-    fzf \
-    git \
-    gitignore \
-    mercurial \
-    mosh \
-    pass \
-    pip \
-    python \
-    screen \
-    tmux \
-    wakeonlan \
-)
-if [[ -n "$WITH_FANCY" ]]; then
-    if command -v fzf > /dev/null; then
-        plugins+=(fzf-tab)
-    fi
-fi
-# DISABLE_MAGIC_FUNCTIONS=true
-
-# Set ls-colors for highlighting if present
-if [[ -e .dircolors ]]; then
-    eval "$(dircolors .dircolors)"
-fi
+# Theme
+zinit depth'1' light-mode for \
+    atload'source ~/.p10k.zsh' \
+        romkatv/powerlevel10k
 
 
-####################
-#  Oh-My-ZSH load  #
-####################
-source $ZSH/oh-my-zsh.sh
+# Programs
+zinit light zinit-zsh/z-a-patch-dl
+zinit pack"binary+keys" for fzf
 
 
-################
-#  Own config  #
-################
+# oh-my-zshell config
+zinit wait lucid for \
+    OMZL::correction.zsh \
+    atinit"setopt auto_cd" \
+        OMZL::directories.zsh \
+    OMZL::history.zsh \
+    OMZL::key-bindings.zsh \
+    OMZL::spectrum.zsh \
+    OMZL::termsupport.zsh \
+
+
+# Plugins
+zinit lucid for \
+    atinit"
+        ZSH_TMUX_FIXTERM=true
+    " \
+    OMZP::tmux
+
+zinit wait lucid for \
+    OMZP::vi-mode \
+    OMZP::colored-man-pages \
+    OMZP::extract \
+    OMZP::git \
+    OMZP::gitignore \
+    OMZP::mosh \
+    OMZP::screen
+
+zinit wait as"completion" lucid for \
+    OMZP::docker/_docker \
+    OMZP::docker-compose/_docker-compose
+
+zinit wait lucid for \
+    atinit"zicompinit; zicdreplay" \
+        zdharma/fast-syntax-highlighting \
+    blockf atpull'zinit creinstall -q .' \
+        zsh-users/zsh-completions \
+    atinit" \
+        zstyle ':autocomplete:*' min-delay 1
+        zstyle ':autocomplete:tab:*' insert-unambiguous yes
+        zstyle ':autocomplete:tab:*' widget-style menu-select
+        zstyle ':autocomplete:tab:*' fzf-completion yes
+    " \
+        marlonrichert/zsh-autocomplete
+
+zinit wait lucid for \
+    atclone"dircolors -b LS_COLORS > clrs.zsh" \
+    atpull'%atclone' pick"clrs.zsh" nocompile'!' \
+    atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”' \
+        trapd00r/LS_COLORS
+
+
+# Own config
 # Faster switching of vi modes
 KEYTIMEOUT=1
 # All the history...
@@ -95,45 +96,6 @@ setopt HIST_IGNORE_SPACE
 # ...and all the globs
 setopt extendedglob
 setopt null_glob
-
-if [[ -n "$WITH_FANCY" ]]; then
-    # Use fzf-tab after second tab press
-    fzf-tab-partial-and-complete() {
-        if [[ $LASTWIDGET = 'fzf-tab-partial-and-complete' ]]; then
-            fzf-tab-complete
-        else
-            zle complete-word
-        fi
-    }
-
-    zle -N fzf-tab-partial-and-complete
-    bindkey '^I' fzf-tab-partial-and-complete
-fi
-
-
-fancy-ctrl-z () {
-    if [[ $#BUFFER -eq 0 ]]; then
-        BUFFER="fg"
-        zle accept-line
-    else
-        zle push-input
-        zle clear-screen
-    fi
-}
-zle -N fancy-ctrl-z
-bindkey '^Z' fancy-ctrl-z
-
-bell_before_command() {
-    echo -ne '\a'
-}
-[[ -z $precmd_functions ]] && precmd_functions=()
-precmd_functions=($precmd_functions bell_before_command)
-
-
-########################
-#  Alias and Commands  #
-########################
-alias dmesg="dmesg --color=auto"
 
 if command -v exa > /dev/null; then
     alias ls="exa --group-directories-first"
@@ -145,58 +107,3 @@ else
     alias ls="ls --color=tty --group-directories-first -h"
 fi
 alias lsd="ls -lhd */"
-
-alias bl="set-backlight"
-set-backlight() {
-    xbacklight -set $1
-}
-
-alias open="open-background"
-open-background() {
-    xdg-open "$@" &>/dev/null &!
-}
-alias pdf="open-pdf"
-open-pdf() {
-    local PREFIX=${2:-.}
-    local FILE="$(cd $PREFIX;
-        find . -name '*.pdf' \
-        | fzf -x --select-1 -q "$1" )";
-    if [[ -n "$FILE" ]]; then
-        open "$PREFIX/$FILE" > /dev/null
-        echo "$PREFIX/$FILE"
-    fi
-}
-
-alias texdoco="online-texdoc"
-online-texdoc() {
-    DOC_FILE="${TMPDIR:-/tmp}/online_texdoc.${1}.pdf"
-    if [[ ! -f "$DOC_FILE" ]]; then
-        wget http://texdoc.net/pkg/${1} -O "$DOC_FILE"
-    fi
-    open-background "$DOC_FILE"
-}
-
-
-if command -v bat > /dev/null; then
-    alias cat="bat"
-fi
-
-if command -v nvim > /dev/null; then
-    alias vim="nvim"
-    export MANPAGER="nvim -c 'set ft=man'"
-fi
-
-if command -v aria2c > /dev/null; then
-    alias youtube-dl="youtube-dl \
-        --external-downloader aria2c \
-        --external-downloader-args '-c -j 5 -x 5 -s 5 -k 2M' \
-        "
-fi
-
-
-##################
-#  Local .zshrc  #
-##################
-if [[ -e .zshrc_local ]]; then
-    source .zshrc_local
-fi
