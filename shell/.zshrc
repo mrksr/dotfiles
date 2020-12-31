@@ -17,20 +17,27 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
     source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-
-# Colors
+# vi-mode
 zinit lucid for \
+    atinit"KEYTIMEOUT=1" \
+        OMZP::vi-mode
+
+
+# Colors and theme
+zinit lucid for \
+    atclone"dircolors -b LS_COLORS > clrs.zsh" \
+    atpull'%atclone' pick"clrs.zsh" nocompile'!' \
+    atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”' \
+        trapd00r/LS_COLORS \
     atload"base16_railscasts" \
-        chriskempson/base16-shell \
+        chriskempson/base16-shell
 
-
-# Theme
 zinit depth'1' light-mode for \
     atload'source ~/.p10k.zsh' \
         romkatv/powerlevel10k
 
 
-# Programs
+# Ensure fzf
 zinit light zinit-zsh/z-a-patch-dl
 zinit pack"binary+keys" for fzf
 
@@ -40,8 +47,11 @@ zinit wait lucid for \
     OMZL::correction.zsh \
     atinit"setopt auto_cd" \
         OMZL::directories.zsh \
+    atinit"
+        HISTSIZE=1000000
+        SAVEHIST=1000000
+    " \
     OMZL::history.zsh \
-    OMZL::key-bindings.zsh \
     OMZL::spectrum.zsh \
     OMZL::termsupport.zsh \
 
@@ -54,45 +64,43 @@ zinit lucid for \
     OMZP::tmux
 
 zinit wait lucid for \
-    OMZP::vi-mode \
     OMZP::colored-man-pages \
     OMZP::extract \
+    OMZP::fasd \
     OMZP::git \
     OMZP::gitignore \
     OMZP::mosh \
     OMZP::screen
-
-zinit wait as"completion" lucid for \
-    OMZP::docker/_docker \
-    OMZP::docker-compose/_docker-compose
 
 zinit wait lucid for \
     atinit"zicompinit; zicdreplay" \
         zdharma/fast-syntax-highlighting \
     blockf atpull'zinit creinstall -q .' \
         zsh-users/zsh-completions \
-    atinit" \
-        zstyle ':autocomplete:*' min-delay 1
-        zstyle ':autocomplete:tab:*' insert-unambiguous yes
-        zstyle ':autocomplete:tab:*' widget-style menu-select
-        zstyle ':autocomplete:tab:*' fzf-completion yes
+    atinit"
+        zstyle ':completion:complete:*:options' sort false
+        zstyle ':completion:*:git-checkout:*' sort false
+        zstyle ':completion:*:descriptions' format '[%d]'
+        zstyle ':completion:*' list-colors \${(s.:.)LS_COLORS}
+        zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always \$realpath'
     " \
-        marlonrichert/zsh-autocomplete
+    atload"
+        # Use fzf-tab after second tab press
+        fzf-tab-partial-and-complete() {
+            if [[ \$LASTWIDGET = 'fzf-tab-partial-and-complete' ]]; then
+                fzf-tab-complete
+            else
+                zle complete-word
+            fi
+        }
 
-zinit wait lucid for \
-    atclone"dircolors -b LS_COLORS > clrs.zsh" \
-    atpull'%atclone' pick"clrs.zsh" nocompile'!' \
-    atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”' \
-        trapd00r/LS_COLORS
+        zle -N fzf-tab-partial-and-complete
+        bindkey '^I' fzf-tab-partial-and-complete
+    " \
+    Aloxaf/fzf-tab
 
 
 # Own config
-# Faster switching of vi modes
-KEYTIMEOUT=1
-# All the history...
-HISTSIZE=1000000
-SAVEHIST=1000000
-setopt HIST_IGNORE_SPACE
 # ...and all the globs
 setopt extendedglob
 setopt null_glob
@@ -107,3 +115,32 @@ else
     alias ls="ls --color=tty --group-directories-first -h"
 fi
 alias lsd="ls -lhd */"
+
+alias open="open-background"
+open-background() {
+    xdg-open "$@" &>/dev/null &!
+}
+
+alias texdoco="online-texdoc"
+online-texdoc() {
+    DOC_FILE="${TMPDIR:-/tmp}/online_texdoc.${1}.pdf"
+    if [[ ! -f "$DOC_FILE" ]]; then
+        wget http://texdoc.net/pkg/${1} -O "$DOC_FILE"
+    fi
+    open-background "$DOC_FILE"
+}
+
+if command -v bat > /dev/null; then
+    alias cat="bat"
+fi
+
+if command -v nvim > /dev/null; then
+    alias vim="nvim"
+fi
+
+if command -v aria2c > /dev/null; then
+    alias youtube-dl="youtube-dl \
+        --external-downloader aria2c \
+        --external-downloader-args '-c -j 5 -x 5 -s 5 -k 2M' \
+        "
+fi
