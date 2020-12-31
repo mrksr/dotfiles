@@ -12,9 +12,9 @@ if [[ ! -d "$HOME/.oh-my-zsh/custom/plugins/fzf-tab" ]]; then
 fi
 
 
-#####################
-#  Version Fallbck  #
-#####################
+######################
+#  Version Fallback  #
+######################
 autoload is-at-least
 if is-at-least "5.1" $ZSH_VERSION; then
     ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -153,7 +153,7 @@ set-backlight() {
 
 alias open="open-background"
 open-background() {
-    xdg-open "$@" >/dev/null 2>&1 &!
+    xdg-open "$@" &>/dev/null &!
 }
 alias pdf="open-pdf"
 open-pdf() {
@@ -177,9 +177,6 @@ online-texdoc() {
 }
 
 
-#############
-#  Startup  #
-#############
 if command -v bat > /dev/null; then
     alias cat="bat"
 fi
