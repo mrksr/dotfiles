@@ -56,7 +56,7 @@ zinit wait lucid for \
     " \
     OMZL::history.zsh \
     OMZL::spectrum.zsh \
-    OMZL::termsupport.zsh \
+    OMZL::termsupport.zsh
 
 
 # Plugins
