@@ -50,7 +50,7 @@ zinit depth'1' light-mode for \
 
 
 # Ensure fzf
-zinit pack"binary+keys" for fzf
+zinit pack"bgn-binary+keys" for fzf
 
 
 # oh-my-zshell config
