@@ -60,12 +60,6 @@ zinit wait lucid for \
 
 
 # Plugins
-zinit lucid for \
-    atinit"
-        ZSH_TMUX_FIXTERM=true
-    " \
-    OMZP::tmux
-
 zinit wait lucid for \
     OMZP::colored-man-pages \
     OMZP::extract \
