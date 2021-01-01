@@ -104,7 +104,7 @@ setopt extendedglob
 setopt null_glob
 
 if command -v exa > /dev/null; then
-    alias ls="exa --group-directories-first"
+    alias ls="exa --icons --group-directories-first"
     alias ll="ls --long --group --header --git"
     alias l="ll --all"
 
