@@ -9,6 +9,15 @@ fi
 source "$HOME/.zinit/bin/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
+
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zinit-zsh/z-a-rust \
+    zinit-zsh/z-a-as-monitor \
+    zinit-zsh/z-a-patch-dl \
+    zinit-zsh/z-a-bin-gem-node
+
 ### End of Zinit's installer chunk
 
 # NOTE(mrksr): Disable compinit unsecure folder security feature to avoid
@@ -41,7 +50,6 @@ zinit depth'1' light-mode for \
 
 
 # Ensure fzf
-zinit light zinit-zsh/z-a-patch-dl
 zinit pack"binary+keys" for fzf
 
 
