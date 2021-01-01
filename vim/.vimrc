@@ -415,10 +415,17 @@ EOF
     set pumheight=7
 
     " Use completion-nvim in every buffer
+    function! EnableCompletionInMostBuffers()
+        let l:is_valid_buffer = match(&ft, "^clap") < 0
+
+        if l:is_valid_buffer
+            lua require('completion').on_attach()
+        endif
+    endfunction
     augroup Completion
         autocmd!
         if s:completion_exists
-            autocmd BufEnter * lua require('completion').on_attach()
+            autocmd BufEnter * call EnableCompletionInMostBuffers()
         endif
     augroup END
 
