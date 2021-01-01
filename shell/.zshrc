@@ -11,6 +11,9 @@ autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 ### End of Zinit's installer chunk
 
+# NOTE(mrksr): Disable compinit unsecure folder security feature to avoid
+# annoying issues with sudo.
+ZINIT[COMPINIT_OPTS]="-C -i"
 
 # P10k instant prompt
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
