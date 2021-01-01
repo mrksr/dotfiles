@@ -107,7 +107,6 @@ zinit wait lucid for \
 
 
 # Own config
-# ...and all the globs
 setopt extendedglob
 setopt null_glob
 
