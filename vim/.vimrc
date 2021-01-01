@@ -97,7 +97,6 @@ if s:fancyPlugins
     " Plugins
     Plug 'haorenW1025/completion-nvim'
     Plug 'neomake/neomake'
-    Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
     Plug 'nvim-treesitter/completion-treesitter'
     Plug 'nvim-treesitter/nvim-treesitter'
     Plug 'SirVer/ultisnips'
