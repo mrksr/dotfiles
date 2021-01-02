@@ -532,8 +532,8 @@ nnoremap Q @
 
 augroup help_browsing
     autocmd!
-    autocmd FileType help nnoremap <buffer> <CR> <C-]>
-    autocmd FileType help nnoremap <buffer> <BS> <C-T>
+    autocmd FileType help,man nnoremap <buffer> <CR> <C-]>
+    autocmd FileType help,man nnoremap <buffer> <BS> <C-T>
 augroup END
 
 if has('nvim')
