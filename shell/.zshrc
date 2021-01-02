@@ -55,6 +55,7 @@ zinit pack"bgn-binary+keys" for fzf
 
 # oh-my-zshell config
 zinit wait lucid for \
+    OMZL::completion.zsh \
     OMZL::correction.zsh \
     atinit"setopt auto_cd" \
         OMZL::directories.zsh \
