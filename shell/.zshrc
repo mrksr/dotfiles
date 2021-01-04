@@ -32,6 +32,11 @@ fi
 # vi-mode
 zinit lucid for \
     atinit"KEYTIMEOUT=1" \
+    atload"
+    autoload -Uz edit-command-line
+    zle -N edit-command-line
+    bindkey -M vicmd '^v' edit-command-line
+    " \
         OMZP::vi-mode
 
 
