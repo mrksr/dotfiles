@@ -70,6 +70,7 @@ zinit wait lucid for \
         SAVEHIST=1000000
     " \
     OMZL::history.zsh \
+    OMZL::misc.zsh \
     OMZL::spectrum.zsh \
     OMZL::termsupport.zsh
 
