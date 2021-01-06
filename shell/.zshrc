@@ -60,6 +60,7 @@ zinit pack"bgn-binary+keys" for fzf
 
 # oh-my-zshell config
 zinit wait lucid for \
+    OMZL::functions.zsh \
     OMZL::clipboard.zsh \
     OMZL::completion.zsh \
     OMZL::correction.zsh \
