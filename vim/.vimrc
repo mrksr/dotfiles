@@ -101,12 +101,7 @@ if s:fancyPlugins
     Plug 'nvim-treesitter/nvim-treesitter'
     Plug 'SirVer/ultisnips'
 
-    " NOTE: Not sure how to install these automatically.
-    " LspInstall dockerls
-    " LspInstall pyls_ms
-    " LspInstall vimls
-    " LspInstall yamlls
-    Plug 'neovim/nvim-lsp'
+    Plug 'neovim/nvim-lspconfig'
 endif
 
 " Colorschemes
@@ -371,8 +366,6 @@ if s:fancyPlugins
             nvim_lsp.yamlls.setup{
                 on_attach=M.on_attach;
             }
-
-            vim.lsp.callbacks['textDocument/publishDiagnostics'] = nil
         end
 EOF
 
