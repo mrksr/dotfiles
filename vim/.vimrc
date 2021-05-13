@@ -77,7 +77,7 @@ if !exists('g:vscode')
     Plug 'honza/vim-snippets'
     Plug 'junegunn/vim-peekaboo'
     Plug 'justinmk/vim-dirvish'
-    Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
+    Plug 'liuchengxu/vim-clap', {'do': {-> clap#installer#force_download()}}
     Plug 'mhinz/vim-sayonara'
     Plug 'mhinz/vim-signify'
     Plug 'mhinz/vim-startify'
