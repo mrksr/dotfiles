@@ -69,4 +69,5 @@
         "**/data/**": true
     },
     "python.dataScience.askForKernelRestart": false,
+    "python.languageServer": "Microsoft",
 }
