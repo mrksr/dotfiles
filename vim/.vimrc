@@ -298,6 +298,7 @@ com! -bang BD Sayonara<bang>
 """"""""""
 " Disable rooter to allow for more sensible project switches
 let g:clap_disable_run_rooter = v:true
+let g:clap_layout = { }
 
 let g:clap_provider_fasd = {
     \  'source': 'fasd -Rdl',
@@ -618,7 +619,7 @@ if exists('g:vscode')
     nnoremap <silent><leader>sj :<C-u>call VSCodeNotify('workbench.action.gotoSymbol')<CR>
 
     " Programming
-    nnoremap <silent><leader>fi :<C-u>call VSCodeNotify('editor.action.formatDocument')<CR>
+    nnoremap <silent><leader>fi :<C-u>call VSCodeNotify('editor.action.formatDocument')<CR>:<C-u>call VSCodeNotify('editor.action.organizeImports')<CR>
     nnoremap <silent><leader>fx :<C-u>call VSCodeNotify('editor.action.quickFix')<CR>
     nnoremap <silent><leader>fr :<C-u>call VSCodeNotify('editor.action.rename')<CR>
     " nnoremap <silent><leader>fm :<C-u>Neomake<CR>
