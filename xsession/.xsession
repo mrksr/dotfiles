@@ -1,5 +1,0 @@
-#!/bin/sh
-
-if [ -f ~/.Xmodmap ]; then
-  xmodmap ~/.Xmodmap
-fi

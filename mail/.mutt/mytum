@@ -1,9 +1,0 @@
-set spoolfile = "+tum/INBOX"
-
-set mbox      = "+tum/INBOX.Archive"
-set postponed = "+tum/INBOX.Drafts"
-set record    = "+tum/INBOX.Sent"
-set trash     = "+tum/INBOX.Trash"
-
-set from      = "markus.kaiser@tum.de"
-set sendmail  = "msmtp -a tum"

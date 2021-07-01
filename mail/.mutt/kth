@@ -1,9 +1,0 @@
-set spoolfile = "+kth/INBOX"
-
-set mbox      = "+kth/INBOX.Archive"
-set postponed = "+kth/INBOX.Drafts"
-set record    = "+kth/INBOX.Sent"
-set trash     = "+kth/INBOX.Trash"
-
-set from      = "mkaiser@kth.se"
-set sendmail  = "msmtp -a kth"

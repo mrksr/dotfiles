@@ -1,9 +1,0 @@
-set spoolfile = "+zfix-markus/INBOX"
-
-set mbox      = "+zfix-markus/Archive"
-set postponed = "+zfix-markus/Drafts"
-set record    = "+zfix-markus/Sent"
-set trash     = "+zfix-markus/Trash"
-
-set from      = "markus@zfix.org"
-set sendmail  = "msmtp -a markus"

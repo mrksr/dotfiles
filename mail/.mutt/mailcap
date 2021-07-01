@@ -1,6 +1,0 @@
-text/html; w3m -I %{charset} -T text/html; copiousoutput;
-
-application/pdf; zathura %s;
-application/x-download; zathura %s;
-
-image/*; sxiv %s;
