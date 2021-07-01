@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: indicator
-# key: ind
-# --
-\Ind*{`(yas-selected-text)`$1}$0

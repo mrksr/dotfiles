@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: left/right parentheses
-# key: lr(
-# --
-\left( `(yas-selected-text)`$1 \right)$0

@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: structure
-# key: structure
-# key: st
-# --
-\structure{`(yas-selected-text)`$1}$0

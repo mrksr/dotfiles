@@ -1,8 +1,0 @@
-#############################
-#  Non-default keybindings  #
-#############################
-unbind Escape
-unbind F5
-
-bind Escape     blank
-bind F5         blank

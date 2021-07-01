@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: emph
-# key: em
-# key: emph
-# --
-\emph{`(yas-selected-text)`$1}$0

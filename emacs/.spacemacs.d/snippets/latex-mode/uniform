@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: uniform
-# key: uniform
-# --
-\Uniform*{`(yas-selected-text)`$1}$0
