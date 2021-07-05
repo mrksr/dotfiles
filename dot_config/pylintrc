@@ -1,0 +1,11 @@
+[MESSAGES CONTROL]
+disable=missing-docstring,
+        bad-indentation
+
+[BASIC]
+good-names=x,
+           y,
+           X,
+           Y,
+           Xt,
+           Yt

@@ -1,0 +1,19 @@
+[ui]
+username = Markus Kaiser <markus.kaiser@in.tum.de>
+verbose = True
+
+; Always use unix line endings
+[eol]
+native = LF
+
+[extensions]
+hgext.convert =
+progress =
+rebase =
+histedit =
+color =
+shelve =
+strip =
+
+[color]
+diff.trailingwhitespace = bold red_background
