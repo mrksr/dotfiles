@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: conditional
+# key: cond
+# --
+\Cond*{`(yas-selected-text)`$1}$0

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: variational distribution
+# key: variat
+# --
+\Variat*{`(yas-selected-text)`$1}$0

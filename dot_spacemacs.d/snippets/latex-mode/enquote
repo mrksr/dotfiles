@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: enquote
+# key: enq
+# --
+\enquote{`(yas-selected-text)`$1}$0

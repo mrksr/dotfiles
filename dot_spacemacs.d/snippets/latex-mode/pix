@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: small paren index
+# key: pix
+# --
+\pix{`(yas-selected-text)`$1}$0

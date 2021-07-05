@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: gaussian
+# key: gauss
+# key: gaussian
+# --
+\Gaussian*{`(yas-selected-text)`$1}$0

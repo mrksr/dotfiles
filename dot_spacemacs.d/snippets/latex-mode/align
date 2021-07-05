@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: align environment
+# key: align
+# --
+\begin{align}
+    `(yas-selected-text)`$1
+\end{align}$0

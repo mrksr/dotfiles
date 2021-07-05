@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: split-align environment
+# key: salign
+# expand-env: ((yas-indent-line 'fixed))
+# --
+\begin{align}
+\begin{split}
+    `(yas-selected-text)`$1
+\end{split}
+\end{align}$0

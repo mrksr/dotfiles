@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: approximative probability
+# key: aprob
+# --
+\aProb{`(yas-selected-text)`$1}$0

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: left/right braces
+# key: lr{
+# --
+\left\\\{ `(yas-selected-text)`$1 \right\\\}$0

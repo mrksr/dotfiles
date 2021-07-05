@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: braced pix
+# key: spix
+# --
+{\pix{`(yas-selected-text)`$1}}$0

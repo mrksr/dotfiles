@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: use package
+# key: pac
+# --
+\usepackage{`(yas-selected-text)`$1}$0

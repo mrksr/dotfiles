@@ -1,0 +1,20 @@
+[options]
+font=Code2000 12
+font=Wuncon Siji 12
+font=FontAwesome 12
+font=Liberation Mono 12
+font=Bitstream Vera Sans Mono 12
+font=DeJaVu Sans Mono 12
+font=Droid Sans Mono 12
+
+urgent_on_bell=true
+clickable_url=true
+dynamic_title=true
+mouse_autohide=true
+
+scrollback_lines=10000
+scroll_on_keystroke=true
+scroll_on_output=false
+
+[colors]
+background=rgba(0,0,0,0.90)

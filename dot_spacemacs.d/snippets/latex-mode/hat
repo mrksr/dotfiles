@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: hat
+# key: hat
+# --
+\hat{`(yas-selected-text)`$1}$0
