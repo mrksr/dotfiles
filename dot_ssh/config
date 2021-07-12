@@ -23,44 +23,16 @@ Host git
     Port 2222
     User git
 
-Host pc
-    HostName 192.168.0.42
-    User markus
+Host hassio
+    HostName 192.168.0.5
+    Port 22
+    User root
 
-Host pi
-    HostName 192.168.0.10
-    User pi
-
-Host halle
-    HostName halle.in.tum.de
-    User kaiserma
-
-Host github
-    HostName github.com
-    User git
-
-Host kth
-    HostName u-shell.csc.kth.se
-    User mkaiser
+Host hassiodbg
+    HostName 192.168.0.5
+    Port 22222
+    User root
 
 Host smaragd ruhr tenaya orinoco arno rubin donau sava etsch aller obsidian lena zaire svetlana loire naab fenrir gleipnir amberg opal struppi jaspis elbe
     HostName %h.mchp.siemens.de
     User kaiser
-
-Host cartpole
-    HostName 139.25.104.77
-    User pi
-
-Host ampelplatte
-    HostName 139.25.104.73
-    User pi
-
-Host ampelplatte_wifi
-    HostName 192.168.179.2
-    User pi
-
-Host morpheus
-    HostName demlhw7vp0112x.ad001.siemens.net
-
-Host morpheus2
-    HostName mlhw72tx.ad001.siemens.net
