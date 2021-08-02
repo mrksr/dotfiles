@@ -70,6 +70,10 @@ if !exists('g:vscode')
     Plug 'tweekmonster/braceless.vim'
     Plug 'Vimjas/vim-python-pep8-indent'
 
+    " Libraries
+    Plug 'nvim-lua/popup.nvim'
+    Plug 'nvim-lua/plenary.nvim'
+
     " Plugins
     Plug 'benjifisher/matchit.zip'
     Plug 'christoomey/vim-conflicted'
@@ -77,10 +81,10 @@ if !exists('g:vscode')
     Plug 'honza/vim-snippets'
     Plug 'junegunn/vim-peekaboo'
     Plug 'justinmk/vim-dirvish'
-    Plug 'liuchengxu/vim-clap', {'do': {-> clap#installer#force_download()}}
     Plug 'mhinz/vim-sayonara'
     Plug 'mhinz/vim-signify'
     Plug 'mhinz/vim-startify'
+    Plug 'nvim-telescope/telescope.nvim'
     Plug 'ryanoasis/vim-devicons'
     Plug 'sbdchd/neoformat'
     Plug 'tpope/vim-fugitive'
@@ -293,19 +297,6 @@ nnoremap <silent>Y :EasyClipBeforeYank<cr>yy:EasyClipOnYanksChanged<cr>
 com! -bang BD Sayonara<bang>
 
 
-""""""""""
-"  clap  "
-""""""""""
-" Disable rooter to allow for more sensible project switches
-let g:clap_disable_run_rooter = v:true
-let g:clap_layout = { }
-
-let g:clap_provider_fasd = {
-    \  'source': 'fasd -Rdl',
-    \  'sink': 'tcd',
-    \ }
-
-
 """""""""""""
 "  Neomake  "
 """""""""""""
@@ -409,17 +400,10 @@ EOF
     set pumheight=7
 
     " Use completion-nvim in every buffer
-    function! EnableCompletionInMostBuffers()
-        let l:is_valid_buffer = match(&ft, "^clap") < 0
-
-        if l:is_valid_buffer
-            lua require('completion').on_attach()
-        endif
-    endfunction
     augroup Completion
         autocmd!
         if s:completion_exists
-            autocmd BufEnter * call EnableCompletionInMostBuffers()
+            autocmd BufEnter * lua require('completion').on_attach()
         endif
     augroup END
 
@@ -576,18 +560,17 @@ nnoremap <leader>fo zO
 nnoremap <leader>fO zo
 
 " Project navigation
-nnoremap <silent><leader>ff :<C-u>Clap files<CR>
-nnoremap <silent><leader>pf :<C-u>Clap gfiles<CR>
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>pf <cmd>Telescope git_files<cr>
 
-nnoremap <silent><leader>pp :<C-u>Clap fasd<CR>
-nnoremap <silent><leader>ps :<C-u>Clap grep<CR>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
-nnoremap <silent><leader>bb :<C-u>Clap buffers<CR>
-nnoremap <silent><leader>br :<C-u>Clap history<CR>
-nnoremap <silent><leader>bs :<C-u>Clap lines<CR>
+nnoremap <leader>bb <cmd>Telescope buffers<cr>
+nnoremap <leader>bb <cmd>Telescope oldfiles<cr>
 
-nnoremap <silent><leader>ss :<C-u>Clap blines<CR>
-nnoremap <silent><leader>sj :<C-u>Clap jumps<CR>
+nnoremap <leader>ss <cmd>Telescope current_buffer_fuzzy_find<cr>
+nnoremap <leader>sj <cmd>Telescope jumplist<cr>
 
 " Programming
 nnoremap <silent><leader>fi :<C-u>Neoformat<CR>
@@ -606,14 +589,11 @@ if exists('g:vscode')
     nnoremap <silent><leader>ff :<C-u>Find<CR>
     nnoremap <silent><leader>pf :<C-u>Find<CR>
 
-    " nnoremap <silent><leader>pp :<C-u>Clap fasd<CR>
     nnoremap <silent><leader>ps :<C-u>call VSCodeNotify('workbench.action.findInFiles')<CR>
     nnoremap <silent><leader>pj :<C-u>call VSCodeNotify('workbench.action.showAllSymbols')<CR>
 
 
     nnoremap <silent><leader>bb :<C-u>Tabfind<CR>
-    " nnoremap <silent><leader>br :<C-u>Clap history<CR>
-    " nnoremap <silent><leader>bs :<C-u>Clap lines<CR>
 
     nnoremap <silent><leader>ss :<C-u>call VSCodeNotify('fuzzySearch.activeTextEditor')<CR>
     nnoremap <silent><leader>sj :<C-u>call VSCodeNotify('workbench.action.gotoSymbol')<CR>
