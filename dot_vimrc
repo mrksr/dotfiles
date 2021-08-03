@@ -102,7 +102,7 @@ if s:fancyPlugins
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 
     " Plugins
-    Plug 'haorenW1025/completion-nvim'
+    Plug 'nvim-lua/completion-nvim'
     Plug 'neomake/neomake'
     Plug 'nvim-treesitter/completion-treesitter'
     Plug 'nvim-treesitter/nvim-treesitter'
