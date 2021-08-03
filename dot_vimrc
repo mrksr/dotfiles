@@ -70,10 +70,6 @@ if !exists('g:vscode')
     Plug 'tweekmonster/braceless.vim'
     Plug 'Vimjas/vim-python-pep8-indent'
 
-    " Libraries
-    Plug 'nvim-lua/popup.nvim'
-    Plug 'nvim-lua/plenary.nvim'
-
     " Plugins
     Plug 'benjifisher/matchit.zip'
     Plug 'christoomey/vim-conflicted'
@@ -84,7 +80,6 @@ if !exists('g:vscode')
     Plug 'mhinz/vim-sayonara'
     Plug 'mhinz/vim-signify'
     Plug 'mhinz/vim-startify'
-    Plug 'nvim-telescope/telescope.nvim'
     Plug 'ryanoasis/vim-devicons'
     Plug 'sbdchd/neoformat'
     Plug 'tpope/vim-fugitive'
@@ -92,6 +87,14 @@ if !exists('g:vscode')
     Plug 'vim-airline/vim-airline-themes'
     Plug 'voldikss/vim-floaterm'
     Plug 'wellle/targets.vim'
+
+    if has("nvim")
+        " Libraries
+        Plug 'nvim-lua/popup.nvim'
+        Plug 'nvim-lua/plenary.nvim'
+
+        Plug 'nvim-telescope/telescope.nvim'
+    endif
 endif
 
 if s:fancyPlugins
