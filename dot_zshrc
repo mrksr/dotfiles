@@ -112,7 +112,8 @@ zinit wait lucid for \
         bindkey '^I' fzf-tab-partial-and-complete
     " \
     Aloxaf/fzf-tab \
-    MichaelAquilina/zsh-autoswitch-virtualenv
+    MichaelAquilina/zsh-autoswitch-virtualenv \
+    wfxr/forgit
 
 
 # Own config
