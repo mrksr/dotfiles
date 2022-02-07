@@ -6,8 +6,7 @@ if [[ ! -f $HOME/.zi/bin/zi.zsh ]]; then
     print -P "%F{33}▓▒░ %F{34}Installation successful.%f" || \
     print -P "%F{160}▓▒░ The clone has failed.%f"
 fi
-export zi_home="${HOME}/.zi"
-source "${zi_home}/bin/zi.zsh"
+source "${HOME}/.zi/bin/zi.zsh"
 autoload -Uz _zi
 (( ${+_comps} )) && _comps[zi]=_zi
 
@@ -86,10 +85,7 @@ zi wait lucid for \
     OMZP::screen
 
 zi wait lucid for \
-    atinit"zicompinit; zicdreplay" \
-        z-shell/fast-syntax-highlighting \
-    blockf atpull'zi creinstall -q .' \
-        zsh-users/zsh-completions \
+    @zsh-users+fast \
     atinit"
         zstyle ':completion:complete:*:options' sort false
         zstyle ':completion:*:git-checkout:*' sort false
