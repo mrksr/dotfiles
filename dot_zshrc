@@ -1,28 +1,27 @@
-### Added by Zinit's installer
-if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
-    print -P "%F{33}▓▒░ %F{220}Installing DHARMA Initiative Plugin Manager (zdharma/zinit)…%f"
-    command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
-    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.zinit/bin" && \
+### Added by zi's installer
+if [[ ! -f $HOME/.zi/bin/zi.zsh ]]; then
+    print -P "%F{33}▓▒░ %F{220}Installing ZI Plugin Manager (z-shell/zi)…%f"
+    zi_home="${HOME}/.zi" && mkdir -p $zi_home
+    git clone https://github.com/z-shell/zi.git "${zi_home}/bin"
     print -P "%F{33}▓▒░ %F{34}Installation successful.%f" || \
     print -P "%F{160}▓▒░ The clone has failed.%f"
 fi
-source "$HOME/.zinit/bin/zinit.zsh"
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
+export zi_home="${HOME}/.zi"
+source "${zi_home}/bin/zi.zsh"
+autoload -Uz _zi
+(( ${+_comps} )) && _comps[zi]=_zi
 
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
-zinit light-mode for \
-    zdharma-continuum/z-a-rust \
-    zdharma-continuum/z-a-as-monitor \
-    zdharma-continuum/z-a-patch-dl \
-    zdharma-continuum/z-a-bin-gem-node
+zi light-mode for \
+    z-shell/z-a-meta-plugins \
+    @annexes
 
-### End of Zinit's installer chunk
+### End of zi's installer chunk
 
 # NOTE(mrksr): Disable compinit unsecure folder security feature to avoid
 # annoying issues with sudo.
-ZINIT[COMPINIT_OPTS]="-C -i"
+ZI[COMPINIT_OPTS]="-C -i"
 
 # P10k instant prompt
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
@@ -30,7 +29,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # vi-mode
-zinit lucid for \
+zi lucid for \
     atinit"KEYTIMEOUT=1" \
     atload"
     autoload -Uz edit-command-line
@@ -41,7 +40,7 @@ zinit lucid for \
 
 
 # Colors and theme
-zinit lucid for \
+zi lucid for \
     atclone"dircolors -b LS_COLORS > clrs.zsh" \
     atpull'%atclone' pick"clrs.zsh" nocompile'!' \
     atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”' \
@@ -49,17 +48,17 @@ zinit lucid for \
     atload"base16_railscasts" \
         chriskempson/base16-shell
 
-zinit depth'1' light-mode for \
+zi depth'1' light-mode for \
     atload'source ~/.p10k.zsh' \
         romkatv/powerlevel10k
 
 
 # Ensure fzf
-zinit pack"bgn-binary+keys" for fzf
+zi pack"bgn-binary+keys" for fzf
 
 
 # oh-my-zshell config
-zinit wait lucid for \
+zi wait lucid for \
     OMZL::functions.zsh \
     OMZL::clipboard.zsh \
     OMZL::completion.zsh \
@@ -77,7 +76,7 @@ zinit wait lucid for \
 
 
 # Plugins
-zinit wait lucid for \
+zi wait lucid for \
     OMZP::colored-man-pages \
     OMZP::extract \
     OMZP::fasd \
@@ -86,10 +85,10 @@ zinit wait lucid for \
     OMZP::mosh \
     OMZP::screen
 
-zinit wait lucid for \
+zi wait lucid for \
     atinit"zicompinit; zicdreplay" \
-        zdharma-continuum/fast-syntax-highlighting \
-    blockf atpull'zinit creinstall -q .' \
+        z-shell/fast-syntax-highlighting \
+    blockf atpull'zi creinstall -q .' \
         zsh-users/zsh-completions \
     atinit"
         zstyle ':completion:complete:*:options' sort false
