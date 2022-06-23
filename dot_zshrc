@@ -85,8 +85,13 @@ zi wait lucid for \
     OMZP::mosh \
     OMZP::screen
 
+# NOTE(mrksr): The atload is a hack to set-fast theme _after_ the default theme
+# in the meta-plugin.
 zi wait lucid for \
     @zsh-users+fast \
+    atload"
+        fast-theme -q clean
+    " \
     atinit"
         zstyle ':completion:complete:*:options' sort false
         zstyle ':completion:*:git-checkout:*' sort false
