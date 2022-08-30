@@ -32,7 +32,3 @@ Host hassiodbg
     HostName 192.168.0.5
     Port 22222
     User root
-
-Host smaragd ruhr tenaya orinoco arno rubin donau sava etsch aller obsidian lena zaire svetlana loire naab fenrir gleipnir amberg opal struppi jaspis elbe
-    HostName %h.mchp.siemens.de
-    User kaiser
