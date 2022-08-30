@@ -131,10 +131,12 @@ else
 fi
 alias lsd="ls -lhd */"
 
-alias open="open-background"
-open-background() {
-    xdg-open "$@" &>/dev/null &!
-}
+if [[ $(uname) != "Darwin" ]]; then
+    alias open="open-background"
+    open-background() {
+        xdg-open "$@" &>/dev/null &!
+    }
+fi
 
 alias texdoco="online-texdoc"
 online-texdoc() {
