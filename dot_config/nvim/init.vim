@@ -16,19 +16,11 @@ else
     set dir=/tmp//,~/tmp//,.
 endif
 
-if has('nvim')
-    let s:plugPath = '~/.config/nvim/autoload/plug.vim'
-    let s:bundlePath = '~/.config/nvim/bundle/'
+let s:plugPath = '~/.config/nvim/autoload/plug.vim'
+let s:bundlePath = '~/.config/nvim/bundle/'
 
-    let s:nerdFile = s:localdir . "with_nerd*"
-    let s:fancyFile = s:localdir . "with_fancy*"
-else
-    let s:plugPath = '~/.vim/autoload/plug.vim'
-    let s:bundlePath = '~/.vim/bundle/'
-
-    let s:nerdFile = s:localdir . "with_nerd"
-    let s:fancyFile = s:localdir . "with_fancy"
-endif
+let s:nerdFile = s:localdir . "with_nerd*"
+let s:fancyFile = s:localdir . "with_fancy*"
 
 if empty(glob(s:fancyFile)) || exists('g:vscode')
     let s:fancyPlugins = 0
@@ -88,13 +80,11 @@ if !exists('g:vscode')
     Plug 'voldikss/vim-floaterm'
     Plug 'wellle/targets.vim'
 
-    if has("nvim")
-        " Libraries
-        Plug 'nvim-lua/popup.nvim'
-        Plug 'nvim-lua/plenary.nvim'
+    " Libraries
+    Plug 'nvim-lua/popup.nvim'
+    Plug 'nvim-lua/plenary.nvim'
 
-        Plug 'nvim-telescope/telescope.nvim'
-    endif
+    Plug 'nvim-telescope/telescope.nvim'
 endif
 
 if s:fancyPlugins
@@ -517,14 +507,12 @@ augroup help_browsing
     autocmd FileType help,man nnoremap <buffer> <BS> <C-T>
 augroup END
 
-if has('nvim')
-    " Terminal bindings
-    tnoremap <Esc><Esc> <C-\><C-n>
-    nnoremap <C-j> <C-\><C-n><C-W>j
-    nnoremap <C-k> <C-\><C-n><C-W>k
-    nnoremap <C-h> <C-\><C-n><C-W>h
-    nnoremap <C-l> <C-\><C-n><C-W>l
-endif
+" Terminal bindings
+tnoremap <Esc><Esc> <C-\><C-n>
+nnoremap <C-j> <C-\><C-n><C-W>j
+nnoremap <C-k> <C-\><C-n><C-W>k
+nnoremap <C-h> <C-\><C-n><C-W>h
+nnoremap <C-l> <C-\><C-n><C-W>l
 
 
 """""""""""""""""
