@@ -32,3 +32,15 @@ Host hassiodbg
     HostName 192.168.0.5
     Port 22222
     User root
+
+Host *.azure.com
+    HostKeyAlgorithms +ssh-rsa
+    PubkeyAcceptedKeyTypes +ssh-rsa
+
+Host ws0
+    HostName 192.168.1.160
+    User markus
+
+Host ws1
+    HostName 192.168.1.161
+    User markus
