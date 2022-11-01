@@ -20,3 +20,5 @@
 	prompt = false
 [init]
 	defaultBranch = main
+[credential]
+	helper = store

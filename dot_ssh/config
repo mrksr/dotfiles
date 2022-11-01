@@ -44,3 +44,7 @@ Host ws0
 Host ws1
     HostName 192.168.1.161
     User markus
+
+Host ws2
+    HostName 192.168.1.162
+    User markus
