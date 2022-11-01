@@ -43,7 +43,7 @@ endif
 
 call plug#begin(s:bundlePath)
 " Plugins
-Plug 'asvetliakov/vim-easymotion'
+Plug 'ggandor/leap.nvim'
 Plug 'Konfekt/FastFold'
 Plug 'machakann/vim-sandwich'
 Plug 'svermeulen/vim-easyclip'
@@ -256,7 +256,7 @@ let g:startify_list_order = [
     \ 'files',
     \ ]
 
-let g:startify_bookmarks = ['~/.vimrc', '~/dotfiles']
+let g:startify_bookmarks = ['~/.config/nvim/init.vim']
 
 let g:startify_custom_header = [
     \ '                        _',
@@ -288,6 +288,12 @@ nnoremap <silent>Y :EasyClipBeforeYank<cr>yy:EasyClipOnYanksChanged<cr>
 "  sayonara  "
 """"""""""""""
 com! -bang BD Sayonara<bang>
+
+
+""""""""""
+"  leap  "
+""""""""""
+lua require('leap').add_default_mappings()
 
 
 """""""""""""
