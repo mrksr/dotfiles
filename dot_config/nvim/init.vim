@@ -20,13 +20,6 @@ let s:plugPath = '~/.config/nvim/autoload/plug.vim'
 let s:bundlePath = '~/.config/nvim/bundle/'
 
 let s:nerdFile = s:localdir . "with_nerd*"
-let s:fancyFile = s:localdir . "with_fancy*"
-
-if empty(glob(s:fancyFile)) || exists('g:vscode')
-    let s:fancyPlugins = 0
-else
-    let s:fancyPlugins = 1
-endif
 
 if empty(glob(s:nerdFile))
     let s:nerdFonts = 0
@@ -56,8 +49,8 @@ if !exists('g:vscode')
     " things in vscode
     " Languages
     Plug 'cespare/vim-toml'
+    Plug 'ekalinin/Dockerfile.vim'
     Plug 'lervag/vimtex'
-    Plug 'moby/moby' , {'rtp': '/contrib/syntax/vim/'}
     Plug 'stephpy/vim-yaml'
     Plug 'tweekmonster/braceless.vim'
     Plug 'Vimjas/vim-python-pep8-indent'
@@ -74,6 +67,7 @@ if !exists('g:vscode')
     Plug 'mhinz/vim-startify'
     Plug 'ryanoasis/vim-devicons'
     Plug 'sbdchd/neoformat'
+    Plug 'SirVer/ultisnips'
     Plug 'tpope/vim-fugitive'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
@@ -85,20 +79,6 @@ if !exists('g:vscode')
     Plug 'nvim-lua/plenary.nvim'
 
     Plug 'nvim-telescope/telescope.nvim'
-endif
-
-if s:fancyPlugins
-    " Languages
-    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
-
-    " Plugins
-    Plug 'nvim-lua/completion-nvim'
-    Plug 'neomake/neomake'
-    Plug 'nvim-treesitter/completion-treesitter'
-    Plug 'nvim-treesitter/nvim-treesitter'
-    Plug 'SirVer/ultisnips'
-
-    Plug 'neovim/nvim-lspconfig'
 endif
 
 " Colorschemes
@@ -296,18 +276,6 @@ com! -bang BD Sayonara<bang>
 lua require('leap').add_default_mappings()
 
 
-"""""""""""""
-"  Neomake  "
-"""""""""""""
-if s:fancyPlugins
-    let g:neomake_tex_enabled_makers = []
-    let g:neomake_python_enabled_makers = ['python', 'pylint', 'pydocstyle']
-    call neomake#configure#automake('rwn', 1000)
-    let g:neomake_echo_current_error = 0
-    let g:neomake_virtualtext_prefix = '        ❯ '
-endif
-
-
 """""""""""""""
 "  Neoformat  "
 """""""""""""""
@@ -316,98 +284,6 @@ let g:neoformat_enabled_python = [
     \ ]
 
 let g:neoformat_run_all_formatters = 1
-
-
-"""""""""
-"  LSP  "
-"""""""""
-if s:fancyPlugins
-    :lua << EOF
-        function prequire(...)
-            local status, lib = pcall(require, ...)
-            if status then
-                return lib
-            end
-            return nil
-        end
-        local nvim_lsp = prequire('lspconfig')
-        local completion = prequire('completion')
-
-        if nvim_lsp and completion then
-            local M = {}
-
-            M.on_attach = function()
-                require('completion').on_attach()
-            end
-
-            nvim_lsp.dockerls.setup{
-                on_attach=M.on_attach;
-            }
-            nvim_lsp.pyright.setup{
-                on_attach=M.on_attach;
-                settings={python={linting={enabled=false}}};
-            }
-            nvim_lsp.texlab.setup{
-                on_attach=M.on_attach;
-                settings={latex={build={args={"-synctex=1"}}}};
-            }
-            nvim_lsp.vimls.setup{
-                on_attach=M.on_attach;
-            }
-            nvim_lsp.yamlls.setup{
-                on_attach=M.on_attach;
-            }
-        end
-EOF
-
-    augroup LSPConfig
-        autocmd!
-        autocmd Filetype dockerfile setlocal omnifunc=v:lua.vim.lsp.omnifunc
-        autocmd Filetype python setlocal omnifunc=v:lua.vim.lsp.omnifunc
-        autocmd Filetype tex setlocal omnifunc=v:lua.vim.lsp.omnifunc
-        autocmd Filetype vim setlocal omnifunc=v:lua.vim.lsp.omnifunc
-        autocmd Filetype yaml setlocal omnifunc=v:lua.vim.lsp.omnifunc
-    augroup END
-
-    nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
-    nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
-endif
-inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <silent><expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-" inoremap <silent><expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
-
-
-""""""""""""""""
-"  Completion  "
-""""""""""""""""
-if s:fancyPlugins
-    lua << EOF
-        function does_completion_exist()
-            local status, completion = pcall(require, 'completion')
-            if status then
-                return true
-            end
-            return false
-        end
-EOF
-    let s:completion_exists = v:lua.does_completion_exist()
-
-    let g:completion_enable_snippet = 'UltiSnips'
-    let g:complete_ts_highlight_at_point = 1
-
-    let g:completion_max_items = 7
-    set pumheight=7
-
-    " Use completion-nvim in every buffer
-    augroup Completion
-        autocmd!
-        if s:completion_exists
-            autocmd BufEnter * lua require('completion').on_attach()
-        endif
-    augroup END
-
-    inoremap <silent><expr> <C-Space> completion#trigger_completion()
-endif
 
 
 """""""""""""
