@@ -5,6 +5,10 @@ export LD_LIBRARY_PATH=$HOME/.local/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
 export EDITOR=nvim
 export BROWSER=firefox
 
+# Ensure oh-my-zsh cache dir exists
+export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh-mrksr"
+mkdir -p "$ZSH_CACHE_DIR"
+
 # Python
 if command -v pyenv > /dev/null; then
     export PYENV_ROOT="$HOME/.pyenv"
