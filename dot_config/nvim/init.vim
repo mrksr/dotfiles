@@ -481,11 +481,12 @@ if exists('g:vscode')
     nnoremap <silent>gD :<C-u>call VSCodeNotify('editor.action.revealDefinition')<CR>
 
     " Commenting
-    xnoremap gc  <Plug>VSCodeCommentary
-    " nnoremap gc  <Plug>VSCodeCommentary
-    onoremap gc  <Plug>VSCodeCommentary
-    nnoremap gcc <Plug>VSCodeCommentaryLine
+    xnoremap <silent>gc  <plug>VSCodeCommentary
+    nnoremap <silent>gc  <plug>VSCodeCommentary
+    onoremap <silent>gc  <plug>VSCodeCommentary
+    nnoremap <silent>gcc <plug>VSCodeCommentaryLine
 endif
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  Commands                              {{{1"
