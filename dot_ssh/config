@@ -7,16 +7,16 @@ Host zfixroot
     User root
 
 Host zfixn
-    HostName new.zfix.org
+    HostName drksr.de
     User markus
 
 Host zfixnroot
-    HostName new.zfix.org
+    HostName drksr.de
     User root
 
 Host rsync
-    HostName ch-s012.rsync.net
-    User 19468
+    HostName zh2899.rsync.net
+    User zh2899
 
 Host git
     HostName mrksr.de
@@ -38,13 +38,9 @@ Host *.azure.com
     PubkeyAcceptedKeyTypes +ssh-rsa
 
 Host ws0
-    HostName 192.168.1.160
+    HostName 192.168.1.18
     User markus
 
 Host ws1
     HostName 192.168.1.161
-    User markus
-
-Host ws2
-    HostName 192.168.1.162
     User markus
