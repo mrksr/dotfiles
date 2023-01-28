@@ -7,6 +7,7 @@ require('packer').startup(function(use)
         end
     })
     use("machakann/vim-sandwich")
+    use("svermeulen/vim-cutlass")
 end)
 
 -- From kickstart.nvim
@@ -17,6 +18,11 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
+
+vim.keymap.set("n", "Q", "@")
+vim.keymap.set({ "n", "x" }, "m", "d")
+vim.keymap.set("n", "mm", "dd")
+vim.keymap.set("n", "M", "D")
 
 -- Specific for vscode
 local nmap = function(keys, func)

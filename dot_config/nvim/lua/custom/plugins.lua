@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 return function(use)
     use("chriskempson/base16-vim")
 
@@ -15,6 +16,7 @@ return function(use)
         end
     })
     use("machakann/vim-sandwich")
+    use("svermeulen/vim-cutlass")
 
     use("edkolev/tmuxline.vim")
 end
