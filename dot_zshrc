@@ -1,3 +1,8 @@
+# P10k instant prompt
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 ### Added by zi's installer
 if [[ ! -f $HOME/.zi/bin/zi.zsh ]]; then
     print -P "%F{33}▓▒░ %F{220}Installing ZI Plugin Manager (z-shell/zi)…%f"
@@ -21,11 +26,6 @@ zi light-mode for \
 # NOTE(mrksr): Disable compinit unsecure folder security feature to avoid
 # annoying issues with sudo.
 ZI[COMPINIT_OPTS]="-C -i"
-
-# P10k instant prompt
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
 
 # vi-mode
 zi lucid for \
