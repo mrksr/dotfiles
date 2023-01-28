@@ -17,6 +17,4 @@ return function(use)
     })
     use("machakann/vim-sandwich")
     use("svermeulen/vim-cutlass")
-
-    use("edkolev/tmuxline.vim")
 end
