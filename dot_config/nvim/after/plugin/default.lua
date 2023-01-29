@@ -1,5 +1,10 @@
 ---@diagnostic disable: undefined-global
-vim.cmd([[colorscheme base16-railscasts]])
+vim.cmd("colorscheme base16-railscasts")
+
+vim.o.swapfile = false
+
+vim.cmd("com! CD cd %:p:h")
+vim.cmd("com! LCD lcd %:p:h")
 
 vim.keymap.set("n", "Q", "@")
 vim.keymap.set({ "n", "x" }, "m", "d")
