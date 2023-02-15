@@ -26,35 +26,35 @@ vim.keymap.set("n", "M", "D")
 
 -- Specific for vscode
 local nmap = function(keys, func)
-    vim.keymap.set('n', keys, func, { silent = true })
+    vim.keymap.set('n', keys, func, { silent = true, remap = false })
 end
 -- Editing
-nmap("j", ":<C-u>call VSCodeCall('cursorMove', { 'to': 'down', 'by': 'wrappedLine', 'value': v:count ? v:count : 1 })<CR>")
-nmap("k", ":<C-u>call VSCodeCall('cursorMove', { 'to': 'up', 'by': 'wrappedLine', 'value': v:count ? v:count : 1 })<CR>")
+nmap("j", "<Cmd>call VSCodeCall('cursorMove', { 'to': 'down', 'by': 'wrappedLine', 'value': v:count ? v:count : 1 })<CR>")
+nmap("k", "<Cmd>call VSCodeCall('cursorMove', { 'to': 'up', 'by': 'wrappedLine', 'value': v:count ? v:count : 1 })<CR>")
 
 -- File Manipulation
-nmap("<leader>fs", ":<C-u>call VSCodeNotify('workbench.action.files.save')<CR>")
+nmap("<leader>fs", "<Cmd>call VSCodeNotify('workbench.action.files.save')<CR>")
 
 -- Project navigation
-nmap("<leader>ff", ":<C-u>Find<CR>")
-nmap("<leader>pf", ":<C-u>Find<CR>")
+nmap("<leader>ff", "<Cmd>Find<CR>")
+nmap("<leader>pf", "<Cmd>Find<CR>")
 
-nmap("<leader>ps", ":<C-u>call VSCodeNotify('workbench.action.findInFiles')<CR>")
-nmap("<leader>pj", ":<C-u>call VSCodeNotify('workbench.action.showAllSymbols')<CR>")
+nmap("<leader>ps", "<Cmd>call VSCodeNotify('workbench.action.findInFiles')<CR>")
+nmap("<leader>pj", "<Cmd>call VSCodeNotify('workbench.action.showAllSymbols')<CR>")
 
 
-nmap("<leader>bb", ":<C-u>Tabfind<CR>")
+nmap("<leader>bb", "<Cmd>Tabfind<CR>")
 
-nmap("<leader>ss", ":<C-u>call VSCodeNotify('fuzzySearch.activeTextEditor')<CR>")
-nmap("<leader>sj", ":<C-u>call VSCodeNotify('workbench.action.gotoSymbol')<CR>")
+nmap("<leader>ss", "<Cmd>call VSCodeNotify('fuzzySearch.activeTextEditor')<CR>")
+nmap("<leader>sj", "<Cmd>call VSCodeNotify('workbench.action.gotoSymbol')<CR>")
 
 -- Programming
-nmap("<leader>fi", ":<C-u>call VSCodeNotify('editor.action.formatDocument')<CR>:<C-u>call VSCodeNotify('editor.action.organizeImports')<CR>")
-nmap("<leader>fx", ":<C-u>call VSCodeNotify('editor.action.quickFix')<CR>")
-nmap("<leader>fr", ":<C-u>call VSCodeNotify('editor.action.rename')<CR>")
-nmap("K", ":<C-u>call VSCodeNotify('editor.action.showHover')<CR>")
-nmap("gd", ":<C-u>call VSCodeNotify('editor.action.peekDefinition')<CR>")
-nmap("gD", ":<C-u>call VSCodeNotify('editor.action.revealDefinition')<CR>")
+nmap("<leader>fi", "<Cmd>call VSCodeNotify('editor.action.formatDocument')<CR>:<C-u>call VSCodeNotify('editor.action.organizeImports')<CR>")
+nmap("<leader>fx", "<Cmd>call VSCodeNotify('editor.action.quickFix')<CR>")
+nmap("<leader>fr", "<Cmd>call VSCodeNotify('editor.action.rename')<CR>")
+nmap("K", "<Cmd>call VSCodeNotify('editor.action.showHover')<CR>")
+nmap("gd", "<Cmd>call VSCodeNotify('editor.action.peekDefinition')<CR>")
+nmap("gD", "<Cmd>call VSCodeNotify('editor.action.revealDefinition')<CR>")
 
 -- Commenting
 vim.keymap.set({"n", "x", "o"}, "gc", "<plug>VSCodeCommentary", { silent = true })
