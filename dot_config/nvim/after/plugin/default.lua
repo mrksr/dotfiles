@@ -13,7 +13,7 @@ vim.keymap.set('n', '<leader>fw', ":%s/\\s\\+$//<CR>:let @/=''<CR>", { desc = '[
 vim.keymap.set('v', '<leader>fw', ":'<,'>s/\\s\\+$//<CR>:let @/=''<CR>", { desc = '[F]ile [W]hitespace' })
 
 if not vim.g.vscode then
-    vim.cmd("colorscheme base16-railscasts")
+    vim.cmd.colorscheme "base16-railscasts"
 
     vim.keymap.set('n', '<leader>fs', ":w<CR>", { desc = '[F]ile [S]ave' })
     vim.keymap.set('n', '<leader>ss', require('telescope.builtin').current_buffer_fuzzy_find,
