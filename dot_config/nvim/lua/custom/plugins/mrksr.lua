@@ -1,8 +1,13 @@
 ---@diagnostic disable: undefined-global
 return {
     {
-        "chriskempson/base16-vim",
+        "RRethy/nvim-base16",
         lazy = false,
+        config = function ()
+            if not vim.g.vscode then
+                vim.cmd.colorscheme "base16-railscasts"
+            end
+        end
     },
     {
         "folke/which-key.nvim",
