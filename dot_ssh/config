@@ -45,6 +45,14 @@ Host ws1
     HostName 192.168.1.161
     User markus
 
+Host ws2
+    HostName 192.168.1.225
+    User markus
+
+Host ws3
+    HostName 192.168.1.106
+    User markus
+
 Host azr
     HostName 20.26.207.34
     User markus
