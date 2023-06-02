@@ -53,6 +53,11 @@ Host ws3
     HostName 192.168.1.106
     User markus
 
+Host bilbo
+    HostName 31.28.64.12
+    Port 27361
+    User markus
+
 Host azr
     HostName 20.26.207.34
     User markus
