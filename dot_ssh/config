@@ -38,24 +38,23 @@ Host *.azure.com
     PubkeyAcceptedKeyTypes +ssh-rsa
 
 Host ws0
-    HostName 192.168.1.18
+    HostName 192.168.3.10
     User markus
 
 Host ws1
-    HostName 192.168.1.161
+    HostName 192.168.3.11
     User markus
 
 Host ws2
-    HostName 192.168.1.225
+    HostName 192.168.3.12
     User markus
 
 Host ws3
-    HostName 192.168.1.106
+    HostName 192.168.3.13
     User markus
 
 Host bilbo
-    HostName 31.28.64.12
-    Port 27361
+    HostName 192.168.3.5
     User markus
 
 Host azr
