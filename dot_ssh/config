@@ -53,6 +53,10 @@ Host ws3
     HostName 192.168.3.13
     User markus
 
+Host arwen
+    HostName 192.168.3.2
+    User markus
+
 Host bilbo
     HostName 192.168.3.5
     User markus
