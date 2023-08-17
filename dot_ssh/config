@@ -38,27 +38,31 @@ Host *.azure.com
     PubkeyAcceptedKeyTypes +ssh-rsa
 
 Host ws0
-    HostName 192.168.3.10
+    HostName ws0.int.monumo.com
     User markus
 
 Host ws1
-    HostName 192.168.3.11
+    HostName ws1.int.monumo.com
     User markus
 
 Host ws2
-    HostName 192.168.3.12
+    HostName ws2.int.monumo.com
     User markus
 
 Host ws3
-    HostName 192.168.3.13
+    HostName ws3.int.monumo.com
     User markus
 
 Host arwen
-    HostName 192.168.3.2
+    HostName arwen.int.monumo.com
     User markus
 
+Host arwen-admin
+    HostName arwen.int.monumo.com
+    User pcadmin-markus
+
 Host bilbo
-    HostName 192.168.3.5
+    HostName bilbo.int.monumo.com
     User markus
 
 Host thorin
