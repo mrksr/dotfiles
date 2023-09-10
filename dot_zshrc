@@ -97,7 +97,7 @@ zi wait lucid for \
         zstyle ':completion:*:git-checkout:*' sort false
         zstyle ':completion:*:descriptions' format '[%d]'
         zstyle ':completion:*' list-colors \${(s.:.)LS_COLORS}
-        zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always \$realpath'
+        zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always \$realpath'
     " \
     atload"
         # Use fzf-tab after second tab press
@@ -120,12 +120,12 @@ zi wait lucid for \
 setopt extendedglob
 setopt null_glob
 
-if command -v exa > /dev/null; then
-    alias ls="exa --icons --group-directories-first"
+if command -v eza > /dev/null; then
+    alias ls="eza --icons --group-directories-first"
     alias ll="ls --long --group --header --git"
     alias l="ll --all"
 
-    alias tree="exa --long --tree"
+    alias tree="eza --long --tree"
 else
     alias ls="ls --color=tty --group-directories-first -h"
 fi
