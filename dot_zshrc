@@ -3,17 +3,26 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
     source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-### Added by zi's installer
+# zi install and load
 if [[ ! -f $HOME/.zi/bin/zi.zsh ]]; then
+    # Install zi and build zpmod
     print -P "%F{33}▓▒░ %F{220}Installing ZI Plugin Manager (z-shell/zi)…%f"
     zi_home="${HOME}/.zi" && mkdir -p $zi_home
     git clone https://github.com/z-shell/zi.git "${zi_home}/bin"
     print -P "%F{33}▓▒░ %F{34}Installation successful.%f" || \
     print -P "%F{160}▓▒░ The clone has failed.%f"
+
+    source "${HOME}/.zi/bin/zi.zsh"
+    zi module build
+else
+    # Load zpmod
+    module_path+=( "/home/markus/.zi/zmodules/zpmod/Src" )
+    zmodload zi/zpmod
 fi
 source "${HOME}/.zi/bin/zi.zsh"
 autoload -Uz _zi
 (( ${+_comps} )) && _comps[zi]=_zi
+
 
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
@@ -21,8 +30,6 @@ zi light-mode for \
     z-shell/z-a-meta-plugins \
     z-shell/z-a-eval \
     @annexes
-
-### End of zi's installer chunk
 
 # NOTE(mrksr): Disable compinit unsecure folder security feature to avoid
 # annoying issues with sudo.
