@@ -92,7 +92,7 @@ zi wait lucid light-mode for \
 zi wait lucid light-mode as'command' from'gh-r' sbin for \
     jesseduffield/lazydocker \
     jesseduffield/lazygit \
-    sbin"bin/eza" eza-community/eza
+    eza-community/eza
 
 zi wait pack"bgn-binary+keys" for fzf
 
