@@ -19,6 +19,7 @@ autoload -Uz _zi
 # (this is currently required for annexes)
 zi light-mode for \
     z-shell/z-a-meta-plugins \
+    z-shell/z-a-eval \
     @annexes
 
 ### End of zi's installer chunk
@@ -53,10 +54,6 @@ zi depth'1' light-mode for \
         romkatv/powerlevel10k
 
 
-# Ensure fzf
-zi pack"bgn-binary+keys" for fzf
-
-
 # oh-my-zshell config
 zi wait lucid for \
     OMZL::functions.zsh \
@@ -79,16 +76,29 @@ zi wait lucid for \
 zi wait lucid for \
     OMZP::colored-man-pages \
     OMZP::extract \
-    OMZP::fasd \
     OMZP::git \
     OMZP::gitignore \
     OMZP::mosh \
     OMZP::screen
 
+
+# Install binaries
+zi wait lucid light-mode for \
+    @zsh-users+fast \
+    @z-shell \
+    @py-utils \
+    skip'exa' @console-tools
+
+zi wait lucid light-mode as'command' from'gh-r' sbin for \
+    jesseduffield/lazydocker \
+    jesseduffield/lazygit \
+    sbin"bin/eza" eza-community/eza
+
+zi wait pack"bgn-binary+keys" for fzf
+
 # NOTE(mrksr): The atload is a hack to set-fast theme _after_ the default theme
 # in the meta-plugin.
 zi wait lucid for \
-    @zsh-users+fast \
     atload"
         fast-theme -q clean
     " \
