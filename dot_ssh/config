@@ -61,6 +61,10 @@ Host bilbo
     HostName 192.168.3.5
     User markus
 
-Host azr
-    HostName 20.26.207.34
+Host thorin
+    HostName 10.2.0.20
+    User markus
+
+Host balin
+    HostName 10.2.0.21
     User markus
