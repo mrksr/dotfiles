@@ -16,7 +16,7 @@ if [[ ! -f $HOME/.zi/bin/zi.zsh ]]; then
     zi module build
 else
     # Load zpmod
-    module_path+=( "/home/markus/.zi/zmodules/zpmod/Src" )
+    module_path+=( "${HOME}/.zi/zmodules/zpmod/Src" )
     zmodload zi/zpmod
 fi
 source "${HOME}/.zi/bin/zi.zsh"
