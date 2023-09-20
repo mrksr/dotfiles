@@ -7,7 +7,11 @@ fi
 if [[ ! -f $HOME/.zi/bin/zi.zsh ]]; then
     # Install zi and build zpmod
     print -P "%F{33}▓▒░ %F{220}Installing ZI Plugin Manager (z-shell/zi)…%f"
-    zi_home="${HOME}/.zi" && mkdir -p $zi_home
+    zi_home="${HOME}/.zi" 
+    if [[ -L "$zi_home" ]] then
+        zi_home=$(readlink "$zi_home")
+    fi
+    mkdir -p $zi_home
     git clone https://github.com/z-shell/zi.git "${zi_home}/bin"
     print -P "%F{33}▓▒░ %F{34}Installation successful.%f" || \
     print -P "%F{160}▓▒░ The clone has failed.%f"
