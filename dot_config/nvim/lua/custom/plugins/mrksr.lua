@@ -5,7 +5,7 @@ return {
         lazy = false,
         config = function ()
             if not vim.g.vscode then
-                vim.cmd.colorscheme "base16-twilight"
+                vim.cmd.colorscheme "base16-railscasts"
             end
         end
     },
