@@ -1,5 +1,5 @@
+# Monumo
 export LANG="en_GB.utf8" LANGUAGE="en_GB.utf8" LC_ALL="en_GB.utf8"
-export EDITOR=nvim
 
 # Fix for poetry weirdness
 export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
