@@ -1,14 +1,15 @@
-# Variables
+export PATH=$HOME/.pyenv/bin:$HOME/.bin:$HOME/.local/bin:$HOME/.cargo/bin:/usr/bin/vendor_perl:$PATH
+
 export EDITOR=nvim
 export BROWSER=firefox
+
+# Local extensions
+if [[ -e $HOME/.zshenv_local ]]; then
+    source $HOME/.zshenv_local
+fi
 
 # Ensure oh-my-zsh cache dir exists
 if [[ -z "$ZSH_CACHE_DIR" ]]; then
     export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh-mrksr"
     mkdir -p "$ZSH_CACHE_DIR"
-fi
-
-# Local extensions
-if [[ -e $HOME/.zshenv_local ]]; then
-    source $HOME/.zshenv_local
 fi
