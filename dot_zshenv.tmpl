@@ -4,9 +4,9 @@ export EDITOR=nvim
 export BROWSER=firefox
 
 # Local extensions
-if [[ -e $HOME/.zshenv_local ]]; then
-    source $HOME/.zshenv_local
-fi
+{{- if eq .chezmoi.group "musers" -}}
+{{-   include "dot_zshenv_monumo" -}}
+{{- end -}}
 
 # Ensure oh-my-zsh cache dir exists
 if [[ -z "$ZSH_CACHE_DIR" ]]; then
