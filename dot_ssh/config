@@ -33,42 +33,6 @@ Host hassiodbg
     Port 22222
     User root
 
-Host *.azure.com
-    HostKeyAlgorithms +ssh-rsa
-    PubkeyAcceptedKeyTypes +ssh-rsa
-
-Host ws0
-    HostName ws0.int.monumo.com
-    User markus
-
-Host ws1
-    HostName ws1.int.monumo.com
-    User markus
-
-Host ws2
-    HostName ws2.int.monumo.com
-    User markus
-
-Host ws3
-    HostName ws3.int.monumo.com
-    User markus
-
-Host arwen
-    HostName arwen.int.monumo.com
-    User markus
-
-Host arwen-admin
-    HostName arwen.int.monumo.com
-    User pcadmin-markus
-
-Host bilbo
-    HostName bilbo.int.monumo.com
-    User markus
-
-Host thorin
-    HostName 10.2.0.20
-    User markus
-
-Host balin
-    HostName 10.2.0.21
-    User markus
+Host proxmox
+    HostName 192.168.0.2
+    User root
