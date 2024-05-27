@@ -3,14 +3,6 @@ export PATH=$HOME/.pyenv/bin:$HOME/.bin:$HOME/.local/bin:$HOME/.cargo/bin:/usr/b
 export EDITOR=nvim
 export BROWSER=firefox
 
-# Local extensions start
-###
-{{ if eq .chezmoi.group "musers" -}}
-{{-   include "dot_zshenv_monumo" -}}
-{{- end -}}
-###
-# Local extensions end
-
 # Ensure oh-my-zsh cache dir exists
 if [[ -z "$ZSH_CACHE_DIR" ]]; then
     export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh-mrksr"
