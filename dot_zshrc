@@ -1,8 +1,3 @@
-# P10k instant prompt
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # zi install and load
 zi_home="${XDG_DATA_HOME:-$HOME/.local/share}/zi"
 typeset -A ZI
@@ -59,10 +54,10 @@ zi lucid for \
     atload"base16_railscasts" \
         chriskempson/base16-shell
 
-zi depth'1' light-mode for \
-    atload'source ~/.p10k.zsh' \
-        romkatv/powerlevel10k
 
+zi lucid as'command' from'gh-r' sbin for \
+    atload"eval $(starship init zsh)" \
+        starship/starship
 
 # oh-my-zshell config
 zi wait lucid for \
