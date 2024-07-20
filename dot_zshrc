@@ -56,7 +56,7 @@ zi lucid for \
 
 
 zi lucid as'command' from'gh-r' sbin for \
-    atload"eval $(starship init zsh)" \
+    eval"./starship init zsh" \
         starship/starship
 
 # oh-my-zshell config
