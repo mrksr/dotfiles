@@ -84,27 +84,20 @@ RedHatEnterprise = "󱄛"
 [username]
 show_always = true
 style_user = "bg:color_orange fg:color_fg0"
-style_root = "bg:color_orange fg:color_bg1"
+style_root = "bold bg:color_orange fg:color_bg1"
 format = '[ $user]($style)'
 
 [hostname]
 ssh_only = false
-ssh_symbol = "󱘖"
+ssh_symbol = " 󱘖"
 style = "bg:color_orange fg:color_fg0"
-format = "[@$hostname( $ssh_symbol) ]($style)"
+format = "[@$hostname$ssh_symbol ]($style)"
 
 [directory]
 style = "fg:color_fg0 bg:color_yellow"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
-
-[directory.substitutions]
-"Documents" = "󰈙 "
-"Downloads" = " "
-"Music" = "󰝚 "
-"Pictures" = " "
-"Developer" = "󰲋 "
 
 [git_branch]
 symbol = ""
