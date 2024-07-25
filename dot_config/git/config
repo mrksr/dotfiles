@@ -1,5 +1,16 @@
 [core]
-	pager = diff-so-fancy | less --tabs=4 -RFX
+	pager = delta
+[interactive]
+	diffFilter = delta --color-only --features=interactive
+[delta]
+	navigate = true
+	line-numbers = true
+	side-by-side = true
+	true-color = always
+[merge]
+	conflictstyle = diff3
+[diff]
+	colorMoved = default
 [alias]
 	lg = log --graph --topo-order --abbrev-commit --date=short --decorate --all --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn]%Creset %Cblue%G?%Creset'
 [user]
@@ -20,7 +31,5 @@
 	prompt = false
 [init]
 	defaultBranch = main
-[credential]
-	helper = store
 [push]
 	autoSetupRemote = true
