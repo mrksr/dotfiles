@@ -4,17 +4,15 @@ source ~/.asdf/asdf.sh
 
 asdf plugin update --all
 
-asdf plugin add bat &
-asdf plugin add bottom &
-asdf plugin add delta &
-asdf plugin add dust &
-asdf plugin add eza &
-asdf plugin add fzf &
-asdf plugin add python &
-asdf plugin add ripgrep &
-asdf plugin add starship &
-
-wait
+asdf plugin add bat
+asdf plugin add bottom
+asdf plugin add delta
+asdf plugin add dust
+asdf plugin add eza
+asdf plugin add fzf
+asdf plugin add python
+asdf plugin add ripgrep
+asdf plugin add starship
 
 asdf install bat latest &
 asdf install bottom latest &
