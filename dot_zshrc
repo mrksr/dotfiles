@@ -1,135 +1,49 @@
-# zi install and load
-zi_home="${XDG_DATA_HOME:-$HOME/.local/share}/zi"
-typeset -A ZI
-ZI[HOME_DIR]=${zi_home}
-if [[ ! -f ${zi_home}/bin/zi.zsh ]]; then
-    # Install zi and build zpmod
-    print -P "%F{33}▓▒░ %F{220}Installing ZI Plugin Manager (z-shell/zi)…%f"
-    mkdir -p $zi_home
-    git clone https://github.com/z-shell/zi.git "${zi_home}/bin"
-    print -P "%F{33}▓▒░ %F{34}Installation successful.%f" || \
-    print -P "%F{160}▓▒░ The clone has failed.%f"
-
-    source "${zi_home}/bin/zi.zsh"
-    zi module build
-else
-    # Load zpmod
-    module_path+=( "${zi_home}/zmodules/zpmod/Src" )
-    zmodload zi/zpmod
+if [[ ! -d ${ZDOTDIR:-~}/.antidote ]]; then
+    git clone --depth=1 \
+        https://github.com/mattmc3/antidote.git \
+        ${ZDOTDIR:-~}/.antidote
 fi
-source "${zi_home}/bin/zi.zsh"
-autoload -Uz _zi
-(( ${+_comps} )) && _comps[zi]=_zi
+source ${ZDOTDIR:-~}/.antidote/antidote.zsh
 
+zstyle ':antidote:bundle' use-friendly-names 'yes'
 
-# Load a few important annexes, without Turbo
-# (this is currently required for annexes)
-zi light-mode for \
-    z-shell/z-a-meta-plugins \
-    z-shell/z-a-eval \
-    @annexes
+antidote load
 
-# NOTE(mrksr): Disable compinit unsecure folder security feature to avoid
-# annoying issues with sudo.
-ZI[COMPINIT_OPTS]="-C -i"
+# Plugin config
+# History
+export HISTSIZE=1000000
+export SAVEHIST=1000000
+
+# Colorscheme
+base16_railscasts
 
 # vi-mode
-zi lucid for \
-    atinit"KEYTIMEOUT=1" \
-    atload"
-    autoload -Uz edit-command-line
-    zle -N edit-command-line
-    bindkey -M vicmd '^v' edit-command-line
-    bindkey -M vicmd '^b' edit-command-line
-    " \
-        OMZP::vi-mode
+export KEYTIMEOUT=1
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd '^v' edit-command-line
+bindkey -M vicmd '^b' edit-command-line
 
+# Starship
+eval "$(starship init zsh)"
 
-# Colors and theme
-zi lucid for \
-    atclone"dircolors -b LS_COLORS > clrs.zsh" \
-    atpull'%atclone' pick"clrs.zsh" nocompile'!' \
-    atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”' \
-        trapd00r/LS_COLORS \
-    atload"base16_railscasts" \
-        chriskempson/base16-shell
+# fzf-tab
+zstyle ':completion:complete:*:options' sort false
+zstyle ':completion:*:git-checkout:*' sort false
+zstyle ':completion:*:descriptions' format '[%d]'
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always \$realpath'
 
+fzf-tab-partial-and-complete() {
+    if [[ $LASTWIDGET = 'fzf-tab-partial-and-complete' ]]; then
+        fzf-tab-complete
+    else
+        zle complete-word
+    fi
+}
 
-zi lucid as'command' from'gh-r' sbin for \
-    eval"./starship init zsh" \
-        starship/starship
-
-# oh-my-zshell config
-zi wait lucid for \
-    OMZL::functions.zsh \
-    OMZL::clipboard.zsh \
-    OMZL::completion.zsh \
-    OMZL::correction.zsh \
-    atinit"setopt auto_cd" \
-        OMZL::directories.zsh \
-    atinit"
-        HISTSIZE=1000000
-        SAVEHIST=1000000
-    " \
-    OMZL::history.zsh \
-    OMZL::misc.zsh \
-    OMZL::spectrum.zsh \
-    OMZL::termsupport.zsh
-
-
-# Plugins
-zi wait lucid for \
-    OMZP::colored-man-pages \
-    OMZP::extract \
-    OMZP::git \
-    OMZP::gitignore \
-    OMZP::mosh \
-    OMZP::screen
-
-
-# Install binaries
-zi wait lucid light-mode for \
-    @zsh-users+fast \
-    @z-shell \
-    @py-utils \
-    skip'exa' @console-tools
-
-zi wait lucid light-mode as'command' from'gh-r' sbin for \
-    jesseduffield/lazydocker \
-    jesseduffield/lazygit \
-    ClementTsang/bottom \
-    eza-community/eza
-
-zi wait pack"bgn-binary+keys" for fzf
-
-# NOTE(mrksr): The atload is a hack to set-fast theme _after_ the default theme
-# in the meta-plugin.
-zi wait lucid for \
-    atload"
-        fast-theme -q clean
-    " \
-    atinit"
-        zstyle ':completion:complete:*:options' sort false
-        zstyle ':completion:*:git-checkout:*' sort false
-        zstyle ':completion:*:descriptions' format '[%d]'
-        zstyle ':completion:*' list-colors \${(s.:.)LS_COLORS}
-        zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always \$realpath'
-    " \
-    atload"
-        # Use fzf-tab after second tab press
-        fzf-tab-partial-and-complete() {
-            if [[ \$LASTWIDGET = 'fzf-tab-partial-and-complete' ]]; then
-                fzf-tab-complete
-            else
-                zle complete-word
-            fi
-        }
-
-        zle -N fzf-tab-partial-and-complete
-        bindkey '^I' fzf-tab-partial-and-complete
-    " \
-    Aloxaf/fzf-tab \
-    MichaelAquilina/zsh-autoswitch-virtualenv
+zle -N fzf-tab-partial-and-complete
+bindkey '^I' fzf-tab-partial-and-complete
 
 
 # Own config
@@ -153,15 +67,6 @@ if [[ $(uname) != "Darwin" ]]; then
         xdg-open "$@" &>/dev/null &!
     }
 fi
-
-alias texdoco="online-texdoc"
-online-texdoc() {
-    DOC_FILE="${TMPDIR:-/tmp}/online_texdoc.${1}.pdf"
-    if [[ ! -f "$DOC_FILE" ]]; then
-        wget http://texdoc.net/pkg/${1} -O "$DOC_FILE"
-    fi
-    open-background "$DOC_FILE"
-}
 
 if command -v bat > /dev/null; then
     alias cat="bat"

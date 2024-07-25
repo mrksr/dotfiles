@@ -1,0 +1,23 @@
+ohmyzsh/ohmyzsh path:plugins/vi-mode
+
+trapd00r/LS_COLORS
+chriskempson/base16-shell
+
+getantidote/use-omz
+ohmyzsh/ohmyzsh path:lib
+
+ohmyzsh/ohmyzsh path:plugins/asdf
+ohmyzsh/ohmyzsh path:plugins/colored-man-pages
+ohmyzsh/ohmyzsh path:plugins/extract
+ohmyzsh/ohmyzsh path:plugins/fancy-ctrl-z
+ohmyzsh/ohmyzsh path:plugins/git
+ohmyzsh/ohmyzsh path:plugins/gitignore
+ohmyzsh/ohmyzsh path:plugins/mosh
+ohmyzsh/ohmyzsh path:plugins/screen
+
+Aloxaf/fzf-tab
+MichaelAquilina/zsh-autoswitch-virtualenv
+
+zsh-users/zsh-autosuggestions kind:defer
+zsh-users/zsh-completions kind:defer
+zdharma-continuum/fast-syntax-highlighting kind:defer
