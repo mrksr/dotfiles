@@ -1,5 +1,3 @@
-ohmyzsh/ohmyzsh path:plugins/vi-mode
-
 trapd00r/LS_COLORS
 chriskempson/base16-shell
 
@@ -14,6 +12,7 @@ ohmyzsh/ohmyzsh path:plugins/git
 ohmyzsh/ohmyzsh path:plugins/gitignore
 ohmyzsh/ohmyzsh path:plugins/mosh
 ohmyzsh/ohmyzsh path:plugins/screen
+ohmyzsh/ohmyzsh path:plugins/vi-mode
 
 Aloxaf/fzf-tab
 MichaelAquilina/zsh-autoswitch-virtualenv
