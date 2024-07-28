@@ -1,5 +1,6 @@
 #!/bin/sh
 
+export ASDF_DIR=~/.asdf
 . ~/.asdf/asdf.sh
 
 asdf plugin update --all
