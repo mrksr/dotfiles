@@ -1,6 +1,6 @@
 #!/bin/sh
 
-source ~/.asdf/asdf.sh
+. ~/.asdf/asdf.sh
 
 asdf plugin update --all
 
