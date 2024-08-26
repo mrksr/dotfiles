@@ -1,18 +1,7 @@
 Host zfix
     HostName zfix.org
-    User markus
-
-Host zfixroot
-    HostName zfix.org
     User root
-
-Host zfixn
-    HostName drksr.de
-    User markus
-
-Host zfixnroot
-    HostName drksr.de
-    User root
+    Port 222
 
 Host rsync
     HostName zh2899.rsync.net
