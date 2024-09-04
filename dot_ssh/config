@@ -25,3 +25,7 @@ Host hassiodbg
 Host proxmox
     HostName 192.168.0.2
     User root
+
+Host synology
+    HostName 192.168.0.10
+    User markus-admin
