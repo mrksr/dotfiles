@@ -24,7 +24,7 @@ asdf install delta latest &
 asdf install dust latest &
 asdf install eza latest &
 asdf install fd latest &
-asdf install fzf $(asdf list all fzf | tail -n 1) &
+asdf install fzf latest &
 asdf install ripgrep latest &
 asdf install starship latest &
 
@@ -37,6 +37,6 @@ asdf global delta latest
 asdf global dust latest
 asdf global eza latest
 asdf global fd latest
-asdf global fzf $(asdf list all fzf | tail -n 1)
+asdf global fzf latest
 asdf global ripgrep latest
 asdf global starship latest
