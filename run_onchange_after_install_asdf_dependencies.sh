@@ -16,6 +16,7 @@ asdf plugin add fzf
 asdf plugin add python
 asdf plugin add ripgrep
 asdf plugin add starship
+asdf plugin add uv
 
 asdf install bat latest &
 asdf install bottom latest &
@@ -27,6 +28,7 @@ asdf install fd latest &
 asdf install fzf latest &
 asdf install ripgrep latest &
 asdf install starship latest &
+asdf install uv latest &
 
 wait
 
@@ -40,3 +42,4 @@ asdf global fd latest
 asdf global fzf latest
 asdf global ripgrep latest
 asdf global starship latest
+asdf global uv latest
