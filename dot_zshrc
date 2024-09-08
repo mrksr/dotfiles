@@ -77,3 +77,7 @@ if command -v nvim > /dev/null; then
     alias vim="nvim"
     export MANPAGER="nvim +Man!"
 fi
+
+if command -v uv > /dev/null; then
+    eval "$(uv generate-shell-completion zsh)"
+fi
