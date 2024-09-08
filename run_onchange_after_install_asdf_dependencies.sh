@@ -13,6 +13,7 @@ asdf plugin add dust
 asdf plugin add eza
 asdf plugin add fd
 asdf plugin add fzf
+asdf plugin add python
 asdf plugin add ripgrep
 asdf plugin add starship
 asdf plugin add uv
