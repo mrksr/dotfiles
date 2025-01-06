@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: alert
-# key: al
-# --
-\alert{`(yas-selected-text)`$1}$0

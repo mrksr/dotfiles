@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: random variable
-# key: rv
-# --
-\rv{`(yas-selected-text)`$1}$0

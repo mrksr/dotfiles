@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name : definition
-# key: definition
-# --
-\begin{definition}{${1:Title}}
-    $0
-\end{definition}

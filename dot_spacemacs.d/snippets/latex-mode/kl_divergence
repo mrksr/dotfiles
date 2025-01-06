@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: kl divergence
-# key: kl
-# --
-\KL{$1}{$2}$0

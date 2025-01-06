@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: matrix
-# key: mat
-# --
-\mat{`(yas-selected-text)`$1}$0

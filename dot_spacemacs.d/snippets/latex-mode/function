@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: function call
-# key: fun
-# --
-\Fun$1{$2}{$3}$0
