@@ -1,0 +1,12 @@
+[tools]
+bat = "latest"
+bottom = "latest"
+chezmoi = "latest"
+delta = "latest"
+dust = "latest"
+eza = "latest"
+fd = "latest"
+fzf = "latest"
+ripgrep = "latest"
+starship = "latest"
+uv = "latest"

@@ -8,13 +8,9 @@ source ${ZDOTDIR:-~}/.antidote/antidote.zsh
 
 zstyle ':antidote:bundle' use-friendly-names 'yes'
 
-antidote load
+eval "$(mise activate zsh)"
 
-ASDF_DIR="${ASDF_DIR:-$HOME/.asdf}"
-if [[ -e $ASDF_DIR/asdf.sh ]]; then
-    source $ASDF_DIR/asdf.sh
-    source $ASDF_DIR/internal/completions/asdf.zsh
-fi
+antidote load
 
 # Plugin config
 # History
