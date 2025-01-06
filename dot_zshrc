@@ -1,3 +1,4 @@
+# Plugins and dependencies
 if [[ ! -d ${ZDOTDIR:-~}/.antidote ]]; then
     git clone --depth=1 \
         https://github.com/mattmc3/antidote.git \
@@ -8,6 +9,12 @@ source ${ZDOTDIR:-~}/.antidote/antidote.zsh
 zstyle ':antidote:bundle' use-friendly-names 'yes'
 
 antidote load
+
+ASDF_DIR="${ASDF_DIR:-$HOME/.asdf}"
+if [[ -e $ASDF_DIR/asdf.sh ]]; then
+    source $ASDF_DIR/asdf.sh
+    source $ASDF_DIR/internal/completions/asdf.zsh
+fi
 
 # Plugin config
 # History

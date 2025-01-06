@@ -3,6 +3,7 @@
 export ASDF_DIR=~/.asdf
 . ~/.asdf/asdf.sh
 
+
 asdf plugin update --all
 
 asdf plugin add bat

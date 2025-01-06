@@ -4,7 +4,6 @@ chriskempson/base16-shell
 getantidote/use-omz
 ohmyzsh/ohmyzsh path:lib
 
-ohmyzsh/ohmyzsh path:plugins/asdf
 ohmyzsh/ohmyzsh path:plugins/colored-man-pages
 ohmyzsh/ohmyzsh path:plugins/extract
 ohmyzsh/ohmyzsh path:plugins/fancy-ctrl-z
