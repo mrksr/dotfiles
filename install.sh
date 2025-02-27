@@ -8,4 +8,4 @@ if ! command -v zsh > /dev/null; then
 fi
 
 # Setup dotfiles
-chezmoi-bin/chezmoi init --apply mrksr
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply mrksr
