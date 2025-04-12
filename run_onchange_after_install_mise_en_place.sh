@@ -1,6 +1,7 @@
 #!/bin/sh
 
 curl https://mise.run | MISE_QUIET=1 sh
-~/.local/bin/mise self-update --yes
-~/.local/bin/mise install --yes
-~/.local/bin/mise upgrade --yes
+eval "$(~/.local/bin/mise activate)"
+mise self-update --yes
+mise install --yes
+mise upgrade --yes
