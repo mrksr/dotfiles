@@ -2,6 +2,7 @@
 bat = "latest"
 bottom = "latest"
 chezmoi = "latest"
+curlie = "latest"
 delta = "latest"
 duf = "latest"
 dust = "latest"
