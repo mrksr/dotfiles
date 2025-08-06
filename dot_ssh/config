@@ -1,5 +1,5 @@
 Host zfix
-    HostName zfix.org
+    HostName host.zfix.org
     User root
     Port 222
 
