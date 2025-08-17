@@ -54,6 +54,9 @@ bindkey '^I' fzf-tab-partial-and-complete
 setopt extendedglob
 setopt null_glob
 
+# Enable colors for ip command
+alias ip="ip -c=auto"
+
 if command -v eza > /dev/null; then
     alias ls="eza --icons --group-directories-first"
     alias ll="ls --long --group --header --git"
