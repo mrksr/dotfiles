@@ -23,7 +23,19 @@ Host hassiodbg
     User root
 
 Host proxmox
-    HostName 192.168.0.201
+    HostName 10.31.100.11
+    User root
+
+Host proxmox-2
+    HostName 10.31.100.12
+    User root
+
+Host proxmox-3
+    HostName 10.31.100.13
+    User root
+
+Host proxmox-4
+    HostName 10.31.100.14
     User root
 
 Host synology
