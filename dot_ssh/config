@@ -22,6 +22,10 @@ Host hassiodbg
     Port 22222
     User root
 
+Host unify
+    HostName 10.31.1.1
+    User root
+
 Host proxmox
     HostName 10.31.100.11
     User root
@@ -39,5 +43,5 @@ Host proxmox-4
     User root
 
 Host synology
-    HostName 192.168.0.10
+    HostName 10.31.102.10
     User markus-admin
