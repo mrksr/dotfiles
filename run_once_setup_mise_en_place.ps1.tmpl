@@ -2,7 +2,7 @@
 
 winget install -e --id jdx.mise
 
-mkdir -p $HOME\Documents\PowerShell\
+mkdir -force -p $HOME\Documents\PowerShell\
 echo 'mise activate pwsh | Out-String | Invoke-Expression' >> $HOME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
 
 {{- end -}}
