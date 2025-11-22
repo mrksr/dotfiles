@@ -1,0 +1,6 @@
+{{- if eq .chezmoi.os "windows" -}}
+mise activate pwsh | Out-String | Invoke-Expression
+
+mise upgrade --yes
+mise prune --yes
+{{- end -}}
