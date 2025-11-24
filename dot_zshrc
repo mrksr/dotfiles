@@ -77,6 +77,7 @@ fi
 
 if command -v bat > /dev/null; then
     alias cat="bat"
+    export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | bat -p -lman'"
 fi
 
 if command -v doggo > /dev/null; then
@@ -86,7 +87,6 @@ fi
 
 if command -v nvim > /dev/null; then
     alias vim="nvim"
-    export MANPAGER="nvim +Man!"
 fi
 
 if command -v uv > /dev/null; then
