@@ -1,14 +1,5 @@
 ---@diagnostic disable: undefined-global
 return {
-	-- {
-	-- 	"RRethy/nvim-base16",
-	-- 	lazy = false,
-	-- 	config = function()
-	-- 		if not vim.g.vscode then
-	-- 			vim.cmd.colorscheme("base16-railscasts")
-	-- 		end
-	-- 	end,
-	-- },
 	{
 		"rebelot/kanagawa.nvim",
 		lazy = false,
@@ -20,9 +11,7 @@ return {
 	},
 	{
 		"folke/which-key.nvim",
-		config = function()
-			require("which-key").setup({})
-		end,
+		ops = {},
 	},
 	{
 		"https://codeberg.org/andyg/leap.nvim",
@@ -34,5 +23,19 @@ return {
 	"machakann/vim-sandwich",
 	"svermeulen/vim-cutlass",
 	"isobit/vim-caddyfile",
-	"sphamba/smear-cursor.nvim",
+	{
+		"sphamba/smear-cursor.nvim",
+		opts = {},
+	},
+	{
+		"stevearc/oil.nvim",
+		---@module 'oil'
+		---@type oil.SetupOpts
+		opts = {
+			columns = { "icon", "size", "mtime" },
+			view_options = { show_hidden = true },
+		},
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		lazy = false,
+	},
 }
