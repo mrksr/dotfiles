@@ -1,11 +1,20 @@
 ---@diagnostic disable: undefined-global
 return {
+	-- {
+	-- 	"RRethy/nvim-base16",
+	-- 	lazy = false,
+	-- 	config = function()
+	-- 		if not vim.g.vscode then
+	-- 			vim.cmd.colorscheme("base16-railscasts")
+	-- 		end
+	-- 	end,
+	-- },
 	{
-		"RRethy/nvim-base16",
+		"rebelot/kanagawa.nvim",
 		lazy = false,
 		config = function()
 			if not vim.g.vscode then
-				vim.cmd.colorscheme("base16-railscasts")
+				vim.cmd.colorscheme("kanagawa")
 			end
 		end,
 	},
