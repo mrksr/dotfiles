@@ -38,4 +38,9 @@ return {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		lazy = false,
 	},
+	{
+		"https://codeberg.org/esensar/nvim-dev-container",
+		dependencies = "nvim-treesitter/nvim-treesitter",
+		opts = {},
+	},
 }
