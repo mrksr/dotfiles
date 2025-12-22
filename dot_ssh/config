@@ -13,12 +13,12 @@ Host git
     User git
 
 Host hassio
-    HostName 192.168.0.5
+    HostName 10.31.101.5
     Port 22
     User root
 
 Host hassiodbg
-    HostName 192.168.0.5
+    HostName 10.31.101.5
     Port 22222
     User root
 
