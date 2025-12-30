@@ -10,15 +10,18 @@ return {
 		end,
 	},
 	{
-		"folke/which-key.nvim",
-		ops = {},
-	},
-	{
-		"https://codeberg.org/andyg/leap.nvim",
-		config = function()
-			vim.keymap.set({ "n", "x", "o" }, "s", "<Plug>(leap)")
-			vim.keymap.set("n", "S", "<Plug>(leap-from-window)")
-		end,
+		"FluxxField/smart-motion.nvim",
+		opts = {
+			keys = "fjdksleirughtynm",
+			presets = {
+				words = true,
+				search = true,
+				delete = true,
+			},
+			flow_state_timeout_ms = 500,
+			disable_dim_background = false,
+			history_max_size = 20,
+		},
 	},
 	"machakann/vim-sandwich",
 	"svermeulen/vim-cutlass",
