@@ -6,12 +6,12 @@ ohmyzsh/ohmyzsh path:lib
 
 ohmyzsh/ohmyzsh path:plugins/colored-man-pages
 ohmyzsh/ohmyzsh path:plugins/extract
-ohmyzsh/ohmyzsh path:plugins/fancy-ctrl-z
 ohmyzsh/ohmyzsh path:plugins/git
 ohmyzsh/ohmyzsh path:plugins/gitignore
-ohmyzsh/ohmyzsh path:plugins/mosh
 ohmyzsh/ohmyzsh path:plugins/screen
 ohmyzsh/ohmyzsh path:plugins/vi-mode
+
+mdumitru/fancy-ctrl-z
 
 junegunn/fzf path:shell
 Aloxaf/fzf-tab
