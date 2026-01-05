@@ -1,0 +1,10 @@
+{{- if ne .chezmoi.os "windows" -}}
+#!/usr/bin/env zsh
+
+# nvim and mise might not be properly present at first install,
+# so we run it very explicitly.
+
+eval "$(~/.local/bin/mise activate zsh)"
+mise x nvim -- nvim --headless "+Lazy! sync" +q
+
+{{- end -}}
