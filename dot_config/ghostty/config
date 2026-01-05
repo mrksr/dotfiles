@@ -51,4 +51,6 @@
 font-family = FiraCode Nerd Font Mono Ret
 font-size = 12
 
+background-opacity = 0.75
+
 shell-integration-features = ssh-terminfo,ssh-env
