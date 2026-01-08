@@ -16,15 +16,17 @@ return {
 			presets = {
 				words = true,
 				search = true,
-				delete = true,
 			},
 			flow_state_timeout_ms = 500,
 			disable_dim_background = false,
 			history_max_size = 20,
 		},
 	},
-	"machakann/vim-sandwich",
-	"svermeulen/vim-cutlass",
+	"xiyaowong/transparent.nvim",
+	{
+		"gbprod/cutlass.nvim",
+		opts = {},
+	},
 	"isobit/vim-caddyfile",
 	{
 		"sphamba/smear-cursor.nvim",
