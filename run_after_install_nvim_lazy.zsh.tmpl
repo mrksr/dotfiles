@@ -4,7 +4,10 @@
 # nvim and mise might not be properly present at first install,
 # so we run it very explicitly.
 
+echo "Updating nvim plugins..."
 eval "$(~/.local/bin/mise activate zsh)"
-mise x nvim -- nvim --headless "+Lazy! sync" +q
+
+# Ignore changelog to stdout
+mise x nvim -- nvim --headless "+Lazy! sync" +qa > /dev/null
 
 {{- end -}}
