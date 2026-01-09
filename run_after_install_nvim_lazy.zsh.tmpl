@@ -7,7 +7,8 @@
 echo "Updating nvim plugins..."
 eval "$(~/.local/bin/mise activate zsh)"
 
-# Ignore changelog to stdout
-mise x nvim -- nvim --headless "+Lazy! sync" +qa > /dev/null
+# Ignore excessive lazy output
+# Will not see errors, but what can you do...
+mise x neovim -- nvim --headless "+Lazy! sync" +qa > /dev/null 2>&1
 
 {{- end -}}
