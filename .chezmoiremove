@@ -1,1 +1,6 @@
 .tmux.conf
+
+.config/nvim/after/plugin/default.lua
+.config/nvim/lua/custom/init_nvim.lua
+.config/nvim/lua/custom/init_vscode.lua
+.config/nvim/lua/custom/plugins/mrksr.lua
