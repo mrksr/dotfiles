@@ -18,7 +18,6 @@ if not vim.g.vscode then
 end
 
 if vim.g.vscode then
-  -- Specific for vscode
   local nmap = function(keys, func)
     vim.keymap.set("n", keys, func, { silent = true, remap = false })
   end
