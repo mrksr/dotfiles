@@ -1,9 +1,11 @@
 [user]
 	email = {{ .git_email | quote }}
 	name = Markus Kaiser
-  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK0cyw/JPVh0WBThKtwWGITdOpfWk0YzjyWkCV4xyMVP
+  signingkey = key::ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK0cyw/JPVh0WBThKtwWGITdOpfWk0YzjyWkCV4xyMVP
 [gpg]
   format = ssh
+[commit]
+  gpgsign = true
 [core]
 	pager = delta
 [interactive]
