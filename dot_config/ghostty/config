@@ -53,4 +53,4 @@ font-size = 12
 
 background-opacity = 0.75
 
-shell-integration-features = ssh-terminfo,ssh-env
+shell-integration-features = ssh-env
