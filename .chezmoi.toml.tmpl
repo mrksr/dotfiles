@@ -1,0 +1,10 @@
+{{- $email := promptStringOnce . "email" "Email address" -}}
+{{- $gh_pat := promptStringOnce . "gh_pat" "Github PAT" -}}
+
+[data]
+    email = {{ $email | quote }}
+    gh_pat = {{ $gh_pat | quote }}
+
+[env]
+    GITHUB_TOKEN = {{ $gh_pat | quote }}
+
