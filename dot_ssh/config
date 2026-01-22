@@ -43,5 +43,5 @@ Host proxmox-4
     User root
 
 Host synology
-    HostName 10.31.102.10
+    HostName 10.31.101.10
     User markus-admin
