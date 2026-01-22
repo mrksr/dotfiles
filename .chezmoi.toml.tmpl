@@ -1,8 +1,8 @@
-{{- $email := promptStringOnce . "email" "Email address" -}}
+{{- $git_email := promptStringOnce . "git_email" "Git email address" -}}
 {{- $gh_pat := promptStringOnce . "gh_pat" "Github PAT" -}}
 
 [data]
-    email = {{ $email | quote }}
+    git_email = {{ $git_email | quote }}
     gh_pat = {{ $gh_pat | quote }}
 
 [env]
