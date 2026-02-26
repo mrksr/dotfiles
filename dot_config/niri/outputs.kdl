@@ -1,0 +1,6 @@
+output "LG Electronics LG HDR WQHD+ 010NTUWDN590" {
+    mode "3840x1600@119.982"
+    scale 1.25
+    variable-refresh-rate
+}
+

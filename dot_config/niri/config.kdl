@@ -1,3 +1,33 @@
+input {
+    keyboard {
+        xkb {
+            layout "de"
+            variant "nodeadkeys"
+        }
+    }
+    touchpad {
+        tap
+        dwt
+        dwtp
+    }
+    mouse {
+
+    }
+    trackpoint {
+
+    }
+    workspace-auto-back-and-forth
+}
+cursor {
+    xcursor-theme "capitaine-cursors-light"
+    hide-when-typing
+    hide-after-inactive-ms 5000
+}
+gestures {
+    hot-corners {
+        off
+    }
+}
 environment {
     ELECTRON_OZONE_PLATFORM_HINT "auto"
 }
@@ -39,7 +69,7 @@ debug {
     // Allows notification actions and window activation from Noctalia.
     honor-xdg-activation-with-invalid-serial
 }
-include "./input-output.kdl"
+include "./outputs.kdl"
 include "./keybindings.kdl"
 include "./window-rules.kdl"
 include "./noctalia.kdl"

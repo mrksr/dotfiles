@@ -369,4 +369,3 @@ binds {
         spawn-sh "wl-mirror $(niri msg --json focused-output | jq -r .name)"
     }
 }
-
