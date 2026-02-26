@@ -23,6 +23,11 @@ output "LG Electronics LG HDR WQHD+ 010NTUWDN590" {
     scale 1.25
     variable-refresh-rate
 }
+cursor {
+    xcursor-theme "capitaine-cursors-light"
+    hide-when-typing
+    hide-after-inactive-ms 5000
+}
 environment {
     ELECTRON_OZONE_PLATFORM_HINT "auto"
 }
@@ -70,6 +75,7 @@ hotkey-overlay {
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 window-rule {
     match app-id="firefox$" title="^Picture-in-Picture$"
+    match app-id="zen$" title="^Picture-in-Picture$"
     open-floating true
 }
 window-rule {
@@ -301,6 +307,9 @@ binds {
     }
     Mod+Ctrl+Shift+WheelScrollUp {
         move-column-left
+    }
+    Mod+Asciicircum {
+        focus-workspace-previous
     }
     Mod+1 {
         focus-workspace 1
