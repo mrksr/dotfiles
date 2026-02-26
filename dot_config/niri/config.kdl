@@ -426,16 +426,19 @@ binds {
         screenshot
     }
     Ctrl+Print {
-        screenshot-screen
+        screenshot-window
     }
     Alt+Print {
-        screenshot-window
+        screenshot-screen
     }
     Mod+Shift+S {
         screenshot
     }
     Mod+Ctrl+S {
         screenshot-window
+    }
+    Mod+Alt+S {
+        screenshot-screen
     }
     // Mod+Escape allow-inhibiting=false {
     //     toggle-keyboard-shortcuts-inhibit
