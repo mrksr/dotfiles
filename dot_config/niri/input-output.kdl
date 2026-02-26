@@ -1,0 +1,36 @@
+input {
+    keyboard {
+        xkb {
+            layout de
+            variant nodeadkeys
+        }
+    }
+    touchpad {
+        tap
+        dwt
+        dwtp
+    }
+    mouse {
+
+    }
+    trackpoint {
+
+    }
+    workspace-auto-back-and-forth
+}
+cursor {
+    xcursor-theme capitaine-cursors-light
+    hide-when-typing
+    hide-after-inactive-ms 5000
+}
+gestures {
+    hot-corners {
+        off
+    }
+}
+output "LG Electronics LG HDR WQHD+ 010NTUWDN590" {
+    mode "3840x1600@119.982"
+    scale 1.25
+    variable-refresh-rate
+}
+
