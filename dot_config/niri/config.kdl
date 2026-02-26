@@ -23,15 +23,8 @@ cursor {
     hide-when-typing
     hide-after-inactive-ms 5000
 }
-gestures {
-    hot-corners {
-        off
-    }
-}
-environment {
-    ELECTRON_OZONE_PLATFORM_HINT "auto"
-}
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+spawn-at-startup "qs" "-c" "noctalia-shell" "--no-duplicate"
+spawn-at-startup "niri-float-sticky"
 layout {
     gaps 12
     center-focused-column "never"
@@ -61,7 +54,15 @@ layer-rule {
     match namespace="^noctalia-overview*"
     place-within-backdrop true
 }
-spawn-at-startup "niri-float-sticky"
+gestures {
+    hot-corners {
+        off
+    }
+}
+environment {
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+}
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 hotkey-overlay {
     skip-at-startup
 }
