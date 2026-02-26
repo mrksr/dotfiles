@@ -3,6 +3,7 @@ input {
         xkb {
             layout "de"
             variant "nodeadkeys"
+            options "caps:escape_shifted_capslock"
         }
     }
     touchpad {
