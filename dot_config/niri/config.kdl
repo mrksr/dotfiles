@@ -1,67 +1,12 @@
-input {
-    keyboard {
-        xkb {
-            layout "de"
-            variant "nodeadkeys"
-            options "caps:escape_shifted_capslock"
-        }
-    }
-    touchpad {
-        tap
-        dwt
-        dwtp
-    }
-    mouse {
-
-    }
-    trackpoint {
-
-    }
-    workspace-auto-back-and-forth
-}
-cursor {
-    xcursor-theme "capitaine-cursors-light"
-    hide-when-typing
-    hide-after-inactive-ms 5000
-}
-spawn-at-startup "qs" "-c" "noctalia-shell" "--no-duplicate"
-spawn-at-startup "niri-float-sticky"
-layout {
-    gaps 12
-    center-focused-column "never"
-    preset-column-widths {
-        proportion 0.33333
-        proportion 0.5
-        proportion 0.66667
-    }
-    default-column-width {
-        proportion 0.5
-    }
-    focus-ring {
-        width 4
-    }
-    border {
-        off
-        width 4
-    }
-    shadow {
-        // on
-        softness 30
-        spread 3
-        offset x=0 y=5
-    }
-}
 layer-rule {
     match namespace="^noctalia-overview*"
     place-within-backdrop true
 }
-gestures {
-    hot-corners {
-        off
-    }
-}
 environment {
     ELECTRON_OZONE_PLATFORM_HINT "auto"
+    QT_QPA_PLATFORM "wayland"
+    QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+    QT_QPA_PLATFORMTHEME "gtk3"
 }
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 hotkey-overlay {
@@ -71,8 +16,10 @@ debug {
     // Allows notification actions and window activation from Noctalia.
     honor-xdg-activation-with-invalid-serial
 }
+include "./input.kdl"
 include "./outputs.kdl"
 include "./keybindings.kdl"
+include "./layout.kdl"
 include "./window-rules.kdl"
+include "./startup.kdl"
 include "./noctalia.kdl"
-

@@ -3,7 +3,6 @@ output "LG Electronics LG HDR WQHD+ 010NTUWDN590" {
     scale 1.25
     variable-refresh-rate
 }
-
 output "LG Display 0x0719 0x100003A1" {
     mode "2880x1920@120.000"
     scale 1.65

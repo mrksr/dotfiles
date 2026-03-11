@@ -1,0 +1,26 @@
+input {
+    keyboard {
+        xkb {
+            layout "de"
+            variant "nodeadkeys"
+            options "caps:escape_shifted_capslock"
+        }
+    }
+    touchpad {
+        tap
+        dwt
+        dwtp
+    }
+    mouse {
+
+    }
+    trackpoint {
+
+    }
+    workspace-auto-back-and-forth
+}
+cursor {
+    xcursor-theme "capitaine-cursors-light"
+    hide-when-typing
+    hide-after-inactive-ms 5000
+}
