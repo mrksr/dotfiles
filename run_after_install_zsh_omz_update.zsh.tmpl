@@ -1,0 +1,11 @@
+{{- if ne .chezmoi.os "windows" -}}
+#!/usr/bin/env zsh
+
+echo "Updating zsh plugins..."
+
+# Update Antidote & OMZ
+# Antidote will update itself in an interactive shell
+# Then run the OMZ update script
+zsh -il -c '"$(antidote path ohmyzsh/ohmyzsh)/tools/upgrade.sh" -v silent'
+
+{{- end -}}
