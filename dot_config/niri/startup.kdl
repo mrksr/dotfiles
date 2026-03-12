@@ -1,2 +1,3 @@
 spawn-at-startup "qs" "-c" "noctalia-shell" "--no-duplicate"
 spawn-at-startup "niri-float-sticky"
+spawn-at-startup "niriusd"

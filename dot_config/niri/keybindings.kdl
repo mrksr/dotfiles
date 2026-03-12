@@ -368,4 +368,13 @@ binds {
     Mod+P repeat=false {
         spawn-sh "wl-mirror $(niri msg --json focused-output | jq -r .name)"
     }
+    Mod+Q {
+        spawn "nirius" "focus-marked"
+    }
+    Mod+Ctrl+Q {
+        spawn "nirius" "toggle-mark"
+    }
+    Mod+F1 {
+        spawn-sh "qs -c noctalia-shell ipc call plugin:keybind-cheatsheet toggle"
+    }
 }
