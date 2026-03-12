@@ -8,7 +8,7 @@ return {
       formatters = {
         kdl = {
           command = "kdlfmt",
-          ergs = { "format", "--kdl-version=v1", "-" },
+          args = { "format", "--kdl-version=v1", "-" },
           stdin = true,
         },
       },
