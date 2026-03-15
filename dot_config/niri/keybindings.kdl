@@ -1,6 +1,9 @@
 binds {
-    Mod+Space {
-        spawn-sh "qs -c noctalia-shell ipc call launcher toggle"
+    Mod+Space repeat=false {
+        toggle-overview
+    }
+    Mod+O repeat=false {
+        toggle-overview
     }
     Mod+T {
         spawn "ghostty"
@@ -37,9 +40,6 @@ binds {
     }
     XF86MonBrightnessDown allow-when-locked=true {
         spawn-sh "qs -c noctalia-shell ipc call brightness decrease"
-    }
-    Mod+O repeat=false {
-        toggle-overview
     }
     Mod+Backspace repeat=false {
         close-window
@@ -378,3 +378,4 @@ binds {
         spawn-sh "qs -c noctalia-shell ipc call plugin:keybind-cheatsheet toggle"
     }
 }
+
