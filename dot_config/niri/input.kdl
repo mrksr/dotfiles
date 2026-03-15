@@ -20,7 +20,9 @@ input {
     workspace-auto-back-and-forth
 }
 cursor {
-    xcursor-theme "capitaine-cursors-light"
+    xcursor-theme "Breeze_Light"
+    xcursor-size 24
     hide-when-typing
     hide-after-inactive-ms 5000
 }
+
