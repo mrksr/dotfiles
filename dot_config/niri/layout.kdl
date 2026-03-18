@@ -1,5 +1,5 @@
 layout {
-    gaps 12
+    gaps 8
     center-focused-column "never"
     preset-column-widths {
         proportion 0.33333
@@ -10,16 +10,13 @@ layout {
         proportion 0.5
     }
     focus-ring {
-        width 4
+        width 3
     }
     border {
         off
-        width 4
     }
     shadow {
         off
-        softness 30
-        spread 3
-        offset x=0 y=5
     }
 }
+
