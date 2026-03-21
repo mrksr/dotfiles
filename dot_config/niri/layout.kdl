@@ -19,4 +19,11 @@ layout {
         off
     }
 }
+blur {
+    // off
+    passes 3
+    offset 5
+    noise 0.02
+    saturation 1.0
+}
 
