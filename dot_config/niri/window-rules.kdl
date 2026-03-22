@@ -18,7 +18,7 @@ layer-rule {
     match namespace="^noctalia-(background|launcher-overlay|dock)-.*$"
     background-effect {
         blur true
-        xray false
+        xray true
     }
 }
 
