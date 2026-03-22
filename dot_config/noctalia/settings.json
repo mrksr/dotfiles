@@ -8,7 +8,9 @@
         "customLaunchPrefixEnabled": false,
         "density": "default",
         "enableClipPreview": true,
+        "enableClipboardChips": true,
         "enableClipboardHistory": false,
+        "enableClipboardSmartIcons": true,
         "enableSessionSearch": true,
         "enableSettingsSearch": true,
         "enableWindowsSearch": true,
@@ -28,14 +30,13 @@
         "showIconBackground": false,
         "sortByMostUsed": true,
         "terminalCommand": "ghostty -e",
-        "useApp2Unit": false,
         "viewMode": "list"
     },
     "audio": {
         "mprisBlacklist": [
         ],
-        "preferredPlayer": "",
-        "spectrumFrameRate": 30,
+        "preferredPlayer": "qbz",
+        "spectrumFrameRate": 60,
         "visualizerType": "linear",
         "volumeFeedback": false,
         "volumeFeedbackSoundFile": "",
@@ -45,10 +46,10 @@
     "bar": {
         "autoHideDelay": 500,
         "autoShowDelay": 150,
-        "backgroundOpacity": 0.8,
+        "backgroundOpacity": 0.35000000000000003,
         "barType": "simple",
         "capsuleColorKey": "none",
-        "capsuleOpacity": 1,
+        "capsuleOpacity": 0.5,
         "contentPadding": 2,
         "density": "default",
         "displayMode": "always_visible",
@@ -323,7 +324,7 @@
         }
     },
     "desktopWidgets": {
-        "enabled": false,
+        "enabled": true,
         "gridSnap": true,
         "gridSnapScale": true,
         "monitorWidgets": [
@@ -331,38 +332,50 @@
                 "name": "DP-3",
                 "widgets": [
                     {
-                        "colorName": "primary",
-                        "height": 72,
-                        "hideWhenIdle": false,
-                        "id": "AudioVisualizer",
-                        "roundedCorners": true,
-                        "scale": 5,
+                        "barWidth": 0.6000000000000001,
+                        "bloomIntensity": 0.15000000000000002,
+                        "customPrimaryColor": "#6750a4",
+                        "customSecondaryColor": "#625b71",
+                        "defaultSettings": {
+                            "barWidth": 0.6,
+                            "bloomIntensity": 0.5,
+                            "customPrimaryColor": "#6750A4",
+                            "customSecondaryColor": "#625B71",
+                            "fadeWhenIdle": false,
+                            "innerDiameter": 0.7,
+                            "ringOpacity": 0.8,
+                            "rotationSpeed": 0.5,
+                            "sensitivity": 1.5,
+                            "useCustomColors": false,
+                            "visualizationMode": 3,
+                            "waveThickness": 1
+                        },
+                        "fadeWhenIdle": true,
+                        "id": "plugin:fancy-audiovisualizer",
+                        "innerDiameter": 0.7000000000000001,
+                        "ringOpacity": 0.8,
+                        "rotationSpeed": 0.2,
+                        "scale": 2.6611485086155846,
+                        "sensitivity": 1.7000000000000002,
                         "showBackground": true,
-                        "visualizerType": "linear",
-                        "width": 320,
-                        "x": 40,
-                        "y": 880
+                        "useCustomColors": false,
+                        "visualizationMode": 0,
+                        "waveThickness": 1,
+                        "x": 2301,
+                        "y": 241
                     },
                     {
-                        "id": "Weather",
-                        "roundedCorners": true,
-                        "scale": 1.8336904541244294,
-                        "showBackground": true,
-                        "x": 600,
-                        "y": 120
-                    },
-                    {
-                        "hideMode": "visible",
+                        "hideMode": "idle",
                         "id": "MediaPlayer",
                         "roundedCorners": true,
-                        "scale": 1.9,
+                        "scale": 1.6992533834849484,
                         "showAlbumArt": true,
                         "showBackground": true,
                         "showButtons": true,
-                        "showVisualizer": true,
+                        "showVisualizer": false,
                         "visualizerType": "linear",
-                        "x": 1200,
-                        "y": 120
+                        "x": 2360,
+                        "y": 1120
                     }
                 ]
             }
@@ -371,7 +384,7 @@
     },
     "dock": {
         "animationSpeed": 1,
-        "backgroundOpacity": 1,
+        "backgroundOpacity": 0.35000000000000003,
         "colorizeIcons": false,
         "deadOpacity": 0.6,
         "displayMode": "auto_hide",
@@ -386,8 +399,10 @@
         "indicatorColor": "primary",
         "indicatorOpacity": 0.6,
         "indicatorThickness": 3,
+        "launcherIcon": "",
         "launcherIconColor": "none",
         "launcherPosition": "end",
+        "launcherUseDistroLogo": false,
         "monitors": [
         ],
         "onlySameOutput": true,
@@ -402,13 +417,13 @@
         "showDockIndicator": false,
         "showLauncherIcon": false,
         "sitOnFrame": false,
-        "size": 1.1
+        "size": 1.35
     },
     "general": {
         "allowPanelsOnScreenWithoutBar": true,
         "allowPasswordWithFprintd": false,
         "animationDisabled": false,
-        "animationSpeed": 1.5,
+        "animationSpeed": 1.25,
         "autoStartAuth": false,
         "avatarImage": "/home/markus/nas/home/onedrive/mrksr/avatar_lemming_upscayled_4x.png",
         "boxRadiusRatio": 1,
@@ -469,6 +484,7 @@
         "telemetryEnabled": false
     },
     "hooks": {
+        "colorGeneration": "",
         "darkModeChange": "",
         "enabled": false,
         "performanceModeDisabled": "",
@@ -517,7 +533,7 @@
         "disableDiscoverability": false,
         "networkPanelView": "wifi",
         "wifiDetailsViewMode": "grid",
-        "wifiEnabled": true
+        "wifiEnabled": false
     },
     "nightLight": {
         "autoSchedule": true,
@@ -579,7 +595,8 @@
         "overlayLayer": true
     },
     "plugins": {
-        "autoUpdate": false
+        "autoUpdate": false,
+        "notifyUpdates": true
     },
     "sessionMenu": {
         "countdownDuration": 10000,
@@ -648,7 +665,7 @@
         "showHeader": true,
         "showKeybinds": true
     },
-    "settingsVersion": 57,
+    "settingsVersion": 59,
     "systemMonitor": {
         "batteryCriticalThreshold": 5,
         "batteryWarningThreshold": 20,
@@ -703,13 +720,13 @@
         "fontDefaultScale": 1,
         "fontFixed": "Liberation Mono",
         "fontFixedScale": 1,
-        "panelBackgroundOpacity": 0.93,
+        "panelBackgroundOpacity": 0.8,
         "panelsAttachedToBar": true,
-        "scrollbarAlwaysVisible": true,
-        "settingsPanelMode": "attached",
+        "scrollbarAlwaysVisible": false,
+        "settingsPanelMode": "centered",
         "settingsPanelSideBarCardStyle": false,
         "tooltipsEnabled": true,
-        "translucentWidgets": false
+        "translucentWidgets": true
     },
     "wallpaper": {
         "automationEnabled": false,
@@ -722,6 +739,11 @@
         "fillMode": "crop",
         "hideWallpaperFilenames": false,
         "monitorDirectories": [
+            {
+                "directory": "/home/markus/Pictures/Wallpapers",
+                "name": "DP-3",
+                "wallpaper": ""
+            }
         ],
         "overviewBlur": 0.4,
         "overviewEnabled": true,
@@ -735,7 +757,14 @@
         "sortOrder": "name",
         "transitionDuration": 1500,
         "transitionEdgeSmoothness": 0.05,
-        "transitionType": "random",
+        "transitionType": [
+            "fade",
+            "disc",
+            "stripes",
+            "wipe",
+            "pixelate",
+            "honeycomb"
+        ],
         "useSolidColor": false,
         "useWallhaven": true,
         "viewMode": "single",
