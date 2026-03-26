@@ -15,10 +15,17 @@ window-rule {
     }
 }
 layer-rule {
-    match namespace="^noctalia-(background|launcher-overlay|dock)-.*$"
+    match namespace="^noctalia-(background|launcher-overlay)-.*$"
     background-effect {
         blur true
         xray true
+    }
+}
+layer-rule {
+    match namespace="^noctalia-dock-.*$"
+    background-effect {
+        blur true
+        xray false
     }
 }
 
