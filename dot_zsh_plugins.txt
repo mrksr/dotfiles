@@ -15,7 +15,9 @@ mdumitru/fancy-ctrl-z
 
 junegunn/fzf path:shell
 Aloxaf/fzf-tab
+
 MichaelAquilina/zsh-autoswitch-virtualenv
+ptavares/zsh-direnv
 
 zsh-users/zsh-autosuggestions kind:defer
 zsh-users/zsh-completions kind:defer
