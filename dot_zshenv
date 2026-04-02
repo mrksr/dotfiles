@@ -8,3 +8,7 @@ if [[ -z "$ZSH_CACHE_DIR" ]]; then
     export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh-mrksr"
     mkdir -p "$ZSH_CACHE_DIR"
 fi
+
+if [[ -e "$HOME/.1password/agent.sock" ]]; then
+    export SSH_AUTH_SOCK="$HOME/.1password/agent.sock"
+fi
