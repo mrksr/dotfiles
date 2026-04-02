@@ -20,11 +20,13 @@ $php\
 $java\
 $kotlin\
 $haskell\
+$nix_shell\
 $python\
 $terraform\
 [](fg:color_blue bg:color_bg3)\
 $docker_context\
 $conda\
+$direnv\
 [](fg:color_bg3 bg:color_bg0)\
 $fill\
 [](fg:color_bg3 bg:color_bg0)\
@@ -156,6 +158,15 @@ symbol = ""
 style = "bg:color_blue"
 format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
 
+[nix_shell]
+symbol = "❄"
+disabled = false
+style = "bg:color_blue"
+impure_msg = '[!](bold bg:color_blue)'
+pure_msg = '[](bg:color_blue)'
+unknown_msg = '[?](bg:color_blue)'
+format = '[ $symbol( ($state )$name) ]($style)'
+
 [python]
 symbol = ""
 style = "bg:color_blue"
@@ -170,6 +181,17 @@ format = '[[ $symbol( $workspace) ](fg:color_fg0 bg:color_blue)]($style)'
 symbol = ""
 style = "bg:color_bg3"
 format = '[[ $symbol( $context) ](fg:#83a598 bg:color_bg3)]($style)'
+
+[direnv]
+disabled = false
+symbol = "$"
+style = "bg:color_bg3"
+loaded_msg = "✓"
+unloaded_msg = "!"
+allowed_msg = "✓"
+not_allowed_msg = "!"
+denied_msg = "!!!"
+format = '[ $symbol( $loaded$allowed) ]($style)'
 
 [conda]
 style = "bg:color_bg3"
