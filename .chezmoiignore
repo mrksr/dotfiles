@@ -1,5 +1,5 @@
 install.sh
 kdlfmt.kdl
 
-dot_config/noctalia/
-!dot_config/noctalia/**/settings.json
+.config/noctalia/*
+!.config/noctalia/**/settings.json
