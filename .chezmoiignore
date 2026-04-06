@@ -3,3 +3,4 @@ kdlfmt.kdl
 
 .config/noctalia/*
 !.config/noctalia/**/settings.json
+!.config/noctalia/plugins.json
