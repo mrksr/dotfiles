@@ -1,4 +1,5 @@
 [tools]
+age = "latest"
 bat = "latest"
 bottom = "latest"
 chezmoi = "latest"
@@ -12,6 +13,7 @@ eza = "latest"
 fd = "latest"
 fzf = "latest"
 gh = "latest"
+glab = { version = "latest", exe = "glab" }
 jq = "latest"
 lazygit = "latest"
 neovim = "latest"
@@ -21,3 +23,4 @@ starship = "latest"
 tmux = "latest"
 uv = "latest"
 yq = "latest"
+zoxide = "latest"
