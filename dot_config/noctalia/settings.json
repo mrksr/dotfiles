@@ -170,25 +170,6 @@
                     "showPowerProfiles": false
                 },
                 {
-                    "defaultSettings": {
-                        "audioCodec": "opus",
-                        "audioSource": "default_output",
-                        "colorRange": "limited",
-                        "copyToClipboard": false,
-                        "directory": "",
-                        "filenamePattern": "recording_yyyyMMdd_HHmmss",
-                        "frameRate": "60",
-                        "hideInactive": false,
-                        "iconColor": "none",
-                        "quality": "very_high",
-                        "resolution": "original",
-                        "showCursor": true,
-                        "videoCodec": "h264",
-                        "videoSource": "portal"
-                    },
-                    "id": "plugin:screen-recorder"
-                },
-                {
                     "displayMode": "onhover",
                     "iconColor": "none",
                     "id": "Bluetooth",
@@ -196,14 +177,55 @@
                 },
                 {
                     "defaultSettings": {
+                        "autoHeight": true,
+                        "cheatsheetData": [
+                        ],
+                        "columnCount": 3,
+                        "detectedCompositor": "",
+                        "hyprlandConfigPath": "~/.config/hypr/hyprland.conf",
+                        "modKeyVariable": "$mod",
+                        "niriConfigPath": "~/.config/niri/config.kdl",
+                        "windowHeight": 0,
+                        "windowWidth": 1400
+                    },
+                    "id": "plugin:keybind-cheatsheet"
+                },
+                {
+                    "defaultSettings": {
                         "activeColor": "primary",
+                        "camFilterRegex": "",
                         "enableToast": true,
                         "hideInactive": false,
                         "iconSpacing": 4,
                         "inactiveColor": "none",
+                        "micFilterRegex": "",
                         "removeMargins": false
                     },
                     "id": "plugin:privacy-indicator"
+                },
+                {
+                    "defaultSettings": {
+                        "audioCodec": "opus",
+                        "audioSource": "default_output",
+                        "colorRange": "limited",
+                        "copyToClipboard": false,
+                        "customReplayDuration": "30",
+                        "directory": "",
+                        "filenamePattern": "recording_yyyyMMdd_HHmmss",
+                        "frameRate": "60",
+                        "hideInactive": false,
+                        "iconColor": "none",
+                        "quality": "very_high",
+                        "replayDuration": "30",
+                        "replayEnabled": false,
+                        "replayStorage": "ram",
+                        "resolution": "original",
+                        "restorePortalSession": false,
+                        "showCursor": true,
+                        "videoCodec": "h264",
+                        "videoSource": "portal"
+                    },
+                    "id": "plugin:screen-recorder"
                 },
                 {
                     "displayMode": "onhover",
@@ -222,6 +244,7 @@
                 {
                     "colorizeDistroLogo": false,
                     "colorizeSystemIcon": "primary",
+                    "colorizeSystemText": "none",
                     "customIconPath": "",
                     "enableColorization": false,
                     "icon": "niri",
@@ -333,39 +356,6 @@
             {
                 "name": "DP-3",
                 "widgets": [
-                    {
-                        "barWidth": 0.6000000000000001,
-                        "bloomIntensity": 0.15000000000000002,
-                        "customPrimaryColor": "#6750a4",
-                        "customSecondaryColor": "#625b71",
-                        "defaultSettings": {
-                            "barWidth": 0.6,
-                            "bloomIntensity": 0.5,
-                            "customPrimaryColor": "#6750A4",
-                            "customSecondaryColor": "#625B71",
-                            "fadeWhenIdle": false,
-                            "innerDiameter": 0.7,
-                            "ringOpacity": 0.8,
-                            "rotationSpeed": 0.5,
-                            "sensitivity": 1.5,
-                            "useCustomColors": false,
-                            "visualizationMode": 3,
-                            "waveThickness": 1
-                        },
-                        "fadeWhenIdle": true,
-                        "id": "plugin:fancy-audiovisualizer",
-                        "innerDiameter": 0.7000000000000001,
-                        "ringOpacity": 0.8,
-                        "rotationSpeed": 0.2,
-                        "scale": 2.6611485086155846,
-                        "sensitivity": 1.7000000000000002,
-                        "showBackground": true,
-                        "useCustomColors": false,
-                        "visualizationMode": 0,
-                        "waveThickness": 1,
-                        "x": 2301,
-                        "y": 241
-                    },
                     {
                         "hideMode": "idle",
                         "id": "MediaPlayer",
@@ -515,6 +505,7 @@
     },
     "location": {
         "analogClockInCalendar": false,
+        "autoLocate": false,
         "firstDayOfWeek": -1,
         "hideWeatherCityName": false,
         "hideWeatherTimezone": false,
@@ -525,7 +516,8 @@
         "use12hourFormat": false,
         "useFahrenheit": false,
         "weatherEnabled": true,
-        "weatherShowEffects": true
+        "weatherShowEffects": true,
+        "weatherTaliaMascotAlways": false
     },
     "network": {
         "bluetoothAutoConnect": true,
