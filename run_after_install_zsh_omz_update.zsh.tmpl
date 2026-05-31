@@ -6,6 +6,17 @@ echo "Updating zsh plugins..."
 # Update Antidote & OMZ
 # Antidote will update itself in an interactive shell
 # Then run the OMZ update script
-zsh -il -c '"$(antidote path ohmyzsh/ohmyzsh)/tools/upgrade.sh" -v silent'
+if [[ ! -d ${ZDOTDIR:-~}/.antidote ]]; then
+    git clone --depth=1 \
+        https://github.com/mattmc3/antidote.git \
+        ${ZDOTDIR:-~}/.antidote
+fi
+source ${ZDOTDIR:-~}/.antidote/antidote.zsh
+
+zstyle ':antidote:bundle' use-friendly-names 'yes'
+
+antidote load
+
+"$(antidote path ohmyzsh/ohmyzsh)/tools/upgrade.sh" -v silent
 
 {{- end -}}
