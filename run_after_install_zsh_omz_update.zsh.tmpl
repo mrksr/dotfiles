@@ -4,8 +4,10 @@
 echo "Updating zsh plugins..."
 
 # Update Antidote & OMZ
-# Antidote will update itself in an interactive shell
-# Then run the OMZ update script
+# Disable omz update prompt, we do it manually
+zstyle ':omz:update' mode disabled
+
+# Load and update antidote
 if [[ ! -d ${ZDOTDIR:-~}/.antidote ]]; then
     git clone --depth=1 \
         https://github.com/mattmc3/antidote.git \
@@ -16,7 +18,9 @@ source ${ZDOTDIR:-~}/.antidote/antidote.zsh
 zstyle ':antidote:bundle' use-friendly-names 'yes'
 
 antidote load
+antidote update
 
+# Update omz
 "$(antidote path ohmyzsh/ohmyzsh)/tools/upgrade.sh" -v silent
 
 {{- end -}}
