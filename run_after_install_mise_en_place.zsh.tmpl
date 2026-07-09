@@ -1,8 +1,12 @@
 {{- if ne .chezmoi.os "windows" -}}
 #!/usr/bin/env zsh
 
-curl https://mise.run | MISE_QUIET=1 sh
+if [[ ! -e ~/.local/bin/mise ]]; then
+    curl https://mise.run | MISE_QUIET=1 sh
+fi
 eval "$(~/.local/bin/mise activate zsh)"
+
+mise plugin install --quiet nix https://github.com/jbadeau/mise-nix.git
 mise self-update --yes
 mise upgrade --yes
 mise prune --yes
