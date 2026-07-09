@@ -9,6 +9,10 @@ if [[ -z "$ZSH_CACHE_DIR" ]]; then
     mkdir -p "$ZSH_CACHE_DIR"
 fi
 
+if [[ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]]; then
+    source '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
+
 if [[ -e "$HOME/.1password/agent.sock" ]]; then
     export SSH_AUTH_SOCK="$HOME/.1password/agent.sock"
 fi
