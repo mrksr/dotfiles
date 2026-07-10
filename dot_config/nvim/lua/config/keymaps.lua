@@ -6,6 +6,10 @@ vim.keymap.set("n", "M", "D")
 vim.keymap.set("n", "<leader>fw", "<cmd>%s/\\s\\+$//<CR>:let @/=''<cr>", { desc = "File Whitespace" })
 vim.keymap.set("v", "<leader>fw", "<cmd>'<,'>s/\\s\\+$//<CR>:let @/=''<cr>", { desc = "File Whitespace" })
 
+vim.keymap.set("n", "z<CR>", "z=")
+vim.keymap.set("n", "zß", "z=")
+vim.keymap.set("n", "z`", "z=")
+
 if not vim.g.vscode then
   vim.keymap.set("n", "<leader>fs", "<cmd>w<cr>", { desc = "File Save" })
 
