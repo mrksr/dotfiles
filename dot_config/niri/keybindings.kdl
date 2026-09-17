@@ -41,9 +41,9 @@ binds {
     XF86MonBrightnessDown allow-when-locked=true {
         spawn "noctalia" "msg" "brightness decrease"
     }
-    // Mod+Backspace repeat=false {
-    //     close-window
-    // }
+    Mod+Shift+D repeat=false {
+        close-window
+    }
     Mod+Left {
         focus-column-left
     }
