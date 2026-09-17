@@ -1,6 +1,6 @@
 binds {
     Mod+Space repeat=false {
-        toggle-overview
+        spawn "noctalia" "msg" "panel-toggle" "launcher"
     }
     Mod+O repeat=false {
         toggle-overview

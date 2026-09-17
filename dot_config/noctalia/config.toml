@@ -1,0 +1,109 @@
+[shell]
+avatar_path = "/home/markus/nas/home/onedrive/mrksr/avatar_lemming_upscayled_4x.png"
+
+[location]
+address = "traunstein"
+
+[calendar]
+enabled = true
+
+[nightlight]
+enabled = true
+temperature_night = 4501
+
+[brightness]
+enable_ddcutil = true
+
+[notification]
+keep_dismissed_in_history = false
+
+[hot_corners]
+enabled = false
+
+[plugins]
+enabled = ["noctalia/screen_recorder"]
+
+[plugin_settings."noctalia/screen_recorder"]
+video_codec = "hevc"
+video_bitrate_mode = "vbr"
+copy_to_clipboard = true
+
+[wallpaper]
+directory = "/home/markus/Pictures/Wallpapers"
+fill_color = "#000000"
+transition = ["fade", "disc", "stripes", "wipe", "pixelate", "honeycomb"]
+edge_smoothness = 0.05
+
+[[control_center.shortcuts]]
+type = "wifi"
+
+[[control_center.shortcuts]]
+type = "bluetooth"
+
+[[control_center.shortcuts]]
+type = "wallpaper"
+
+[[control_center.shortcuts]]
+type = "notification"
+
+[[control_center.shortcuts]]
+type = "power_profile"
+
+[[control_center.shortcuts]]
+type = "caffeine"
+
+[[control_center.shortcuts]]
+type = "nightlight"
+
+[widget.clock]
+type = "clock"
+format = "{:%a %d %b, %H:%M}"
+vertical_format = "{:%H\n%M}"
+tooltip_format = "{:%a %d %b, %H:%M}"
+
+[widget.media]
+type = "media"
+artist_first = true
+max_length = 300.0
+title_scroll = "on_hover"
+hide_when_no_media = true
+
+[widget.workspaces]
+type = "workspaces"
+max_label_chars = 2
+pill_scale = 0.6
+labels_only_when_occupied = true
+
+[widget.active_window]
+type = "active_window"
+max_length = 300.0
+title_scroll = "on_hover"
+
+[widget.tray]
+type = "tray"
+hidden = ["nm-applet"]
+hide_passive = false
+
+[widget.battery]
+type = "battery"
+display_mode = "graphic"
+
+[widget.privacy]
+type = "privacy"
+hide_inactive = true
+
+[bar.default]
+start = ["workspaces", "active_window"]
+center = ["clock", "media"]
+end = [
+  "tray",
+  "nightlight",
+  "battery",
+  "bluetooth",
+  "kenn/keybind-cheatsheet:keybinds",
+  "privacy",
+  "noctalia/screen_recorder:recorder",
+  "volume",
+  "brightness",
+  "control-center",
+]

@@ -2,7 +2,6 @@ install.sh
 kdlfmt.kdl
 
 .config/noctalia/*
-!.config/noctalia/**/settings.json
-!.config/noctalia/plugins.json
+!.config/noctalia/config.toml
 
 .config/nvim/*.json

@@ -1,5 +1,0 @@
-{
-  "corners": {
-    "TopRight": "qs -c noctalia-shell ipc call controlCenter toggle"
-  }
-}
