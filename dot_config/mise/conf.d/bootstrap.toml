@@ -1,0 +1,7 @@
+[bootstrap.packages]
+"aur:1password-cli" = "latest"
+"pacman:base-devel" = "latest"
+"pacman:chezmoi" = "latest"
+"pacman:git" = "latest"
+"pacman:paru" = "latest"
+"pacman:zsh" = "latest"
