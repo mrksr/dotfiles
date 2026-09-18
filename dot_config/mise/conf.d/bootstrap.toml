@@ -4,7 +4,6 @@
 "pacman:chezmoi" = "latest"
 "pacman:curl" = "latest"
 "pacman:git" = "latest"
-"pacman:paru" = "latest"
 "pacman:python" = "latest"
 "pacman:wget" = "latest"
 "pacman:zsh" = "latest"
