@@ -1,87 +1,21 @@
-[bar.default]
-background_opacity = 0.75
-center = ["clock", "media"]
-end = [
-  "tray",
-  "nightlight",
-  "battery",
-  "bluetooth",
-  "privacy",
-  "noctalia/screen_recorder:recorder",
-  "volume",
-  "brightness",
-  "control-center",
-]
-start = ["workspaces", "active_window"]
-widget_spacing = 8
-
-[brightness]
-enable_ddcutil = true
-
-[calendar]
-enabled = true
-
-[control_center]
-sidebar = "full"
-width = 800
-
-[hot_corners]
-enabled = false
-
-[idle]
-pre_action_fade_seconds = 5
-
-[location]
-auto_locate = true
-
-[lockscreen_widgets]
-enabled = true
-schema_version = 2
-widget_order = [
-  "lockscreen-login-box@DP-3",
-  "lockscreen-widget-0000000000000001",
-]
-
-[lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
-box_height = 176.0
-box_width = 400.0
-cx = 1536.0
-cy = 240.0
-output = "DP-3"
-placement_height = 1280.0
-placement_width = 3072.0
-rotation = 0.0
-type = "clock"
-
-[nightlight]
-enabled = true
-temperature_night = 4501
-
-[notification]
-history_retention_hours = 2
-keep_dismissed_in_history = true
-
-[osd]
-background_opacity = 0.75
-offset_y = 20
-position = "bottom_center"
-
-[plugin_settings."noctalia/screen_recorder"]
-copy_to_clipboard = true
-video_bitrate_mode = "vbr"
-video_codec = "hevc"
-
-[plugins]
-enabled = ["noctalia/screen_recorder"]
-
 [shell]
 avatar_path = "/home/markus/nas/home/onedrive/mrksr/avatar_lemming_upscayled_4x.png"
-clipboard_enabled = false
 font_family = "Liberation Sans"
-niri_overview_type_to_launch_enabled = true
-password_style = "random"
-polkit_agent = true
+button_borders = false
+input_borders = false
+card_borders = false
 popup_borders = false
+clipboard_enabled = false
+clipboard_auto_paste = "off"
+
+[shell.animation]
+speed = 1.25
+
+[shell.panel]
+transparency_mode = "soft"
+launcher_placement = "attached"
+clipboard_placement = "attached"
+polkit_placement = "attached"
 
 [shell.launcher]
 pinned = [
@@ -92,67 +26,158 @@ pinned = [
   "steam",
 ]
 
-[shell.panel]
-control_center_placement = "floating"
-control_center_position = "top_right"
-launcher_placement = "floating"
-polkit_placement = "floating"
-polkit_position = "center"
-session_placement = "floating"
-session_position = "center"
-transparency_mode = "soft"
+[[shell.session.actions]]
+action = "lock"
+shortcut = "1"
 
-[theme]
-mode = "light"
-source = "wallpaper"
-wallpaper_scheme = "m3-tonal-spot"
+[[shell.session.actions]]
+action = "lock_and_suspend"
+shortcut = "2"
 
-[theme.templates]
-builtin_ids = ["niri"]
+[[shell.session.actions]]
+action = "reboot"
+shortcut = "3"
+
+[[shell.session.actions]]
+action = "logout"
+shortcut = "4"
+
+[[shell.session.actions]]
+action = "shutdown"
+shortcut = "5"
+
+[[shell.session.actions]]
+action = "command"
+command = "systemctl reboot --firmware-setup"
+label = "Reboot to UEFI"
+glyph = "settings"
+shortcut = "6"
+
+[lockscreen]
+blur_intensity = 0.0
+tint_intensity = 0.0
+
+[location]
+address = "traunstein"
+
+[calendar]
+enabled = true
+
+[nightlight]
+enabled = true
+temperature_night = 4501
+
+[brightness]
+enable_ddcutil = true
+
+[battery]
+warning_threshold = 20
+
+[system.monitor]
+cpu_usage_activity_threshold = 80.0
+cpu_temp_activity_threshold = 80.0
+cpu_temp_critical_threshold = 90.0
+gpu_usage_activity_threshold = 80.0
+gpu_usage_critical_threshold = 90.0
+gpu_temp_activity_threshold = 80.0
+gpu_temp_critical_threshold = 90.0
+ram_pct_activity_threshold = 80.0
+swap_pct_activity_threshold = 80.0
+swap_pct_critical_threshold = 90.0
+
+[notification]
+keep_dismissed_in_history = false
+
+[hot_corners]
+enabled = true
+
+[hot_corners.top_right]
+action = "panel-toggle control-center"
+
+[plugins]
+enabled = ["noctalia/screen_recorder"]
+
+[plugin_settings."noctalia/screen_recorder"]
+video_codec = "hevc"
+video_bitrate_mode = "vbr"
+copy_to_clipboard = true
 
 [wallpaper]
 directory = "/home/markus/Pictures/Wallpapers"
-edge_smoothness = 0.050000000000000003
 fill_color = "#000000"
 transition = ["fade", "disc", "stripes", "wipe", "pixelate", "honeycomb"]
+edge_smoothness = 0.05
 
-[wallpaper.default]
-path = "/home/markus/Pictures/Wallpapers/wallhaven_e83mro.jpg"
+[[control_center.shortcuts]]
+type = "wifi"
 
-[widget.active_window]
-max_length = 300.0
-title_scroll = "on_hover"
-type = "active_window"
+[[control_center.shortcuts]]
+type = "bluetooth"
 
-[widget.battery]
-display_mode = "graphic"
-type = "battery"
+[[control_center.shortcuts]]
+type = "wallpaper"
+
+[[control_center.shortcuts]]
+type = "notification"
+
+[[control_center.shortcuts]]
+type = "power_profile"
+
+[[control_center.shortcuts]]
+type = "caffeine"
+
+[[control_center.shortcuts]]
+type = "nightlight"
 
 [widget.clock]
-format = "{:%a %d %b, %H:%M}"
-tooltip_format = "{:%a %d %b, %H:%M}"
 type = "clock"
-vertical_format = """{:%H
-%M}"""
+format = "{:%a %d %b, %H:%M}"
+vertical_format = "{:%H\n%M}"
+tooltip_format = "{:%a %d %b, %H:%M}"
 
 [widget.media]
+type = "media"
 artist_first = true
-hide_when_no_media = true
 max_length = 300.0
 title_scroll = "on_hover"
-type = "media"
-
-[widget.privacy]
-hide_inactive = true
-type = "privacy"
-
-[widget.tray]
-hidden = ["nm-applet"]
-hide_passive = false
-type = "tray"
+hide_when_no_media = true
 
 [widget.workspaces]
-labels_only_when_occupied = true
-max_label_chars = 2
-pill_scale = 0.9
 type = "workspaces"
+max_label_chars = 2
+pill_scale = 0.6
+labels_only_when_occupied = true
+
+[widget.active_window]
+type = "active_window"
+max_length = 300.0
+title_scroll = "on_hover"
+
+[widget.tray]
+type = "tray"
+hidden = ["nm-applet"]
+hide_passive = false
+
+[widget.battery]
+type = "battery"
+display_mode = "graphic"
+
+[widget.privacy]
+type = "privacy"
+hide_inactive = true
+
+[bar.default]
+start = ["workspaces", "active_window"]
+center = ["clock", "media"]
+end = [
+  "tray",
+  "nightlight",
+  "battery",
+  "bluetooth",
+  "kenn/keybind-cheatsheet:keybinds",
+  "privacy",
+  "noctalia/screen_recorder:recorder",
+  "volume",
+  "brightness",
+  "control-center",
+]
