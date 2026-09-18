@@ -16,7 +16,7 @@ fi
 # Setup minimal environment for chezmoi
 if command -v pacman >/dev/null 2>&1; then
   $SUDO pacman -Syu --noconfirm
-  $SUDO pacman -S --noconfirm curl git zsh base-devel
+  $SUDO pacman -S --noconfirm curl git zsh
 fi
 if command -v apt-get >/dev/null 2>&1; then
   $SUDO apt-get update
