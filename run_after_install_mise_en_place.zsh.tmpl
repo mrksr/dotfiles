@@ -6,7 +6,6 @@ if [[ ! -e ~/.local/bin/mise ]]; then
 fi
 eval "$(~/.local/bin/mise activate zsh)"
 
-mise plugin install --quiet nix https://github.com/jbadeau/mise-nix.git
 mise self-update --yes
 mise upgrade --yes
 mise prune --yes
