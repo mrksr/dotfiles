@@ -27,7 +27,7 @@ curl -fsSL https://mise.run | sh
 export PATH=$HOME/.local/bin:$PATH
 
 # Setup dotfiles
-sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply mrksr
+sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply mrksr
 
 # Install the rest of the environment
 mise bootstrap
