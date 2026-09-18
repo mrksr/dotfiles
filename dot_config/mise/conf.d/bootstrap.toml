@@ -5,11 +5,16 @@
 "pacman:curl" = "latest"
 "pacman:git" = "latest"
 "pacman:paru" = "latest"
+"pacman:python" = "latest"
 "pacman:wget" = "latest"
 "pacman:zsh" = "latest"
 "apt:build-essential" = "latest"
 "apt:chezmoi" = "latest"
 "apt:curl" = "latest"
 "apt:git" = "latest"
-"apt:zsh" = "latest"
+"apt:python3" = "latest"
 "apt:wget" = "latest"
+"apt:zsh" = "latest"
+
+[bootstrap.user]
+login_shell = "/bin/zsh"
