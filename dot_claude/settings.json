@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "defaultMode": "auto"
+  },
+  "model": "sonnet",
+  "theme": "auto",
+  "statusLine": {
+    "type": "command",
+    "command": "bash /home/markus/.claude/statusline-command.sh",
+    "refreshInterval": 10
+  }
+}

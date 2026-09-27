@@ -1,0 +1,80 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Left side of the Claude Code statusLine: host + folder, reusing the same
+# module styling as ~/.config/starship.toml's interactive prompt. Git status
+# is intentionally NOT duplicated here — the built-in "claude-code" statusline
+# provider already shows its own git_branch segment (see statusline-command.sh).
+# Starship has no config include mechanism, so these sections are duplicated
+# here — keep them in sync if the main prompt's os/username/hostname/
+# directory styling changes.
+
+add_newline = false
+
+format = """
+[](color_orange)\
+$os\
+$username\
+$hostname\
+[](bg:color_yellow fg:color_orange)\
+$directory\
+[](fg:color_yellow)\
+"""
+
+palette = 'gruvbox_dark'
+
+[palettes.gruvbox_dark]
+color_fg0 = '#fbf1c7'
+color_bg1 = '#3c3836'
+color_bg3 = '#665c54'
+color_blue = '#458588'
+color_aqua = '#689d6a'
+color_green = '#98971a'
+color_orange = '#d65d0e'
+color_purple = '#b16286'
+color_red = '#cc241d'
+color_yellow = '#d79921'
+
+[os]
+disabled = false
+style = "bg:color_orange fg:color_fg0"
+format = "[ $symbol]($style)"
+
+[os.symbols]
+Windows = "󰍲"
+Ubuntu = "󰕈"
+SUSE = ""
+Raspbian = "󰐿"
+Mint = "󰣭"
+Macos = "󰀵"
+Manjaro = ""
+Linux = "󰌽"
+Gentoo = "󰣨"
+Fedora = "󰣛"
+Alpine = ""
+Amazon = ""
+Android = ""
+Arch = "󰣇"
+Artix = "󰣇"
+CachyOS = "󰣇"
+CentOS = ""
+Debian = "󰣚"
+Redhat = "󱄛"
+RedHatEnterprise = "󱄛"
+
+[username]
+show_always = true
+style_user = "bg:color_orange fg:color_fg0"
+style_root = "bold bg:color_orange fg:color_bg1"
+format = '[ $user]($style)'
+
+[hostname]
+ssh_only = false
+ssh_symbol = " 󱘖"
+style = "bg:color_orange fg:color_fg0"
+format = "[@$hostname$ssh_symbol ]($style)"
+
+[directory]
+style = "fg:color_fg0 bg:color_yellow"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
