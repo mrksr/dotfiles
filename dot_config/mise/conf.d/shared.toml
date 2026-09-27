@@ -17,6 +17,7 @@ glab = { version = "latest", exe = "glab" }
 jq = "latest"
 lazygit = "latest"
 neovim = "latest"
+"pipx:pyright" = "latest"
 ripgrep = "latest"
 starship = "latest"
 tmux = "latest"
