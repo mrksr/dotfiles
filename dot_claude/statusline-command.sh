@@ -4,13 +4,14 @@
 # rate_limits.* only appears in Claude Code's statusline JSON after the
 # first API response of a session for Pro/Max subscribers).
 
+script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 input=$(cat)
 cwd=$(printf '%s' "$input" | jq -r '.workspace.current_dir')
 starship_out=$(printf '%s' "$input" | starship statusline claude-code)
 starship_out=${starship_out#$'\n'}   # this call emits a stray leading blank line
 # starship's `-p/--path` only steers git detection, not the directory
 # module's displayed path, so cd into cwd instead to get the real prompt.
-left_out=$(cd "$cwd" 2>/dev/null && env -u STARSHIP_SHELL STARSHIP_CONFIG=/home/markus/.claude/starship-left.toml starship prompt --terminal-width 200)
+left_out=$(cd "$cwd" 2>/dev/null && env -u STARSHIP_SHELL STARSHIP_CONFIG="$script_dir/starship-left.toml" starship prompt --terminal-width 200)
 
 five=$(printf '%s' "$input" | jq -r '.rate_limits.five_hour.used_percentage // empty')
 week=$(printf '%s' "$input" | jq -r '.rate_limits.seven_day.used_percentage // empty')
