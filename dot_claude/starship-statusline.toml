@@ -1,6 +1,7 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-# Left side of the Claude Code statusLine: host + folder, reusing the same
+# Claude Code statusLine config, used by statusline-command.sh for both
+# halves. Left side (`starship prompt`, `format` below): host + folder, reusing the same
 # module styling as ~/.config/starship.toml's interactive prompt. Git status
 # is intentionally NOT duplicated here — the built-in "claude-code" statusline
 # provider already shows its own git_branch segment (see statusline-command.sh).
@@ -78,3 +79,45 @@ style = "fg:color_fg0 bg:color_yellow"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
+
+# Right side: `starship statusline claude-code` renders this profile.
+[profiles]
+claude-code = '$claude_model$git_branch$claude_context$claude_cost${custom.claude_email}'
+
+[claude_model]
+style = "bg:color_blue fg:color_fg0"
+format = '[ $symbol$model ]($style)'
+
+# Same styling as the main prompt's git_branch.
+[git_branch]
+symbol = ""
+style = "bg:color_aqua"
+format = '[[ $symbol $branch ](fg:color_fg0 bg:color_aqua)]($style)'
+
+# `claude auth status` honours CLAUDE_CONFIG_DIR, so this shows the account
+# of whichever config dir the session runs with.
+[custom.claude_email]
+command = 'claude auth status 2>/dev/null | jq -r ".email // empty"'
+when = true
+shell = ['bash', '--noprofile', '--norc']
+style = "bg:color_bg3 fg:color_fg0"
+format = '[ $output ]($style)'
+
+# Hidden below $1, then yellow and red blocks like the main prompt's segments.
+[claude_cost]
+format = '[ $symbol(\$$cost) ]($style)'
+
+[[claude_cost.display]]
+threshold = 0.0
+style = "bg:color_yellow fg:color_fg0"
+hidden = true
+
+[[claude_cost.display]]
+threshold = 1.0
+style = "bg:color_yellow fg:color_fg0"
+hidden = false
+
+[[claude_cost.display]]
+threshold = 5.0
+style = "bg:color_red fg:color_fg0"
+hidden = false

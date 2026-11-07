@@ -7,11 +7,11 @@
 script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 input=$(cat)
 cwd=$(printf '%s' "$input" | jq -r '.workspace.current_dir')
-starship_out=$(printf '%s' "$input" | starship statusline claude-code)
+starship_out=$(printf '%s' "$input" | STARSHIP_CONFIG="$script_dir/starship-statusline.toml" starship statusline claude-code)
 starship_out=${starship_out#$'\n'}   # this call emits a stray leading blank line
 # starship's `-p/--path` only steers git detection, not the directory
 # module's displayed path, so cd into cwd instead to get the real prompt.
-left_out=$(cd "$cwd" 2>/dev/null && env -u STARSHIP_SHELL STARSHIP_CONFIG="$script_dir/starship-left.toml" starship prompt --terminal-width 200)
+left_out=$(cd "$cwd" 2>/dev/null && env -u STARSHIP_SHELL STARSHIP_CONFIG="$script_dir/starship-statusline.toml" starship prompt --terminal-width 200)
 
 five=$(printf '%s' "$input" | jq -r '.rate_limits.five_hour.used_percentage // empty')
 week=$(printf '%s' "$input" | jq -r '.rate_limits.seven_day.used_percentage // empty')
@@ -32,9 +32,9 @@ usage_color() {
 }
 
 # VS16 (️) forces the filled emoji-style glyph instead of the
-# default outline/text-style presentation of these two characters.
+# default outline/text-style presentation of the stopwatch.
 SYM_5H=$'⏱️'   # ⏱️
-SYM_7D=$'\U1F5D3️'  # 🗓️
+SYM_7D=$'\xF0\x9F\x93\x85'   # 📅 as UTF-8 bytes: bash 3.2 has no \U escapes
 
 seg=""
 if [ -n "$five" ]; then
@@ -48,7 +48,7 @@ if [ -n "$week" ]; then
 fi
 
 if [ -n "$seg" ]; then
-  printf '%s %s %s' "$left_out" "$starship_out" "$seg"
+  printf '%s%s %s' "$left_out" "$starship_out" "$seg"
 else
-  printf '%s %s' "$left_out" "$starship_out"
+  printf '%s%s' "$left_out" "$starship_out"
 fi
