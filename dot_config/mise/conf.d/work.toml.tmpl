@@ -1,8 +1,12 @@
-[tools]
 {{- if eq .chezmoi.hostname "markus-deepl-mbp" }}
+[tools]
 acli = "latest"
 coder = "latest"
 codex = "latest"
 claude = "latest"
 "npm:lavish-axi" = "latest"
+"pypi:slopus" = "latest"
+
+[settings.pypi]
+registry_url = "https://gitlab-packages-proxy.k.fal-dev.deepl.dev/deepl/pypi/simple/{}/"
 {{- end }}
