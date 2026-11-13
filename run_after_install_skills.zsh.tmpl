@@ -1,0 +1,22 @@
+{{- if ne .chezmoi.os "windows" -}}
+#!/usr/bin/env zsh
+eval "$(~/.local/bin/mise activate zsh)"
+
+# Run quietly; print the captured output only if the command fails.
+quiet() {
+    local out
+    if ! out=$("$@" 2>&1); then
+        print -u2 -- "$out"
+        return 1
+    fi
+}
+
+echo "Installing agent skills..."
+
+quiet skills add mattpocock/skills -g -a claude-code -y \
+    --skill prototype \
+    --skill wayfinder \
+    --skill grill-me
+
+quiet skills add kunchenguid/lavish-axi --skill lavish -g -a claude-code -y
+{{- end }}
