@@ -13,7 +13,7 @@ eza = "latest"
 fd = "latest"
 fzf = "latest"
 gh = "latest"
-glab = { version = "latest", exe = "glab" }
+glab = "latest"
 jq = "latest"
 lazygit = "latest"
 neovim = "latest"
