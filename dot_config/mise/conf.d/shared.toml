@@ -30,4 +30,4 @@ yq = "latest"
 zoxide = "latest"
 
 [settings]
-minimum_release_age = "0"
+minimum_release_age = "0d"
