@@ -30,6 +30,13 @@ Writing style is in `rules/writing-style.md`.
 When Markus corrects you or rejects an approach, propose one line right then for the Gotchas section of the skill
 involved, or for the relevant CLAUDE.md. State the lesson, not the incident. Add it once he agrees.
 
+## Changes
+
+- Prefer a fix that needs no upkeep over a workaround; when a change builds on an old hack, check first whether the
+  hack can go.
+- Deliver the whole agreed scope in one change, or say up front what is deferred.
+- Use an established theme or library before writing styling by hand.
+
 ## Secrets and commits
 
 - Secrets live only in git-ignored files (`config.env`), never in scripts, CLAUDE.md, or commits. Check `git status`

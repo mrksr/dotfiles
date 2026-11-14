@@ -45,3 +45,4 @@ scroll position.
 
 - Numbers copied into prose go stale when plots are re-run; after re-running a plot script, re-check the numbers
   quoted from it.
+- Mermaid: no subgraphs; check the render at phone width.
