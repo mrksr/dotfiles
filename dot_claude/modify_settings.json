@@ -1,0 +1,7 @@
+{{- /* chezmoi:modify-template */ -}}
+{{- /* Manage only these keys; Claude and plugins own the rest of settings.json. */ -}}
+{{- $s := dict -}}
+{{- if .chezmoi.stdin }}{{ $s = fromJson .chezmoi.stdin }}{{ end -}}
+{{- $s = setValueAtPath "statusLine" (dict "type" "command" "command" "bash \"${CLAUDE_CONFIG_DIR:-$HOME/.claude}/statusline-command.sh\"" "refreshInterval" 10) $s -}}
+{{- $s = setValueAtPath "cleanupPeriodDays" 365 $s -}}
+{{ toPrettyJson "  " $s }}
