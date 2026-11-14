@@ -20,7 +20,8 @@ week=$(printf '%s' "$input" | jq -r '.rate_limits.seven_day.used_percentage // e
 # The rate-limit segments continue the color_bg3 segment starship ends on.
 RESET=$'\033[0m'
 BG3=$'\033[48;2;102;92;84m'
-CAP=$'\033[38;2;102;92;84m\xee\x82\xb4'   # U+E0B4 round cap in color_bg3
+# Reset first so the cap sits on the terminal background, not on BG3.
+CAP=$'\033[0;38;2;102;92;84m\xee\x82\xb4'   # U+E0B4 round cap in color_bg3
 
 # Same bright green/yellow/red escalation claude_context/claude_cost use,
 # just keyed off a 0-100 percentage.
