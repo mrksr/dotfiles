@@ -46,3 +46,21 @@ scroll position.
 - Numbers copied into prose go stale when plots are re-run; after re-running a plot script, re-check the numbers
   quoted from it.
 - Mermaid: no subgraphs; check the render at phone width.
+- Body text is paragraphs; bullets only in the TL;DR and the asks.
+- Prose around a plot gives its meaning and source, not its numbers. Tables that repeat a plot go to an appendix.
+- Gaps go in one list in an appendix or the project CLAUDE.md, never as "Missing:" paragraphs in the body.
+- Run IDs, model ID columns, benchmark specs, and re-explanations of names already defined stay out of the body;
+  checkpoint names go in HTML comments.
+- Describe weak evidence by its size and coverage instead of doubting it: "not proven yet", "same ballpark" when
+  intervals overlap, and "research prototype" for every model that has not shipped.
+- When cutting body text, move the parts that carry an argument to an appendix instead of deleting them.
+- After Markus edits the TL;DR, keep its structure and check that nothing in the body contradicts it.
+- Before publishing, a subagent checks every external number against its cited source.
+- Never overwrite a Confluence page with open review comments without asking. Appendices and Sources go in an
+  expand macro.
+- Scripts that publish a deliverable (Markdown to Confluence, attachment upload) live in the project's `publish/`,
+  never only in a scratchpad.
+- Every count in a table names its unit (per segment, per text, per request).
+- When the data behind a scenario parameter is thin, propose round assumptions and label them, instead of deriving a
+  fudged value.
+- Check paraphrased quotes against the Granola transcript before they go into a draft.

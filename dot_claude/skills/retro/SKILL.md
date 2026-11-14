@@ -41,7 +41,7 @@ After Markus agrees: write the changes, run `uv run ~/.claude/skills/retro/build
 ```yaml
 ---
 summary: One line, what the project is and its result
-kind: analysis | report | proposal | review | deck | dashboard | smart-home | homelab | tooling | stub
+kind: analysis | report | proposal | review | deck | dashboard | smart-home | homelab | tooling | message | stub | other
 status: active | done | parked
 tags: [joint-model, eval]
 deliverable: document.md or a URL
@@ -55,3 +55,7 @@ For a stub project (work in another repo), add `repo:` and `branch:` or `mr:`.
 
 - Self-hosted services (Forgejo, Keycloak, Proxmox) are `homelab`, not `smart-home`; add a kind to the schema rather
   than stretching one.
+- `rg -l` on a folder name also matches the git status attached to every session; count matches in user messages.
+- Sessions started inside a project folder have their own key (`<repo-key>-<project>`), as do older folder names
+  without the date prefix and project repos elsewhere. Search all keys in `projects/`, not only the repo's.
+- A project without a CLAUDE.md gets one at close, with status and dated decisions taken from the transcripts.

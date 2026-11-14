@@ -39,3 +39,5 @@ let someone find the original of any file later. Write the lineage when the data
 - If a number comes from a query that is not saved, say so, and save the query next to the CSV when possible.
 
 ## Gotchas
+
+- Copy from a colleague's folder with one plain `tar -c` through the read-only mount, never rsync with delete flags.

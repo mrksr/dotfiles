@@ -26,7 +26,8 @@ Run with `cd plots && uv run python <plot>.py`. Display names and order come fro
 ## Rules
 
 - **The title states the finding**, for example "Both levers bring customisation to a few seconds, but long texts
-  still take tens of seconds". The subtitle gives data, judge, and sample size.
+  still take tens of seconds". The subtitle gives data, judge, and sample size. A TL;DR or slide plot may take a short
+  noun title ("Cost per request estimates") with a one-line subtitle.
 - **Axis labels say which direction is better**, with units: "1 to 10 blind test scale (lower is better)".
 - **Uncertainty is shown**: standard error bars or 95% CIs. Say which in the subtitle or caption.
 - Bars for scores start at the best possible score. No top or right spines.
@@ -49,7 +50,7 @@ Run after creating a figure or changing how one looks. Do not skip it because th
 
 Checklist for the reviewer:
 
-- Title states the finding; subtitle gives data, judge, and n
+- Title states the finding (or a short noun title on a TL;DR or slide plot); subtitle gives data, judge, and n
 - Axis labels say which direction is better, with units
 - Uncertainty is visible and its kind is stated
 - Colours and system order match the rest of the project
@@ -71,3 +72,9 @@ For appendix tables and summary grids, use `great_tables` (`GT`) with the projec
 ## Gotchas
 
 - Read the rendered png yourself before saying a plot is fine; the code alone does not show clipping or overlap.
+- Drop any series, quantile, or whisker that does not change the conclusion. A supporting plot starts as one
+  aggregate bar per system; add breakdowns on request.
+- Estimates (derived from evals or assumptions, not measured) carry an "Estimate" corner tag.
+- A subtitle is never wider than the title; wrap it to two lines.
+- Before the first plot, propose display names that say what each checkpoint is, not run-name fragments, and use one
+  name per system in text, tables, and plots.

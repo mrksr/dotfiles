@@ -36,6 +36,14 @@ involved, or for the relevant CLAUDE.md. State the lesson, not the incident. Add
   hack can go.
 - Deliver the whole agreed scope in one change, or say up front what is deferred.
 - Use an established theme or library before writing styling by hand.
+- No boilerplate (`set -euo pipefail`, onchange triggers) without a reason that applies here. After changing approach,
+  remove the earlier edits it made redundant.
+- When a deployed job fails, read its logs before naming a cause, and label untested explanations as guesses.
+- A merge or consolidation of existing text carries that text verbatim; anything new goes in a separate, labelled
+  suggestion.
+- In dotfiles, change the tool-specific config, not a shared one, and respect `CLAUDE_CONFIG_DIR` instead of
+  hardcoding `~/.claude`.
+- Draft messages to people in project files only. Never send them or create Slack or mail drafts unless asked.
 
 ## Secrets and commits
 
