@@ -41,7 +41,7 @@ After Markus agrees: write the changes, run `uv run ~/.claude/skills/retro/build
 ```yaml
 ---
 summary: One line, what the project is and its result
-kind: analysis | report | proposal | review | deck | dashboard | smart-home | tooling | stub
+kind: analysis | report | proposal | review | deck | dashboard | smart-home | homelab | tooling | stub
 status: active | done | parked
 tags: [joint-model, eval]
 deliverable: document.md or a URL
