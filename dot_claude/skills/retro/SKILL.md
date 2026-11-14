@@ -52,3 +52,6 @@ reusable: [plots/style.py, preview/serve.py]
 For a stub project (work in another repo), add `repo:` and `branch:` or `mr:`.
 
 ## Gotchas
+
+- Self-hosted services (Forgejo, Keycloak, Proxmox) are `homelab`, not `smart-home`; add a kind to the schema rather
+  than stretching one.
