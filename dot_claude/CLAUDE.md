@@ -12,7 +12,8 @@ Writing style is in `rules/writing-style.md`.
 - Work done in another repo (an eval run in a monorepo, a deployed dashboard) gets a stub project in the cowork repo:
   a README with repo, branch, MR, exact commands, where the results are, and the conclusions.
 - Python runs through `uv`. Single standard-library scripts carry inline script metadata; anything with dependencies
-  gets a `pyproject.toml` and `uv.lock`, with `.venv/` not committed.
+  gets a `pyproject.toml` and `uv.lock`, with `.venv/` not committed. Never `requirements.txt`, also not in Docker
+  images (copy uv in and run `uv sync --frozen`).
 
 ## Working memory
 
@@ -22,6 +23,8 @@ Writing style is in `rules/writing-style.md`.
   posts or search snippets as fact.
 - When a decision is replaced, mark the old one "superseded YYYY-MM-DD by ..." instead of deleting it.
 - Point to evidence (paths, links, queries, ticket IDs) rather than paraphrasing it.
+- Before stating that a system lacks something or that data is stale, check it on the live system; one source not
+  showing it is not evidence.
 - When work moves between sessions mid-task, write a handover brief (`cowork-brief-*.md`): current state, exact
   commands to resume, open tasks.
 
