@@ -7,6 +7,8 @@ fi
 source ${ZDOTDIR:-~}/.antidote/antidote.zsh
 
 zstyle ':antidote:bundle' use-friendly-names 'yes'
+# omz never self-updates or prompts; chezmoi update pulls it via antidote
+zstyle ':omz:update' mode disabled
 
 eval "$(mise activate zsh)"
 
