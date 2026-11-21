@@ -39,6 +39,8 @@ involved, or for the relevant CLAUDE.md. State the lesson, not the incident. Add
 
 ## Changes
 
+- Quote globs passed as arguments (`--exclude='*.json'`): zsh has `nullglob` set and silently drops an unmatched
+  glob.
 - Prefer a fix that needs no upkeep over a workaround; when a change builds on an old hack, check first whether the
   hack can go.
 - Deliver the whole agreed scope in one change, or say up front what is deferred.

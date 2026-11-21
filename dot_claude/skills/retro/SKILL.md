@@ -57,5 +57,6 @@ For a stub project (work in another repo), add `repo:` and `branch:` or `mr:`.
   than stretching one.
 - `rg -l` on a folder name also matches the git status attached to every session; count matches in user messages.
 - Sessions started inside a project folder have their own key (`<repo-key>-<project>`), as do older folder names
-  without the date prefix and project repos elsewhere. Search all keys in `projects/`, not only the repo's.
+  (no date prefix, or `YYYY-MM-topic` before the 2026-11-21 rename) and project repos elsewhere. Search all keys in
+  `projects/`, and transcripts by the old folder name too.
 - A project without a CLAUDE.md gets one at close, with status and dated decisions taken from the transcripts.
