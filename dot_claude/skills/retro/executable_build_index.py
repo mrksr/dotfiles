@@ -4,7 +4,7 @@
 # ///
 """Write INDEX.md for a cowork repo from the front matter of each project's README.md.
 
-Projects are top-level folders named YYYY-MM-topic. Folders without front matter are listed as "no front matter yet",
+Projects are top-level folders named YYYY-MM-DD-topic (older: YYYY-MM-topic). Folders without front matter are listed as "no front matter yet",
 so the index always covers every project.
 
 Usage: build_index.py [repo root]   (default: current directory)

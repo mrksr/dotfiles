@@ -6,8 +6,12 @@ Writing style is in `rules/writing-style.md`.
 ## Projects
 
 - Analysis, writing, and smart-home work lives in cowork repos: one top-level folder per project, named
-  `YYYY-MM-topic` by when the work was relevant. Folders are self-contained: copy what a project needs and record
-  where it came from.
+  `YYYY-MM-DD-topic` by the day the work started, so folders sort by date. Folders are self-contained: copy what a
+  project needs and record where it came from.
+- Folders still named `YYYY-MM-topic` predate this rule (decision 2026-11-21, Markus). When working in a cowork repo
+  that has them, rename them to the date of the first commit that added the folder
+  (`git log --diff-filter=A --format=%ad --date=short -- <folder> | tail -1`), update references in Markdown, and
+  leave flow exports and other snapshots unchanged.
 - Before starting a new project, read the repo's `INDEX.md` (when there is one) for earlier work to build on.
 - Work done in another repo (an eval run in a monorepo, a deployed dashboard) gets a stub project in the cowork repo:
   a README with repo, branch, MR, exact commands, where the results are, and the conclusions.
